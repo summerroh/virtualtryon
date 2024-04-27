@@ -6575,10 +6575,11 @@ body .btn-twentySix:hover:after {
   padding-left: 40px;
 }
 .block-style-four .list-item li:before {
-  content: url(../images/icon/icon_93.svg);
+  content: url(../images/icon/icon_93_white.svg);
   position: absolute;
   left: 0;
   top: 0;
+  color: white;
 }
 .block-style-four .rating li {
   font-size: 17px;
@@ -6599,11 +6600,11 @@ body .btn-twentySix:hover:after {
   left: 0;
   top: -5px;
   bottom: 0;
-  border-radius: 0 20px 0 0;
+  border-radius: 0 0 0 0;
   z-index: -1;
 }
 .fancy-feature-thirty .illustration-holder .main-img {
-  border-radius: 0 20px 0 0;
+  border-radius: 0 0 0 0;
 }
 .fancy-feature-thirty .shape-one {
   top: -75px;

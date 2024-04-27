@@ -72,9 +72,8 @@ const CopyrightFooter = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                ib-themes
+                virtual-fitting-room
               </a>{" "}
-              inc.
             </p>
           </div>
         </div>

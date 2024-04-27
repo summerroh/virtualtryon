@@ -101,10 +101,6 @@ const Step1 = () => {
                 className="lazy-img"
               />
             </div>
-            {/*
-            
-            <Step1Photo /> 
-          */}
           </div>
           {/* End .col-xl-6 */}
         </div>

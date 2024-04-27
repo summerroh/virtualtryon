@@ -23,19 +23,22 @@ const SuccessStory = () => {
                   data-aos="fade-up"
                 >
                   <img
-                    src="/images/media/hero-img-5.png"
+                    src="/images/media/model1-thumb.png"
                     alt="img"
                     className="lazy-img d-inline"
+                    style={{ width: "160px" }}
                   />
                   <img
-                    src="/images/media/hero-img-5.png"
+                    src="/images/media/model2-thumb.png"
                     alt="img"
                     className="lazy-img d-inline"
+                    style={{ width: "160px" }}
                   />
                   <img
-                    src="/images/media/hero-img-5.png"
+                    src="/images/media/model3-thumb.png"
                     alt="img"
                     className="lazy-img d-inline"
+                    style={{ width: "160px" }}
                   />
                 </div>
                 <div
@@ -43,19 +46,22 @@ const SuccessStory = () => {
                   data-aos="fade-up"
                 >
                   <img
-                    src="/images/media/hero-img-5.png"
+                    src="/images/media/model1-thumb.png"
                     alt="img"
                     className="lazy-img d-inline"
+                    style={{ width: "160px" }}
                   />
                   <img
-                    src="/images/media/hero-img-5.png"
+                    src="/images/media/model2-thumb.png"
                     alt="img"
                     className="lazy-img d-inline"
+                    style={{ width: "160px" }}
                   />
                   <img
-                    src="/images/media/hero-img-5.png"
+                    src="/images/media/model3-thumb.png"
                     alt="img"
                     className="lazy-img d-inline"
+                    style={{ width: "160px" }}
                   />
                 </div>
               </div>
@@ -71,30 +77,10 @@ const SuccessStory = () => {
             </div>
           </div>
 
-          {/* STEP 2 */}
           <Step2 />
           <Step3 />
         </div>
 
-        {/*
-        <div
-        className="customer-data d-flex flex-column align-items-center justify-content-center"
-        data-aos="fade-up"
-        >
-        <div className="fw-500 tx-dark amount">32k</div>
-        <div className="text-lg tx-dark">Customer</div>
-        </div>
-      */}
-        {/* /.customer-data */}
-
-        {/*
-        <img
-          src="/images/media/img_52.jpg"
-          alt="img"
-          className="lazy-img img-three"
-          data-aos="fade-up"
-        />
-        */}
         <img
           src="/images/shape/shape_127.svg"
           alt="img"

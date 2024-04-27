@@ -16,7 +16,7 @@ const HeroContent = () => {
         <span className="text-white"> 3x faster</span> revenue than other
         eccormerce.
       </p>
-      <div className="d-lg-flex align-items-center">
+      <div className="d-lg-flex align-items-center mb-150">
         <Link
           href="/contact/contact-v1"
           className="demo-btn fw-500 tran3s d-inline-flex align-items-center mb-25 me-4"
@@ -28,10 +28,12 @@ const HeroContent = () => {
           Already a member? <Link href="/login">Sign in</Link>
         </div>
       </div>
+      {/*
       <h2 className="fw-normal text-white mt-60 mb-5 lg-mt-40">A+ Rating</h2>
       <p className="fs-18 opacity-50 text-white">
         Avg rating 4.8 makes us world most best apps.
       </p>
+  */}
     </>
   );
 };

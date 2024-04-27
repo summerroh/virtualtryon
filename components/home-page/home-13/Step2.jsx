@@ -8,7 +8,7 @@ const Step2 = () => {
   ];
 
   return (
-    <div className="fancy-feature-thirty position-relative mt-190 pb-140 lg-mt-100 lg-pb-120 md-p0">
+    <div className="fancy-feature-thirty position-relative mt-190 pb-140 lg-mt-100 lg-pb-120 md-p0 pt-100">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-6 ms-auto">
@@ -33,17 +33,19 @@ const Step2 = () => {
               </p>
               <ul className="style-none list-item">
                 {items.map((item, index) => (
-                  <li className="text-white" key={index}>
+                  <li className="text-light" key={index}>
                     {item}
                   </li>
                 ))}
               </ul>
+              {/*
               <div className="btn-eighteen position-relative d-inline-block tx-dark mt-35 lg-mt-20">
                 Want to learn more?{" "}
                 <Link href="/pages-menu/about-us-v1" className="fw-500 tran3s">
                   Click here <i className="bi bi-arrow-right" />
                 </Link>
               </div>
+                */}
             </div>{" "}
             {/* /.block-style-four */}
           </div>

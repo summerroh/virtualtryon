@@ -65,51 +65,6 @@ const LeadGeneration = () => {
         Feature Section Thirty One
         ============================================== 
         */}
-      {/* 
-      <div className="fancy-feature-thirtyOne position-relative zn2 pt-140 pb-140 lg-pt-100 lg-pb-70">
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-8 col-lg-9 m-auto">
-              <div
-                className="title-style-ten text-center pb-40 lg-pb-20"
-                data-aos="fade-up"
-              >
-                <h2 className="main-title font-recoleta fw-normal tx-dark">
-                  Get
-                  <span className="position-relative">
-                    {" "}
-                    Quality
-                    <img src="/images/shape/shape_122.svg" alt="icon shape" />
-                  </span>
-                  Leads
-                </h2>
-                <p className="fs-20 mt-20">
-                  Our digital advertising approach focuses on capturing the
-                  essential information you need to be able to generate a real
-                  ROI.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <Leads />
-          </div>
-        </div>
-
-        <img
-          src="/images/shape/shape_124.svg"
-          alt="icon shape"
-          className="lazy-img shapes shape-one"
-        />
-        <img
-          src="/images/shape/shape_125.svg"
-          alt="icon shape"
-          className="lazy-img shapes shape-two"
-        />
-      </div>
-    */}
-      {/* /.fancy-feature-thirtyOne */}
 
       {/* 
         =============================================
@@ -298,8 +253,10 @@ const LeadGeneration = () => {
         =====================================================
         Footer
         =====================================================
-        */}
+      */}
+
       <div className="footer-style-nine theme-basic-footer zn2 position-relative">
+        {/* 
         <div className="bg-wrapper">
           <div className="container">
             <div className="row justify-content-between">
@@ -327,9 +284,8 @@ const LeadGeneration = () => {
               </div>
             </div>
           </div>
-          {/* /.container */}
         </div>
-        {/* /.bg-wrapper */}
+          */}
 
         <CopyrightFooter />
 
@@ -342,6 +298,7 @@ const LeadGeneration = () => {
           className="lazy-img shapes shape-two"
         />
       </div>
+
       {/* /.footer-style-nine */}
     </>
   );

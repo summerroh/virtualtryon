@@ -17,7 +17,7 @@ const Step3 = () => {
               data-aos="fade-left"
             >
               <div className="title-style-ten">
-                <div className="sc-title">FEATURES</div>
+                <div className="sc-title badge">STEP 3</div>
                 <h2 className="main-title font-recoleta fw-normal tx-dark text-white">
                   Enjoy Your{" "}
                   <span className="position-relative">
@@ -33,24 +33,31 @@ const Step3 = () => {
               </p>
               <ul className="style-none list-item">
                 {items.map((item, index) => (
-                  <li key={index}>{item}</li>
+                  <li className="text-light" key={index}>
+                    {item}
+                  </li>
                 ))}
               </ul>
+              {/*
               <div className="btn-eighteen position-relative d-inline-block tx-dark mt-35 lg-mt-20">
                 Want to learn more?{" "}
                 <Link href="/pages-menu/about-us-v1" className="fw-500 tran3s">
                   Click here <i className="bi bi-arrow-right" />
                 </Link>
               </div>
+                */}
             </div>{" "}
             {/* /.block-style-four */}
           </div>
         </div>
       </div>{" "}
       {/* /.container */}
-      <div className="illustration-holder" data-aos="fade-right">
+      <div
+        className="illustration-holder border-radius-0"
+        data-aos="fade-right"
+      >
         <img
-          src="/images/media/img_48.png"
+          src="/images/media/model_preview.png"
           alt="media"
           className="lazy-img main-img"
         />
