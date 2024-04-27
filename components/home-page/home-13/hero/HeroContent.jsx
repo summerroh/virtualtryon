@@ -25,7 +25,9 @@ const HeroContent = () => {
           <img src="/images/icon/icon_91.svg" alt="img" className="ms-3" />
         </Link>
         <div className="mb-25 text-white signIn-btn">
-          Already a member? <Link href="/login">Sign in</Link>
+          {/*
+          Already a member? <Link href="/login">Sign in</Link> */}
+          Already a member? <Link href="/">Sign in</Link>
         </div>
       </div>
       {/*
