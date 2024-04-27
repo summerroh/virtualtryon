@@ -1,0 +1,33 @@
+{
+  "name": "jano-next-appdir",
+  "version": "1.5.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.2.3",
+    "caniuse-lite": "^1.0.30001589",
+    "carousel": "^0.0.3",
+    "next": "14.1.0",
+    "photoswipe": "^5.4.3",
+    "react": "^18",
+    "react-circular-progressbar": "^2.1.0",
+    "react-countup": "^6.5.0",
+    "react-dom": "^18",
+    "react-intersection-observer": "^9.8.1",
+    "react-masonry-css": "^1.0.16",
+    "react-modal-video": "^2.0.1",
+    "react-photoswipe-gallery": "^3.0.1",
+    "react-slick": "^0.30.2",
+    "react-tabs": "^6.0.2",
+    "sass": "^1.71.1",
+    "slick": "^1.12.2",
+    "slick-carousel": "^1.8.1"
+  }
+}
