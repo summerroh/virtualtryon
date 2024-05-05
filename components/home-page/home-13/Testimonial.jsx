@@ -1,7 +1,9 @@
 "use client";
 
+import { auto } from "@popperjs/core";
 import React, { useRef } from "react";
 import Slider from "react-slick";
+import image from "../../../public/images/media/model2-thumb.png";
 
 const testimonialData = [
   {
@@ -39,6 +41,7 @@ const Testimonial = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -72,25 +75,12 @@ const Testimonial = () => {
         <Slider {...settings} arrows={false} ref={sliderRef}>
           {testimonialData.map((testimonial) => (
             <div key={testimonial.company} className="item">
-              <div
-                className="feedback-block-ten"
-                style={{ background: testimonial.background }}
-              >
-                <div className="cmp-name fw-500 tx-dark">
-                  {testimonial.company}
-                </div>
-                <div className="fs-18 tx-dark">{testimonial.position}</div>
-                <p className="tx-dark mt-40 mb-70 lg-mt-30 lg-mb-50">
-                  {testimonial.text}
-                </p>
-                <div className="d-flex align-items-center justify-content-between">
-                  <div className="fw-500 tx-dark fs-18">
-                    Qulaity &amp; Cost: 5.00
-                  </div>
-                  <img src="/images/icon/icon_98.svg" alt="" />
-                </div>
-              </div>
-              {/* /.feedback-block-ten */}
+              <img
+                src="/images/media/model2-thumb.png"
+                alt="img"
+                className="lazy-img d-inline"
+                style={{ width: "100%" }}
+              />
             </div>
           ))}
         </Slider>

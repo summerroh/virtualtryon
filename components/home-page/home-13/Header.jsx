@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NavMenu from "./components/NavMenu";
+import RightNavMenu from "./components/RightNavMenu";
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
@@ -52,15 +53,7 @@ const Header = () => {
             */}
           </div>
           <div className="right-widget d-flex align-items-center ms-auto ms-lg-0 order-lg-3">
-            <button
-              className="sidebar-nav-button d-none d-lg-block"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight"
-              aria-controls="offcanvasRight"
-            >
-              <span></span>
-            </button>
+            <RightNavMenu />
           </div>
           {/* /.right-widget */}
           <NavMenu />

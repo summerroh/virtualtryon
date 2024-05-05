@@ -11,14 +11,11 @@ import SuccessStory from "@/components/home-page/home-13/SuccessStory";
 import Testimonial from "@/components/home-page/home-13/Testimonial";
 import Faq from "@/components/home-page/home-13/Faq";
 import Link from "next/link";
-import FooterContent from "@/components/home-page/home-13/FooterContent";
-import Subscribe from "@/components/home-page/home-13/Subscribe";
 import CopyrightFooter from "@/components/home-page/home-13/CopyrightFooter";
 import Image from "next/image";
-import FeatureReverse from "@/components/home-page/home-13/Step1";
-import Step3 from "@/components/home-page/home-13/Step3";
-import Step1 from "@/components/home-page/home-13/Step1";
-import Step2 from "@/components/home-page/home-13/Step2";
+// import Pricing from "@/app/404/page";
+import Pricing from "@/components/home-page/home-13/Pricing";
+
 export const metadata = {
   title: "Virtual Fitting Room || Create professional fashion photoshoots",
 };
@@ -138,7 +135,7 @@ const LeadGeneration = () => {
                   className="title-style-ten text-center text-lg-start"
                   data-aos="fade-right"
                 >
-                  <div className="sc-title">FEEDBACK</div>
+                  <div className="sc-title">SHOWCASE</div>
                   <h2 className="main-title font-recoleta fw-normal tx-dark">
                     What
                     <span className="position-relative">
@@ -169,6 +166,29 @@ const LeadGeneration = () => {
         />
       </div>
       {/* /.feedback-section-ten */}
+
+      <div
+        className="title-style-ten text-center mt-180 lg-mt-120 mb-40"
+        aos="fade-up"
+      >
+        {/* <div className="sc-title">FAQ</div> */}
+        <h2 className="main-title font-recoleta fw-normal tx-dark">
+          {/* Text without underline  */}
+          <span className="position-relative">
+            Pricing{" "}
+            <Image
+              width={219}
+              height={7}
+              src="/images/shape/shape_132.svg"
+              alt=""
+            />
+          </span>
+        </h2>
+      </div>
+
+      <div className="container">
+        <Pricing />
+      </div>
 
       {/* 
         =============================================
