@@ -1,7 +1,3 @@
-import Link from "next/link";
-import ScreenHolder from "@/components/home-page/home-6/ScreenHolder";
-import Step1Photo from "./components/Step1Photo";
-
 const Step1 = () => {
   const items = [
     "Amazing communication.",

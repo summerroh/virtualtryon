@@ -12,7 +12,7 @@ import OurMission from "@/components/about/OurMission";
 import Block2 from "@/components/about/Block2";
 import CounterSection from "@/components/home-page/home-13/Counter";
 export const metadata = {
-  title: "About Us V4 || Jano - Creative Multipurpose React NextJS Template",
+  title: "Virtual Fitting Room || Create professional fashion photoshoots",
 };
 const AboutUsV4 = () => {
   return (

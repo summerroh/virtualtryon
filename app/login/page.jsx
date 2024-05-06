@@ -2,7 +2,7 @@ import Link from "next/link";
 import LoginForm from "@/components/common/LoginForm";
 
 export const metadata = {
-  title: "Login || Jano - Creative Multipurpose React NextJS Template",
+  title: "Login || Create professional fashion photoshoots",
 };
 const LogIn = () => {
   const currentYear = new Date().getFullYear();
