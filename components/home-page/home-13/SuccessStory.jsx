@@ -1,7 +1,3 @@
-import Feature from "./Step2";
-import FeatureReverse from "./Step1";
-import Link from "next/link";
-import ScreenHolder from "@/components/home-page/home-6/ScreenHolder";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 
