@@ -3,9 +3,6 @@ import React from "react";
 import Header from "@/components/home-page/home-13/Header";
 import Hero from "@/components/home-page/home-13/hero";
 import Feedback from "@/components/home-page/home-13/Feedback";
-import Feature from "@/components/home-page/home-13/Step2";
-import Leads from "@/components/home-page/home-13/Leads";
-import FeaturesBlock from "@/components/home-page/home-13/FeaturesBlock";
 import Counter from "@/components/home-page/home-13/Counter";
 import SuccessStory from "@/components/home-page/home-13/SuccessStory";
 import Testimonial from "@/components/home-page/home-13/Testimonial";
@@ -22,60 +19,14 @@ export const metadata = {
 const LeadGeneration = () => {
   return (
     <>
-      {/* <!-- 
-      =============================================
-    Theme Default Menu
-     ============================================== 	
-    --> */}
       <Header />
-      {/* 
-        =============================================
-        Theme Hero Banner
-        ============================================== 
-        */}
+
       <Hero />
-      {/* /.hero-banner-nine */}
-      {/*
-        =====================================================
-        Feedback Section Eight
-        =====================================================
-        */}
+
       <Feedback />
-      {/* /.feedback-section-eight */}
-      {/* 
-        =============================================
-        Feature Section Thirty
-        ============================================== 
-      */}
-      {/* 
-        =============================================
-        STEPS
-        ============================================== 
-      <Step1 />
-      <Step2 />
-      <Step3 />
-      */}
-      {/* /.fancy-feature-thirty */}
 
-      {/* 
-        =============================================
-        Feature Section Thirty One
-        ============================================== 
-        */}
-
-      {/* 
-        =============================================
-        Feature Section Thirty Two
-        ============================================== 
-        */}
       <div className="fancy-feature-thirtyTwo mt-190 lg-mt-120">
-        <div className="container">
-          {/* <div className="row">
-            <FeaturesBlock />
-          </div> */}
-          {/* End .row */}
-        </div>
-        {/* End .container */}
+        <div className="container"></div>
 
         <div className="wrapper mt-90 lg-mt-30">
           <div className="container">

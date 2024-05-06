@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import SignupForm from "@/components/common/SignupForm";
 export const metadata = {
-  title: "Sign Up || Jano - Creative Multipurpose React NextJS Template",
+  title: "Sign Up || Create professional fashion photoshoots",
 };
 const SignUp = () => {
   const currentYear = new Date().getFullYear();
@@ -18,10 +18,15 @@ const SignUp = () => {
           <div className="d-flex align-items-center justify-content-between">
             <div className="logo order-lg-0">
               <Link href="/" className="d-block">
-                <img src="/images/logo/logo_01.png" alt="" width={95} />
+                <div
+                  className={`nav-link font-recoleta fs-20 text-white`}
+                  href={"#"}
+                >
+                  Virtual Fitting Room
+                </div>
               </Link>
             </div>
-            <Link href="/" className="go-back-btn fw-500 tran3s">
+            <Link href="/" className="go-back-btn fw-500 tran3s text-white">
               Go to home
             </Link>
           </div>
@@ -47,19 +52,9 @@ const SignUp = () => {
         </div>
         {/* End form-wrapper */}
 
-        <p className="mt-auto pt-50">Copyright @{currentYear} jano inc.</p>
-        <img
-          src="/images/assets/ils_11.png"
-          alt="illustration"
-          className="lazy-img illustration-one"
-          data-aos="fade-left"
-        />
-        <img
-          src="/images/assets/ils_12.png"
-          alt="illustration"
-          className="lazy-img illustration-two"
-          data-aos="fade-right"
-        />
+        <p className="mt-auto pt-50 text-secondary">
+          Copyright @{currentYear} Virtual Fitting Room inc.
+        </p>
       </div>
       {/* /.fancy-feature-fiftyOne */}
     </>

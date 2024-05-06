@@ -42,6 +42,7 @@
   --prime-ten: #ff3294;
   --prime-eleven: #ffce4c;
   --prime-twelve: #ffe500;
+  --dark: #1a1a1a;
 }
 ::selection {
   background-color: #2a2a2a;
@@ -9871,7 +9872,7 @@ body .btn-twentySix:hover:after {
 }
 /*^^^^^^^^^^^^^^^^^^^^^ User Data Page ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .user-data-section {
-  background: #f6f9fb;
+  background: var(--dark);
   min-height: 100vh;
   padding: 150px 12px 0;
   z-index: 1;
