@@ -3,14 +3,14 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const navItems = [
-  { title: "About me", href: "#s1" },
-  { title: "Services", href: "#s2" },
-  { title: "Portfolio", href: "#s3" },
-  { title: "Skill", href: "#s4" },
-  { title: "Contact", href: "#s5" },
+  { title: "About me", href: "#s1", loggedIn: false },
+  { title: "Services", href: "#s2", loggedIn: false },
+  { title: "Portfolio", href: "#s3", loggedIn: false },
+  { title: "Skill", href: "#s4", loggedIn: false },
+  // { title: "Dashboard", href: "#s5", loggedIn: true },
 ];
 
-const NavMenu = () => {
+const NavMenu = ({ user }) => {
   const [activeLink, setActiveLink] = useState(0);
   const [scrollingStarted, setScrollingStarted] = useState(false);
 
@@ -58,19 +58,21 @@ const NavMenu = () => {
               </Link>
             </div>
           </li>
-          {navItems.map((navItem, i) => (
-            <li key={i} className="nav-item">
-              <a
-                className={`nav-link ${activeLink === i ? "active" : ""} ${
-                  scrollingStarted ? "scrolling" : ""
-                }`}
-                href={navItem.href}
-                onClick={() => setActiveLink(i)}
-              >
-                {navItem.title}
-              </a>
-            </li>
-          ))}
+          {navItems
+            .filter((navItem) => !navItem.loggedIn || user)
+            .map((navItem, i) => (
+              <li key={i} className="nav-item">
+                <a
+                  className={`nav-link ${activeLink === i ? "active" : ""} ${
+                    scrollingStarted ? "scrolling" : ""
+                  }`}
+                  href={navItem.href}
+                  onClick={() => setActiveLink(i)}
+                >
+                  {navItem.title}
+                </a>
+              </li>
+            ))}
         </ul>
       </div>
     </nav>

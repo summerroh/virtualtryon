@@ -11,9 +11,8 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const analytics = getAnalytics(app);
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-
+const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
 export { app, auth };

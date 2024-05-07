@@ -2,12 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const navItems = [{ title: "Login", href: "/login" }];
+const navItems = [
+  { title: "Login", href: "/login", loggedIn: false },
+  { title: "Dashboard", href: "/dashboard", loggedIn: true },
+];
 
-export default function RightNavMenu() {
+export default function RightNavMenu({ user }) {
   const [activeLink, setActiveLink] = useState(0);
   const [scrollingStarted, setScrollingStarted] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -52,20 +54,22 @@ export default function RightNavMenu() {
               </Link>
             </div>
           </li>
-          {navItems.map((navItem, i) => (
-            <li key={i} className="nav-item">
-              <Link href={navItem.href}>
-                <div
-                  className={`nav-link ${activeLink === i ? "active" : ""} ${
-                    scrollingStarted ? "scrolling" : ""
-                  }`}
-                  onClick={() => setActiveLink(i)}
-                >
-                  {navItem.title}
-                </div>
-              </Link>
-            </li>
-          ))}
+          {navItems
+            .filter((navItem) => navItem.loggedIn === !!user)
+            .map((navItem, i) => (
+              <li key={i} className="nav-item">
+                <Link href={navItem.href}>
+                  <div
+                    className={`nav-link ${activeLink === i ? "active" : ""} ${
+                      scrollingStarted ? "scrolling" : ""
+                    }`}
+                    onClick={() => setActiveLink(i)}
+                  >
+                    {navItem.title}
+                  </div>
+                </Link>
+              </li>
+            ))}
         </ul>
       </div>
     </nav>

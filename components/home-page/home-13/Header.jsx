@@ -6,8 +6,16 @@ import Image from "next/image";
 import NavMenu from "./components/NavMenu";
 import RightNavMenu from "./components/RightNavMenu";
 
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
+import { useRouter } from "next/navigation";
+
 const Header = () => {
+  const [user] = useAuthState(auth);
   const [navbar, setNavbar] = useState(false);
+  const router = useRouter();
+
+  console.log("user", user);
 
   const changeBackground = () => {
     if (window.scrollY >= 10) {
@@ -53,10 +61,10 @@ const Header = () => {
             */}
           </div>
           <div className="right-widget d-flex align-items-center ms-auto ms-lg-0 order-lg-3">
-            <RightNavMenu />
+            <RightNavMenu user={user} />
           </div>
           {/* /.right-widget */}
-          <NavMenu />
+          <NavMenu user={user} />
         </div>
       </div>
       {/* /.inner-content */}

@@ -1,14 +1,49 @@
 "use client";
 
 import { useState } from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
+import { useRouter } from "next/navigation";
 
 const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = (event) => {
+  const [createUserWithEmailAndPassword] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  // Send userData to the server
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // handle form submission
+
+    try {
+      const res = await createUserWithEmailAndPassword(email, password);
+      console.log("createUserWithEmailAndPassword res: ", res);
+
+      if (res.user) {
+        sessionStorage.setItem("user", true);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        router.push("/");
+      }
+    } catch (e) {
+      console.error(e);
+    }
+
+    // const userData = {
+    //   name: name,
+    //   email: email,
+    //   password: password,
+    //   confirmPassword: confirmPassword,
+    // };
+    // console.log("handleSubmit", userData);
   };
 
   const handleTogglePassword = () => {
@@ -29,7 +64,12 @@ const SignupForm = () => {
         <div className="col-12">
           <div className="input-group-meta mb-25">
             <label>Name</label>
-            <input type="text" placeholder="Rashed Kabir" />
+            <input
+              type="text"
+              placeholder="Rashed Kabir"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
         </div>
         {/* End .col-12 */}
@@ -37,7 +77,13 @@ const SignupForm = () => {
         <div className="col-12">
           <div className="input-group-meta mb-30">
             <label>Email</label>
-            <input type="email" placeholder="hasan@gmail.com" required />
+            <input
+              type="email"
+              placeholder="hasan@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
         </div>
         {/* End .col-12 */}
@@ -49,6 +95,8 @@ const SignupForm = () => {
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               className="pass_log_id"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <span className="placeholder_icon" onClick={handleTogglePassword}>
@@ -75,6 +123,8 @@ const SignupForm = () => {
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirm Password"
               className="pass_log_id"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
             <span

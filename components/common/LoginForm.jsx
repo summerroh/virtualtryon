@@ -1,13 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+  const router = useRouter();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // handle form submission
+
+    try {
+      const res = await signInWithEmailAndPassword(email, password);
+      console.log("signInWithEmailAndPassword res: ", res);
+
+      if (res.user) {
+        // sessionStorage.setItem("user", JSON.stringify(res.user));
+        sessionStorage.setItem("user", true);
+        setEmail("");
+        setPassword("");
+        setShowPassword(false);
+        router.push("/");
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const handleTogglePassword = () => {
@@ -24,7 +46,13 @@ const LoginForm = () => {
         <div className="col-12">
           <div className="input-group-meta mb-30">
             <label>Email</label>
-            <input type="email" placeholder="hasan@gmail.com" required />
+            <input
+              type="email"
+              placeholder="hasan@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
         </div>
         {/* End .col-12 */}
@@ -36,6 +64,8 @@ const LoginForm = () => {
               type={showPassword ? "text" : "password"}
               placeholder="Enter Password"
               className="pass_log_id"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <span className="placeholder_icon" onClick={handleTogglePassword}>
