@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useState, useEffect } from "react";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
+} from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
-
 const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -12,21 +14,46 @@ const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordMatch, setPasswordMatch] = useState(true);
   const router = useRouter();
 
-  const [createUserWithEmailAndPassword] =
+  const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+
+  const [sendEmailVerification] = useSendEmailVerification(auth);
+
+  // Check if password and confirmPassword match
+  useEffect(() => {
+    setPasswordMatch(password === confirmPassword);
+  }, [password, confirmPassword]);
 
   // Send userData to the server
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Check if password and confirmPassword match
+    if (!passwordMatch) {
+      return;
+    }
+
+    // Check error when sign in
+    if (error) {
+      console.log("Sign in error: ", error.message);
+      if (error.message.includes("email-already-in-use")) {
+        alert("Email already in use, try different email address.");
+      }
+      return;
+    }
+
+    // Only run when no error
     try {
       const res = await createUserWithEmailAndPassword(email, password);
-      console.log("createUserWithEmailAndPassword res: ", res);
 
       if (res.user) {
+        console.log("createUserWithEmailAndPassword res: ", res);
         sessionStorage.setItem("user", true);
+        await sendEmailVerification(res.user);
+
         setName("");
         setEmail("");
         setPassword("");
@@ -127,6 +154,11 @@ const SignupForm = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
+            {!passwordMatch && (
+              <div className="mt-10" style={{ color: "red" }}>
+                Does not match with the password
+              </div>
+            )}
             <span
               className="placeholder_icon"
               onClick={handleToggleConfirmPassword}

@@ -91,7 +91,7 @@ const LoginForm = () => {
               <input type="checkbox" id="remember" />
               <label htmlFor="remember">Keep me logged in</label>
             </div>
-            <a href="#">Forget Password?</a>
+            <a href="/resetpassword">Forget Password?</a>
           </div>
           {/* /.agreement-checkbox */}
         </div>
