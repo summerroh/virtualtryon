@@ -15,6 +15,7 @@ import Pricing from "@/components/home-page/home-13/Pricing";
 import ImageRoller from "@/components/roller/ImageRoller";
 import Step2 from "@/components/home-page/home-13/Step2";
 import Step3 from "@/components/home-page/home-13/Step3";
+import Step1 from "@/components/home-page/home-13/Step1";
 
 export const metadata = {
   title: "Virtual Fitting Room || Create professional fashion photoshoots",
@@ -70,62 +71,15 @@ const LeadGeneration = () => {
             </div>
           </div>
         </div>
-        {/* /.container */}
 
-        <SuccessStory />
-        {/* /.wrapper */}
+        {/* <SuccessStory /> */}
       </div>
 
+      <Step1 />
       <Step2 />
       <Step3 />
 
       {/* /.feedback-section-nine */}
-
-      {/* 
-			=============================================
-				Feedback Section Ten
-			============================================== 
-			*/}
-      <div className="feedback-section-ten position-relative pt-200 lg-pt-150">
-        <div className="container">
-          <div className="position-relative">
-            <div className="row">
-              <div className="col-lg-5">
-                <div
-                  className="title-style-ten text-center text-lg-start"
-                  data-aos="fade-right"
-                >
-                  <div className="sc-title">SHOWCASE</div>
-                  <h2 className="main-title font-recoleta fw-normal tx-dark">
-                    What
-                    <span className="position-relative">
-                      {" "}
-                      client <img src="/images/shape/shape_129.svg" alt="" />
-                    </span>
-                    think about us.
-                  </h2>
-                </div>
-                {/* /.title-style-ten */}
-              </div>
-            </div>
-            {/* End .row */}
-            <Testimonial />
-          </div>
-        </div>
-        {/* End .container */}
-
-        <img
-          src="/images/shape/shape_130.svg"
-          alt=""
-          className="lazy-img shapes shape-one"
-        />
-        <img
-          src="/images/shape/shape_131.svg"
-          alt=""
-          className="lazy-img shapes shape-two"
-        />
-      </div>
-      {/* /.feedback-section-ten */}
 
       <div
         className="title-style-ten text-center mt-180 lg-mt-120 mb-40"
