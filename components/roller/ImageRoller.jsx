@@ -5,15 +5,15 @@ export default function ImageRoller() {
 
   return (
     <>
-      <section id="review" class="review-area">
-        <div class="container">
-          <div class="customer-review-wrapper">
-            <div class="row gutter-24">
-              <div class="col-lg-4">
-                <div class="review-item-wrap">
+      <section id="review" className="review-area">
+        <div className="container">
+          <div className="customer-review-wrapper">
+            <div className="row gutter-24">
+              <div className="col-lg-4">
+                <div className="review-item-wrap">
                   {items.map((item) => {
                     return (
-                      <div class="review-item">
+                      <div className="review-item">
                         <img
                           src="/images/media/model1-thumb.png"
                           alt="img"
@@ -25,11 +25,11 @@ export default function ImageRoller() {
                   })}
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="review-item-wrap">
+              <div className="col-lg-4">
+                <div className="review-item-wrap">
                   {items.map((item) => {
                     return (
-                      <div class="review-item">
+                      <div className="review-item">
                         <img
                           src="/images/media/model1-thumb.png"
                           alt="img"
@@ -41,11 +41,11 @@ export default function ImageRoller() {
                   })}
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="review-item-wrap">
+              <div className="col-lg-4">
+                <div className="review-item-wrap">
                   {items.map((item) => {
                     return (
-                      <div class="review-item">
+                      <div className="review-item">
                         <img
                           src="/images/media/model1-thumb.png"
                           alt="img"
