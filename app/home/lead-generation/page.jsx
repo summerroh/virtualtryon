@@ -12,6 +12,9 @@ import CopyrightFooter from "@/components/home-page/home-13/CopyrightFooter";
 import Image from "next/image";
 // import Pricing from "@/app/404/page";
 import Pricing from "@/components/home-page/home-13/Pricing";
+import ImageRoller from "@/components/roller/ImageRoller";
+import Step2 from "@/components/home-page/home-13/Step2";
+import Step3 from "@/components/home-page/home-13/Step3";
 
 export const metadata = {
   title: "Virtual Fitting Room || Create professional fashion photoshoots",
@@ -22,6 +25,8 @@ const LeadGeneration = () => {
       <Header />
 
       <Hero />
+
+      <ImageRoller />
 
       <Feedback />
 
@@ -70,6 +75,10 @@ const LeadGeneration = () => {
         <SuccessStory />
         {/* /.wrapper */}
       </div>
+
+      <Step2 />
+      <Step3 />
+
       {/* /.feedback-section-nine */}
 
       {/* 

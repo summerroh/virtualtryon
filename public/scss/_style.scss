@@ -10540,3 +10540,83 @@ body .btn-twentySix:hover:after {
 .white-color {
   color: white;
 }
+
+/*=============================
+	04. review
+===============================*/
+.review-area {
+  // background: var(--tg-gray);
+  background: #ffffff;
+  padding: 140px 0 140px;
+}
+.customer-review-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 1080px;
+}
+.customer-review-wrapper::before,
+.customer-review-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 62px;
+  width: 100%;
+  background: linear-gradient(0deg, #ffffff 0%, rgba(246, 245, 243, 0) 100%);
+  z-index: 10;
+}
+.customer-review-wrapper::before {
+  bottom: auto;
+  top: 0;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(246, 245, 243, 0) 100%);
+}
+.review-item-wrap {
+  animation: friskTestimonialScroll 30s linear infinite;
+  transition: all 0.5s ease-in;
+  animation-duration: 30s;
+}
+.review-item-wrap:hover {
+  animation-play-state: paused;
+}
+@keyframes friskTestimonialScroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+.review-item {
+  background: var(--tg-white);
+  padding: 40px 35px 25px;
+  margin-bottom: 25px;
+}
+.review-item .rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 18px;
+}
+.review-item .title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.review-item .title span {
+  font-family: var(--tg-body-font-family);
+  font-weight: 400;
+}
+.review-item p {
+  margin-bottom: 40px;
+}
+.review-item > span {
+  color: rgba(10, 12, 0, 0.6);
+  display: block;
+  font-size: 18px;
+  border-top: 1px solid #cececc;
+  padding-top: 10px;
+}
+
+/*=============================
+	04. review finished
+===============================*/

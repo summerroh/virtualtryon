@@ -38,20 +38,20 @@ const Feedback = () => {
       data-aos="fade-up"
     >
       <div className="container">
-        <img
+        {/* <img
           src="/images/icon/icon_92.svg"
           alt="shape"
           className="icon lazy-img m-auto"
           width={75}
-        />
+        /> */}
         <div className="row">
           <div className="col-xxl-11 col-lg-10 col-md-9 m-auto">
             <div className="feedback_slider_eight">
               <div className="item">
                 <div className="feedback-block-eight text-center">
                   <p className="font-recoleta tx-dark mt-60 mb-65 lg-mt-40 lg-mb-40">
-                    We signed <span>$70b</span> in a new business in January.
-                    Most award winninig agency.
+                    generate an unlimited number of model shots{" "}
+                    <span>instantly.</span>
                   </p>
                   {/* <h6 className="fw-normal fs-20 d-inline-block fst-italic position-relative ps-4">
                     Jessica Woodbeck, CEO
@@ -65,14 +65,14 @@ const Feedback = () => {
         </div>
       </div>{" "}
       {/* /.container */}
-      {images.map((image, index) => (
+      {/* {images.map((image, index) => (
         <img
           key={index}
           src={image.src}
           alt={image.alt}
           className={image.className}
         />
-      ))}
+      ))} */}
     </div>
   );
 };
