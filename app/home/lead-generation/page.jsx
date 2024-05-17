@@ -64,7 +64,7 @@ const LeadGeneration = () => {
                 </h2>
                 <p className="fs-20 pt-20 lg-pt-10">
                   Browse through our AI model library to find the ideal fit for
-                  your products or use your own model photo
+                  your products or use your own model photo{""}
                 </p>
               </div>
               {/* /.title-style-ten */}
