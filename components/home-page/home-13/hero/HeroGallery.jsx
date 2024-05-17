@@ -8,11 +8,11 @@ const HeroGallery = () => {
             alt="img"
             className="lazy-img main-img"
           />
-          <img
+          {/* <img
             src="/images/shape/shape_115.svg"
             alt="img"
             className="lazy-img shapes shape-one"
-          />
+          /> */}
         </div>
         <div className="img-box position-relative mt-35 img-box-two">
           <img
@@ -20,14 +20,13 @@ const HeroGallery = () => {
             alt="img"
             className="lazy-img main-img"
           />
-          <img
+          {/* <img
             src="/images/shape/shape_118.svg"
             alt="img"
             className="lazy-img shapes shape-four"
-          />
+          /> */}
         </div>
       </div>
-      {/* End .col-6 */}
 
       <div className="col-6">
         <div className="img-box position-relative mt-35 img-box-three">
@@ -36,7 +35,7 @@ const HeroGallery = () => {
             alt="img"
             className="lazy-img main-img"
           />
-          <img
+          {/* <img
             src="/images/shape/shape_116.svg"
             alt="img"
             className="lazy-img shapes shape-two"
@@ -45,7 +44,7 @@ const HeroGallery = () => {
             src="/images/shape/shape_117.svg"
             alt="img"
             className="lazy-img shapes shape-three"
-          />
+          /> */}
         </div>
       </div>
     </>

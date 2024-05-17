@@ -21,13 +21,11 @@ const HeroContent = () => {
           href="/contact/contact-v1"
           className="demo-btn fw-500 tran3s d-inline-flex align-items-center mb-25 me-4"
         >
-          <span>Request a demo</span>
+          <span>Get Started</span>
           <img src="/images/icon/icon_91.svg" alt="img" className="ms-3" />
         </Link>
         <div className="mb-25 text-white signIn-btn">
-          {/*
-          Already a member? <Link href="/login">Sign in</Link> */}
-          Already a member? <Link href="/">Sign in</Link>
+          {/* Already a member? <Link href="/">Sign in</Link> */}
         </div>
       </div>
       {/*
