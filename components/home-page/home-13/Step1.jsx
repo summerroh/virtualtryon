@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Step1 = () => {
   const items = [
     "Amazing communication.",
@@ -6,102 +8,67 @@ const Step1 = () => {
   ];
 
   return (
-    <div className="fancy-feature-three pt-300 lg-pt-100 md-pt-100 sm-pt-120">
+    <div className="fancy-feature-thirty position-relative mt-190 pb-140 lg-mt-100 lg-pb-120 md-p0 pt-100">
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-lg-5 col-md-6">
+          <div className="col-lg-6 ms-auto">
             <div
-              className="block-style-two pe-xxl-5 md-mb-50"
-              data-aos="fade-right"
+              className="block-style-four ps-xxl-5 ms-xxl-4"
+              data-aos="fade-left"
             >
               <div className="title-style-ten">
-                <div className="sc-title badge">STEP 1</div>
+                <div className="sc-title badge">STEP 2</div>
                 <h2 className="main-title font-recoleta fw-normal tx-dark">
-                  Choose Your{" "}
+                  Save Time{" "}
                   <span className="position-relative">
-                    Model <img src="/images/shape/shape_122.svg" alt="shape" />
+                    and Money
+                    {/* <img src="/images/shape/shape_122.svg" alt="shape" /> */}
                   </span>
                 </h2>
               </div>{" "}
               {/* /.title-style-ten */}
               <p className="fs-20 pt-30 pb-30 lg-pb-10 md-pt-10">
-                Browse through our AI model library to find the ideal fit for
-                your products or use your own model photo.
+                No more scheduling photoshoots or hiring models. <br />
+                Generate model shots instantly, anytime you need them.
               </p>
-              {/* 모델 썸네일 리스트 */}
-              <div
-                className="d-flex flex-row justify-space-between gap-3 mb-3"
-                data-aos="fade-up"
-              >
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline"
-                />
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline"
-                />
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline"
-                />
-              </div>
-              <div
-                className="d-flex flex-row justify-space-between gap-3"
-                data-aos="fade-up"
-              >
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline"
-                />
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline"
-                />
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline"
-                />
-              </div>
+              <ul className="style-none list-item">
+                {items.map((item, index) => (
+                  <li className="text-light" key={index}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
               {/*
-              
-              <Link
-                href="/pages-menu/about-us-v1"
-                className="btn-four fw-500"
-              >
-                Learn More
-              </Link>
-*/}
-            </div>
-            {/* /.block-style-two */}
+              <div className="btn-eighteen position-relative d-inline-block tx-dark mt-35 lg-mt-20">
+                Want to learn more?{" "}
+                <Link href="/pages-menu/about-us-v1" className="fw-500 tran3s">
+                  Click here <i className="bi bi-arrow-right" />
+                </Link>
+              </div>
+                */}
+            </div>{" "}
+            {/* /.block-style-four */}
           </div>
-          {/* End .col-lg-5 */}
-
-          <div
-            className="col-xl-6 col-lg-7 col-md-6 ms-auto d-flex justify-content-end"
-            data-aos="fade-left"
-          >
-            <div
-              className={`round-bg d-flex align-items-center justify-content-center`}
-              style={{ width: "499px", height: "631px" }}
-            >
-              <img
-                src={"/images/media/model_preview.png"}
-                alt={`model`}
-                className="lazy-img"
-              />
-            </div>
-          </div>
-          {/* End .col-xl-6 */}
         </div>
-      </div>
+      </div>{" "}
       {/* /.container */}
+      <div
+        className="illustration-holder d-flex justify-content-center"
+        data-aos="fade-right"
+      >
+        <img
+          src="/images/media/step2.png"
+          alt="media"
+          className="lazy-img main-img"
+        />
+        {/*
+        <img
+          src="/images/shape/shape_123.svg"
+          alt="media"
+          className="lazy-img shapes shape-one"
+        />
+*/}
+      </div>
     </div>
   );
 };

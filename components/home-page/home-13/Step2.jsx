@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const Step2 = () => {
   const items = [
     "Amazing communication.",
@@ -8,67 +6,103 @@ const Step2 = () => {
   ];
 
   return (
-    <div className="fancy-feature-thirty position-relative mt-190 pb-140 lg-mt-100 lg-pb-120 md-p0 pt-100">
+    <div className="fancy-feature-three pt-300 lg-pt-100 md-pt-100 sm-pt-120">
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-lg-6 ms-auto">
+          <div className="col-lg-5 col-md-6">
             <div
-              className="block-style-four ps-xxl-5 ms-xxl-4"
-              data-aos="fade-left"
+              className="block-style-two pe-xxl-5 md-mb-50"
+              data-aos="fade-right"
             >
               <div className="title-style-ten">
-                <div className="sc-title badge">STEP 2</div>
-                <h2 className="main-title font-recoleta fw-normal tx-dark text-white">
-                  Upload Your{" "}
+                <div className="sc-title badge">STEP 1</div>
+                <h2 className="main-title font-recoleta fw-normal tx-dark">
+                  Unlimited{" "}
                   <span className="position-relative">
-                    Clothes.{" "}
+                    Possibilities
                     <img src="/images/shape/shape_122.svg" alt="shape" />
                   </span>
                 </h2>
               </div>{" "}
               {/* /.title-style-ten */}
               <p className="fs-20 pt-30 pb-30 lg-pb-10 md-pt-10">
-                Turn your business into a sales machine today with lorem Things
-                go wrong have questions.
+                Browse through our diverse selection of AI models to perfectly
+                match your brand's aesthetic.
               </p>
-              <ul className="style-none list-item">
-                {items.map((item, index) => (
-                  <li className="text-light" key={index}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              {/*
-              <div className="btn-eighteen position-relative d-inline-block tx-dark mt-35 lg-mt-20">
-                Want to learn more?{" "}
-                <Link href="/pages-menu/about-us-v1" className="fw-500 tran3s">
-                  Click here <i className="bi bi-arrow-right" />
-                </Link>
+              {/* 모델 썸네일 리스트 */}
+              <div
+                className="d-flex flex-row justify-space-between gap-3 mb-3"
+                data-aos="fade-up"
+              >
+                <img
+                  src="/images/media/hero-img-5.png"
+                  alt="img"
+                  className="lazy-img d-inline"
+                />
+                <img
+                  src="/images/media/hero-img-5.png"
+                  alt="img"
+                  className="lazy-img d-inline"
+                />
+                <img
+                  src="/images/media/hero-img-5.png"
+                  alt="img"
+                  className="lazy-img d-inline"
+                />
               </div>
-                */}
-            </div>{" "}
-            {/* /.block-style-four */}
-          </div>
-        </div>
-      </div>{" "}
-      {/* /.container */}
-      <div
-        className="illustration-holder d-flex justify-content-center"
-        data-aos="fade-right"
-      >
-        <img
-          src="/images/media/step2.png"
-          alt="media"
-          className="lazy-img main-img"
-        />
-        {/*
-        <img
-          src="/images/shape/shape_123.svg"
-          alt="media"
-          className="lazy-img shapes shape-one"
-        />
+              <div
+                className="d-flex flex-row justify-space-between gap-3"
+                data-aos="fade-up"
+              >
+                <img
+                  src="/images/media/hero-img-5.png"
+                  alt="img"
+                  className="lazy-img d-inline"
+                />
+                <img
+                  src="/images/media/hero-img-5.png"
+                  alt="img"
+                  className="lazy-img d-inline"
+                />
+                <img
+                  src="/images/media/hero-img-5.png"
+                  alt="img"
+                  className="lazy-img d-inline"
+                />
+              </div>
+              {/*
+              
+              <Link
+                href="/pages-menu/about-us-v1"
+                className="btn-four fw-500"
+              >
+                Learn More
+              </Link>
 */}
+            </div>
+            {/* /.block-style-two */}
+          </div>
+          {/* End .col-lg-5 */}
+
+          <div
+            className="col-xl-6 col-lg-7 col-md-6 ms-auto d-flex justify-content-end"
+            data-aos="fade-left"
+          >
+            <div
+              className={`round-bg d-flex align-items-center justify-content-center`}
+              style={{ width: "499px", height: "631px" }}
+            >
+              <img
+                src={"/images/media/model_preview.png"}
+                alt={`model`}
+                className="lazy-img"
+              />
+            </div>
+          </div>
+          {/* End .col-xl-6 */}
+        </div>
       </div>
+      {/* /.container */}
     </div>
   );
 };

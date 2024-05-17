@@ -8,7 +8,7 @@ const Step3 = () => {
   ];
 
   return (
-    <div className="fancy-feature-thirty position-relative mt-190 pb-140 lg-mt-100 lg-pb-120 md-p0">
+    <div className="fancy-feature-thirty position-relative mt-190 pb-140 lg-mt-100 lg-pb-120 md-p0 pt-100">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-6 ms-auto">
@@ -17,19 +17,18 @@ const Step3 = () => {
               data-aos="fade-left"
             >
               <div className="title-style-ten">
-                <div className="sc-title badge">STEP 3</div>
-                <h2 className="main-title font-recoleta fw-normal tx-dark text-white">
-                  Enjoy Your{" "}
+                <div className="sc-title badge">STEP 2</div>
+                <h2 className="main-title font-recoleta fw-normal tx-dark">
+                  Professional Quality
                   <span className="position-relative">
-                    Results{" "}
-                    <img src="/images/shape/shape_122.svg" alt="shape" />
+                    {/* <img src="/images/shape/shape_122.svg" alt="shape" /> */}
                   </span>
                 </h2>
               </div>{" "}
               {/* /.title-style-ten */}
               <p className="fs-20 pt-30 pb-30 lg-pb-10 md-pt-10">
-                Turn your business into a sales machine today with lorem Things
-                go wrong have questions.
+                Our technology ensures that your product images are of the
+                highest standard, enhancing your brand's image and credibility.
               </p>
               <ul className="style-none list-item">
                 {items.map((item, index) => (
@@ -53,19 +52,21 @@ const Step3 = () => {
       </div>{" "}
       {/* /.container */}
       <div
-        className="illustration-holder border-radius-0"
+        className="illustration-holder d-flex justify-content-center"
         data-aos="fade-right"
       >
         <img
-          src="/images/media/model_preview.png"
+          src="/images/media/step2.png"
           alt="media"
           className="lazy-img main-img"
         />
+        {/*
         <img
           src="/images/shape/shape_123.svg"
           alt="media"
           className="lazy-img shapes shape-one"
         />
+*/}
       </div>
     </div>
   );

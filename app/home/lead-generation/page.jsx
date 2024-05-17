@@ -41,45 +41,11 @@ const LeadGeneration = () => {
             </div>
           </div>
         </div>
-        {/* /.wrapper */}
-      </div>
-      {/* /.fancy-feature-thirtyTwo */}
-      {/*
-			=====================================================
-				Feedback Section Nine
-			=====================================================
-			*/}
-      <div className="feedback-section-nine position-relative mt-200 lg-mt-120">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 col-md-7 ms-lg-auto" data-aos="fade-left">
-              <div className="title-style-ten">
-                <div className="sc-title badge">STEP 1</div>
-
-                <h2 className="main-title font-recoleta fw-normal tx-dark">
-                  Choose Your{" "}
-                  <span className="position-relative">
-                    Model <img src="/images/shape/shape_122.svg" alt="img" />
-                  </span>
-                </h2>
-                <p className="fs-20 pt-20 lg-pt-10">
-                  Browse through our AI model library to find the ideal fit for
-                  your products or use your own model photo{""}
-                </p>
-              </div>
-              {/* /.title-style-ten */}
-            </div>
-          </div>
-        </div>
-
-        {/* <SuccessStory /> */}
       </div>
 
       <Step1 />
       <Step2 />
       <Step3 />
-
-      {/* /.feedback-section-nine */}
 
       <div
         className="title-style-ten text-center mt-180 lg-mt-120 mb-40"
@@ -104,11 +70,6 @@ const LeadGeneration = () => {
         <Pricing />
       </div>
 
-      {/* 
-        =============================================
-        Feature Section Thirty Three
-        ============================================== 
-        */}
       <div className="fancy-feature-thirtyThree mt-180 lg-mt-120">
         <div className="container">
           <div className="title-style-ten text-center" aos="fade-up">
@@ -138,16 +99,8 @@ const LeadGeneration = () => {
               className="lazy-img shapes shape-one"
             />
           </div>
-          {/* /.bg-wrapper */}
         </div>
       </div>
-      {/* /.fancy-feature-thirtyThree */}
-
-      {/*
-        =====================================================
-            Fancy Short Banner Sixteen
-        =====================================================
-        */}
       <div
         className="fancy-short-banner-sixteen mt-130 lg-mt-80 mb-100"
         data-aos="fade-up"
@@ -165,7 +118,6 @@ const LeadGeneration = () => {
                       </h2>
                     </div>
                   </div>
-                  {/* End .col-6 */}
 
                   <div className="col-lg-5 ms-auto text-center text-lg-end">
                     <Link
@@ -179,16 +131,8 @@ const LeadGeneration = () => {
               </div>
             </div>
           </div>
-          {/* /.bg-wrapper */}
         </div>
       </div>
-      {/* /.fancy-short-banner-twelve */}
-      {/*
-        =====================================================
-        Footer
-        =====================================================
-      */}
-
       <div className="footer-style-nine theme-basic-footer zn2 position-relative">
         {/* 
         <div className="bg-wrapper">
