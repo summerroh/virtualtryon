@@ -74,12 +74,12 @@ const LeadGeneration = () => {
               Questions &amp;{" "}
               <span className="position-relative">
                 Answers{" "}
-                <Image
+                {/* <Image
                   width={219}
                   height={7}
                   src="/images/shape/shape_132.svg"
                   alt=""
-                />
+                /> */}
               </span>
             </h2>
           </div>
@@ -87,13 +87,6 @@ const LeadGeneration = () => {
 
           <div className="position-relative mt-80 lg-mt-40" aos="fade-up">
             <Faq />
-            <Image
-              width={65}
-              height={66}
-              src="/images/shape/shape_133.svg"
-              alt="shape"
-              className="lazy-img shapes shape-one"
-            />
           </div>
         </div>
       </div>
