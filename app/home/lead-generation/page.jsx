@@ -31,17 +31,13 @@ const LeadGeneration = () => {
 
       <Feedback />
 
-      <div className="fancy-feature-thirtyTwo mt-190 lg-mt-120">
-        <div className="container"></div>
-
-        <div className="wrapper mt-90 lg-mt-30">
+      {/* <div className="fancy-feature-thirtyTwo mt-20 lg-mt-20">
+        <div className="wrapper mt-20 lg-mt-0">
           <div className="container">
-            <div className="row">
-              <Counter />
-            </div>
+            <Counter />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <Step1 />
       <Step2 />

@@ -34,16 +34,10 @@ const Feedback = () => {
 
   return (
     <div
-      className="feedback-section-eight position-relative pt-200 pb-30 lg-pt-120 "
+      className="feedback-section-eight position-relative pt-20 pb-30 lg-pt-20 "
       data-aos="fade-up"
     >
       <div className="container">
-        {/* <img
-          src="/images/icon/icon_92.svg"
-          alt="shape"
-          className="icon lazy-img m-auto"
-          width={75}
-        /> */}
         <div className="row">
           <div className="col-xxl-11 col-lg-10 col-md-9 m-auto">
             <div className="feedback_slider_eight">
@@ -53,26 +47,12 @@ const Feedback = () => {
                     Generate an unlimited number of model shots{" "}
                     <span>instantly.</span>
                   </p>
-                  {/* <h6 className="fw-normal fs-20 d-inline-block fst-italic position-relative ps-4">
-                    Jessica Woodbeck, CEO
-                  </h6> */}
-                </div>{" "}
-                {/* /.feedback-block-eight */}
+                </div>
               </div>
-            </div>{" "}
-            {/* /.feedback_slider_eight */}
+            </div>
           </div>
         </div>
-      </div>{" "}
-      {/* /.container */}
-      {/* {images.map((image, index) => (
-        <img
-          key={index}
-          src={image.src}
-          alt={image.alt}
-          className={image.className}
-        />
-      ))} */}
+      </div>
     </div>
   );
 };

@@ -8,8 +8,8 @@ export default function ImageRoller() {
       <section id="review" className="review-area">
         <div className="container">
           <div className="customer-review-wrapper">
-            <div className="row gutter-24">
-              <div className="col-lg-4">
+            <div className="row">
+              <div className="col-lg-3 p-0">
                 <div className="review-item-wrap">
                   {items.map((item) => {
                     return (
@@ -25,7 +25,7 @@ export default function ImageRoller() {
                   })}
                 </div>
               </div>
-              <div className="col-lg-4">
+              <div className="col-lg-3 p-0">
                 <div className="review-item-wrap">
                   {items.map((item) => {
                     return (
@@ -41,7 +41,23 @@ export default function ImageRoller() {
                   })}
                 </div>
               </div>
-              <div className="col-lg-4">
+              <div className="col-lg-3 p-0">
+                <div className="review-item-wrap">
+                  {items.map((item) => {
+                    return (
+                      <div className="review-item">
+                        <img
+                          src="/images/media/model1-thumb.png"
+                          alt="img"
+                          className="lazy-img d-inline"
+                          style={{ width: "100%" }}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="col-lg-3 p-0">
                 <div className="review-item-wrap">
                   {items.map((item) => {
                     return (
