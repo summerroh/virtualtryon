@@ -31,5 +31,8 @@
     "sass": "^1.71.1",
     "slick": "^1.12.2",
     "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
   }
 }

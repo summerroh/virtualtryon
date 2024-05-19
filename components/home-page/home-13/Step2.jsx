@@ -37,17 +37,17 @@ const Step2 = () => {
                 <img
                   src="/images/media/hero-img-5.png"
                   alt="img"
-                  className="lazy-img d-inline"
+                  className="lazy-img d-inline model-thumb"
                 />
                 <img
                   src="/images/media/hero-img-5.png"
                   alt="img"
-                  className="lazy-img d-inline"
+                  className="lazy-img d-inline model-thumb"
                 />
                 <img
                   src="/images/media/hero-img-5.png"
                   alt="img"
-                  className="lazy-img d-inline"
+                  className="lazy-img d-inline model-thumb"
                 />
               </div>
               <div
@@ -57,17 +57,17 @@ const Step2 = () => {
                 <img
                   src="/images/media/hero-img-5.png"
                   alt="img"
-                  className="lazy-img d-inline"
+                  className="lazy-img d-inline model-thumb"
                 />
                 <img
                   src="/images/media/hero-img-5.png"
                   alt="img"
-                  className="lazy-img d-inline"
+                  className="lazy-img d-inline model-thumb"
                 />
                 <img
                   src="/images/media/hero-img-5.png"
                   alt="img"
-                  className="lazy-img d-inline"
+                  className="lazy-img d-inline model-thumb"
                 />
               </div>
               {/*

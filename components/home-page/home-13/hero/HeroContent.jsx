@@ -4,7 +4,7 @@ const HeroContent = () => {
   return (
     <>
       <h1 className="hero-heading fw-normal text-white font-recoleta">
-        Create Professional{" "}
+        Create professional{" "}
         <span className="position-relative">
           model <img src="/images/shape/shape_114.svg" alt="img" />
         </span>

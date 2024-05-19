@@ -9275,45 +9275,6 @@ body .btn-twentySix:hover:after {
 .blog-meta-seven .read-btn:hover {
   color: var(--prime-two);
 }
-/*^^^^^^^^^^^^^^^^^^^^^ Hosting Compare Table ^^^^^^^^^^^^^^^^^^^^^^^^*/
-.hosting-compare-table table thead th {
-  font-size: 20px;
-  font-weight: 500;
-  text-align: center;
-  border: 2px solid #000;
-  padding: 22px 15px;
-  width: 18%;
-}
-.hosting-compare-table table thead th:first-child {
-  border: none;
-}
-.hosting-compare-table table tbody th {
-  font-size: 17px;
-  font-weight: normal;
-  border: none;
-  width: 28%;
-  padding: 18px 0;
-}
-.hosting-compare-table table tbody td {
-  border: none;
-  border-left: 2px solid #000;
-  border-right: 2px solid #000;
-}
-.hosting-compare-table table tbody tr:first-child th,
-.hosting-compare-table table tbody tr:first-child td {
-  padding-top: 85px;
-}
-.hosting-compare-table table td {
-  vertical-align: middle;
-  padding: 18px 10px;
-}
-.hosting-compare-table table tbody {
-  border: none !important;
-}
-.hosting-compare-table table tbody tr:last-child td {
-  padding-bottom: 85px;
-  border-bottom: 2px solid #000;
-}
 /*^^^^^^^^^^^^^^^^^^^^^ Feature Section Fifty Six ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .fancy-feature-fiftySix .bg-wrapper {
   background: #f1fcff;
@@ -9339,73 +9300,6 @@ body .btn-twentySix:hover:after {
   100% {
     box-shadow: 0 0 0 0.4rem rgba(255, 197, 49, 0.3);
   }
-}
-.fancy-feature-fiftySeven .location {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #ffc531;
-  animation: ripple 3s linear infinite;
-  cursor: pointer;
-}
-.fancy-feature-fiftySeven .location::before,
-.fancy-feature-fiftySeven .location::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50%;
-  animation: inherit;
-  animation-delay: 1s;
-}
-.fancy-feature-fiftySeven .location::after {
-  animation-delay: 3s;
-}
-.fancy-feature-fiftySeven .location span {
-  width: 155px;
-  font-size: 17px;
-  line-height: 20px;
-  position: absolute;
-  font-weight: 500;
-  color: #000;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-}
-.fancy-feature-fiftySeven .location:hover span {
-  opacity: 1;
-}
-.fancy-feature-fiftySeven .location.one {
-  top: 20%;
-  left: 37%;
-}
-.fancy-feature-fiftySeven .location.two {
-  top: 38%;
-  left: 22%;
-}
-.fancy-feature-fiftySeven .location.three {
-  top: 52%;
-  left: 46%;
-}
-.fancy-feature-fiftySeven .location.four {
-  top: 76%;
-  left: 13%;
-}
-.fancy-feature-fiftySeven .location.five {
-  top: 18%;
-  left: 65%;
-}
-.fancy-feature-fiftySeven .location.six {
-  top: 20%;
-  left: 89%;
-}
-.fancy-feature-fiftySeven .location.seven {
-  top: 65%;
-  left: 72%;
 }
 
 .navbar .navbar-nav .nav-item .nav-link {
@@ -9499,3 +9393,7 @@ body .btn-twentySix:hover:after {
 /*=============================
 	04. review finished
 ===============================*/
+
+.model-thumb {
+  border-radius: 10px;
+}
