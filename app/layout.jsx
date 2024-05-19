@@ -18,6 +18,9 @@ export default function RootLayout({ children }) {
   }, []);
   return (
     <html lang="en">
+      <head>
+        <link href="/scss/tailwind.css" rel="stylesheet" />
+      </head>
       <body>
         <div className="main-page-wrapper">
           {children}

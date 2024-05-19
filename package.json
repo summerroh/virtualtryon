@@ -5,18 +5,23 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:css": "postcss styles/index.scss -o public/scss/tailwind.css",
+    "start": "npm run build:css && next start",
+    "watch:css": "postcss styles/index.scss -o public/scss/tailwind.css --watch"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "aos": "^2.3.4",
+    "autoprefixer": "^10.4.19",
     "bootstrap": "^5.2.3",
     "caniuse-lite": "^1.0.30001589",
     "carousel": "^0.0.3",
     "firebase": "^10.11.1",
     "next": "14.1.0",
     "photoswipe": "^5.4.3",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
     "react": "^18",
     "react-circular-progressbar": "^2.1.0",
     "react-countup": "^6.5.0",
