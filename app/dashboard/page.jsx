@@ -30,6 +30,7 @@ import { AlbumArtwork } from "@/components/album-artwork";
 import { Menu } from "@/components/menu";
 import { PodcastEmptyPlaceholder } from "@/components/podcast-empty-placeholder";
 import { Sidebar } from "@/components/sidebar";
+import { Card } from "@/components/ui/card";
 import { listenNowAlbums, madeForYouAlbums } from "@/data/albums";
 
 import musicLight from "@/public/examples/music-light.png";
@@ -97,9 +98,10 @@ export default function Dashboard() {
                           </h2>
                         </div>
                       </div>
-                      <div className="relative">
-                        <DragNDrop />
-                      </div>
+                      <Card className="w-full bg-black p-6">
+                        <Button>Female model</Button>
+                        <Button>Male model</Button>
+                      </Card>
 
                       <div className="mt-6 mb-6 space-y-1">
                         <h2 className="text-xl font-semibold tracking-tight">

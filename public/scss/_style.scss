@@ -1,22 +1,3 @@
-/* CSS Document */
-
-/* 
-    Theme Name   : Jano - Creative Multipurpose React NextJS Template
-    Version      : 1.0.
-    Developed by : (ibthemes21@gmail.com) 
-   
-
-/*========================================================================================
-
-*************************** Start Styling Your theme from here ***************************
-
-==========================================================================================*/
-/*** 
-====================================================================
-  Theme Color and Root Prefix
-====================================================================
-
- ***/
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -521,40 +502,6 @@ p {
   z-index: -1;
   max-width: 113%;
   transform: translate(-50%, -50%);
-}
-.title-style-eight .sc-title {
-  font-size: 13px;
-  letter-spacing: 3px;
-  color: rgba(0, 0, 0, 0.5);
-  padding-bottom: 15px;
-}
-.title-style-eight .main-title {
-  font-size: 68px;
-  line-height: 1.25em;
-  letter-spacing: -1px;
-}
-.title-style-eight .main-title span {
-  line-height: 64px;
-}
-.title-style-eight .main-title span:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background: var(--prime-six);
-}
-.title-style-nine .sc-title {
-  font-size: 18px;
-  padding-bottom: 16px;
-  color: rgba(255, 255, 255, 0.3);
-}
-.title-style-nine .main-title span {
-  background: linear-gradient(270.78deg, #ffa7a9 4.19%, #ff5ea3 96.11%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .title-style-ten .sc-title {
   font-size: 15px;
@@ -3412,19 +3359,6 @@ body .btn-twentySix:hover:after {
 .card-style-six .icon {
   height: 85px;
 }
-/*^^^^^^^^^^^^^^^^^^^^^ Portfolio Gallery One ^^^^^^^^^^^^^^^^^^^^^^^^*/
-.portfolio-gallery-one .shape-one {
-  top: 0;
-  left: 24%;
-}
-.portfolio-gallery-one .shape-two {
-  top: 190px;
-  left: 4%;
-}
-.portfolio-gallery-one .shape-three {
-  top: 190px;
-  left: 41%;
-}
 .g-control-nav-one li {
   font-size: 20px;
   letter-spacing: -0.05px;
@@ -3527,89 +3461,6 @@ body .btn-twentySix:hover:after {
 }
 .portfolio-block-one:hover .hover-state a {
   transform: translateY(0);
-}
-/*^^^^^^^^^^^^^^^^^^^^^ Feature Section Thirteen ^^^^^^^^^^^^^^^^^^^^^^^^*/
-.fancy-feature-thirteen .skils-list {
-  margin: 0 -10px;
-}
-.fancy-feature-thirteen .skils-list li {
-  margin: 20px 10px 0;
-  font-size: 24px;
-  color: #000;
-}
-.fancy-feature-thirteen .skils-list li span {
-  display: block;
-  line-height: 75px;
-  padding: 0 30px;
-  border-radius: 10px;
-  font-size: 18px;
-}
-.fancy-feature-thirteen .text-xxl {
-  font-size: 28px;
-  line-height: 1.64em;
-}
-.fancy-feature-thirteen .tx-sp1 {
-  font-size: 25px;
-  margin-bottom: -15px;
-}
-.fancy-feature-thirteen .tx-sp1 span {
-  font-size: 72px;
-}
-.fancy-feature-thirteen .tx-sp2 {
-  font-size: 14px;
-  letter-spacing: 1px;
-  color: rgba(0, 0, 0, 0.35);
-}
-.fancy-feature-thirteen .tools-list li + li {
-  margin-top: 22px;
-}
-.fancy-feature-thirteen .img-meta .text-meta {
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translateY(-50%);
-}
-.fancy-feature-thirteen .img-meta .text-meta .tm-heading {
-  font-family: "eustacheregular";
-  font-size: 62px;
-  letter-spacing: 2px;
-  color: #ffc962;
-}
-.fancy-feature-thirteen .img-meta .text-meta h3 {
-  font-size: 60px;
-  line-height: 1.2em;
-  letter-spacing: -1px;
-}
-.fancy-feature-thirteen .img-meta .text-meta h3 a {
-  font-size: 0.65em;
-}
-.fancy-feature-thirteen .img-meta .text-meta h3 a:hover {
-  color: #ffc962;
-}
-.fancy-feature-thirteen .img-meta .shape-one {
-  width: 52px;
-  height: 52px;
-  left: 15%;
-  top: 12%;
-  background: #31daff;
-  z-index: 1;
-}
-.fancy-feature-thirteen .img-meta .shape-two {
-  width: 132px;
-  height: 132px;
-  right: 3%;
-  bottom: 10%;
-  background: #ffc962;
-  z-index: 1;
-}
-.fancy-feature-thirteen .fancy-text {
-  font-size: 200px;
-  font-weight: 100;
-  letter-spacing: -14px;
-  color: rgba(0, 0, 0, 0.04);
-  position: absolute;
-  right: 5%;
-  top: -5%;
 }
 /*^^^^^^^^^^^^^^^^^^^^^ Counter Section One ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .counter-section-one {
@@ -7282,34 +7133,6 @@ body .btn-twentySix:hover:after {
   background: #000;
   color: #fff;
 }
-.card-style-twentyTwo .text-meta {
-  padding: 32px 35px 25px;
-  background: #fff;
-}
-.card-style-twentyTwo .property-name {
-  letter-spacing: -0.48px;
-  color: #000;
-}
-.card-style-twentyTwo p {
-  color: rgba(0, 0, 0, 0.4);
-}
-.card-style-twentyTwo .price {
-  font-size: 36px;
-  letter-spacing: -0.72px;
-}
-.card-style-twentyTwo .read-more {
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  background: #000;
-  color: #fff;
-  font-size: 22px;
-}
-.card-style-twentyTwo .read-more:hover {
-  background: var(--prime-twelve);
-  color: #000;
-}
 .fancy-feature-fortySeven .shape-one {
   bottom: -45px;
   right: 20%;
@@ -7423,49 +7246,6 @@ body .btn-twentySix:hover:after {
   bottom: -50px;
   right: 10%;
 }
-/*^^^^^^^^^^^^^^^^^^^^^ Feedback Section Fourteen ^^^^^^^^^^^^^^^^^^^^^^^^*/
-.feedback_slider_eleven .slick-dots {
-  margin-top: 45px;
-  padding: 0;
-}
-.feedback_slider_eleven .slick-dots li button {
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border: 1px solid #000;
-}
-.feedback_slider_eleven .slick-dots li.slick-active button {
-  background: #000;
-  transform: scale(1);
-}
-.feedback-section-fourteen .rating-box {
-  width: 160px;
-  height: 160px;
-  font-size: 20px;
-  line-height: 50px;
-  transform: translate(-30px, 15px);
-}
-.feedback-section-fourteen .rating-box strong {
-  font-size: 58px;
-  letter-spacing: -1px;
-}
-.feedback-section-fourteen .img-holder .shape-one {
-  top: -62px;
-  right: -62px;
-  z-index: 1;
-}
-.feedback-section-fourteen .img-holder .shape-two {
-  bottom: 0;
-  right: 18%;
-}
-.feedback-section-fourteen .shape-three {
-  bottom: 32%;
-  left: 6%;
-}
-.feedback-section-fourteen .shape-four {
-  top: -98px;
-  left: 46%;
-}
 /*^^^^^^^^^^^^^^^^^^^^^ Blog Section Six ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .blog-section-six {
   background: #f5f7fc;
@@ -7478,152 +7258,6 @@ body .btn-twentySix:hover:after {
   position: absolute;
   right: 0;
   top: 35px;
-}
-.blog-meta-six {
-  padding: 75px 40px 42px 50px;
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 500px;
-}
-.blog-meta-six:before {
-  content: "";
-  position: absolute;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.56) 100%
-  );
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.3s ease-in-out;
-}
-.blog-meta-six:hover:before {
-  background: #fff;
-}
-.blog-meta-six .tag {
-  font-size: 12px;
-  letter-spacing: 1px;
-  border: 1px solid #000;
-  padding: 3px 11px;
-  color: #fff;
-  background: #000;
-}
-.blog-meta-six .blog-title {
-  font-size: 32px;
-  line-height: 1.56em;
-  color: #fff;
-}
-.blog-meta-six .blog-date {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-}
-.blog-meta-six:hover .blog-date {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.blog-meta-six .blog-date a:hover,
-.blog-meta-six .blog-title:hover {
-  color: #000;
-  text-decoration: underline;
-}
-.blog-meta-six .read-more {
-  width: 45px;
-  height: 45px;
-  text-align: center;
-  line-height: 45px;
-  background: var(--prime-twelve);
-  color: #000;
-  font-size: 24px;
-}
-.blog-meta-six .read-more:hover {
-  color: #fff;
-  background: #000;
-}
-.blog-meta-six .blog-header {
-  position: absolute;
-  left: 0;
-  bottom: -12px;
-  width: 75%;
-  transition: all 0.3s ease-in-out;
-}
-.blog-meta-six:hover .blog-header {
-  transform: translateY(-100%);
-}
-.blog-meta-six:hover .blog-header .blog-title {
-  color: #000;
-}
-.blog-sidebar .blog-sidebar-search form {
-  height: 65px;
-  position: relative;
-}
-.blog-sidebar .blog-sidebar-search input {
-  width: 100%;
-  height: 100%;
-  border: none;
-  font-size: 17px;
-  background: #f4f4f4;
-  border-radius: 5px;
-  padding: 0 60px 0 20px;
-}
-.blog-sidebar .blog-sidebar-search button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 60px;
-  color: #000;
-}
-.blog-sidebar .sidebar-title {
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-.blog-sidebar .blog-sidebar-category ul li a {
-  font-size: 16px;
-  line-height: 40px;
-  display: block;
-  color: #000;
-  transition: all 0.3s ease-in-out;
-}
-.blog-sidebar .blog-sidebar-category ul li a:hover {
-  color: var(--prime-ten);
-}
-.sidebar-recent-news .post {
-  width: calc(100% - 80px);
-}
-.sidebar-recent-news img {
-  width: 80px;
-  height: 90px;
-  object-fit: cover;
-}
-.sidebar-recent-news .post .title {
-  font-size: 22px;
-  line-height: 1.36em;
-}
-.sidebar-recent-news .post .title:hover {
-  color: var(--prime-ten);
-}
-.blog-sidebar .sidebar-banner-add {
-  background-size: cover;
-  position: relative;
-  padding: 20px;
-}
-.blog-sidebar .sidebar-banner-add .banner-content {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 40px 50px;
-  text-align: center;
-}
-.blog-sidebar .sidebar-banner-add .banner-content h4 {
-  line-height: 31px;
-}
-.blog-sidebar .sidebar-banner-add .banner-content p {
-  margin: 20px 0 15px;
 }
 /*^^^^^^^^^^^^^^^^^^^^^ Feature Section Fifty ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .accordion-style-seven .accordion-item {
@@ -7677,56 +7311,6 @@ body .btn-twentySix:hover:after {
 .fancy-feature-fifty .shape-one {
   bottom: 0;
   left: 25%;
-}
-/*^^^^^^^^^^^^^^^^^^^^^ Fancy Short Banner Fifteen ^^^^^^^^^^^^^^^^^^^^^^^^*/
-.fancy-short-banner-fifteen {
-  background: url(../images/media/img_85.jpg) no-repeat center;
-  background-size: cover;
-}
-.fancy-short-banner-fifteen:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-}
-.fancy-short-banner-fifteen .title {
-  font-size: 72px;
-  line-height: 1.26em;
-}
-.fancy-short-banner-fifteen p a {
-  color: var(--prime-twelve);
-}
-.fancy-short-banner-fifteen .form-bg {
-  background: var(--prime-twelve);
-  padding: 65px 60px 55px;
-}
-.fancy-short-banner-fifteen form input {
-  width: calc(100% - 140px);
-  height: 55px;
-  font-size: 20px;
-  color: #000;
-  border: none;
-  border-bottom: 2px solid #000;
-  background: transparent;
-}
-.fancy-short-banner-fifteen ::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 1);
-}
-.fancy-short-banner-fifteen :-ms-input-placeholder {
-  color: rgba(0, 0, 0, 1);
-}
-.fancy-short-banner-fifteen ::placeholder {
-  color: rgba(0, 0, 0, 1);
-}
-.fancy-short-banner-fifteen form button {
-  width: 110px;
-  height: 55px;
-  letter-spacing: 4px;
-  background: #000;
 }
 /*^^^^^^^^^^^^^^^^^^^^^ Footer Twelve ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .footer-style-twelve {
@@ -9105,44 +8689,6 @@ body .btn-twentySix:hover:after {
   color: #fff;
   background: #000;
 }
-/*^^^^^^^^^^^^^^^^^^^^^ Feature Section Fifty Eight ^^^^^^^^^^^^^^^^^^^^^^^^*/
-.fancy-feature-fiftyEight .shape-one {
-  bottom: 0;
-  left: 40px;
-}
-.feedback-block-thirteen .icon {
-  width: 50px;
-  height: 50px;
-  background: #000;
-}
-.feedback-block-thirteen p {
-  font-size: 36px;
-  line-height: 1.58em;
-}
-.fancy-feature-fiftyEight .rating {
-  width: 100px;
-  height: 100px;
-  background: #ff67d4;
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-}
-.fancy-feature-fiftyEight .rating-value {
-  font-size: 38px;
-  margin-bottom: -10px;
-}
-.fancy-feature-fiftyEight .customer-data {
-  width: 150px;
-  height: 150px;
-  background: #cfff69;
-  position: absolute;
-  right: -70px;
-  bottom: -70px;
-}
-.fancy-feature-fiftyEight .customer-data .amount {
-  font-size: 45px;
-  margin-bottom: -8px;
-}
 /*^^^^^^^^^^^^^^^^^^^^^ Feature Section Fifty Nine ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .fancy-feature-fiftyNine .shape-one {
   left: 0;
@@ -9209,46 +8755,6 @@ body .btn-twentySix:hover:after {
 .form-style-five [class*="btn-"]:hover {
   background: var(--prime-eight);
   color: #000;
-}
-/*^^^^^^^^^^^^^^^^^^^^^ Feature Section Fifty Five ^^^^^^^^^^^^^^^^^^^^^^^^*/
-.fancy-feature-fiftyFive {
-  background: #f3f7f8;
-}
-.fancy-feature-fiftyFive .title-line .count {
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  background: #000;
-  font-size: 20px;
-}
-.fancy-feature-fiftyFive .title-line .solid-line {
-  height: 2px;
-  width: calc(100% - 70px);
-  background: #000;
-}
-.fancy-feature-fiftyFive .shape-one {
-  width: 126px;
-  height: 126px;
-  background: #ffc961;
-  top: 14%;
-  left: -80px;
-  animation: jumpThree 3s infinite linear;
-}
-.fancy-feature-fiftyFive .shape-two {
-  width: 300px;
-  height: 300px;
-  background: #ff35d9;
-  bottom: 38%;
-  right: -200px;
-  animation: jumpTwo 3s infinite linear;
-}
-.fancy-feature-fiftyFive .shape-three {
-  width: 126px;
-  height: 126px;
-  background: #57f2cf;
-  bottom: 4%;
-  left: -80px;
-  animation: jumpTwo 3s infinite linear;
 }
 /*^^^^^^^^^^^^^^^^^^^^^ Blog Section Seven ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .blog-meta-seven {

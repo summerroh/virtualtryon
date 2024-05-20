@@ -68,7 +68,6 @@
     font-size: 22px;
   }
   .title-style-seven .main-title,
-  .title-style-eight .main-title,
   .title-style-three .main-title {
     font-size: 58px;
   }
@@ -80,7 +79,7 @@
     font-size: 55px;
   }
   .title-style-five .main-title,
-  .fancy-short-banner-fifteen .title {
+  .title {
     font-size: 58px;
   }
   .inner-banner-one .title {
@@ -164,9 +163,6 @@
     line-height: 715px;
     top: -66px;
   }
-  .feedback-section-fourteen .shape-three {
-    left: -3%;
-  }
   .feedback-block-twelve p {
     font-size: 31px;
   }
@@ -208,9 +204,6 @@
   }
   .fancy-feature-twelve .block-wrapper {
     width: 68vw;
-  }
-  .fancy-feature-thirteen .fancy-text {
-    font-size: 172px;
   }
   .feedback-block-four {
     padding: 40px 35px 45px;
@@ -538,7 +531,7 @@
     left: 10px;
   }
   .shape-two,
-  .feedback-section-fourteen .shape-three,
+  .shape-three,
   .pricing-section-one .shapes,
   .blog-section-one .shape-two,
   .shape-one,
@@ -684,12 +677,6 @@
     height: 70px;
     padding: 15px;
   }
-  .card-style-twentyTwo .text-meta {
-    padding: 30px 15px 20px;
-  }
-  .card-style-twentyTwo .price {
-    font-size: 22px;
-  }
   .fancy-feature-fortyEight .img-gallery .video-icon {
     width: 65px;
     height: 65px;
@@ -698,11 +685,6 @@
   .counter-block-three .main-count {
     font-size: 35px;
     margin-bottom: -5px;
-  }
-  .feedback-section-fourteen .shape-four {
-    width: 100px;
-    top: -50px;
-    left: 20%;
   }
   .fancy-feature-fortyNine .clip-text-two {
     font-size: 50px;
@@ -713,25 +695,6 @@
     height: 50px;
   }
   .feedback-block-twelve p {
-    font-size: 24px;
-  }
-  .feedback_slider_eleven .slick-dots {
-    margin-top: 25px;
-  }
-  .feedback-section-fourteen .rating-box {
-    width: 100%;
-    height: 80px;
-    transform: none;
-    font-size: 17px;
-  }
-  .feedback-section-fourteen .rating-box strong {
-    font-size: 40px;
-    margin: 15px 0 -15px;
-  }
-  .blog-meta-six {
-    padding: 35px 20px;
-  }
-  .blog-meta-six .blog-title {
     font-size: 24px;
   }
   .accordion-style-seven .accordion-button {
@@ -747,9 +710,6 @@
   .accordion-style-seven .accordion-body p {
     font-size: 18px;
     line-height: 32px;
-  }
-  .fancy-short-banner-fifteen .form-bg {
-    padding: 35px 20px 30px;
   }
   .theme-main-menu .contact-btn-two,
   .theme-main-menu .login-btn-one {
@@ -904,10 +864,6 @@
   .fancy-feature-twentyEight .illustration-img {
     max-width: 96%;
   }
-  .title-style-nine .sc-title {
-    font-size: 15px;
-    padding-bottom: 12px;
-  }
   .block-style-five .list-item li {
     padding: 20px 20px 20px 75px;
     font-size: 18px;
@@ -966,27 +922,6 @@
   .g-control-nav-one li {
     font-size: 18px;
     margin-left: 30px;
-  }
-  .fancy-feature-thirteen .skils-list li span {
-    line-height: 58px;
-    font-size: 15px;
-    padding: 0 20px;
-  }
-  .fancy-feature-thirteen .skils-list li {
-    font-size: 20px;
-    margin: 15px 10px 0;
-  }
-  .fancy-feature-thirteen .text-xxl {
-    font-size: 20px;
-  }
-  .fancy-feature-thirteen .tx-sp1 span {
-    font-size: 60px;
-  }
-  .fancy-feature-thirteen .img-meta .text-meta .tm-heading {
-    font-size: 45px;
-  }
-  .fancy-feature-thirteen .img-meta .text-meta h3 {
-    font-size: 42px;
   }
   .counter-block-one .icon-bg {
     width: 170px;
@@ -1338,15 +1273,6 @@
     font-size: 18px;
     margin-right: 18px;
   }
-  .blog-sidebar .sidebar-banner-add .banner-content {
-    padding: 30px 20px;
-  }
-  .blog-sidebar .sidebar-title {
-    font-size: 22px;
-  }
-  .sidebar-recent-news .post .title {
-    font-size: 18px;
-  }
   .blog-details-one .blog-details-content .image-meta {
     margin-bottom: 25px;
   }
@@ -1423,28 +1349,6 @@
   .address-block-four h5 {
     font-size: 22px;
   }
-  .fancy-feature-fiftyEight .shape-one {
-    width: 36%;
-    left: 0;
-  }
-  .fancy-feature-fiftyEight .rating {
-    width: 85px;
-    height: 85px;
-  }
-  .fancy-feature-fiftyEight .rating-value {
-    font-size: 30px;
-    margin-bottom: -8px;
-  }
-  .fancy-feature-fiftyEight .customer-data {
-    width: 110px;
-    height: 110px;
-    right: 0;
-    bottom: -50px;
-  }
-  .fancy-feature-fiftyEight .customer-data .amount {
-    font-size: 30px;
-    margin-bottom: -3px;
-  }
   .card-style-twentySix .icon {
     width: 55px;
     height: 55px;
@@ -1466,7 +1370,6 @@
     font-size: 26px;
   }
   .title-style-seven .main-title,
-  .title-style-eight .main-title,
   .fancy-short-banner-six .block-wrapper .main-title {
     font-size: 48px;
   }
@@ -1474,7 +1377,7 @@
     font-size: 48px;
   }
   .title-style-eleven .main-title,
-  .fancy-short-banner-fifteen .title {
+  .title {
     font-size: 48px;
   }
   .title-style-three .main-title {
@@ -1591,9 +1494,6 @@
   .partner-section-two .logo-wrapper {
     max-width: 60%;
   }
-  .fancy-feature-thirteen .fancy-text {
-    font-size: 130px;
-  }
   .fancy-feature-one .inner-content {
     max-width: 1120px;
   }
@@ -1676,7 +1576,6 @@
     font-size: 14px;
   }
   .title-style-seven .main-title,
-  .title-style-eight .main-title,
   .fancy-short-banner-six .block-wrapper .main-title {
     font-size: 35px;
     letter-spacing: -0.5px;
@@ -1685,16 +1584,12 @@
     font-size: 34px;
   }
   .title-style-five .main-title,
-  .fancy-short-banner-fifteen .title {
+  .title {
     font-size: 35px;
   }
   .title-style-three .main-title {
     font-size: 34px;
     line-height: 1.2em;
-  }
-
-  .title-style-eight .sc-title {
-    font-size: 12px;
   }
   .title-style-six .main-title {
     font-size: 32px;
@@ -1802,9 +1697,6 @@
   }
   .fancy-short-banner-nine .title h2 {
     font-size: 32px;
-  }
-  .title-style-eight .main-title span {
-    line-height: inherit;
   }
   .feedback-block-six p {
     font-size: 22px;
@@ -2013,11 +1905,6 @@
   }
   .portfolio-block-one .title .pj-name {
     font-size: 18px;
-  }
-  .fancy-feature-thirteen .fancy-text {
-    font-size: 95px;
-    letter-spacing: -5px;
-    top: -3%;
   }
   .fancy-feature-two .img-meta .card-one {
     right: 0;
@@ -2513,25 +2400,12 @@
   .blog-section-six .btn-holder {
     position: relative;
   }
-  .blog-meta-six {
-    min-height: 420px;
-  }
-  .fancy-short-banner-fifteen form input {
-    width: 100%;
-    font-size: 18px;
-  }
-  .fancy-short-banner-fifteen form button {
-    width: 100%;
-    height: 42px;
-    font-size: 14px;
-    margin-top: 10px;
-  }
   .footer-style-twelve .shape-one,
   .fancy-img-block,
-  .portfolio-gallery-one .shape-two,
-  .portfolio-gallery-one .shape-three,
-  .fancy-feature-thirteen .img-meta .shape-two,
-  .fancy-feature-thirteen .fancy-text,
+  .shape-two,
+  .shape-three,
+  .img-meta .shape-two,
+  .fancy-text,
   .shapes,
   .pricing-table-area-three .tab-content .pr-column.active:before,
   .fancy-feature-twentyTwo .shape-text,
@@ -2571,9 +2445,6 @@
   }
   .platform-button-group-two a {
     margin: 15px auto 0;
-  }
-  .fancy-feature-thirteen .img-meta .text-meta {
-    left: 15%;
   }
   .feedback-block-four .rating li {
     font-size: 15px;

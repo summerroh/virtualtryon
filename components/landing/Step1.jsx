@@ -18,7 +18,7 @@ const Step1 = () => {
             >
               <div className="title-style-ten">
                 <div className="sc-title badge">STEP 2</div>
-                <h2 className="main-title font-recoleta fw-normal tx-dark">
+                <h2 className="main-title font-recoleta fw-normal tx-dark text-xxl">
                   Save Time{" "}
                   <span className="position-relative">
                     and Money
