@@ -36,7 +36,7 @@ import { playlists } from "@/data/playlists";
 import musicLight from "@/public/examples/music-light.png";
 
 export const metadata = {
-  title: "Music App",
+  title: "Virtual Fitting Room",
   description: "Example music app using the components.",
 };
 
