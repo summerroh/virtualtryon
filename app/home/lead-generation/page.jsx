@@ -1,21 +1,18 @@
 import React from "react";
 
-import Header from "@/components/home-page/home-13/Header";
-import Hero from "@/components/home-page/home-13/hero";
-import Feedback from "@/components/home-page/home-13/Feedback";
-import Counter from "@/components/home-page/home-13/Counter";
-import SuccessStory from "@/components/home-page/home-13/SuccessStory";
-import Testimonial from "@/components/home-page/home-13/Testimonial";
-import Faq from "@/components/home-page/home-13/Faq";
+import Header from "@/components/landing/Header";
+import Hero from "@/components/hero";
+import Feedback from "@/components/landing/Feedback";
+import Faq from "@/components/landing/Faq";
 import Link from "next/link";
-import CopyrightFooter from "@/components/home-page/home-13/CopyrightFooter";
+import CopyrightFooter from "@/components/landing/CopyrightFooter";
 import Image from "next/image";
 // import Pricing from "@/app/404/page";
-import Pricing from "@/components/home-page/home-13/Pricing";
+import Pricing from "@/components/landing/Pricing";
 import ImageRoller from "@/components/roller/ImageRoller";
-import Step2 from "@/components/home-page/home-13/Step2";
-import Step3 from "@/components/home-page/home-13/Step3";
-import Step1 from "@/components/home-page/home-13/Step1";
+import Step2 from "@/components/landing/Step2";
+import Step3 from "@/components/landing/Step3";
+import Step1 from "@/components/landing/Step1";
 
 export const metadata = {
   title: "Virtual Fitting Room || Create professional fashion photoshoots",
