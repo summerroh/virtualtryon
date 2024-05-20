@@ -48,7 +48,7 @@ export default function Dashboard() {
           <div className="bg-background">
             <div className="grid lg:grid-cols-6">
               <Sidebar className="block" />
-              <div className="col-span-3 lg:col-span-5 lg:border-l">
+              <div className="col-span-3 lg:col-span-5 lg:border-l lg:px-40">
                 <div className="h-full px-4 py-6 lg:px-8">
                   <Tabs defaultValue="music" className="h-full space-y-6">
                     {/* <div className="space-between flex items-center">
@@ -74,11 +74,11 @@ export default function Dashboard() {
                       className="border-none p-0 outline-none"
                     >
                       <div className="flex items-center justify-between">
-                        <div className="space-y-1">
+                        <div className="space-y-1 mb-6">
                           <p className="text-sm text-muted-foreground">
                             Step 1/5
                           </p>
-                          <h2 className="text-2xl font-semibold tracking-tight">
+                          <h2 className="text-xl font-semibold tracking-tight">
                             Start with a photo of your cloth
                           </h2>
                         </div>
@@ -88,35 +88,21 @@ export default function Dashboard() {
                       </div>
 
                       <div className="flex items-center justify-between">
-                        <div className="space-y-1">
-                          <h2 className="text-2xl font-semibold tracking-tight">
-                            Listen Now
-                          </h2>
+                        <div className="space-y-1 mt-6 mb-6">
                           <p className="text-sm text-muted-foreground">
-                            Top picks for you. Updated daily.
+                            Step 1/5
                           </p>
+                          <h2 className="text-xl font-semibold tracking-tight">
+                            Start with a photo of your cloth
+                          </h2>
                         </div>
                       </div>
                       <div className="relative">
-                        <ScrollArea>
-                          <div className="flex space-x-4 pb-4">
-                            {listenNowAlbums.map((album) => (
-                              <AlbumArtwork
-                                key={album.name}
-                                album={album}
-                                className="w-[250px]"
-                                aspectRatio="portrait"
-                                width={250}
-                                height={330}
-                              />
-                            ))}
-                          </div>
-                          <ScrollBar orientation="horizontal" />
-                        </ScrollArea>
+                        <DragNDrop />
                       </div>
 
-                      <div className="mt-6 space-y-1">
-                        <h2 className="text-2xl font-semibold tracking-tight">
+                      <div className="mt-6 mb-6 space-y-1">
+                        <h2 className="text-xl font-semibold tracking-tight">
                           Made for You
                         </h2>
                         <p className="text-sm text-muted-foreground">
@@ -134,6 +120,32 @@ export default function Dashboard() {
                                 aspectRatio="square"
                                 width={150}
                                 height={150}
+                              />
+                            ))}
+                          </div>
+                          <ScrollBar orientation="horizontal" />
+                        </ScrollArea>
+                      </div>
+
+                      <div className="space-y-1 mt-6 mb-6">
+                        <h2 className="text-xl font-semibold tracking-tight">
+                          Listen Now
+                        </h2>
+                        <p className="text-sm text-muted-foreground">
+                          Top picks for you. Updated daily.
+                        </p>
+                      </div>
+                      <div className="relative">
+                        <ScrollArea>
+                          <div className="flex space-x-4 pb-4">
+                            {listenNowAlbums.map((album) => (
+                              <AlbumArtwork
+                                key={album.name}
+                                album={album}
+                                className="w-[250px]"
+                                aspectRatio="portrait"
+                                width={250}
+                                height={330}
                               />
                             ))}
                           </div>
