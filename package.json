@@ -17,7 +17,10 @@
     "bootstrap": "^5.2.3",
     "caniuse-lite": "^1.0.30001589",
     "carousel": "^0.0.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "firebase": "^10.11.1",
+    "lucide-react": "^0.378.0",
     "next": "14.1.0",
     "photoswipe": "^5.4.3",
     "postcss": "^8.4.38",
@@ -35,7 +38,9 @@
     "react-tabs": "^6.0.2",
     "sass": "^1.71.1",
     "slick": "^1.12.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.3"
