@@ -98,7 +98,7 @@ export default function Dashboard() {
                           </h2>
                         </div>
                       </div>
-                      <Card className="w-full bg-black p-6">
+                      <Card className="w-full bg-grey p-6">
                         <Button>Female model</Button>
                         <Button>Male model</Button>
                       </Card>
