@@ -15,7 +15,7 @@ import {
 
 import { playlists } from "../data/playlists";
 
-export function AlbumArtwork({
+export function PhotoLayout({
   album,
   aspectRatio = "portrait",
   width,
@@ -80,7 +80,7 @@ export function AlbumArtwork({
       </ContextMenu>
       <div className="space-y-1 text-sm">
         <h3 className="font-medium leading-none">{album.name}</h3>
-        <p className="text-xs text-muted-foreground">{album.artist}</p>
+        {/* <p className="text-xs text-muted-foreground">{album.artist}</p> */}
       </div>
     </div>
   );

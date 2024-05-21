@@ -6,7 +6,7 @@ export interface Album {
 
 export const listenNowAlbums: Album[] = [
   {
-    name: "React Rendezvous",
+    name: "Full body",
     artist: "Ethan Byte",
     cover:
       "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
