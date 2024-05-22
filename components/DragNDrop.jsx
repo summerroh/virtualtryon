@@ -1,87 +1,18 @@
 "use client";
 
 import axios, { AxiosProgressEvent, CancelTokenSource } from "axios";
-import {
-  AudioWaveform,
-  File,
-  FileImage,
-  FolderArchive,
-  UploadCloud,
-  Video,
-  X,
-} from "lucide-react";
+import { X } from "lucide-react";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea } from "@/components/ui/scroll-area";
-
-const ImageColor = {
-  bgColor: "bg-purple-600",
-  fillColor: "fill-purple-600",
-};
-
-const PdfColor = {
-  bgColor: "bg-blue-400",
-  fillColor: "fill-blue-400",
-};
-
-const AudioColor = {
-  bgColor: "bg-yellow-400",
-  fillColor: "fill-yellow-400",
-};
-
-const VideoColor = {
-  bgColor: "bg-green-400",
-  fillColor: "fill-green-400",
-};
-
-const OtherColor = {
-  bgColor: "bg-gray-400",
-  fillColor: "fill-gray-400",
-};
+import { Button } from "./ui/button";
 
 export default function ImageUpload() {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [filesToUpload, setFilesToUpload] = useState([]);
 
-  //   const getFileIconAndColor = (file) => {
-  //     if (file.type.includes(FileTypes.Image)) {
-  //       return {
-  //         icon: <FileImage size={40} className={ImageColor.fillColor} />,
-  //         color: ImageColor.bgColor,
-  //       };
-  //     }
-
-  //     if (file.type.includes(FileTypes.Pdf)) {
-  //       return {
-  //         icon: <File size={40} className={PdfColor.fillColor} />,
-  //         color: PdfColor.bgColor,
-  //       };
-  //     }
-
-  //     if (file.type.includes(FileTypes.Audio)) {
-  //       return {
-  //         icon: <AudioWaveform size={40} className={AudioColor.fillColor} />,
-  //         color: AudioColor.bgColor,
-  //       };
-  //     }
-
-  //     if (file.type.includes(FileTypes.Video)) {
-  //       return {
-  //         icon: <Video size={40} className={VideoColor.fillColor} />,
-  //         color: VideoColor.bgColor,
-  //       };
-  //     }
-
-  //     return {
-  //       icon: <FolderArchive size={40} className={OtherColor.fillColor} />,
-  //       color: OtherColor.bgColor,
-  //     };
-  //   };
-
-  // feel free to mode all these functions to separate utils
-  // here is just for simplicity
   const onUploadProgress = (progressEvent, file, cancelSource) => {
     const progress = Math.round(
       (progressEvent.loaded / (progressEvent.total ?? 0)) * 100
@@ -189,16 +120,15 @@ export default function ImageUpload() {
           className="relative flex flex-col items-center justify-center w-full py-6 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 "
         >
           <div className=" text-center">
-            <div className=" border p-2 rounded-md max-w-min mx-auto">
+            {/* <div className=" border p-2 rounded-md max-w-min mx-auto">
               <UploadCloud size={20} />
-            </div>
+            </div> */}
 
             <p className="mt-2 text-sm text-gray-600">
-              <span className="font-semibold">Drag files</span>
+              <span className="font-semibold">Drag & Drop</span>
             </p>
-            <p className="text-xs text-gray-500">
-              Click to upload files &#40;files should be under 10 MB &#41;
-            </p>
+            <p className="text-xs text-gray-500">Or</p>
+            <Button className="w-full h-14">Upload an image</Button>
           </div>
         </label>
 
