@@ -125,10 +125,10 @@ export default function ImageUpload() {
             </div> */}
 
             <p className="mt-2 text-sm text-gray-600">
-              <span className="font-semibold">Drag & Drop</span>
+              <span className="font-semibold text-primary">Drag & Drop</span>
             </p>
             <p className="text-xs text-gray-500">Or</p>
-            <Button className="w-full h-14">Upload an image</Button>
+            <Button className="w-full h-8 rounded-full">Upload an image</Button>
           </div>
         </label>
 

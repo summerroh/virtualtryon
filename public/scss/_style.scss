@@ -10,7 +10,8 @@
 }
 :root {
   --text-color: #48494e;
-  --heading: #090f32;
+  // --heading: #090f32;
+  --heading: #2b3674;
   --prime-one: #ff8c24;
   --prime-two: #ff733b;
   --prime-three: #6a45ff;
@@ -23,7 +24,7 @@
   --prime-ten: #ff3294;
   --prime-eleven: #ffce4c;
   --prime-twelve: #ffe500;
-  --dark: #1a1a1a;
+  // --dark: #2B3674;
 }
 ::selection {
   background-color: #2a2a2a;
@@ -262,7 +263,7 @@ p {
   font-weight: 500;
 }
 .tx-dark {
-  color: #000;
+  color: #2b3674;
 }
 .p-30 {
   padding: 30px;

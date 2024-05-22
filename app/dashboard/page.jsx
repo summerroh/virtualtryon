@@ -49,8 +49,8 @@ export default function Dashboard() {
           <div className="bg-background">
             <div className="grid lg:grid-cols-6">
               <Sidebar className="block" />
-              <div className="col-span-3 lg:col-span-5 lg:border-l lg:px-40">
-                <div className="h-full px-4 py-6 lg:px-8 space-y-4">
+              <div className="col-span-3 lg:col-span-5 lg:border-l lg:px-40 bg-background-dashboard">
+                <div className="h-full px-4 py-6 lg:px-8 space-y-6">
                   {/* Step 1 */}
                   <div>
                     <div className="flex items-center justify-between">
@@ -80,8 +80,13 @@ export default function Dashboard() {
                         </h2>
                       </div>
                     </div>
-                    <Card className="w-full bg-grey p-6 flex justify-between gap-x-4">
-                      <Button className="w-full h-14">Female model</Button>
+                    <Card className="w-full p-6 flex justify-between gap-x-4">
+                      <Button
+                        variant="outline"
+                        className="w-full h-14 bg-button-background"
+                      >
+                        Female model
+                      </Button>
                       <Button className="w-full h-14">Male model</Button>
                     </Card>
                   </div>
@@ -98,7 +103,7 @@ export default function Dashboard() {
                         </h2>
                       </div>
                     </div>
-                    <Card className="w-full bg-grey p-6 flex flex-col justify-between gap-x-4">
+                    <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
                       <Tabs defaultValue="account" className="w-full">
                         <TabsList className="mb-3 w-full">
                           <TabsTrigger value="shirt">Shirt</TabsTrigger>
@@ -109,48 +114,106 @@ export default function Dashboard() {
                         </TabsList>
                         <TabsContent value="shirt" className="w-full">
                           <div className="flex flex-row gap-x-4">
-                            <Button className="w-full h-14">
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
                               Short sleeves
                             </Button>
-                            <Button className="w-full h-14">
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
                               Long sleeves
                             </Button>
-                            <Button className="w-full h-14">sleevleess</Button>
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
+                              sleevleess
+                            </Button>
                           </div>
                         </TabsContent>
                         <TabsContent value="croptop">
                           <div className="flex flex-row gap-x-4">
-                            <Button className="w-full h-14">
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
                               Short sleeves
                             </Button>
-                            <Button className="w-full h-14">
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
                               Long sleeves
                             </Button>
-                            <Button className="w-full h-14">sleevleess</Button>
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
+                              sleevleess
+                            </Button>
                           </div>
                         </TabsContent>
                         <TabsContent value="pants">
                           <div className="flex flex-row gap-x-4">
-                            <Button className="w-full h-14">Shorts</Button>
-                            <Button className="w-full h-14">Long pants</Button>
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
+                              Shorts
+                            </Button>
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
+                              Long pants
+                            </Button>
                           </div>
                         </TabsContent>
                         <TabsContent value="jacket">
                           <div className="flex flex-row gap-x-4">
-                            <Button className="w-full h-14">
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
                               Short sleeves
                             </Button>
-                            <Button className="w-full h-14">
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
                               Long sleeves
                             </Button>
-                            <Button className="w-full h-14">sleevleess</Button>
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
+                              sleevleess
+                            </Button>
                           </div>
                         </TabsContent>
                         <TabsContent value="dress">
                           <div className="flex flex-row gap-x-4">
-                            <Button className="w-full h-14">Mini dress</Button>
-                            <Button className="w-full h-14">Midi dress</Button>
-                            <Button className="w-full h-14">Maxi dress</Button>
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
+                              Mini dress
+                            </Button>
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
+                              Midi dress
+                            </Button>
+                            <Button
+                              variant="outline"
+                              className="w-full h-14 bg-button-background"
+                            >
+                              Maxi dress
+                            </Button>
                           </div>
                         </TabsContent>
                       </Tabs>

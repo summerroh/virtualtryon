@@ -9,8 +9,9 @@ export const listenNowAlbums: Album[] = [
     name: "Full body",
     artist: "Ethan Byte",
     cover:
-      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=300&dpr=2&q=80",
+      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-full-body.png?alt=media&token=0430809e-9544-4e65-a616-f85f169b146c",
   },
+  // @/public/dashboard/amy-full-body.png
   {
     name: "Async Awakenings",
     artist: "Nina Netcode",
