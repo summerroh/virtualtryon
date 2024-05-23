@@ -252,7 +252,7 @@ export default function Dashboard() {
                   {/* Step 5 */}
                   <div>
                     <div className="space-y-1 mt-6 mb-6">
-                      <p className="text-sm text-muted-foreground font-medium font-bold">
+                      <p className="text-sm text-muted-foreground font-bold">
                         Step 5/5
                       </p>
                       <h2 className="text-xl font-bold tracking-tight">
