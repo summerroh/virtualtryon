@@ -73,7 +73,7 @@ export default function Dashboard() {
                         <p className="text-sm text-muted-foreground font-bold">
                           Step 2/5
                         </p>
-                        <h2 className="text-xl font-semibold tracking-tight">
+                        <h2 className="text-xl font-bold tracking-tight">
                           Choose the gender of your model
                         </h2>
                       </div>
