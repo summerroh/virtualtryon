@@ -31,7 +31,7 @@ import { Menu } from "@/components/menu";
 import { PodcastEmptyPlaceholder } from "@/components/podcast-empty-placeholder";
 import { Sidebar } from "@/components/sidebar";
 import { Card } from "@/components/ui/card";
-import { listenNowAlbums, madeForYouAlbums } from "@/data/albums";
+import { layouts, thumbnails } from "@/data/albums";
 
 import musicLight from "@/public/examples/music-light.png";
 import DragNDrop from "@/components/DragNDrop";
@@ -231,7 +231,7 @@ export default function Dashboard() {
                     <div className="relative">
                       <ScrollArea>
                         <div className="flex space-x-4 pb-4">
-                          {madeForYouAlbums.map((album) => (
+                          {thumbnails.map((album) => (
                             <PhotoLayout
                               key={album.name}
                               album={album}
@@ -250,7 +250,9 @@ export default function Dashboard() {
                   {/* Step 5 */}
                   <div>
                     <div className="space-y-1 mt-6 mb-6">
-                      <p className="text-sm text-muted-foreground">Step 5/5</p>
+                      <p className="text-sm text-muted-foreground font-medium">
+                        Step 5/5
+                      </p>
                       <h2 className="text-xl font-semibold tracking-tight">
                         Choose photo layouts
                       </h2>
@@ -258,7 +260,7 @@ export default function Dashboard() {
                     <div className="relative">
                       <ScrollArea>
                         <div className="flex space-x-4 pb-4">
-                          {listenNowAlbums.map((album) => (
+                          {layouts.map((album) => (
                             <PhotoLayout
                               key={album.name}
                               album={album}

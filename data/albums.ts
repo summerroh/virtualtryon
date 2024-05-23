@@ -4,69 +4,38 @@ export interface Album {
   cover: string;
 }
 
-export const listenNowAlbums: Album[] = [
+export const layouts: Album[] = [
   {
     name: "Full body",
     artist: "Ethan Byte",
     cover:
-      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-full-body.png?alt=media&token=0430809e-9544-4e65-a616-f85f169b146c",
+      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-full-body.png?alt=media&token=cc7afb86-8238-4bfd-8754-0f7f01cc2913",
   },
-  // @/public/dashboard/amy-full-body.png
   {
-    name: "Async Awakenings",
+    name: "Upper closeup",
     artist: "Nina Netcode",
     cover:
-      "https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80",
-  },
-  {
-    name: "The Art of Reusability",
-    artist: "Lena Logic",
-    cover:
-      "https://images.unsplash.com/photo-1528143358888-6d3c7f67bd5d?w=300&dpr=2&q=80",
-  },
-  {
-    name: "Stateful Symphony",
-    artist: "Beth Binary",
-    cover:
-      "https://images.unsplash.com/photo-1490300472339-79e4adc6be4a?w=300&dpr=2&q=80",
+      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-upper-closeup.png?alt=media&token=3f05b174-a598-4d79-9944-4650e1ee29ee",
   },
 ];
 
-export const madeForYouAlbums: Album[] = [
+export const thumbnails: Album[] = [
   {
-    name: "Thinking Components",
+    name: "Rachael",
     artist: "Lena Logic",
     cover:
-      "https://images.unsplash.com/photo-1615247001958-f4bc92fa6a4a?w=300&dpr=2&q=80",
+      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/rachael-thumb.png?alt=media&token=2594bcfe-119e-4da7-af5f-7dcc576dabcf",
   },
   {
-    name: "Functional Fury",
+    name: "Amy",
     artist: "Beth Binary",
     cover:
-      "https://images.unsplash.com/photo-1513745405825-efaf9a49315f?w=300&dpr=2&q=80",
+      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-thumb.png?alt=media&token=338527f5-76f0-411b-9138-c85d617162fd",
   },
   {
-    name: "React Rendezvous",
+    name: "Lucy",
     artist: "Ethan Byte",
     cover:
-      "https://images.unsplash.com/photo-1614113489855-66422ad300a4?w=300&dpr=2&q=80",
-  },
-  {
-    name: "Stateful Symphony",
-    artist: "Beth Binary",
-    cover:
-      "https://images.unsplash.com/photo-1446185250204-f94591f7d702?w=300&dpr=2&q=80",
-  },
-  {
-    name: "Async Awakenings",
-    artist: "Nina Netcode",
-    cover:
-      "https://images.unsplash.com/photo-1468817814611-b7edf94b5d60?w=300&dpr=2&q=80",
-  },
-  {
-    name: "The Art of Reusability",
-    artist: "Lena Logic",
-    cover:
-      "https://images.unsplash.com/photo-1490300472339-79e4adc6be4a?w=300&dpr=2&q=80",
+      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/lucy-thumb.png?alt=media&token=252b13ed-0b6e-4b36-84b4-42f9808df063",
   },
 ];
