@@ -116,19 +116,19 @@ export default function Dashboard() {
                           <div className="flex flex-row gap-x-4">
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Short sleeves
                             </Button>
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Long sleeves
                             </Button>
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               sleevleess
                             </Button>
@@ -138,19 +138,19 @@ export default function Dashboard() {
                           <div className="flex flex-row gap-x-4">
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Short sleeves
                             </Button>
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Long sleeves
                             </Button>
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               sleevleess
                             </Button>
@@ -160,13 +160,13 @@ export default function Dashboard() {
                           <div className="flex flex-row gap-x-4">
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Shorts
                             </Button>
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Long pants
                             </Button>
@@ -176,19 +176,19 @@ export default function Dashboard() {
                           <div className="flex flex-row gap-x-4">
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Short sleeves
                             </Button>
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Long sleeves
                             </Button>
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               sleevleess
                             </Button>
@@ -198,19 +198,19 @@ export default function Dashboard() {
                           <div className="flex flex-row gap-x-4">
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Mini dress
                             </Button>
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Midi dress
                             </Button>
                             <Button
                               variant="outline"
-                              className="w-full h-14 bg-button-background"
+                              className="w-full h-14 bg-button-background font-bold"
                             >
                               Maxi dress
                             </Button>
