@@ -117,18 +117,18 @@ export default function ImageUpload() {
       <div>
         <label
           {...getRootProps()}
-          className="relative flex flex-col items-center justify-center w-full py-6 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 "
+          className="relative flex flex-col items-center justify-center w-full p-6 rounded-lg cursor-pointer bg-white"
         >
-          <div className=" text-center">
-            {/* <div className=" border p-2 rounded-md max-w-min mx-auto">
-              <UploadCloud size={20} />
-            </div> */}
-
-            <p className="mt-2 text-sm text-gray-600">
-              <span className="font-semibold text-primary">Drag & Drop</span>
-            </p>
-            <p className="text-xs text-gray-500">Or</p>
-            <Button className="w-full h-8 rounded-full">Upload an image</Button>
+          <div className="relative flex flex-col items-center justify-center w-full py-6 border-1 border-gray-300 border-dashed rounded-lg cursor-pointer bg-button-background hover:bg-gray-100">
+            <div className=" text-center">
+              <p className="mt-2 text-sm text-gray-600">
+                <span className="font-bold text-primary">Drag & Drop</span>
+              </p>
+              <p className="text-xs text-gray-500 py-3 font-bold">Or</p>
+              <Button className="w-full h-10 rounded-full">
+                Upload an image
+              </Button>
+            </div>
           </div>
         </label>
 
