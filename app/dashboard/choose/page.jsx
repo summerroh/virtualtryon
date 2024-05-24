@@ -1,52 +1,122 @@
+// "use client";
+
+// import DeleteUserFunction from "@/components/functions/deleteUser";
+// import LogoutFunction from "@/components/functions/logout";
+// import React from "react";
+
+// export default function Dashboard() {
+//   return (
+//     <>
+//       <div>Dashboard</div>
+//       <LogoutFunction />
+//       <DeleteUserFunction />
+//     </>
+//   );
+// }
+
+// import { Metadata } from "next";
+// import "@/styles/index.scss";
+// import "@/public/main.scss";
+// import "@/output.css";
 import Image from "next/image";
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+// import { PhotoLayout } from "@/components/album-artwork";
 import { Sidebar } from "@/components/sidebar";
-import { layouts } from "@/data/albums";
+import { Card } from "@/components/ui/card";
+import { layouts, thumbnails } from "@/data/albums";
+
+import DragNDrop from "@/components/DragNDrop";
+import { RefreshCcw, WandSparkles } from "lucide-react";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
-export const metadata = {
-  title: "Virtual Fitting Room",
-  description: "Example music app using the components.",
-};
+// export const metadata = {
+//   title: "Virtual Fitting Room",
+//   description: "Example music app using the components.",
+// };
 
 export default function Page() {
   return (
     <>
-      <div className="bg-background overflow-x-hidden">
-        <div className="flex flex-col lg:flex-row w-full h-screen">
-          <Sidebar className="w-2/12 hidden lg:block h-full lg:h-auto lg:overflow-hidden min-w-20" />
-          <div className="col-span-3 lg:col-span-5 lg:border-l px-4 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full lg:w-10/12 flex flex-col overflow-y-auto">
-            <div className="space-y-1 mt-6 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center text-left">
-              <h2 className="text-xl font-bold tracking-tight">My Creations</h2>
-
-              <ScrollArea className="overflow-x-auto w-full sm:w-auto">
-                <Tabs defaultValue="account" className="">
-                  <TabsList className="mb-3 flex flex-row md:flex-nowrap space-x-4">
-                    <TabsTrigger value="shirt">Shirt</TabsTrigger>
-                    <TabsTrigger value="croptop">Crop Top</TabsTrigger>
-                    <TabsTrigger value="pants">Pants</TabsTrigger>
-                    <TabsTrigger value="jacket">Jacket</TabsTrigger>
-                    <TabsTrigger value="dress">Dress</TabsTrigger>
-                  </TabsList>
-                </Tabs>
-                <ScrollBar orientation="horizontal" />
-              </ScrollArea>
+      <div className="flex flex-col lg:flex-row w-full h-screen">
+        <Sidebar className="w-2/12 hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
+        <div className="col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full lg:w-10/12 flex flex-col overflow-y-auto">
+          {/* Step 1 */}
+          <div className="pt-12">
+            <div>
+              <div className="flex items-center justify-between">
+                <div className="space-y-1 mb-6">
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Choose your final result
+                  </h2>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+                  {Array.from({ length: 2 }).map((_, index) => (
+                    <PhotoLayout
+                      key={index}
+                      album={layouts[0]}
+                      className=""
+                      aspectRatio="portrait"
+                      width={500}
+                      height={660}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-              {Array.from({ length: 10 }).map((_, index) => (
-                <PhotoLayout
-                  key={index}
-                  album={layouts[0]}
-                  className=""
-                  aspectRatio="portrait"
-                  width={250}
-                  height={330}
-                />
-              ))}
+
+            <div className="w-full flex flex-col justify-center items-center mt-10">
+              <small className="text-muted-text font-semibold cursor-pointer mb-2">
+                Not satisfied with the result? Generate more
+              </small>
+              <Link href="/dashboard/choose" className="d-block w-full">
+                <Button className="w-full h-14 font-bold mb-4">
+                  <RefreshCcw
+                    color={"#ffffff"}
+                    size={"20px"}
+                    strokeWidth={2}
+                    className="mr-2"
+                  />
+                  Generate more
+                </Button>
+              </Link>
+            </div>
+
+            <div className="w-full flex flex-col justify-center items-center mt-10">
+              <small className="text-muted-text font-semibold cursor-pointer mb-2">
+                Not satisfied with the result? Generate more
+              </small>
+              <div className="w-full flex flex-row justify-center items-center space-x-2">
+                <Link href="/dashboard/choose" className="d-block w-full">
+                  <Button className="w-full h-14 font-bold mb-4">
+                    <WandSparkles
+                      color={"#ffffff"}
+                      size={"20px"}
+                      strokeWidth={2}
+                      className="mr-2"
+                    />
+                    Download
+                  </Button>
+                </Link>
+                <Link href="/dashboard/choose" className="d-block w-full">
+                  <Button className="w-full h-14 font-bold mb-4">
+                    <WandSparkles
+                      color={"#ffffff"}
+                      size={"20px"}
+                      strokeWidth={2}
+                      className="mr-2"
+                    />
+                    Upply upscaler
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
