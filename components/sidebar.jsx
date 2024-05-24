@@ -15,7 +15,10 @@ export function Sidebar({ className, playlists }) {
               </h2>
               <div className="space-y-1">
                 <Link href="/dashboard" className="d-block">
-                  <Button variant="ghost" className="w-full justify-start">
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start bg-background-dashboard"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
