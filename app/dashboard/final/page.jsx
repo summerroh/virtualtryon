@@ -47,13 +47,13 @@ export default function Page() {
               <div className="flex items-center justify-between">
                 <div className="space-y-1 mb-6">
                   <h2 className="text-xl font-bold tracking-tight">
-                    Choose your final result
+                    Your upscaled final result
                   </h2>
                 </div>
               </div>
               <div className="relative">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
-                  {Array.from({ length: 2 }).map((_, index) => (
+                  {Array.from({ length: 1 }).map((_, index) => (
                     <PhotoLayout
                       key={index}
                       album={layouts[0]}
@@ -68,27 +68,6 @@ export default function Page() {
             </div>
 
             <div className="w-full flex flex-col justify-center items-center mt-10">
-              <small className="text-muted-text font-semibold cursor-pointer mb-2">
-                Not satisfied with the result? Generate more
-              </small>
-              <Link href="/dashboard/choose" className="d-block w-full">
-                <Button className="w-full h-14 font-bold">
-                  <RefreshCcw
-                    color={"#ffffff"}
-                    size={"20px"}
-                    strokeWidth={2}
-                    className="mr-2"
-                  />
-                  Generate more
-                </Button>
-              </Link>
-            </div>
-
-            <div className="w-full flex flex-col justify-center items-center mt-10">
-              <small className="text-muted-text font-semibold cursor-pointer mb-2">
-                Do you like the result? Download or apply upscaler for a better
-                resolution
-              </small>
               <div className="w-full flex flex-row justify-center items-center space-x-2">
                 <Link href="/dashboard/choose" className="d-block w-full">
                   <Button className="w-full h-14 font-bold mb-4 bg-button-secondary">
@@ -101,18 +80,24 @@ export default function Page() {
                     Download
                   </Button>
                 </Link>
-                <Link href="/dashboard/final" className="d-block w-full">
-                  <Button className="w-full h-14 font-bold mb-4 bg-button-secondary">
-                    <Expand
-                      color={"#ffffff"}
-                      size={"20px"}
-                      strokeWidth={2}
-                      className="mr-2"
-                    />
-                    Upply upscaler
-                  </Button>
-                </Link>
               </div>
+            </div>
+
+            <div className="w-full flex flex-col justify-center items-center mt-10">
+              <small className="text-muted-text font-semibold cursor-pointer mb-2">
+                Do you have more clothes that needs model shots? Generate more
+              </small>
+              <Link href="/dashboard/choose" className="d-block w-full">
+                <Button className="w-full h-14 font-bold">
+                  <RefreshCcw
+                    color={"#ffffff"}
+                    size={"20px"}
+                    strokeWidth={2}
+                    className="mr-2"
+                  />
+                  Generate more
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

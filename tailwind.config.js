@@ -60,7 +60,8 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         button: {
-          background: "#FAFCFE",
+          background: "var(--button-background)",
+          secondary: "var(--button-secondary)",
         },
       },
       borderRadius: {
