@@ -69,24 +69,24 @@ export function Sidebar({ className, playlists }) {
               Account
             </h2>
             <div className="space-y-1 px-2">
-              <Link href="/dashboard" className="d-block">
-                <Button
-                  variant="ghost"
-                  className={`w-full justify-start ${
-                    pathname === "/dashboard/settings"
-                      ? "bg-background-dashboard"
-                      : ""
-                  }`}
-                >
-                  <Settings
-                    color={"#000000"}
-                    size={"20px"}
-                    strokeWidth={1.5}
-                    className="mr-2"
-                  />
-                  Settings
-                </Button>
-              </Link>
+              {/* <Link href="/dashboard" className="d-block"> */}
+              <Button
+                variant="ghost"
+                className={`w-full justify-start ${
+                  pathname === "/dashboard/settings"
+                    ? "bg-background-dashboard"
+                    : ""
+                }`}
+              >
+                <Settings
+                  color={"#000000"}
+                  size={"20px"}
+                  strokeWidth={1.5}
+                  className="mr-2"
+                />
+                Settings
+              </Button>
+              {/* </Link> */}
             </div>
           </div>
         </div>
