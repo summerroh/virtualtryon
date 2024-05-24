@@ -6,6 +6,7 @@ import { Sidebar } from "@/components/sidebar";
 import { layouts } from "@/data/albums";
 
 import { cn } from "@/lib/utils";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export const metadata = {
   title: "Virtual Fitting Room",
@@ -15,32 +16,25 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      <div className="bg-background">
+      <div className="bg-background overflow-x-hidden">
         <div className="flex flex-col lg:flex-row w-full h-screen">
           <Sidebar className="w-2/12 hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
-          <div className="col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full lg:w-10/12 flex flex-col overflow-y-auto">
-            <div className="space-y-1 mt-6 mb-6 flex flex-col md:flex-row justify-between items-center">
+          <div className="col-span-3 lg:col-span-5 lg:border-l px-4 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full lg:w-10/12 flex flex-col overflow-y-auto">
+            <div className="space-y-1 mt-6 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center text-left">
               <h2 className="text-xl font-bold tracking-tight">My Creations</h2>
 
-              <Tabs defaultValue="account" className="">
-                <TabsList className="mb-3 flex flex-row justify-between px-0 py-4">
-                  <TabsTrigger value="shirt">Shirt</TabsTrigger>
-                  <TabsTrigger value="croptop">Crop Top</TabsTrigger>
-                  <TabsTrigger value="pants">Pants</TabsTrigger>
-                  <TabsTrigger value="jacket">Jacket</TabsTrigger>
-                  <TabsTrigger value="dress">Dress</TabsTrigger>
-                </TabsList>
-                {/* <TabsContent value="shirt" className="w-full">
-                          <div className="flex flex-row gap-x-4">
-                            <Button
-                              variant="outline"
-                              className="w-full h-14 bg-button-background font-bold"
-                            >
-                              Short sleeves
-                            </Button>
-                          </div>
-                        </TabsContent> */}
-              </Tabs>
+              <ScrollArea className="overflow-x-auto w-full md:w-auto">
+                <Tabs defaultValue="account" className="">
+                  <TabsList className="mb-3 flex flex-row md:flex-nowrap space-x-4">
+                    <TabsTrigger value="shirt">Shirt</TabsTrigger>
+                    <TabsTrigger value="croptop">Crop Top</TabsTrigger>
+                    <TabsTrigger value="pants">Pants</TabsTrigger>
+                    <TabsTrigger value="jacket">Jacket</TabsTrigger>
+                    <TabsTrigger value="dress">Dress</TabsTrigger>
+                  </TabsList>
+                </Tabs>
+                <ScrollBar orientation="horizontal" />
+              </ScrollArea>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               {Array.from({ length: 10 }).map((_, index) => (
@@ -72,7 +66,7 @@ export function PhotoLayout({
   return (
     <div
       className={cn(
-        "relative  w-[250px] h-[330px] overflow-hidden rounded-md",
+        "relative w-full aspect-[3/4] overflow-hidden rounded-md",
         className
       )}
       {...props}
