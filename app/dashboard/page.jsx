@@ -33,6 +33,8 @@ import { Card } from "@/components/ui/card";
 import { layouts, thumbnails } from "@/data/albums";
 
 import DragNDrop from "@/components/DragNDrop";
+import { WandSparkles } from "lucide-react";
+import Link from "next/link";
 
 export const metadata = {
   title: "Virtual Fitting Room",
@@ -292,6 +294,18 @@ export default function Dashboard() {
                 </ScrollArea>
               </div>
             </div>
+
+            <Link href="/dashboard/choose" className="d-block">
+              <Button className="w-full h-14 font-bold mt-10 mb-4 text-lg">
+                <WandSparkles
+                  color={"#ffffff"}
+                  size={"20px"}
+                  strokeWidth={2}
+                  className="mr-2"
+                />
+                Generate
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
