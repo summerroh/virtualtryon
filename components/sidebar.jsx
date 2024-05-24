@@ -1,9 +1,16 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export function Sidebar({ className, playlists }) {
+  const router = useRouter();
+
+  console.log(router.pathname);
+
   return (
     <div className={cn("overflow-y-auto", className)}>
       <ScrollArea>
@@ -17,7 +24,11 @@ export function Sidebar({ className, playlists }) {
                 <Link href="/dashboard" className="d-block">
                   <Button
                     variant="ghost"
-                    className="w-full justify-start bg-background-dashboard"
+                    className={`w-full justify-start ${
+                      router.pathname === "/dashboard"
+                        ? "bg-background-dashboard"
+                        : ""
+                    }`}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

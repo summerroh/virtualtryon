@@ -23,7 +23,7 @@ export default function Page() {
             <div className="space-y-1 mt-6 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center text-left">
               <h2 className="text-xl font-bold tracking-tight">My Creations</h2>
 
-              <ScrollArea className="overflow-x-auto w-full md:w-auto">
+              <ScrollArea className="overflow-x-auto w-full sm:w-auto">
                 <Tabs defaultValue="account" className="">
                   <TabsList className="mb-3 flex flex-row md:flex-nowrap space-x-4">
                     <TabsTrigger value="shirt">Shirt</TabsTrigger>
