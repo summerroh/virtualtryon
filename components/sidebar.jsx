@@ -69,11 +69,11 @@ export function Sidebar({ className, playlists }) {
               Account
             </h2>
             <div className="space-y-1 px-2">
-              <Link href="/dashboard/settings" className="d-block">
+              <Link href="/dashboard" className="d-block">
                 <Button
                   variant="ghost"
                   className={`w-full justify-start ${
-                    pathname === "/dashboard/mycreations"
+                    pathname === "/dashboard/settings"
                       ? "bg-background-dashboard"
                       : ""
                   }`}
