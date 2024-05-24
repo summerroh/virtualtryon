@@ -17,9 +17,9 @@ export default function Page() {
     <>
       <div className="bg-background">
         <div className="flex flex-col lg:flex-row w-full h-screen">
-          <Sidebar className="w-2/12 xs:hidden h-full lg:h-auto lg:overflow-hidden" />
+          <Sidebar className="w-2/12 hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
           <div className="col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full lg:w-10/12 flex flex-col overflow-y-auto">
-            <div className="space-y-1 mt-6 mb-6 flex flex-row justify-between items-center">
+            <div className="space-y-1 mt-6 mb-6 flex flex-col md:flex-row justify-between items-center">
               <h2 className="text-xl font-bold tracking-tight">My Creations</h2>
 
               <Tabs defaultValue="account" className="">
