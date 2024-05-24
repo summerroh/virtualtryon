@@ -45,11 +45,11 @@ export default function Dashboard() {
       <div className="block">
         <div className="border-t">
           <div className="bg-background">
-            <div className="grid lg:grid-cols-6">
-              <Sidebar className="block" />
-              <div className="col-span-3 lg:col-span-5 lg:border-l lg:px-40 bg-background-dashboard pt-4">
-                <div className="h-full px-4 py-6 lg:px-8 space-y-6">
-                  {/* Step 1 */}
+            <div className="flex flex-col lg:flex-row w-full">
+              <Sidebar className="w-2/12 xs:hidden" />
+              <div className="col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pt-4 w-full lg:w-10/12 flex flex-col">
+                {/* Step 1 */}
+                <div>
                   <div>
                     <div className="flex items-center justify-between">
                       <div className="space-y-1 mb-6">
@@ -67,8 +67,8 @@ export default function Dashboard() {
                   </div>
 
                   {/* Step 2 */}
-                  <div>
-                    <div className="flex items-center justify-between">
+                  <div className="w-full">
+                    <div className="flex items-center justify-between w-full">
                       <div className="space-y-1 mt-6 mb-6">
                         <p className="text-sm text-muted-foreground font-bold">
                           Step 2/5
@@ -105,7 +105,7 @@ export default function Dashboard() {
                     </div>
                     <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
                       <Tabs defaultValue="account" className="w-full">
-                        <TabsList className="mb-3 w-full">
+                        <TabsList className="mb-3 w-full flex flex-row justify-between px-20 py-4">
                           <TabsTrigger value="shirt">Shirt</TabsTrigger>
                           <TabsTrigger value="croptop">Crop Top</TabsTrigger>
                           <TabsTrigger value="pants">Pants</TabsTrigger>
@@ -222,7 +222,7 @@ export default function Dashboard() {
 
                   {/* Step 4 */}
                   <div>
-                    <div className="mt-6 mb-6 space-y-1">
+                    <div className="mt-6 mb-6 pt-6 space-y-1">
                       <p className="text-sm text-muted-foreground font-bold">
                         Step 4/5
                       </p>
@@ -233,6 +233,26 @@ export default function Dashboard() {
                     <div className="relative">
                       <ScrollArea>
                         <div className="flex space-x-4 pb-4">
+                          {thumbnails.map((album) => (
+                            <PhotoLayout
+                              key={album.name}
+                              album={album}
+                              className="w-[150px]"
+                              aspectRatio="square"
+                              width={150}
+                              height={150}
+                            />
+                          ))}
+                          {thumbnails.map((album) => (
+                            <PhotoLayout
+                              key={album.name}
+                              album={album}
+                              className="w-[150px]"
+                              aspectRatio="square"
+                              width={150}
+                              height={150}
+                            />
+                          ))}
                           {thumbnails.map((album) => (
                             <PhotoLayout
                               key={album.name}
