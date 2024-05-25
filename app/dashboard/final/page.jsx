@@ -44,15 +44,14 @@ export default function Page() {
           {/* Step 1 */}
           <div className="pt-12">
             <div>
-              <div className="flex items-center justify-between">
+              <div className="flex justify-center flex-col w-full items-center">
                 <div className="space-y-1 mb-6">
                   <h2 className="text-xl font-bold tracking-tight">
                     Your upscaled final result
                   </h2>
                 </div>
-              </div>
-              <div className="relative">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+
+                <div className="w-[500px]">
                   {Array.from({ length: 1 }).map((_, index) => (
                     <PhotoLayout
                       key={index}

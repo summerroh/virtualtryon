@@ -15,6 +15,9 @@ export function Sidebar({ className, playlists }) {
       <ScrollArea>
         <div className="flex justify-between flex-col h-screen px-1">
           <div className="space-y-4 py-4">
+            <h2 className="mb-2 px-4 text-md font-semibold tracking-tight">
+              Virtual Fitting Room
+            </h2>
             <div className="py-2">
               <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
                 Create
