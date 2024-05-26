@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 // import DeleteUserFunction from "@/components/functions/deleteUser";
 // import LogoutFunction from "@/components/functions/logout";
@@ -18,6 +18,7 @@
 // import "@/styles/index.scss";
 // import "@/public/main.scss";
 // import "@/output.css";
+import { useState } from "react";
 import Image from "next/image";
 import { PlusCircledIcon } from "@radix-ui/react-icons";
 
@@ -36,12 +37,19 @@ import DragNDrop from "@/components/DragNDrop";
 import { WandSparkles } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Virtual Fitting Room",
-  description: "Example music app using the components.",
-};
+// export const metadata = {
+//   title: "Virtual Fitting Room",
+//   description: "Example music app using the components.",
+// };
 
 export default function Dashboard() {
+  const [gender, setGender] = useState("");
+  const [cloth, setCloth] = useState("");
+  const [model, setModel] = useState("");
+  const [layout, setLayout] = useState("");
+
+  console.log("gender", gender);
+
   return (
     <>
       <div className="flex flex-col lg:flex-row w-full h-screen">
@@ -79,12 +87,22 @@ export default function Dashboard() {
               </div>
               <Card className="w-full p-6 flex justify-between gap-x-4">
                 <Button
+                  onClick={() => setGender("female")}
                   variant="outline"
-                  className="w-full h-14 bg-button-background font-bold"
+                  className={`w-full h-14 font-bold ${
+                    gender === "female" ? "bg-button-background" : ""
+                  }`}
                 >
                   Female model
                 </Button>
-                <Button className="w-full h-14 font-bold">Male model</Button>
+                <Button
+                  onClick={() => setGender("male")}
+                  className={`w-full h-14 font-bold ${
+                    gender === "male" ? "bg-button-background" : ""
+                  }`}
+                >
+                  Male model
+                </Button>
               </Card>
             </div>
 
@@ -227,72 +245,128 @@ export default function Dashboard() {
                   Choose your fashion model
                 </h2>
               </div>
-              <div className="relative">
-                <ScrollArea>
-                  <div className="flex space-x-4 pb-4">
-                    {thumbnails.map((album) => (
-                      <PhotoLayout
-                        key={album.name}
-                        album={album}
-                        className="w-[150px]"
-                        aspectRatio="square"
-                        width={150}
-                        height={150}
-                      />
-                    ))}
-                    {thumbnails.map((album) => (
-                      <PhotoLayout
-                        key={album.name}
-                        album={album}
-                        className="w-[150px]"
-                        aspectRatio="square"
-                        width={150}
-                        height={150}
-                      />
-                    ))}
-                    {thumbnails.map((album) => (
-                      <PhotoLayout
-                        key={album.name}
-                        album={album}
-                        className="w-[150px]"
-                        aspectRatio="square"
-                        width={150}
-                        height={150}
-                      />
-                    ))}
-                  </div>
-                  <ScrollBar orientation="horizontal" />
-                </ScrollArea>
-              </div>
+              <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
+                <div className="relative">
+                  <ScrollArea>
+                    <div className="flex space-x-4 pb-4">
+                      {thumbnails.map((album) => (
+                        <PhotoLayout
+                          key={album.name}
+                          album={album}
+                          className="w-[150px]"
+                          aspectRatio="square"
+                          width={150}
+                          height={150}
+                          showTitle={true}
+                        />
+                      ))}
+                      {thumbnails.map((album) => (
+                        <PhotoLayout
+                          key={album.name}
+                          album={album}
+                          className="w-[150px]"
+                          aspectRatio="square"
+                          width={150}
+                          height={150}
+                          showTitle={true}
+                        />
+                      ))}
+                      {thumbnails.map((album) => (
+                        <PhotoLayout
+                          key={album.name}
+                          album={album}
+                          className="w-[150px]"
+                          aspectRatio="square"
+                          width={150}
+                          height={150}
+                          showTitle={true}
+                        />
+                      ))}
+                    </div>
+                    <ScrollBar orientation="horizontal" />
+                  </ScrollArea>
+                </div>
+              </Card>
             </div>
 
             {/* Step 5 */}
             <div>
-              <div className="space-y-1 mt-6 mb-6">
-                <p className="text-sm text-muted-foreground font-bold">
-                  Step 5/5
-                </p>
-                <h2 className="text-xl font-bold tracking-tight">
-                  Choose photo layouts
-                </h2>
+              <div className="flex items-center justify-between">
+                <div className="space-y-1 mt-6 mb-6">
+                  <p className="text-sm text-muted-foreground font-bold">
+                    Step 5/5
+                  </p>
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Choose photo layouts
+                  </h2>
+                </div>
               </div>
-              <div className="relative">
-                <ScrollArea>
-                  <div className="flex space-x-4 pb-4">
-                    {layouts.map((album) => (
-                      <PhotoLayout
-                        key={album.name}
-                        album={album}
-                        className="w-[250px]"
-                        aspectRatio="portrait"
-                        width={250}
-                        height={330}
-                      />
-                    ))}
-                  </div>
-                  <ScrollBar orientation="horizontal" />
-                </ScrollArea>
-              </div>
+              <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
+                <Tabs defaultValue="account" className="w-full">
+                  <TabsList className="mb-3 w-full flex flex-row justify-between px-20 py-4">
+                    <TabsTrigger value="fullbody">Full body</TabsTrigger>
+                    <TabsTrigger value="upperbody">Upper body</TabsTrigger>
+                    <TabsTrigger value="lowerbody">Lower body</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="fullbody" className="w-full">
+                    <div className="relative">
+                      <ScrollArea>
+                        <div className="flex space-x-4 pb-4">
+                          {layouts.map((album, index) => (
+                            <PhotoLayout
+                              key={index}
+                              album={album}
+                              className="w-[250px]"
+                              aspectRatio="portrait"
+                              width={250}
+                              height={330}
+                            />
+                          ))}
+                        </div>
+                        <ScrollBar orientation="horizontal" />
+                      </ScrollArea>
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="upperbody">
+                    <div className="relative">
+                      <ScrollArea>
+                        <div className="flex space-x-4 pb-4">
+                          {layouts.map((album, index) => (
+                            <PhotoLayout
+                              key={index}
+                              album={album}
+                              className="w-[250px]"
+                              aspectRatio="portrait"
+                              width={250}
+                              height={330}
+                            />
+                          ))}
+                        </div>
+                        <ScrollBar orientation="horizontal" />
+                      </ScrollArea>
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="lowerbody">
+                    <div className="relative">
+                      <ScrollArea>
+                        <div className="flex space-x-4 pb-4">
+                          {layouts.map((album, index) => (
+                            <PhotoLayout
+                              key={index}
+                              album={album}
+                              className="w-[250px]"
+                              aspectRatio="portrait"
+                              width={250}
+                              height={330}
+                            />
+                          ))}
+                        </div>
+                        <ScrollBar orientation="horizontal" />
+                      </ScrollArea>
+                    </div>
+                  </TabsContent>
+                </Tabs>
+              </Card>
             </div>
 
             <Link href="/dashboard/choose" className="d-block">

@@ -1,25 +1,37 @@
-export interface Album {
-  name: string;
-  artist: string;
-  cover: string;
-}
-
-export const layouts: Album[] = [
+export const layouts = [
   {
     name: "Full body",
-    artist: "Ethan Byte",
     cover:
       "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-full-body.png?alt=media&token=cc7afb86-8238-4bfd-8754-0f7f01cc2913",
   },
   {
     name: "Upper closeup",
-    artist: "Nina Netcode",
+    cover:
+      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-upper-closeup.png?alt=media&token=3f05b174-a598-4d79-9944-4650e1ee29ee",
+  },
+  {
+    name: "Full body",
+    cover:
+      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-full-body.png?alt=media&token=cc7afb86-8238-4bfd-8754-0f7f01cc2913",
+  },
+  {
+    name: "Upper closeup",
+    cover:
+      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-upper-closeup.png?alt=media&token=3f05b174-a598-4d79-9944-4650e1ee29ee",
+  },
+  {
+    name: "Full body",
+    cover:
+      "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-full-body.png?alt=media&token=cc7afb86-8238-4bfd-8754-0f7f01cc2913",
+  },
+  {
+    name: "Upper closeup",
     cover:
       "https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/amy-upper-closeup.png?alt=media&token=3f05b174-a598-4d79-9944-4650e1ee29ee",
   },
 ];
 
-export const thumbnails: Album[] = [
+export const thumbnails = [
   {
     name: "Rachael",
     artist: "Lena Logic",

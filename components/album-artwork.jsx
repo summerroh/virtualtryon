@@ -9,6 +9,7 @@ export function PhotoLayout({
   width,
   height,
   className,
+  showTitle = false,
   ...props
 }) {
   return (
@@ -30,7 +31,9 @@ export function PhotoLayout({
         </ContextMenuTrigger>
       </ContextMenu>
       <div className="space-y-1 text-sm text-center">
-        <h3 className="font-medium leading-none">{album.name}</h3>
+        {showTitle && (
+          <h3 className="font-medium leading-none">{album.name}</h3>
+        )}
         {/* <p className="text-xs text-muted-foreground">{album.artist}</p> */}
       </div>
     </div>
