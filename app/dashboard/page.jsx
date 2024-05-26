@@ -36,6 +36,7 @@ import { layouts, thumbnails } from "@/data/albums";
 import DragNDrop from "@/components/DragNDrop";
 import { WandSparkles } from "lucide-react";
 import Link from "next/link";
+import HFbutton from "@/components/HFbutton";
 
 // export const metadata = {
 //   title: "Virtual Fitting Room",
@@ -55,6 +56,9 @@ export default function Dashboard() {
       <div className="flex flex-col lg:flex-row w-full h-screen">
         <Sidebar className="w-2/12 hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
         <div className="col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full lg:w-10/12 flex flex-col overflow-y-auto">
+          {/* HF test */}
+          <HFbutton />
+
           {/* Step 1 */}
           <div className="pt-12">
             <div>

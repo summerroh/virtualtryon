@@ -11,6 +11,7 @@
     "watch:css": "postcss styles/index.scss -o public/scss/tailwind.css --watch"
   },
   "dependencies": {
+    "@huggingface/inference": "^2.7.0",
     "@popperjs/core": "^2.11.6",
     "@radix-ui/react-context-menu": "^2.1.5",
     "@radix-ui/react-dialog": "^1.0.5",
