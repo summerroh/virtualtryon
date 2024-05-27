@@ -29,7 +29,7 @@ const ContactV1 = () => {
                 <div className="sc-title-two fst-italic position-relative d-inline-block">
                   Contact info
                 </div>
-                <h2 className="main-title fw-500 tx-dark">Get in Touch.</h2>
+                <h2 className="main-title fw-500 text-dark">Get in Touch.</h2>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ const ContactV1 = () => {
           <div className="row">
             <div className="col-lg-8 col-md-9 m-auto">
               <h2
-                className="tx-dark text-center mt-100 mb-80 lg-mt-40 lg-mb-40"
+                className="text-dark text-center mt-100 mb-80 lg-mt-40 lg-mb-40"
                 data-aos="fade-up"
               >
                 Any question? Send us message.

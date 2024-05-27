@@ -94,7 +94,7 @@ const Testimonial = () => {
                         alt="img"
                       />
                     </div>
-                    <div className="rating h3 fw-bold tx-dark">
+                    <div className="rating h3 fw-bold text-dark">
                       {item.rating}
                     </div>
                     <p className="text-lg pt-35 pb-20">{item.text}</p>

@@ -43,8 +43,8 @@ export default function ResetPassword() {
       <div className="user-data-section d-flex align-items-center justify-content-center flex-column position-relative bg-dark1">
         <div className="form-wrapper position-relative m-auto">
           <div className="text-center">
-            <h2 className="tx-dark mb-30 lg-mb-10">Reset Password</h2>
-            <p className="fs-20 tx-dark">
+            <h2 className="text-dark mb-30 lg-mb-10">Reset Password</h2>
+            <p className="fs-20 text-dark">
               Ready to log in to your account? <Link href="/login">Log in</Link>
             </p>
           </div>

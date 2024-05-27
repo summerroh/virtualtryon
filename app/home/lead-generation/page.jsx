@@ -41,11 +41,11 @@ const LeadGeneration = () => {
       <Step3 />
 
       <div
-        className="title-style-ten text-center mt-180 lg-mt-120 mb-40"
+        className="title-style-ten text-center mt-40 lg-mt-40 mb-20"
         aos="fade-up"
       >
         {/* <div className="sc-title">FAQ</div> */}
-        <h2 className="main-title font-recoleta fw-normal tx-dark">
+        <h2 className="main-title font-recoleta fw-normal text-dark">
           {/* Text without underline  */}
           <span className="position-relative">
             Pricing{" "}
@@ -63,11 +63,11 @@ const LeadGeneration = () => {
         <Pricing />
       </div>
 
-      <div className="fancy-feature-thirtyThree mt-180 lg-mt-120">
+      <div className="fancy-feature-thirtyThree mt-40 lg-mt-60">
         <div className="container">
           <div className="title-style-ten text-center" aos="fade-up">
             <div className="sc-title">FAQ</div>
-            <h2 className="main-title font-recoleta fw-normal tx-dark">
+            <h2 className="main-title font-recoleta fw-normal text-dark">
               Questions &amp;{" "}
               <span className="position-relative">
                 Answers{" "}
@@ -82,13 +82,13 @@ const LeadGeneration = () => {
           </div>
           {/* /.title-style-ten */}
 
-          <div className="position-relative mt-80 lg-mt-40" aos="fade-up">
+          <div className="position-relative mt-20 lg-mt-20" aos="fade-up">
             <Faq />
           </div>
         </div>
       </div>
       <div
-        className="fancy-short-banner-sixteen mt-130 lg-mt-80 mb-100"
+        className="fancy-short-banner-sixteen mt-20 lg-mt-20 mb-20"
         data-aos="fade-up"
       >
         <div className="container">

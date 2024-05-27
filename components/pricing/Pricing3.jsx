@@ -61,7 +61,7 @@ const Pricing3 = () => {
             data-aos="fade-up"
             data-aos-delay={`0.${index + 1}s`}
           >
-            <div className="pack-name fw-500 tx-dark">{pricing.name}</div>
+            <div className="pack-name fw-500 text-dark">{pricing.name}</div>
             <div className="pack-details text-uppercase fs-14">
               {pricing.details}
             </div>
@@ -92,7 +92,7 @@ const Pricing3 = () => {
                 Start 30 days free trial
               </a>
             )}
-            <div className="trial-text pt-25 tx-dark">
+            <div className="trial-text pt-25 text-dark">
               No card required, cancel any time
             </div>
           </div>

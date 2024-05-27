@@ -39,16 +39,16 @@ const AboutCeo = () => {
             <div className="sc-title text-uppercase">
               {aboutData.title.subtitle}
             </div>
-            <h2 className="main-title fw-bold tx-dark m0">
+            <h2 className="main-title fw-bold text-dark m0">
               {aboutData.title.mainTitle}
             </h2>
           </div>
-          <h4 className="tx-dark pt-65 pb-20 lg-pt-40 lg-pb-10">
+          <h4 className="text-dark pt-65 pb-20 lg-pt-40 lg-pb-10">
             {aboutData.content.sectionTitle}
           </h4>
           <p className="fs-20">{aboutData.content.description}</p>
           <p className="fs-18 mb-10 pt-30 lg-pt-20">
-            <span className="fw-500 tx-dark">{aboutData.rating.text}</span>
+            <span className="fw-500 text-dark">{aboutData.rating.text}</span>
           </p>
           <ul className="d-flex style-none rating">{starIcons}</ul>
         </div>
@@ -113,7 +113,7 @@ const AboutCeo = () => {
                 className="lazy-img"
               />
             </div>
-            <div className="name fs-18 fw-500 tx-dark mb-10">
+            <div className="name fs-18 fw-500 text-dark mb-10">
               - Bostami Ha, <span className="opacity-50">CEO</span>
             </div>
             <p className="fs-18 m0">

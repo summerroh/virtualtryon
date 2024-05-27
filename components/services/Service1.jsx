@@ -52,7 +52,7 @@ const Service1 = () => {
               />
             </div>
             <p className="fs-20 m0 pt-20">I want</p>
-            <h4 className="tx-dark">{service.title}</h4>
+            <h4 className="text-dark">{service.title}</h4>
             <Link
               href="/pages-menu/service-details"
               className="read-more rounded-circle text-start tran3s"

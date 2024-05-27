@@ -7,7 +7,7 @@ const FeaturesBlock = () => {
         <div className="block-style-six pe-xxl-5" data-aos="fade-right">
           <div className="title-style-ten">
             <div className="sc-title">WHY CHOOSE US</div>
-            <h2 className="main-title font-recoleta fw-normal tx-dark">
+            <h2 className="main-title font-recoleta fw-normal text-dark">
               Get quality
               <span className="position-relative">
                 Lead <img src="/images/shape/shape_122.svg" alt="" />
@@ -31,7 +31,7 @@ const FeaturesBlock = () => {
                     className="lazy-img"
                   />
                 </div>
-                <h4 className="tx-dark mt-20">
+                <h4 className="text-dark mt-20">
                   Secure &amp; trusted by trsupilot.
                 </h4>
               </div>
@@ -50,7 +50,7 @@ const FeaturesBlock = () => {
                     className="lazy-img"
                   />
                 </div>
-                <h4 className="tx-dark mt-20">
+                <h4 className="text-dark mt-20">
                   Certified by AWP internal Inc.
                 </h4>
               </div>
@@ -79,7 +79,7 @@ const FeaturesBlock = () => {
           />
           <div className="card-style d-flex flex-column justify-content-center align-items-center">
             <h4 className="m0">70b+</h4>
-            <p className="m0 fs-18 tx-dark">Created revenue</p>
+            <p className="m0 fs-18 text-dark">Created revenue</p>
           </div>
           {/* /.card-style */}
         </div>

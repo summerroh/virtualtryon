@@ -71,8 +71,8 @@ const Team1 = () => {
                 className="lazy-img team-img w-100"
               />
               <div className="info text-center">
-                <h5 className="tx-dark fs-20 mb-5">{member.name}</h5>
-                <div className="tx-dark opacity-75">{member.role}</div>
+                <h5 className="text-dark fs-20 mb-5">{member.name}</h5>
+                <div className="text-dark opacity-75">{member.role}</div>
               </div>
               {/* /.info */}
             </div>

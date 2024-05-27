@@ -1,10 +1,4 @@
 const Step2 = () => {
-  const items = [
-    "Amazing communication.",
-    "Best trending designing experience.",
-    "Email & Live chat.",
-  ];
-
   return (
     <div className="fancy-feature-three pt-300 lg-pt-100 md-pt-100 sm-pt-120">
       <div className="container">
@@ -16,7 +10,7 @@ const Step2 = () => {
             >
               <div className="title-style-ten">
                 <div className="sc-title badge">STEP 1</div>
-                <h2 className="main-title font-recoleta fw-normal tx-dark">
+                <h2 className="main-title font-recoleta fw-normal text-dark">
                   Unlimited{" "}
                   <span className="position-relative">
                     Possibilities

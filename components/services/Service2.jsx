@@ -51,7 +51,7 @@ const Service2 = () => {
             <div className="icon d-flex align-items-center justify-content-center">
               <img src={service.icon} alt="icon" className="lazy-img tran3s" />
             </div>
-            <h4 className="title tx-dark">{service.title}</h4>
+            <h4 className="title text-dark">{service.title}</h4>
             <ul className="style-none">
               {service.list.map((item, index) => (
                 <li key={`${service.id}-${index}`}>{item}</li>

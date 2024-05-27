@@ -42,7 +42,7 @@ const Block2 = () => {
                 className="lazy-img"
               />
             </div>
-            <h5 className="tx-dark mt-40 lg-mt-30 mb-5">{card.title}</h5>
+            <h5 className="text-dark mt-40 lg-mt-30 mb-5">{card.title}</h5>
             <p className="fs-18">{card.subtitle}</p>
           </div>
         </div>

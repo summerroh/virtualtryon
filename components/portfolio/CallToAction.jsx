@@ -13,7 +13,7 @@ const CallToAction = () => {
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                <h2 className="main-title fw-500 tx-dark">
+                <h2 className="main-title fw-500 text-dark">
                   Have Any Project? <br />
                   <span className="position-relative">
                     Let’s Talk{" "}

@@ -8,7 +8,7 @@ const PortfolioTopTitle = () => {
               <div className="sc-title-two fst-italic position-relative">
                 Our Recent Work
               </div>
-              <h2 className="main-title fw-500 tx-dark">
+              <h2 className="main-title fw-500 text-dark">
                 Check out our Portfolio.
               </h2>
             </div>

@@ -43,7 +43,7 @@ const Feedback = () => {
             <div className="feedback_slider_eight">
               <div className="item">
                 <div className="feedback-block-eight text-center">
-                  <p className="font-recoleta tx-dark mt-60 mb-65 lg-mt-40 lg-mb-40">
+                  <p className="font-recoleta text-dark mt-60 mb-65 lg-mt-40 lg-mb-40">
                     Generate an unlimited number of model shots{" "}
                     <span>instantly.</span>
                   </p>

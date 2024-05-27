@@ -37,7 +37,7 @@ const BlockContact3 = () => {
               />
             </div>
             <div className="text">
-              <h5 className="title tx-dark mt-25 mb-10">{block.title}</h5>
+              <h5 className="title text-dark mt-25 mb-10">{block.title}</h5>
               <p className="fs-18 mb-35">{block.text}</p>
               <a
                 href="#"

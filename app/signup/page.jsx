@@ -32,8 +32,8 @@ const SignUp = () => {
       <div className="user-data-section d-flex align-items-center justify-content-center flex-column position-relative">
         <div className="form-wrapper position-relative m-auto">
           <div className="text-center">
-            <h2 className="tx-dark mb-30 lg-mb-10">Registration</h2>
-            <p className="fs-20 tx-dark">
+            <h2 className="text-dark mb-30 lg-mb-10">Registration</h2>
+            <p className="fs-20 text-dark">
               Have an account? <Link href="/login">Login Here</Link>
             </p>
           </div>

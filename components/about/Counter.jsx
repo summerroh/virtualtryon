@@ -36,7 +36,7 @@ const Counter = () => {
           data-aos-delay={item.delay}
         >
           <div className="counter-block-three mt-40 md-mt-30" ref={ref}>
-            <div className="main-count fw-500 tx-dark">
+            <div className="main-count fw-500 text-dark">
               <CountUp
                 end={inView ? item.count : 0}
                 duration={2.5}
@@ -50,7 +50,7 @@ const Counter = () => {
               </CountUp>
               {item.unit}
             </div>
-            <p className="tx-dark fs-18 m0">{item.label}</p>
+            <p className="text-dark fs-18 m0">{item.label}</p>
           </div>
           {/* /.counter-block-three */}
         </div>

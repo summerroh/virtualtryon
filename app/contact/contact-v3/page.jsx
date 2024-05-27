@@ -27,7 +27,7 @@ const ContactV3 = () => {
         <div className="address-wrapper zn2 position-relative pt-180 lg-pt-150 mb-150 lg-mb-80">
           <div className="container">
             <div className="title-style-seven text-center" data-aos="fade-up">
-              <h2 className="main-title fw-bold tx-dark">
+              <h2 className="main-title fw-bold text-dark">
                 Get in
                 <span className="position-relative d-inline-block">
                   Touch <img src="/images/shape/shape_96.svg" alt="shape" />
@@ -63,7 +63,7 @@ const ContactV3 = () => {
                 className="title-style-one text-center mb-60 lg-mb-40"
                 data-aos="fade-up"
               >
-                <h2 className="main-title fw-500 tx-dark m0">
+                <h2 className="main-title fw-500 text-dark m0">
                   Drop us a line for any kind of info.
                 </h2>
               </div>
@@ -147,7 +147,9 @@ const ContactV3 = () => {
               <Footer2 />
 
               <div className="col-xl-4 col-lg-5 mb-30 form-widget">
-                <h5 className="footer-title tx-dark fw-normal">Newslettert</h5>
+                <h5 className="footer-title text-dark fw-normal">
+                  Newslettert
+                </h5>
                 <h6 className="pt-15 pb-20 md-pt-10">Join our newsletter</h6>
                 <NewsLetter />
                 <div className="fs-14 mt-10">

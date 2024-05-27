@@ -1,12 +1,6 @@
 import Link from "next/link";
 
 const Step3 = () => {
-  const items = [
-    "Amazing communication.",
-    "Best trending designing experience.",
-    "Email & Live chat.",
-  ];
-
   return (
     <div className="fancy-feature-thirty position-relative mt-190 pb-140 lg-mt-100 lg-pb-120 md-p0 pt-100">
       <div className="container">
@@ -18,7 +12,7 @@ const Step3 = () => {
             >
               <div className="title-style-ten">
                 <div className="sc-title badge">STEP 2</div>
-                <h2 className="main-title font-recoleta fw-normal tx-dark">
+                <h2 className="main-title font-recoleta fw-normal text-dark">
                   Professional Quality
                   <span className="position-relative">
                     {/* <img src="/images/shape/shape_122.svg" alt="shape" /> */}
@@ -30,15 +24,8 @@ const Step3 = () => {
                 Our technology ensures that your product images are of the
                 highest standard, enhancing your brand's image and credibility.
               </p>
-              <ul className="style-none list-item">
-                {items.map((item, index) => (
-                  <li className="text-light" key={index}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
               {/*
-              <div className="btn-eighteen position-relative d-inline-block tx-dark mt-35 lg-mt-20">
+              <div className="btn-eighteen position-relative d-inline-block text-dark mt-35 lg-mt-20">
                 Want to learn more?{" "}
                 <Link href="/pages-menu/about-us-v1" className="fw-500 tran3s">
                   Click here <i className="bi bi-arrow-right" />

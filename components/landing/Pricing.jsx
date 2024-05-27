@@ -107,7 +107,7 @@ const Pricing = () => {
         </li>
       </ul>
 
-      <div className="mt-80 lg-mt-50" data-aos="fade-up">
+      <div className="mt-10 lg-mt-10" data-aos="fade-up">
         <div className="tab-content">
           <div className="tab-pane show active" id="month">
             <div className="row">
@@ -116,15 +116,15 @@ const Pricing = () => {
                   {monthlyPricingPlans.map((plan) => (
                     <div key={plan.id} className="col-lg-4 col-sm-6">
                       <div
-                        className={`pr-column mt-40 ${
+                        className={`pr-column mt-10 ${
                           plan.active ? "active" : ""
                         }`}
                       >
                         <div className="pr-header pb-30 mb-45">
-                          <div className="price fw-500 tx-dark">
+                          <div className="price fw-500 text-dark">
                             {plan.price}
                           </div>
-                          <div className="plan tx-dark">{plan.plan}</div>
+                          <div className="plan text-dark">{plan.plan}</div>
                         </div>
                         <div className="pr-body">
                           <ul className="style-none text-start">
@@ -159,15 +159,15 @@ const Pricing = () => {
                   {yearlyPricingPlans.map((plan) => (
                     <div key={plan.id} className="col-lg-4 col-sm-6">
                       <div
-                        className={`pr-column mt-40 ${
+                        className={`pr-column mt-10 ${
                           plan.active ? "active" : ""
                         }`}
                       >
                         <div className="pr-header pb-30 mb-45">
-                          <div className="price fw-500 tx-dark">
+                          <div className="price fw-500 text-dark">
                             {plan.price}
                           </div>
-                          <div className="plan tx-dark">{plan.plan}</div>
+                          <div className="plan text-dark">{plan.plan}</div>
                         </div>
                         <div className="pr-body">
                           <ul className="style-none text-start">

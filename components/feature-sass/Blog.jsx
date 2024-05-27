@@ -27,7 +27,7 @@ const Blog = () => {
             <div className="post-data mt-30 lg-mt-20">
               <div className="post-tag text-uppercase">{blog.tag}</div>
               <Link href={`/blog/${blog.id}`} className="mt-10 mb-15">
-                <h4 className="tran3s blog-title tx-dark">{blog.title}</h4>
+                <h4 className="tran3s blog-title text-dark">{blog.title}</h4>
               </Link>
               <div>
                 <Link

@@ -85,7 +85,7 @@ const Block2 = () => {
             <h5 className="fw-500 mt-35 mb-25">
               <Link
                 href="/pages-menu/service-details"
-                className="tran3s tx-dark"
+                className="tran3s text-dark"
               >
                 {card.title}
               </Link>

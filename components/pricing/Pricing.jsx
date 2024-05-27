@@ -141,7 +141,7 @@ const Pricing = () => {
       {/* End ul */}
 
       <div
-        className="pricing-table-area-three mt-160 lg-mt-100 xs-mt-60"
+        className="pricing-table-area-three mt-20 lg-mt-20 xs-mt-20"
         data-aos="fade-up"
       >
         <div className="tab-content">
@@ -157,7 +157,7 @@ const Pricing = () => {
                       alt="icon"
                       className="icon"
                     />
-                    <div className="plan tx-dark">{plan.plan}</div>
+                    <div className="plan text-dark">{plan.plan}</div>
                     <div className="pr-body">
                       <ul className="style-none text-start">
                         {plan.features.map((feature, index) => (
@@ -166,7 +166,7 @@ const Pricing = () => {
                       </ul>
                     </div>
                     <div className="pr-footer pt-45 lg-pt-30">
-                      <div className="price tx-dark">{plan.price}</div>
+                      <div className="price text-dark">{plan.price}</div>
                       <div className="trial-text fs-17 opacity-75 mb-30">
                         {plan.trial}
                       </div>
@@ -194,7 +194,7 @@ const Pricing = () => {
                       alt="icon"
                       className="icon"
                     />
-                    <div className="plan tx-dark">{plan.plan}</div>
+                    <div className="plan text-dark">{plan.plan}</div>
                     <div className="pr-body">
                       <ul className="style-none text-start">
                         {plan.features.map((feature, index) => (
@@ -203,7 +203,7 @@ const Pricing = () => {
                       </ul>
                     </div>
                     <div className="pr-footer pt-45 lg-pt-30">
-                      <div className="price tx-dark">{plan.price}</div>
+                      <div className="price text-dark">{plan.price}</div>
                       <div className="trial-text fs-17 opacity-75 mb-30">
                         {plan.trial}
                       </div>

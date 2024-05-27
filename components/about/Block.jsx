@@ -56,7 +56,7 @@ const Block = () => {
                 className="lazy-img mh-100"
               />
             </div>
-            <h4 className="fw-bold tx-dark mt-30 mb-15">{block.title}</h4>
+            <h4 className="fw-bold text-dark mt-30 mb-15">{block.title}</h4>
             <p className="fs-18">{block.content}</p>
           </div>
           {/* /.card-style-twentyFour */}

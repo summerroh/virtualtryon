@@ -44,7 +44,7 @@ const NavMenu = ({ user }) => {
       >
         <span />
       </button>
-      <div className="collapse navbar-collapse" id="one-page-nav">
+      <div className="navbar-collapse" id="one-page-nav">
         <ul className="navbar-nav">
           <li className="d-block d-lg-none">
             <div className="logo">

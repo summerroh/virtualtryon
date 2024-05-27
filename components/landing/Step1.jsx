@@ -1,12 +1,6 @@
 import Link from "next/link";
 
 const Step1 = () => {
-  const items = [
-    "Amazing communication.",
-    "Best trending designing experience.",
-    "Email & Live chat.",
-  ];
-
   return (
     <div className="fancy-feature-thirty position-relative mt-190 pb-140 lg-mt-100 lg-pb-120 md-p0 pt-100">
       <div className="container">
@@ -18,7 +12,7 @@ const Step1 = () => {
             >
               <div className="title-style-ten">
                 <div className="sc-title badge">STEP 2</div>
-                <h2 className="main-title font-recoleta fw-normal tx-dark text-xxl">
+                <h2 className="main-title font-recoleta fw-normal text-dark text-xxl">
                   Save Time{" "}
                   <span className="position-relative">
                     and Money
@@ -31,15 +25,8 @@ const Step1 = () => {
                 No more scheduling photoshoots or hiring models. <br />
                 Generate model shots instantly, anytime you need them.
               </p>
-              <ul className="style-none list-item">
-                {items.map((item, index) => (
-                  <li className="text-light" key={index}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
               {/*
-              <div className="btn-eighteen position-relative d-inline-block tx-dark mt-35 lg-mt-20">
+              <div className="btn-eighteen position-relative d-inline-block text-dark mt-35 lg-mt-20">
                 Want to learn more?{" "}
                 <Link href="/pages-menu/about-us-v1" className="fw-500 tran3s">
                   Click here <i className="bi bi-arrow-right" />

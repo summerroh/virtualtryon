@@ -17,7 +17,7 @@ const Partners = () => {
 
   return (
     <div className="d-xl-flex align-items-center">
-      <h3 className="title tx-dark d-flex justify-content-center align-items-center m0 lg-pb-30">
+      <h3 className="title text-dark d-flex justify-content-center align-items-center m0 lg-pb-30">
         <span className="fw-bold">100+</span>
         <span className="font-recoleta">Trusted Partners</span>
         <span className="ms-4 d-none d-sm-inline-block">
@@ -29,7 +29,7 @@ const Partners = () => {
         </span>
       </h3>
 
-      <div className="logo-wrapper fw-500 tx-dark d-flex flex-wrap flex-xl-nowrap justify-content-center justify-content-xl-between">
+      <div className="logo-wrapper fw-500 text-dark d-flex flex-wrap flex-xl-nowrap justify-content-center justify-content-xl-between">
         {partners.map((partner, index) => (
           <React.Fragment key={index}>
             {partner.name && <div className="br-name">{partner.name}</div>}

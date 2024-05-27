@@ -21,7 +21,7 @@ const DefaultFooter = () => {
             <Footer2 />
 
             <div className="col-xl-4 col-lg-5 mb-30 form-widget">
-              <h5 className="footer-title tx-dark fw-normal">Newslettert</h5>
+              <h5 className="footer-title text-dark fw-normal">Newslettert</h5>
               <h6 className="pt-15 pb-20 md-pt-10">Join our newsletter</h6>
               <NewsLetter />
               <div className="fs-14 mt-10">

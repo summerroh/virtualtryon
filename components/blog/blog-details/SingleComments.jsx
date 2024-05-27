@@ -28,7 +28,7 @@ const SingleComments = () => {
             className="user-avatar rounded-circle"
           />
           <div className="comment-text">
-            <div className="name fw-500 tx-dark">{comment.name}</div>
+            <div className="name fw-500 text-dark">{comment.name}</div>
             <div className="date">{comment.date}</div>
             <p>{comment.text}</p>
             <a href="#" className="reply-btn fw-500 tran3s">

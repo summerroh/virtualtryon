@@ -11,7 +11,7 @@
 :root {
   --text-color: #48494e;
   // --heading: #090f32;
-  --heading: #2b3674;
+  --heading: #404455;
   --prime-one: #ff8c24;
   --prime-two: #ff733b;
   --prime-three: #6a45ff;
@@ -24,7 +24,6 @@
   --prime-ten: #ff3294;
   --prime-eleven: #ffce4c;
   --prime-twelve: #ffe500;
-  // --dark: #2B3674;
 }
 ::selection {
   background-color: #2a2a2a;
@@ -262,9 +261,6 @@ p {
 .fw-500 {
   font-weight: 500;
 }
-.tx-dark {
-  color: #2b3674;
-}
 .p-30 {
   padding: 30px;
 }
@@ -474,23 +470,6 @@ p {
   height: 13px;
   z-index: -1;
 }
-.title-style-six .sc-title {
-  font-family: "Noteworthy Light";
-  font-size: 20px;
-  letter-spacing: 3px;
-  padding-bottom: 6px;
-  text-transform: uppercase;
-}
-.title-style-six .sc-title-two {
-  font-size: 15px;
-  letter-spacing: 2px;
-  padding-bottom: 8px;
-  color: var(--prime-ten);
-}
-.title-style-six .main-title {
-  font-size: 62px;
-  line-height: 1.32em;
-}
 .title-style-seven .main-title {
   font-size: 68px;
   line-height: 1.35em;
@@ -508,7 +487,7 @@ p {
   font-size: 15px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--prime-nine);
+  color: var(--primary);
   padding-bottom: 16px;
 }
 .title-style-ten .main-title {
@@ -526,7 +505,7 @@ p {
   font-size: 15px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--prime-nine);
+  color: var(--primary);
   padding-bottom: 16px;
 }
 .title-style-fourteen .main-title {
@@ -544,7 +523,7 @@ p {
   font-size: 15px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--prime-nine);
+  color: var(--primary);
   padding-bottom: 16px;
 }
 .title-style-fourteen .main-title {
@@ -871,7 +850,7 @@ body .btn-eighteen:before {
   background: #000;
 }
 body .btn-eighteen a:hover {
-  color: var(--prime-nine);
+  color: var(--primary);
 }
 body .btn-nineteen {
   padding: 5px 20px;
@@ -881,7 +860,7 @@ body .btn-nineteen {
   font-size: 17px;
 }
 body .btn-nineteen:hover {
-  background: var(--prime-nine);
+  background: var(--primary);
 }
 body .btn-twenty {
   line-height: 50px;
@@ -5539,7 +5518,7 @@ body .btn-twentySix:hover:after {
   padding: 0 50px;
 }
 .feedback-block-eight p span {
-  color: var(--prime-nine);
+  color: var(--primary);
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-thickness: 4px;

@@ -30,7 +30,7 @@ const Blog3 = () => {
               </Link>
             </div>
             <div className="blog-footer d-flex align-items-center justify-content-between mt-auto">
-              <div className="blog-date fw-500 tx-dark">
+              <div className="blog-date fw-500 text-dark">
                 {post.tag === "Design" ? "Featured -" : "Created on -"}
                 <a href="#" className="fw-normal tran3s">
                   {post.date}

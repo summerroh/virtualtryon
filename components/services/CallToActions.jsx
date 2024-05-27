@@ -13,7 +13,7 @@ const CallToActions = () => {
                 <div className="col-lg-6">
                   <div className="title-style-two">
                     <div className="sc-title fw-500 ">Subscirbe Now</div>
-                    <h4 className="main-title fw-bold tx-dark">
+                    <h4 className="main-title fw-bold text-dark">
                       New user? Start your free trial now.
                     </h4>
                   </div>{" "}
@@ -38,7 +38,7 @@ const CallToActions = () => {
                     </form>
                     <p className="m0 pt-10">
                       Already a member?{" "}
-                      <Link href="/login" className="tx-dark">
+                      <Link href="/login" className="text-dark">
                         Sign in.
                       </Link>
                     </p>

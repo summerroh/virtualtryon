@@ -8,7 +8,7 @@ const PortfolioDetailsTitle = ({ portfolio }) => {
               <div className="sc-title-two fst-italic position-relative">
                 {portfolio?.tag}
               </div>
-              <h2 className="main-title fw-500 tx-dark">{portfolio?.name}</h2>
+              <h2 className="main-title fw-500 text-dark">{portfolio?.name}</h2>
             </div>
           </div>
         </div>

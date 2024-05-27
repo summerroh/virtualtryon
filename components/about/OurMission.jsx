@@ -15,11 +15,11 @@ const OurMission = () => {
                 alt="icon"
               />
             </div>
-            <p className="tx-dark mt-35 lg-mt-30 mb-45 lg-mb-30">
+            <p className="text-dark mt-35 lg-mt-30 mb-45 lg-mb-30">
               Jano combines excellent live video class, Note &amp; Extra class
               that helps you learn quickly.
             </p>
-            <h6 className="tx-dark fs-20">
+            <h6 className="text-dark fs-20">
               - Mike Lucas.{" "}
               <span className="fs-18 fw-normal opacity-50">
                 CEO &amp; Founder Jano
@@ -58,8 +58,10 @@ const OurMission = () => {
                   className="rating d-flex flex-column align-items-center justify-content-center"
                   data-aos="fade-up"
                 >
-                  <div className="font-recoleta tx-dark rating-value">4.8</div>
-                  <div className="fs-18 tx-dark">Rating</div>
+                  <div className="font-recoleta text-dark rating-value">
+                    4.8
+                  </div>
+                  <div className="fs-18 text-dark">Rating</div>
                 </div>
                 {/* /.rating */}
               </div>{" "}
@@ -97,8 +99,8 @@ const OurMission = () => {
               className="customer-data d-flex flex-column align-items-center justify-content-center"
               data-aos="fade-up"
             >
-              <div className="fw-500 tx-dark amount">32k</div>
-              <div className="fs-18 tx-dark">Customer</div>
+              <div className="fw-500 text-dark amount">32k</div>
+              <div className="fs-18 text-dark">Customer</div>
             </div>{" "}
             {/* /.customer-data */}
           </div>

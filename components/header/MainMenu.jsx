@@ -34,7 +34,7 @@ const MainMenu = () => {
       </button>
       {/* End mobile collapse menu */}
 
-      <div className="collapse navbar-collapse" id="navbarNav">
+      <div className="navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="d-block d-lg-none">
             <div className="logo">

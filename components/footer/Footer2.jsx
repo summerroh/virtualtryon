@@ -35,7 +35,7 @@ const Footer2 = () => {
     <>
       {columns.map((column, index) => (
         <div className="col-xl-2 col-lg-3 col-sm-4 mb-30" key={index}>
-          <h5 className="footer-title tx-dark fw-normal">{column.title}</h5>
+          <h5 className="footer-title text-dark fw-normal">{column.title}</h5>
           <ul className="footer-nav-link style-none">
             {column.links.map((link, index) => (
               <li key={index}>

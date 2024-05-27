@@ -29,7 +29,7 @@ const Blog = () => {
                 {post.date}
               </div>
               <Link href={`/blog/${post.id}`} className="mt-10 mb-15">
-                <h4 className="tran3s blog-title fw-normal tx-dark">
+                <h4 className="tran3s blog-title fw-normal text-dark">
                   {post.title}
                 </h4>
               </Link>

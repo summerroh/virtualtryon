@@ -29,7 +29,7 @@ const ContactV4 = () => {
                 data-aos="fade-up"
               >
                 <div className="sc-title">CONTACT US</div>
-                <h2 className="main-title font-recoleta fw-normal tx-dark">
+                <h2 className="main-title font-recoleta fw-normal text-dark">
                   Our{" "}
                   <span className="position-relative">
                     team <img src="/images/shape/shape_186.svg" alt="icon" />
