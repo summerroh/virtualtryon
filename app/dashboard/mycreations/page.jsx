@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { Sidebar } from "@/components/sidebar";
-import { layouts } from "@/data/albums";
+import { albums } from "@/data/albums";
 
 import { cn } from "@/lib/utils";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -40,7 +40,7 @@ export default function Page() {
               {Array.from({ length: 10 }).map((_, index) => (
                 <PhotoLayout
                   key={index}
-                  album={layouts[0]}
+                  album={albums[0]}
                   className=""
                   aspectRatio="portrait"
                   width={250}
