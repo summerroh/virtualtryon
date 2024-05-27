@@ -3,26 +3,27 @@ import Link from "next/link";
 const HeroContent = () => {
   return (
     <>
-      <h1 className="hero-heading fw-normal text-white font-recoleta">
+      <h1 className="hero-heading fw-normal text-white font-recoleta mt-10">
         Create professional{" "}
         <span className="position-relative">
-          model <img src="/images/shape/shape_114.svg" alt="img" />
+          model{" "}
+          {/* model <img src="/images/shape/shape_114.svg" alt="img" /> */}
         </span>
         images
       </h1>
-      <p className="sub-text mt-20 mb-45 lg-mb-30">
+      <p className="sub-text mt-10 mb-45 lg-mb-30">
         You will save moeny and time for a physical photoshoot
         <br />
         <span className="text-white"> 3x faster</span> revenue than other
         eccormerce.
       </p>
-      <div className="d-lg-flex align-items-center mb-150">
+      <div className="d-lg-flex align-items-center mb-190">
         <Link
           href="/contact/contact-v1"
           className="demo-btn fw-500 tran3s d-inline-flex align-items-center mb-25 me-4"
         >
           <span>Get Started</span>
-          <img src="/images/icon/icon_91.svg" alt="img" className="ms-3" />
+          {/* <img src="/images/icon/icon_91.svg" alt="img" className="ms-3" /> */}
         </Link>
         <div className="mb-25 text-white signIn-btn">
           {/* Already a member? <Link href="/">Sign in</Link> */}

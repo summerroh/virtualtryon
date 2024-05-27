@@ -34,7 +34,7 @@ const Feedback = () => {
 
   return (
     <div
-      className="feedback-section-eight position-relative pt-20 pb-30 lg-pt-20 "
+      className="feedback-section-eight position-relative pt-20 pb-30 lg-pt-30 "
       data-aos="fade-up"
     >
       <div className="container">
@@ -43,7 +43,7 @@ const Feedback = () => {
             <div className="feedback_slider_eight">
               <div className="item">
                 <div className="feedback-block-eight text-center">
-                  <p className="font-recoleta text-dark mt-60 mb-65 lg-mt-40 lg-mb-40">
+                  <p className="font-recoleta text-dark">
                     Generate an unlimited number of model shots{" "}
                     <span>instantly.</span>
                   </p>
