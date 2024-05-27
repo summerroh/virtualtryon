@@ -19,8 +19,6 @@
 // import "@/public/main.scss";
 // import "@/output.css";
 import { useState } from "react";
-import Image from "next/image";
-import { PlusCircledIcon } from "@radix-ui/react-icons";
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -34,9 +32,10 @@ import { Card } from "@/components/ui/card";
 import { layouts, thumbnails } from "@/data/albums";
 
 import DragNDrop from "@/components/DragNDrop";
-import { WandSparkles } from "lucide-react";
+import { Check, WandSparkles } from "lucide-react";
 import Link from "next/link";
-import HFbutton from "@/components/HFbutton";
+// import HFbutton from "@/components/HFbutton";
+// import VtonButton from "@/components/VtonButton";
 
 // export const metadata = {
 //   title: "Virtual Fitting Room",
@@ -44,12 +43,34 @@ import HFbutton from "@/components/HFbutton";
 // };
 
 export default function Dashboard() {
-  const [gender, setGender] = useState("");
-  const [cloth, setCloth] = useState("");
+  const [gender, setGender] = useState("female");
+  const [clothType, setClothType] = useState("shortsleeves");
   const [model, setModel] = useState("");
-  const [layout, setLayout] = useState("");
 
-  console.log("gender", gender);
+  const [selectedLayouts, setSelectedLayouts] = useState([
+    { layout: "fullbody", selected: [] },
+    { layout: "upperbody", selected: [] },
+    { layout: "lowerbody", selected: [] },
+  ]);
+
+  const handlePhotoSelect = (layout, index) => {
+    setSelectedLayouts((prev) => {
+      return prev.map((item) => {
+        if (item.layout === layout) {
+          if (item.selected.includes(index)) {
+            return {
+              ...item,
+              selected: item.selected.filter((i) => i !== index),
+            };
+          } else {
+            return { ...item, selected: [...item.selected, index] };
+          }
+        } else {
+          return item;
+        }
+      });
+    });
+  };
 
   return (
     <>
@@ -57,7 +78,8 @@ export default function Dashboard() {
         <Sidebar className="w-2/12 hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
         <div className="col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full lg:w-10/12 flex flex-col overflow-y-auto">
           {/* HF test */}
-          <HFbutton />
+          {/* <HFbutton /> */}
+          {/* <VtonButton /> */}
 
           {/* Step 1 */}
           <div className="pt-12">
@@ -91,18 +113,23 @@ export default function Dashboard() {
               </div>
               <Card className="w-full p-6 flex justify-between gap-x-4">
                 <Button
-                  onClick={() => setGender("female")}
                   variant="outline"
+                  onClick={() => setGender("female")}
                   className={`w-full h-14 font-bold ${
-                    gender === "female" ? "bg-button-background" : ""
+                    gender === "female"
+                      ? "bg-primary text-white"
+                      : "bg-button-background text-dark"
                   }`}
                 >
                   Female model
                 </Button>
                 <Button
+                  variant="outline"
                   onClick={() => setGender("male")}
-                  className={`w-full h-14 font-bold ${
-                    gender === "male" ? "bg-button-background" : ""
+                  className={`w-full h-14 font-bold  ${
+                    gender === "male"
+                      ? "bg-primary text-white"
+                      : "bg-button-background text-dark"
                   }`}
                 >
                   Male model
@@ -123,7 +150,7 @@ export default function Dashboard() {
                 </div>
               </div>
               <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
-                <Tabs defaultValue="account" className="w-full">
+                <Tabs defaultValue="shirt" className="w-full">
                   <TabsList className="mb-3 w-full flex flex-row justify-between px-20 py-4">
                     <TabsTrigger value="shirt">Shirt</TabsTrigger>
                     <TabsTrigger value="croptop">Crop Top</TabsTrigger>
@@ -135,19 +162,34 @@ export default function Dashboard() {
                     <div className="flex flex-row gap-x-4">
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("shortsleeves")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "shortsleeves"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Short sleeves
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("longsleeves")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "longsleeves"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Long sleeves
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("sleevleess")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "sleevleess"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         sleevleess
                       </Button>
@@ -157,19 +199,34 @@ export default function Dashboard() {
                     <div className="flex flex-row gap-x-4">
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("shortsleeves")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "shortsleeves"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Short sleeves
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("longsleeves")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "longsleeves"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Long sleeves
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("sleevleess")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "sleevleess"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         sleevleess
                       </Button>
@@ -179,13 +236,23 @@ export default function Dashboard() {
                     <div className="flex flex-row gap-x-4">
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("Shorts")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "Shorts"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Shorts
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("longpants")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "longpants"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Long pants
                       </Button>
@@ -195,19 +262,34 @@ export default function Dashboard() {
                     <div className="flex flex-row gap-x-4">
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("shortsleeves")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "shortsleeves"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Short sleeves
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("longsleeves")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "longsleeves"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Long sleeves
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("sleevleess")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "sleevleess"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         sleevleess
                       </Button>
@@ -217,19 +299,34 @@ export default function Dashboard() {
                     <div className="flex flex-row gap-x-4">
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("minidress")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "minidress"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Mini dress
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("mididress")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "mididress"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Midi dress
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full h-14 bg-button-background font-bold"
+                        onClick={() => setClothType("maxidress")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "maxidress"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
                       >
                         Maxi dress
                       </Button>
@@ -254,37 +351,22 @@ export default function Dashboard() {
                   <ScrollArea>
                     <div className="flex space-x-4 pb-4">
                       {thumbnails.map((album) => (
-                        <PhotoLayout
+                        <div
                           key={album.name}
-                          album={album}
-                          className="w-[150px]"
-                          aspectRatio="square"
-                          width={150}
-                          height={150}
-                          showTitle={true}
-                        />
-                      ))}
-                      {thumbnails.map((album) => (
-                        <PhotoLayout
-                          key={album.name}
-                          album={album}
-                          className="w-[150px]"
-                          aspectRatio="square"
-                          width={150}
-                          height={150}
-                          showTitle={true}
-                        />
-                      ))}
-                      {thumbnails.map((album) => (
-                        <PhotoLayout
-                          key={album.name}
-                          album={album}
-                          className="w-[150px]"
-                          aspectRatio="square"
-                          width={150}
-                          height={150}
-                          showTitle={true}
-                        />
+                          className={"relative"}
+                          onClick={() => setModel(album.name)}
+                        >
+                          <PhotoLayout
+                            key={album.name}
+                            album={album}
+                            className="w-[150px]"
+                            aspectRatio="square"
+                            width={150}
+                            height={150}
+                            showTitle={true}
+                            selected={model === album.name}
+                          />
+                        </div>
                       ))}
                     </div>
                     <ScrollBar orientation="horizontal" />
@@ -306,7 +388,7 @@ export default function Dashboard() {
                 </div>
               </div>
               <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
-                <Tabs defaultValue="account" className="w-full">
+                <Tabs defaultValue="fullbody" className="w-full">
                   <TabsList className="mb-3 w-full flex flex-row justify-between px-20 py-4">
                     <TabsTrigger value="fullbody">Full body</TabsTrigger>
                     <TabsTrigger value="upperbody">Upper body</TabsTrigger>
@@ -316,15 +398,27 @@ export default function Dashboard() {
                     <div className="relative">
                       <ScrollArea>
                         <div className="flex space-x-4 pb-4">
-                          {layouts.map((album, index) => (
-                            <PhotoLayout
+                          {layouts.fullbody.map((album, index) => (
+                            <div
                               key={index}
-                              album={album}
-                              className="w-[250px]"
-                              aspectRatio="portrait"
-                              width={250}
-                              height={330}
-                            />
+                              className={"relative"}
+                              onClick={() =>
+                                handlePhotoSelect("fullbody", index)
+                              }
+                            >
+                              <PhotoLayout
+                                album={album}
+                                className="w-[250px]"
+                                aspectRatio="portrait"
+                                width={250}
+                                height={330}
+                                selected={selectedLayouts.some(
+                                  (item) =>
+                                    item.layout === "fullbody" &&
+                                    item.selected.includes(index)
+                                )}
+                              />
+                            </div>
                           ))}
                         </div>
                         <ScrollBar orientation="horizontal" />
@@ -335,15 +429,27 @@ export default function Dashboard() {
                     <div className="relative">
                       <ScrollArea>
                         <div className="flex space-x-4 pb-4">
-                          {layouts.map((album, index) => (
-                            <PhotoLayout
+                          {layouts.upperbody.map((album, index) => (
+                            <div
                               key={index}
-                              album={album}
-                              className="w-[250px]"
-                              aspectRatio="portrait"
-                              width={250}
-                              height={330}
-                            />
+                              className={"relative"}
+                              onClick={() =>
+                                handlePhotoSelect("upperbody", index)
+                              }
+                            >
+                              <PhotoLayout
+                                album={album}
+                                className="w-[250px]"
+                                aspectRatio="portrait"
+                                width={250}
+                                height={330}
+                                selected={selectedLayouts.some(
+                                  (item) =>
+                                    item.layout === "upperbody" &&
+                                    item.selected.includes(index)
+                                )}
+                              />
+                            </div>
                           ))}
                         </div>
                         <ScrollBar orientation="horizontal" />
@@ -354,15 +460,27 @@ export default function Dashboard() {
                     <div className="relative">
                       <ScrollArea>
                         <div className="flex space-x-4 pb-4">
-                          {layouts.map((album, index) => (
-                            <PhotoLayout
+                          {layouts.lowerbody.map((album, index) => (
+                            <div
                               key={index}
-                              album={album}
-                              className="w-[250px]"
-                              aspectRatio="portrait"
-                              width={250}
-                              height={330}
-                            />
+                              className={"relative"}
+                              onClick={() =>
+                                handlePhotoSelect("lowerbody", index)
+                              }
+                            >
+                              <PhotoLayout
+                                album={album}
+                                className="w-[250px]"
+                                aspectRatio="portrait"
+                                width={250}
+                                height={330}
+                                selected={selectedLayouts.some(
+                                  (item) =>
+                                    item.layout === "lowerbody" &&
+                                    item.selected.includes(index)
+                                )}
+                              />
+                            </div>
                           ))}
                         </div>
                         <ScrollBar orientation="horizontal" />

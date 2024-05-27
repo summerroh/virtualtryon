@@ -57,6 +57,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@gradio/client": "^0.19.4",
     "tailwindcss": "^3.4.3"
   }
 }

@@ -8,6 +8,7 @@ const HF_TOKEN = process.env.HF_TOKEN;
 const inference = new HfInference(HF_TOKEN);
 
 // 4. Define the model and the image input
+// const model = "nlpconnect/vit-gpt2-image-captioning";
 const model = "nlpconnect/vit-gpt2-image-captioning";
 const imageUrl =
   "https://cdn.britannica.com/30/150930-120-D3D93F1E/lion-Namibia.jpg";

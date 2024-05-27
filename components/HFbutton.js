@@ -1,3 +1,4 @@
+// A button that is used to call a huggingface api
 import React, { useState } from "react";
 
 const CaptionButton = () => {
@@ -33,7 +34,7 @@ const CaptionButton = () => {
   return (
     <div>
       <button onClick={handleGenerateCaption} disabled={loading}>
-        {loading ? "Generating..." : "Generate Caption"}
+        {loading ? "Generating..." : "Connect with HF (test) 🚀 "}
       </button>
       {caption && <p>{caption}</p>}
     </div>

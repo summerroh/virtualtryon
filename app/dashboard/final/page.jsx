@@ -23,7 +23,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 import { Sidebar } from "@/components/sidebar";
-import { layouts } from "@/data/albums";
+import { albums } from "@/data/albums";
 
 import { Download, Expand, RefreshCcw } from "lucide-react";
 import Link from "next/link";
@@ -55,7 +55,7 @@ export default function Page() {
                   {Array.from({ length: 1 }).map((_, index) => (
                     <PhotoLayout
                       key={index}
-                      album={layouts[0]}
+                      album={albums[0]}
                       className=""
                       aspectRatio="portrait"
                       width={500}
