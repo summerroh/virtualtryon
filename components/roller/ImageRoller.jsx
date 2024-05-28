@@ -1,7 +1,23 @@
 import React from "react";
 
 export default function ImageRoller() {
-  const items = [1, 2, 3, 4, 5, 6];
+  const items = [
+    "/images/image-roller/amy-half.png",
+    "/images/image-roller/amy-upperbody.png",
+    "/images/image-roller/lucy-half.png",
+    "/images/image-roller/rachael-half.png",
+    "/images/image-roller/rachael-upperbody.png",
+    "/images/image-roller/amy-half.png",
+  ];
+
+  const items2 = [
+    "/images/image-roller/jacob-half.png",
+    "/images/image-roller/ken-half.png",
+    "/images/image-roller/liam-half.png",
+    "/images/image-roller/rachael-half.png",
+    "/images/image-roller/rachael-upperbody.png",
+    "/images/image-roller/amy-half.png",
+  ];
 
   return (
     <>
@@ -11,13 +27,13 @@ export default function ImageRoller() {
             <div className="row">
               <div className="col-lg-3 p-0">
                 <div className="review-item-wrap">
-                  {items.map((item) => {
+                  {items.map((item, index) => {
                     return (
-                      <div className="review-item">
+                      <div key={index} className="review-item">
                         <img
-                          src="/images/media/model1-thumb.png"
+                          src={item}
                           alt="img"
-                          className="lazy-img d-inline"
+                          className="lazy-img d-inline rounded-lg"
                           style={{ width: "100%" }}
                         />
                       </div>
@@ -27,13 +43,13 @@ export default function ImageRoller() {
               </div>
               <div className="col-lg-3 p-0">
                 <div className="review-item-wrap">
-                  {items.map((item) => {
+                  {items2.map((item, index) => {
                     return (
-                      <div className="review-item">
+                      <div key={index} className="review-item">
                         <img
-                          src="/images/media/model1-thumb.png"
+                          src={item}
                           alt="img"
-                          className="lazy-img d-inline"
+                          className="lazy-img d-inline rounded-lg"
                           style={{ width: "100%" }}
                         />
                       </div>
@@ -43,13 +59,13 @@ export default function ImageRoller() {
               </div>
               <div className="col-lg-3 p-0">
                 <div className="review-item-wrap">
-                  {items.map((item) => {
+                  {items.map((item, index) => {
                     return (
-                      <div className="review-item">
+                      <div key={index} className="review-item">
                         <img
-                          src="/images/media/model1-thumb.png"
+                          src={item}
                           alt="img"
-                          className="lazy-img d-inline"
+                          className="lazy-img d-inline rounded-lg"
                           style={{ width: "100%" }}
                         />
                       </div>
@@ -59,13 +75,13 @@ export default function ImageRoller() {
               </div>
               <div className="col-lg-3 p-0">
                 <div className="review-item-wrap">
-                  {items.map((item) => {
+                  {items2.map((item, index) => {
                     return (
-                      <div className="review-item">
+                      <div key={index} className="review-item">
                         <img
-                          src="/images/media/model1-thumb.png"
+                          src={item}
                           alt="img"
-                          className="lazy-img d-inline"
+                          className="lazy-img d-inline rounded-lg"
                           style={{ width: "100%" }}
                         />
                       </div>

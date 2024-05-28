@@ -7281,7 +7281,7 @@ body .btn-twentySix:hover:after {
   border-radius: 40px;
 }
 .fancy-short-banner-sixteen .main-title {
-  font-size: 42px;
+  font-size: 35px;
   line-height: 1.16em;
 }
 .fancy-short-banner-sixteen .sc-title {
@@ -8658,8 +8658,8 @@ body .btn-twentySix:hover:after {
 	04. review
 ===============================*/
 .review-area {
-  // background: var(--tg-gray);
-  background: #ffffff;
+  background: var(--background-hero);
+  // background: #ffffff;
   padding: 140px 0 140px;
 }
 .customer-review-wrapper {
@@ -8675,13 +8675,21 @@ body .btn-twentySix:hover:after {
   left: 0;
   height: 62px;
   width: 100%;
-  background: linear-gradient(0deg, #ffffff 0%, rgba(246, 245, 243, 0) 100%);
+  background: linear-gradient(
+    0deg,
+    var(--background-hero) 0%,
+    rgba(246, 245, 243, 0) 100%
+  );
   z-index: 10;
 }
 .customer-review-wrapper::before {
   bottom: auto;
   top: 0;
-  background: linear-gradient(180deg, #ffffff 0%, rgba(246, 245, 243, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--background-hero) 0%,
+    rgba(246, 245, 243, 0) 100%
+  );
 }
 .review-item-wrap {
   animation: friskTestimonialScroll 30s linear infinite;

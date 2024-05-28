@@ -28,7 +28,8 @@ module.exports = {
         // dark: "#2B3674 !important",
         background: {
           DEFAULT: "hsl(var(--background))",
-          dashboard: "#F4F7FE",
+          dashboard: "var(--dashboard-background)",
+          hero: "var(--background-hero)",
         },
         primary: {
           // DEFAULT: "hsl(var(--primary))",

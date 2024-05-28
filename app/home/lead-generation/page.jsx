@@ -3,7 +3,6 @@ import React from "react";
 import Header from "@/components/landing/Header";
 import Hero from "@/components/hero";
 import Feedback from "@/components/landing/Feedback";
-import Faq from "@/components/landing/Faq";
 import Link from "next/link";
 import CopyrightFooter from "@/components/landing/CopyrightFooter";
 import Image from "next/image";
@@ -13,6 +12,7 @@ import ImageRoller from "@/components/roller/ImageRoller";
 import Step2 from "@/components/landing/Step2";
 import Step3 from "@/components/landing/Step3";
 import Step1 from "@/components/landing/Step1";
+import { QnA } from "@/components/landing/QnA";
 
 export const metadata = {
   title: "Virtual Fitting Room || Create professional fashion photoshoots",
@@ -83,7 +83,7 @@ const LeadGeneration = () => {
           {/* /.title-style-ten */}
 
           <div className="position-relative mt-20 lg-mt-20" aos="fade-up">
-            <Faq />
+            <QnA />
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ const LeadGeneration = () => {
                   <div className="col-lg-6">
                     <div className="text-wrapper text-center text-lg-start md-pb-30">
                       <div className="sc-title fs-18 pb-10">Interested?</div>
-                      <h2 className="main-title fw-500 text-white m0">
+                      <h2 className="main-title fw-500 text-white m0 text-xl">
                         Don’t hesitate to send us message.
                       </h2>
                     </div>

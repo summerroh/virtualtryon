@@ -12,10 +12,10 @@ const HeroContent = () => {
         images
       </h1>
       <p className="sub-text mt-10 mb-45 lg-mb-30">
-        You will save moeny and time for a physical photoshoot
+        <span className="text-white"> Forget expensive photoshoots </span> —{" "}
         <br />
-        <span className="text-white"> 3x faster</span> revenue than other
-        eccormerce.
+        create professional model images instantly and focus on what really
+        matters for your business.
       </p>
       <div className="d-lg-flex align-items-center mb-190">
         <Link

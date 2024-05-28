@@ -34,7 +34,7 @@ const Feedback = () => {
 
   return (
     <div
-      className="feedback-section-eight position-relative pt-20 pb-30 lg-pt-30 "
+      className="feedback-section-eight position-relative pt-60 pb-30 lg-pt-100"
       data-aos="fade-up"
     >
       <div className="container">
