@@ -39,7 +39,7 @@ export function Sidebar({ className, playlists }) {
                       strokeWidth={1.5}
                       className="mr-2"
                     />
-                    Model images
+                    Model Images
                   </Button>
                 </Link>
               </div>

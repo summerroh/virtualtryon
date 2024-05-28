@@ -109,7 +109,7 @@ export default function Page() {
                       strokeWidth={2}
                       className="mr-2"
                     />
-                    Upply upscaler
+                    Apply upscaler
                   </Button>
                 </Link>
               </div>
