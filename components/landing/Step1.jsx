@@ -34,10 +34,11 @@ const Step1 = () => {
         data-aos="fade-right"
       >
         <img
-          src="/images/media/step2.png"
+          src="/images/landing/transform.png"
           alt="media"
-          className="lazy-img"
-          height={"631px"}
+          className="lazy-img h-[550px] w-auto"
+          height={"550px"}
+          // height={"631px"}
         />
       </div>
     </div>
