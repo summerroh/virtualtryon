@@ -326,7 +326,7 @@ p {
   font-size: 25px;
   cursor: pointer;
   border-radius: 50%;
-  background: var(--prime-ten);
+  background: var(--primary);
   transition: all 0.3s ease-in-out;
 }
 .scroll-top:after {
@@ -442,7 +442,7 @@ p {
 }
 .title-style-five .sc-title-two {
   font-size: 17px;
-  color: var(--prime-ten);
+  color: var(--yellow);
   padding-left: 40px;
   margin-bottom: 20px;
 }
@@ -451,7 +451,7 @@ p {
   position: absolute;
   width: 24px;
   height: 1px;
-  background: var(--prime-ten);
+  background: var(--yellow);
   left: 0;
   top: 14px;
 }
@@ -5445,9 +5445,9 @@ body .btn-twentySix:hover:after {
 .hero-banner-nine .demo-btn {
   font-size: 18px;
   letter-spacing: -0.3px;
-  color: var(--prime-eight);
+  color: var(--yellow);
   line-height: 55px;
-  border: 2px solid var(--prime-eight);
+  border: 2px solid var(--yellow);
   border-radius: 30px;
   padding: 0 25px;
 }
@@ -5455,7 +5455,7 @@ body .btn-twentySix:hover:after {
   background: #000;
 }
 .hero-banner-nine .signIn-btn a {
-  color: var(--prime-eight);
+  color: var(--yellow);
   text-decoration: underline;
 }
 .hero-banner-nine h2 {
@@ -7285,7 +7285,7 @@ body .btn-twentySix:hover:after {
   line-height: 1.16em;
 }
 .fancy-short-banner-sixteen .sc-title {
-  color: var(--prime-ten);
+  color: var(--yellow);
 }
 /*^^^^^^^^^^^^^^^^^^^^^ Theme Inner Banner One ^^^^^^^^^^^^^^^^^^^^^^^^*/
 .inner-banner-one {

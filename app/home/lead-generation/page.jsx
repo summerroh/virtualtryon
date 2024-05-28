@@ -152,15 +152,6 @@ const LeadGeneration = () => {
           */}
 
         <CopyrightFooter />
-
-        <div className="shapes shape-one" />
-        <Image
-          width={84}
-          height={104}
-          src="/images/shape/shape_134.svg"
-          alt="shape"
-          className="lazy-img shapes shape-two"
-        />
       </div>
 
       {/* /.footer-style-nine */}

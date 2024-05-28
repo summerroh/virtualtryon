@@ -65,6 +65,7 @@ module.exports = {
           background: "var(--button-background)",
           secondary: "var(--button-secondary)",
         },
+        yellow: "var(--yellow)",
       },
       borderRadius: {
         lg: "var(--radius)",
