@@ -11,6 +11,7 @@ import {
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { MobileDrawer } from "./MobileDrawer";
 
 const MainMenu = () => {
   const pathname = usePathname();
@@ -21,19 +22,6 @@ const MainMenu = () => {
 
   return (
     <nav className="navbar navbar-expand-lg order-lg-2">
-      <button
-        className="navbar-toggler d-block d-lg-none"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span />
-      </button>
-      {/* End mobile collapse menu */}
-
       <div className="navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="d-block d-lg-none">

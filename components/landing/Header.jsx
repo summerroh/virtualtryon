@@ -47,25 +47,13 @@ const Header = () => {
             >
               Virtual Fitting Room
             </a>
-            {/*
-            <Link href="/" className="d-block">
-              <Image
-                src="/images/logo/logo_04.png"
-                alt="logo"
-                width={95}
-                height={30}
-              />
-            </Link>
-            */}
           </div>
           <div className="right-widget d-flex align-items-center ms-auto ms-lg-0 order-lg-3">
             <RightNavMenu user={user} />
           </div>
-          {/* /.right-widget */}
           <NavMenu user={user} />
         </div>
       </div>
-      {/* /.inner-content */}
     </header>
   );
 };

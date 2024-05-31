@@ -3,10 +3,9 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const navItems = [
-  { title: "About me", href: "#s1", loggedIn: false },
-  { title: "Services", href: "#s2", loggedIn: false },
-  { title: "Portfolio", href: "#s3", loggedIn: false },
-  { title: "Skill", href: "#s4", loggedIn: false },
+  { title: "Services", href: "#s1", loggedIn: false },
+  { title: "Pricing", href: "#s2", loggedIn: false },
+  { title: "FAQ", href: "#s3", loggedIn: false },
   // { title: "Dashboard", href: "#s5", loggedIn: true },
 ];
 
@@ -33,17 +32,6 @@ const NavMenu = ({ user }) => {
         scrollingStarted ? "scrolling" : ""
       }`}
     >
-      <button
-        className="navbar-toggler d-block d-lg-none"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#one-page-nav"
-        aria-controls="one-page-nav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span />
-      </button>
       <div className="navbar-collapse" id="one-page-nav">
         <ul className="navbar-nav">
           <li className="d-block d-lg-none">

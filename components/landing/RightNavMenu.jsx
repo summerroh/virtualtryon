@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { MobileDrawer } from "../header/MobileDrawer";
 
 const navItems = [
   { title: "Login", href: "/login", loggedIn: false },
@@ -29,17 +30,10 @@ export default function RightNavMenu({ user }) {
         scrollingStarted ? "scrolling" : ""
       }`}
     >
-      <button
-        className="navbar-toggler d-block d-lg-none"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#one-page-nav"
-        aria-controls="one-page-nav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span />
-      </button>
+      <div className="block lg:hidden">
+        <MobileDrawer />
+      </div>
+
       <div className="navbar-collapse" id="one-page-nav">
         <ul className="navbar-nav">
           <li className="d-block d-lg-none">
