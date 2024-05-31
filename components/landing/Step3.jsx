@@ -32,12 +32,10 @@ const Step3 = () => {
                 </Link>
               </div>
                 */}
-            </div>{" "}
-            {/* /.block-style-four */}
+            </div>
           </div>
         </div>
-      </div>{" "}
-      {/* /.container */}
+      </div>
       <div
         className="illustration-holder d-flex justify-content-center"
         data-aos="fade-right"
@@ -45,15 +43,9 @@ const Step3 = () => {
         <img
           src="/images/media/step2.png"
           alt="media"
-          className="lazy-img main-img"
+          className="lazy-img h-[550px] w-auto"
+          height={"550px"}
         />
-        {/*
-        <img
-          src="/images/shape/shape_123.svg"
-          alt="media"
-          className="lazy-img shapes shape-one"
-        />
-*/}
       </div>
     </div>
   );

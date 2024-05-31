@@ -1,13 +1,10 @@
 const Step2 = () => {
   return (
-    <div className="fancy-feature-three pt-300 lg-pt-100 md-pt-100 sm-pt-120">
+    <div className="fancy-feature-three pt-300 lg-pt-100 md-pt-100 sm-pt-120 mb-300">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-5 col-md-6">
-            <div
-              className="block-style-two pe-xxl-5 md-mb-50"
-              data-aos="fade-right"
-            >
+            <div className="block-style-two pe-xxl-5 " data-aos="fade-right">
               <div className="title-style-ten">
                 <div className="sc-title badge">STEP 1</div>
                 <h2 className="main-title font-recoleta fw-normal text-dark">

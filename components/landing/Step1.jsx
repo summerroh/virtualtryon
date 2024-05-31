@@ -12,7 +12,7 @@ const Step1 = () => {
             >
               <div className="title-style-ten">
                 <div className="sc-title badge">STEP 2</div>
-                <h2 className="main-title font-recoleta fw-normal text-dark text-xxl">
+                <h2 className="main-title font-recoleta fw-normal text-dark">
                   Save Time{" "}
                   <span className="position-relative">
                     and Money
@@ -36,9 +36,7 @@ const Step1 = () => {
         <img
           src="/images/landing/transform.png"
           alt="media"
-          className="lazy-img h-[550px] w-auto"
-          height={"550px"}
-          // height={"631px"}
+          className="lazy-img w-full h-auto"
         />
       </div>
     </div>

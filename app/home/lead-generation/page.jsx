@@ -40,44 +40,14 @@ const LeadGeneration = () => {
       <Step2 />
       <Step3 />
 
-      <div
-        className="title-style-ten text-center mt-40 lg-mt-40 mb-20"
-        aos="fade-up"
-      >
-        {/* <div className="sc-title">FAQ</div> */}
-        <h2 className="main-title font-recoleta fw-normal text-dark">
-          {/* Text without underline  */}
-          <span className="position-relative">
-            Pricing{" "}
-            <Image
-              width={219}
-              height={7}
-              src="/images/shape/shape_132.svg"
-              alt=""
-            />
-          </span>
-        </h2>
-      </div>
-
-      <div className="container">
-        <Pricing />
-      </div>
+      <Pricing />
 
       <div className="fancy-feature-thirtyThree mt-40 lg-mt-60">
         <div className="container">
           <div className="title-style-ten text-center" aos="fade-up">
             <div className="sc-title">FAQ</div>
             <h2 className="main-title font-recoleta fw-normal text-dark">
-              Questions &amp;{" "}
-              <span className="position-relative">
-                Answers{" "}
-                {/* <Image
-                  width={219}
-                  height={7}
-                  src="/images/shape/shape_132.svg"
-                  alt=""
-                /> */}
-              </span>
+              Questions &amp; <span className="position-relative">Answers</span>
             </h2>
           </div>
           {/* /.title-style-ten */}

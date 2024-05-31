@@ -78,6 +78,15 @@ const yearlyPricingPlans = [
 const Pricing = () => {
   return (
     <>
+      <div
+        className="title-style-ten text-center mt-250 lg-mt-40 mb-20"
+        aos="fade-up"
+      >
+        <h2 className="main-title font-recoleta fw-normal text-dark">
+          <span className="position-relative">Pricing</span>
+        </h2>
+      </div>
+
       <ul
         className="nav nav-tabs justify-content-center border-0 pricing-nav-two"
         data-aos="fade-up"
