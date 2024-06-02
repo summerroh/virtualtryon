@@ -11,7 +11,7 @@ const Step2 = () => {
                   Unlimited{" "}
                   <span className="position-relative">
                     Possibilities
-                    <img src="/images/shape/shape_122.svg" alt="shape" />
+                    {/* <img src="/images/shape/shape_122.svg" alt="shape" /> */}
                   </span>
                 </h2>
               </div>{" "}

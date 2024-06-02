@@ -6,10 +6,10 @@ const HeroContent = () => {
       <h1 className="hero-heading fw-normal text-white font-recoleta mt-10">
         Create professional{" "}
         <span className="position-relative">
-          model{" "}
+          Model{" "}
           {/* model <img src="/images/shape/shape_114.svg" alt="img" /> */}
         </span>
-        images
+        Images
       </h1>
       <p className="sub-text mt-10 mb-45 lg-mb-30">
         <span className="text-white"> Forget expensive photoshoots </span> —{" "}
