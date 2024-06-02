@@ -3,9 +3,9 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const navItems = [
-  { title: "Services", href: "#s1", loggedIn: false },
-  { title: "Pricing", href: "#s2", loggedIn: false },
-  { title: "FAQ", href: "#s3", loggedIn: false },
+  { title: "Services", href: "#services", loggedIn: false },
+  { title: "Pricing", href: "#pricing", loggedIn: false },
+  { title: "FAQ", href: "#faq", loggedIn: false },
   // { title: "Dashboard", href: "#s5", loggedIn: true },
 ];
 
@@ -23,9 +23,25 @@ const NavMenu = ({ user }) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+
+        // Adjust scroll position with a timeout to ensure smooth scroll completes first
+        // setTimeout(() => {
+        //   const buffer = 100; // Adjust this value as needed
+        //   window.scrollBy(0, -buffer);
+        // }, 300); // Adjust this timeout value if necessary
+      }
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <nav
       className={`navbar navbar-expand-lg order-lg-2 ${

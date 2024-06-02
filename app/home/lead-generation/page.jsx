@@ -6,6 +6,7 @@ import Feedback from "@/components/landing/Feedback";
 import Link from "next/link";
 import CopyrightFooter from "@/components/landing/CopyrightFooter";
 import Image from "next/image";
+// import { Element } from "react-scroll";
 // import Pricing from "@/app/404/page";
 import Pricing from "@/components/landing/Pricing";
 import ImageRoller from "@/components/roller/ImageRoller";
@@ -18,6 +19,14 @@ export const metadata = {
   title: "Virtual Fitting Room || Create professional fashion photoshoots",
 };
 const LeadGeneration = () => {
+  // 상단 메뉴 스크롤 기능
+  // useEffect(() => {
+  //   const hash = window.location.hash;
+  //   if (hash) {
+  //     document.querySelector(hash).scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, []);
+
   return (
     <>
       <Header />
@@ -36,13 +45,17 @@ const LeadGeneration = () => {
         </div>
       </div> */}
 
-      <Step1 />
+      <div id="services">
+        <Step1 />
+      </div>
       <Step2 />
       <Step3 />
 
-      <Pricing />
+      <div id="pricing">
+        <Pricing />
+      </div>
 
-      <div className="fancy-feature-thirtyThree mt-40 lg-mt-60">
+      <div id="faq" className="fancy-feature-thirtyThree mt-40 lg-mt-60">
         <div className="container">
           <div className="title-style-ten text-center" aos="fade-up">
             <div className="sc-title">FAQ</div>

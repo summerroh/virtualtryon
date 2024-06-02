@@ -11,7 +11,6 @@ import {
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { MobileDrawer } from "./MobileDrawer";
 
 const MainMenu = () => {
   const pathname = usePathname();
