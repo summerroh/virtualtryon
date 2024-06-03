@@ -57,19 +57,21 @@ const LeadGeneration = () => {
         <Pricing />
       </div>
 
-      <div id="faq" className="fancy-feature-thirtyThree mt-40 lg-mt-60">
-        <div className="container">
-          <div className="title-style-ten text-center" aos="fade-up">
-            <div className="sc-title">FAQ</div>
-            <h2 className="main-title font-recoleta fw-normal text-dark">
-              Questions &amp; <span className="position-relative">Answers</span>
-            </h2>
-          </div>
-          {/* /.title-style-ten */}
+      <div
+        id="faq"
+        className="flex justify-center flex-col px-8 lg:px-12 xl:px-40 py-8 md:py-16 bg-white mt-40 bg-black"
+      >
+        <div className="text-center">
+          <h6 className="text-sm uppercase text-primary fw-semibold mb-3">
+            MODEL GALLERY
+          </h6>
+          <h1 className="text-5xl font-bold text-dark font-recoleta fw-normal mb-4">
+            Questions & Answers
+          </h1>
+        </div>
 
-          <div className="position-relative mt-20 lg-mt-20" aos="fade-up">
-            <QnA />
-          </div>
+        <div className="position-relative sm:mt-10 lg:mt-20" aos="fade-up">
+          <QnA />
         </div>
       </div>
       <div

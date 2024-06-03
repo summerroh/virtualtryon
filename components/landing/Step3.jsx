@@ -18,7 +18,7 @@ const Step3 = () => {
                     {/* <img src="/images/shape/shape_122.svg" alt="shape" /> */}
                   </span>
                 </h2>
-              </div>{" "}
+              </div>
               {/* /.title-style-ten */}
               <p className="fs-20 pt-30 pb-30 lg-pb-10 md-pt-10">
                 Our technology ensures that your product images are of the
