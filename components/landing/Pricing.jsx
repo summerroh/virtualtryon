@@ -43,38 +43,40 @@ const plans = [
 
 export default function Component() {
   return (
-    <div className="flex justify-center px-48 py-16 bg-white mt-40">
-      <div className="w-full space-y-24">
-        <h1 className="text-center text-5xl font-bold font-recoleta fw-normal text-dark">
+    <div className="flex justify-center px-4 md:px-12 lg:px-24 py-8 md:py-16 bg-white mt-10 md:mt-20 lg:mt-40">
+      <div className="w-full space-y-12 md:space-y-24">
+        <h1 className="text-center text-3xl md:text-5xl font-bold text-dark">
           Pricing
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 lg:gap-20">
           {plans.map((plan) => (
             <Card
               key={plan.id}
-              className={`flex flex-col items-center px-12 py-20 bg-white rounded-[40px] border border-[#CDCDCD] ${
+              className={`flex flex-col items-center p-6 md:px-6 md:py-20 xl:px-12 bg-white rounded-2xl border border-gray-300 ${
                 plan.active ? "md:scale-110" : ""
               }`}
             >
               <div className="flex items-start gap-1 mb-1">
-                <span className="text-3xl font-bold font-recoleta fw-normal text-dark">
+                <span className="text-3xl font-bold text-dark">
                   {plan.price.slice(0, 1)}
                 </span>
-                <div className="text-5xl font-bold font-recoleta fw-normal text-dark">
+                <div className="text-5xl font-bold text-dark">
                   {plan.price.slice(1)}
                 </div>
               </div>
-              <div className="mt-2 text-2xl font-semibold text-primary">
+              <div className="mt-2 text-xl md:text-2xl font-semibold text-primary">
                 {plan.plan}
               </div>
-              <div className="mt-1 text-md fw-medium text-gray-500">
+              <div className="mt-1 text-sm md:text-md font-medium text-gray-500">
                 {plan.perCredit}
               </div>
               <div className="mt-4 space-y-3">
                 {plan.features.map((feature, index) => (
                   <p key={index} className="flex items-center space-x-2">
                     <CheckIcon className="text-primary" size={24} />
-                    <span className="text-lg fw-medium">{feature}</span>
+                    <span className="text-sm lg:text-lg font-medium">
+                      {feature}
+                    </span>
                   </p>
                 ))}
               </div>
