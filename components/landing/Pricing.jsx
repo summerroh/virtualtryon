@@ -45,7 +45,7 @@ export default function Component() {
   return (
     <div className="flex justify-center px-4 md:px-12 lg:px-24 py-8 md:py-16 bg-white mt-10 md:mt-20 lg:mt-40">
       <div className="w-full space-y-12 md:space-y-24">
-        <h1 className="text-center text-3xl md:text-5xl font-bold text-dark">
+        <h1 className="text-center text-3xl md:text-5xl font-bold text-dark font-recoleta fw-normal">
           Pricing
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 lg:gap-20">
@@ -57,10 +57,10 @@ export default function Component() {
               }`}
             >
               <div className="flex items-start gap-1 mb-1">
-                <span className="text-3xl font-bold text-dark">
+                <span className="text-3xl font-bold text-dark font-recoleta fw-normal">
                   {plan.price.slice(0, 1)}
                 </span>
-                <div className="text-5xl font-bold text-dark">
+                <div className="text-5xl font-bold text-dark font-recoleta fw-normal">
                   {plan.price.slice(1)}
                 </div>
               </div>
