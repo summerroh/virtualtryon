@@ -1,101 +1,81 @@
-const Step2 = () => {
-  return (
-    <div className="fancy-feature-three pt-300 lg-pt-100 md-pt-100 sm-pt-120 mb-300">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-lg-5 col-md-6">
-            <div className="block-style-two pe-xxl-5 " data-aos="fade-right">
-              <div className="title-style-ten">
-                <div className="sc-title badge">STEP 1</div>
-                <h2 className="main-title font-recoleta fw-normal text-dark">
-                  Unlimited{" "}
-                  <span className="position-relative">
-                    Possibilities
-                    {/* <img src="/images/shape/shape_122.svg" alt="shape" /> */}
-                  </span>
-                </h2>
-              </div>{" "}
-              {/* /.title-style-ten */}
-              <p className="fs-20 pt-30 pb-30 lg-pb-10 md-pt-10">
-                Browse through our diverse selection of AI models to perfectly
-                match your brand's aesthetic.
-              </p>
-              {/* 모델 썸네일 리스트 */}
-              <div
-                className="d-flex flex-row justify-space-between gap-3 mb-3"
-                data-aos="fade-up"
-              >
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline model-thumb"
-                />
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline model-thumb"
-                />
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline model-thumb"
-                />
-              </div>
-              <div
-                className="d-flex flex-row justify-space-between gap-3"
-                data-aos="fade-up"
-              >
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline model-thumb"
-                />
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline model-thumb"
-                />
-                <img
-                  src="/images/media/hero-img-5.png"
-                  alt="img"
-                  className="lazy-img d-inline model-thumb"
-                />
-              </div>
-              {/*
-              
-              <Link
-                href="/pages-menu/about-us-v1"
-                className="btn-four fw-500"
-              >
-                Learn More
-              </Link>
-*/}
-            </div>
-            {/* /.block-style-two */}
-          </div>
-          {/* End .col-lg-5 */}
+// fully coded with tailwind and shadcn
 
-          <div
-            className="col-xl-6 col-lg-7 col-md-6 ms-auto d-flex justify-content-end"
-            data-aos="fade-left"
-          >
-            <div
-              className={`round-bg d-flex align-items-center justify-content-center`}
-              style={{ width: "499px", height: "631px" }}
-            >
-              <img
-                src={"/images/media/model_preview.png"}
-                alt={`model`}
-                className="lazy-img"
-              />
+import { layouts, clothesThumbnails } from "@/data/albums";
+import { PhotoLayout } from "@/components/album-artwork";
+
+export default function Step2() {
+  return (
+    <div className="flex justify-center px-8 md:px-24 lg:px-24 xl:px-28 2xl:px-52 py-8 md:py-16 bg-white mt-40">
+      <div className="w-full space-y-12 md:space-y-24 flex flex-col md:flex-row justify-between sm:gap-10 lg:gap-24">
+        <div
+          className="w-full flex items-start md:justify-start sm:justify-center min-w-[360px]"
+          data-aos="fade-left"
+        >
+          <img
+            src="/images/media/model_preview.png"
+            alt="Image"
+            width={450}
+            className="w-auto sm:h-auto lg:h-full object-contain"
+          />
+        </div>
+
+        <div className="">
+          <div data-aos="fade-right">
+            <h6 className="text-sm uppercase text-primary fw-semibold mb-3">
+              TRY IT OUT
+            </h6>
+            <h1 className="text-5xl font-bold text-dark font-recoleta fw-normal mb-4">
+              Professional Quality
+            </h1>
+            <p className="text-lg fw-medium text-dark">
+              Our technology ensures that your product images are of the highest
+              standard, enhancing your brand's image and credibility.
+            </p>
+          </div>
+
+          <div className="mt-4 space-y-4">
+            <div data-aos="fade-up">
+              <p className="text-sm font-medium text-dark">Top</p>
+              <div className="grid grid-cols-3 gap-4 w-full">
+                {clothesThumbnails.map((album, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="bg-gray-300 aspect-w-1 aspect-h-1 overflow-hidden rounded-md"
+                    >
+                      <img
+                        src={album.cover}
+                        alt={album.alt || "Thumbnail"}
+                        className="w-full h-full object-cover transition-all hover:scale-105"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div data-aos="fade-up">
+              <p className="text-sm font-medium text-dark">Bottom</p>
+              <div className="grid grid-cols-3 gap-4 w-full">
+                {clothesThumbnails.map((album, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="bg-gray-300 aspect-w-1 aspect-h-1 overflow-hidden rounded-md"
+                    >
+                      <img
+                        src={album.cover}
+                        alt={album.alt || "Thumbnail"}
+                        className="w-full h-full object-cover transition-all hover:scale-105"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-          {/* End .col-xl-6 */}
         </div>
       </div>
-      {/* /.container */}
     </div>
   );
-};
-
-export default Step2;
+}

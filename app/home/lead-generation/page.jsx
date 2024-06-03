@@ -11,6 +11,7 @@ import Image from "next/image";
 import Pricing from "@/components/landing/Pricing";
 import ImageRoller from "@/components/roller/ImageRoller";
 import Step2 from "@/components/landing/Step2";
+import Step2Old from "@/components/landing/Step2Old";
 import Step3 from "@/components/landing/Step3";
 import Step1 from "@/components/landing/Step1";
 import { QnA } from "@/components/landing/QnA";
@@ -49,6 +50,7 @@ const LeadGeneration = () => {
         <Step1 />
       </div>
       <Step2 />
+      <Step2Old />
       <Step3 />
 
       <div id="pricing">
