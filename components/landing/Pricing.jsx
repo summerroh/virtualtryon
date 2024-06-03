@@ -1,213 +1,109 @@
-const monthlyPricingPlans = [
+// fully tailwind and shadcn
+
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
+
+const plans = [
   {
-    id: "reguler",
-    price: "$13",
-    plan: "Reguler Plan",
+    id: "1",
+    price: "$5",
+    plan: "1 Credit",
+    perCredit: "$5 per credit",
     features: [
-      "Unlimited Email",
-      "5gb Hosting & Domain",
-      "Email & Live chat.",
-      "Cloud",
+      "2 Generated images",
+      "2 Regenerated images",
+      "Email & Chat Support",
     ],
   },
   {
-    id: "flexible",
-    price: "$20",
-    plan: "Flexible Plan",
+    id: "2",
+    price: "$40",
+    plan: "10 Credits",
+    perCredit: "$4 per credit",
     features: [
-      "Unlimited Email",
-      "5gb Hosting & Domain",
-      "2 website 3 sub domain",
-      "Email & Live chat.",
-      "Backling",
-      "Discount Programe",
-    ],
-    active: true,
-  },
-  {
-    id: "business",
-    price: "$43",
-    plan: "Business Plan",
-    features: [
-      "Unlimited Email",
-      "5gb Hosting & Domain",
-      "Email & Live chat.",
-      "Cloud",
-    ],
-  },
-];
-const yearlyPricingPlans = [
-  {
-    id: "reguler",
-    price: "$113",
-    plan: "Reguler Plan",
-    features: [
-      "Unlimited Email",
-      "5gb Hosting & Domain",
-      "Email & Live chat.",
-      "Cloud",
-    ],
-  },
-  {
-    id: "flexible",
-    price: "$210",
-    plan: "Flexible Plan",
-    features: [
-      "Unlimited Email",
-      "5gb Hosting & Domain",
-      "2 website 3 sub domain",
-      "Email & Live chat.",
-      "Backling",
-      "Discount Programe",
+      "20 Generated images",
+      "20 Regenerated images",
+      "Email & Chat Support",
     ],
     active: true,
   },
   {
-    id: "business",
-    price: "$413",
-    plan: "Business Plan",
+    id: "3",
+    price: "$120",
+    plan: "40 Credits",
+    perCredit: "$3 per credit",
     features: [
-      "Unlimited Email",
-      "5gb Hosting & Domain",
-      "Email & Live chat.",
-      "Cloud",
+      "80 Generated images",
+      "80 Regenerated images",
+      "Email & Chat Support",
     ],
   },
 ];
 
-const Pricing = () => {
+export default function Component() {
   return (
-    <>
-      <div
-        className="title-style-ten text-center mt-250 lg-mt-40 mb-20"
-        aos="fade-up"
-      >
-        <h2 className="main-title font-recoleta fw-normal text-dark">
-          <span className="position-relative">Pricing</span>
-        </h2>
-      </div>
-
-      <ul
-        className="nav nav-tabs justify-content-center border-0 pricing-nav-two"
-        data-aos="fade-up"
-        role="tablist"
-      >
-        <li className="nav-item" role="presentation">
-          <button
-            className="nav-link active"
-            data-bs-toggle="tab"
-            data-bs-target="#month"
-            type="button"
-            role="tab"
-          >
-            Monthly
-          </button>
-        </li>
-        <li className="nav-item" role="presentation">
-          <button
-            className="nav-link"
-            data-bs-toggle="tab"
-            data-bs-target="#year"
-            type="button"
-            role="tab"
-          >
-            Yearly
-          </button>
-        </li>
-      </ul>
-
-      <div className="mt-10 lg-mt-10" data-aos="fade-up">
-        <div className="tab-content">
-          <div className="tab-pane show active" id="month">
-            <div className="row">
-              <div className="col-xxl-11 m-auto">
-                <div className="row gx-xxl-5 align-items-center pricing-table-area-two">
-                  {monthlyPricingPlans.map((plan) => (
-                    <div key={plan.id} className="col-lg-4 col-sm-6">
-                      <div
-                        className={`pr-column mt-10 ${
-                          plan.active ? "active" : ""
-                        }`}
-                      >
-                        <div className="pr-header pb-30 mb-45">
-                          <div className="price fw-500 text-dark">
-                            {plan.price}
-                          </div>
-                          <div className="plan text-dark">{plan.plan}</div>
-                        </div>
-                        <div className="pr-body">
-                          <ul className="style-none text-start">
-                            {plan.features.map((feature, index) => (
-                              <li key={index}>{feature}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="pr-footer pt-55 lg-pt-30">
-                          <div className="trial-text opacity-75 mb-20">
-                            Up to 7 user + 1.99 per user
-                          </div>
-                          <a
-                            href="#"
-                            className="signup-btn fw-500 tran3s w-100"
-                          >
-                            Sign up
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+    <div className="flex justify-center px-48 py-16 bg-white mt-40">
+      <div className="w-full space-y-24">
+        <h1 className="text-center text-5xl font-bold font-recoleta fw-normal text-dark">
+          Pricing
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
+          {plans.map((plan) => (
+            <Card
+              key={plan.id}
+              className={`flex flex-col items-center px-12 py-20 bg-white rounded-[40px] border border-[#CDCDCD] ${
+                plan.active ? "md:scale-110" : ""
+              }`}
+            >
+              <div className="flex items-start gap-1 mb-1">
+                <span className="text-3xl font-bold font-recoleta fw-normal text-dark">
+                  {plan.price.slice(0, 1)}
+                </span>
+                <div className="text-5xl font-bold font-recoleta fw-normal text-dark">
+                  {plan.price.slice(1)}
                 </div>
               </div>
-            </div>
-          </div>
-          {/* End month */}
-          <div className="tab-pane" id="year">
-            <div className="row">
-              <div className="col-xxl-11 m-auto">
-                <div className="row gx-xxl-5 align-items-center pricing-table-area-two">
-                  {yearlyPricingPlans.map((plan) => (
-                    <div key={plan.id} className="col-lg-4 col-sm-6">
-                      <div
-                        className={`pr-column mt-10 ${
-                          plan.active ? "active" : ""
-                        }`}
-                      >
-                        <div className="pr-header pb-30 mb-45">
-                          <div className="price fw-500 text-dark">
-                            {plan.price}
-                          </div>
-                          <div className="plan text-dark">{plan.plan}</div>
-                        </div>
-                        <div className="pr-body">
-                          <ul className="style-none text-start">
-                            {plan.features.map((feature, index) => (
-                              <li key={index}>{feature}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="pr-footer pt-55 lg-pt-30">
-                          <div className="trial-text opacity-75 mb-20">
-                            Up to 7 user + 1.99 per user
-                          </div>
-                          <a
-                            href="#"
-                            className="signup-btn fw-500 tran3s w-100"
-                          >
-                            Sign up
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div className="mt-2 text-2xl font-semibold text-primary">
+                {plan.plan}
               </div>
-            </div>
-          </div>
-          {/* year */}
+              <div className="mt-1 text-md fw-medium text-gray-500">
+                {plan.perCredit}
+              </div>
+              <div className="mt-4 space-y-3">
+                {plan.features.map((feature, index) => (
+                  <p key={index} className="flex items-center space-x-2">
+                    <CheckIcon className="text-primary" size={24} />
+                    <span className="text-lg fw-medium">{feature}</span>
+                  </p>
+                ))}
+              </div>
+              <Button className="mt-6 w-full bg-black hover:bg-primary text-white hover:text-black">
+                Sign up
+              </Button>
+            </Card>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
-};
+}
 
-export default Pricing;
+function CheckIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
