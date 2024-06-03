@@ -43,16 +43,17 @@ const plans = [
 
 export default function Component() {
   return (
-    <div className="flex justify-center px-4 md:px-12 lg:px-24 py-8 md:py-16 bg-white mt-10 md:mt-20 lg:mt-40">
+    <div className="flex justify-center px-8 lg:px-12 xl:px-40 py-8 md:py-16 bg-white mt-40">
       <div className="w-full space-y-12 md:space-y-24">
-        <h1 className="text-center text-3xl md:text-5xl font-bold text-dark font-recoleta fw-normal">
+        <h1 className="text-center text-5xl font-bold text-dark font-recoleta fw-normal">
           Pricing
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 lg:gap-20">
+
+        <div className="grid grid-col0.s-1 md:grid-cols-3 gap-6 xl:gap-10 2xl:gap-20">
           {plans.map((plan) => (
             <Card
               key={plan.id}
-              className={`flex flex-col items-center p-6 md:px-6 md:py-20 xl:px-12 bg-white rounded-2xl border border-gray-300 ${
+              className={`flex flex-col items-center p-6 md:py-20 md:px-6 xl:px-6 2xl:px-12 bg-white rounded-2xl border border-gray-300 ${
                 plan.active ? "md:scale-110" : ""
               }`}
             >
