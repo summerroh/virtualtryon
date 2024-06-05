@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://www.virtual-fitting-room.com"><img src="https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/github-thumb.png?alt=media&token=1cf622e5-7d74-463f-adc5-c3b53efaef18" alt="Markdownify" width="200"></a>
+  <a href="http://www.virtual-fitting-room.ai"><img src="https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/github-thumb.png?alt=media&token=1cf622e5-7d74-463f-adc5-c3b53efaef18" alt="Markdownify" width="200"></a>
   <br>
   Virtual Fitting Room
   <br>
@@ -10,7 +10,7 @@
 instantly</h4>
 
 <p align="center">
-  <a href="http://www.virtual-fitting-room.com">
+  <a href="http://www.virtual-fitting-room.ai">
     <img src="https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/github-main.png?alt=media&token=b02c7234-b96b-4f23-aaf0-c5aec156fde2">
   </a>
 </p>
