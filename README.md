@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Markdownify" width="200"></a>
+  <a href="http://www.virtual-fitting-room.com"><img src="https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/github-thumb.png?alt=media&token=8c5a4b87-ad24-4621-b184-b9fe14508f16" alt="Markdownify" width="200"></a>
   <br>
   Virtual Fitting Room
   <br>
@@ -18,7 +18,7 @@
       <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
   </a>
   <a href="https://www.paypal.me/AmitMerchant">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
+    <img src="https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/github-main.png?alt=media&token=289b67d3-e653-4422-a1b7-bf52e0e505d3">
   </a>
 </p>
 
