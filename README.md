@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://www.virtual-fitting-room.com"><img src="https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/github-thumb.png?alt=media&token=8c5a4b87-ad24-4621-b184-b9fe14508f16" alt="Markdownify" width="200"></a>
+  <a href="http://www.virtual-fitting-room.com"><img src="https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/github-thumb.png?alt=media&token=1cf622e5-7d74-463f-adc5-c3b53efaef18" alt="Markdownify" width="200"></a>
   <br>
   Virtual Fitting Room
   <br>
@@ -8,6 +8,12 @@
 
 <h4 align="center">Create professional model shots 
 instantly</h4>
+
+<p align="center">
+  <a href="http://www.virtual-fitting-room.com">
+    <img src="https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/github-main.png?alt=media&token=b02c7234-b96b-4f23-aaf0-c5aec156fde2">
+  </a>
+</p>
 
 ## How To Use
 
