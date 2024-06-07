@@ -4,6 +4,11 @@ import { useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Eye, EyeOff } from "lucide-react";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +25,6 @@ const LoginForm = () => {
       console.log("signInWithEmailAndPassword res: ", res);
 
       if (res.user) {
-        // sessionStorage.setItem("user", JSON.stringify(res.user));
         sessionStorage.setItem("user", true);
         setEmail("");
         setPassword("");
@@ -38,71 +42,75 @@ const LoginForm = () => {
 
   return (
     <form
-      action="#"
-      className="user-data-form mt-40 lg-mt-30"
       onSubmit={handleSubmit}
+      className="max-w-lg mx-auto bg-white rounded-lg mt-10"
     >
-      <div className="row">
-        <div className="col-12">
-          <div className="input-group-meta mb-30">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="hasan@gmail.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-        </div>
-        {/* End .col-12 */}
+      <div className="mb-4">
+        <Label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Email
+        </Label>
+        <Input
+          id="email"
+          type="email"
+          placeholder="hasan@gmail.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="mt-1 block w-full"
+        />
+      </div>
 
-        <div className="col-12">
-          <div className="input-group-meta mb-25">
-            <label>Password</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Enter Password"
-              className="pass_log_id"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <span className="placeholder_icon" onClick={handleTogglePassword}>
-              <span className=" d-flex align-items-center">
-                {showPassword ? (
-                  <>
-                    <i className="fa-regular fa-eye"></i>
-                  </>
-                ) : (
-                  <>
-                    <i className=" fa-regular fa-eye-slash"></i>
-                  </>
-                )}
-              </span>
-            </span>
-          </div>
-        </div>
-        {/* End .col-12 */}
+      <div className="mb-4 relative">
+        <Label
+          htmlFor="password"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Password
+        </Label>
+        <Input
+          id="password"
+          type={showPassword ? "text" : "password"}
+          placeholder="Enter Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className="mt-1 block w-full"
+        />
+        <button
+          type="button"
+          onClick={handleTogglePassword}
+          className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+        >
+          {showPassword ? (
+            <EyeOff className="h-5 w-5 text-gray-500" />
+          ) : (
+            <Eye className="h-5 w-5 text-gray-500" />
+          )}
+        </button>
+      </div>
 
-        <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center">
-            <div>
-              <input type="checkbox" id="remember" />
-              <label htmlFor="remember">Keep me logged in</label>
-            </div>
-            <a href="/resetpassword">Forget Password?</a>
-          </div>
-          {/* /.agreement-checkbox */}
+      <div className="mb-4 flex justify-between items-center">
+        <div className="flex items-center">
+          <Checkbox id="remember" />
+          <Label htmlFor="remember" className="ml-2 text-sm text-gray-600">
+            Keep me logged in
+          </Label>
         </div>
-        {/* End .col-12 */}
+        <a
+          href="/resetpassword"
+          className="text-sm text-blue-600 hover:underline"
+        >
+          Forget Password?
+        </a>
+      </div>
 
-        <div className="col-12">
-          <button className="btn-twentyTwo w-100 fw-500 tran3s text-uppercase mt-30">
-            Login
-          </button>
-        </div>
-        {/* End .col-12 */}
+      <div>
+        <Button type="submit" className="w-full">
+          Login
+        </Button>
       </div>
     </form>
   );
