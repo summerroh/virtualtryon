@@ -14,25 +14,29 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const router = useRouter();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    try {
-      const res = await signInWithEmailAndPassword(email, password);
-      console.log("signInWithEmailAndPassword res: ", res);
+    signInWithEmailAndPassword(email, password);
 
-      if (res.user) {
-        sessionStorage.setItem("user", true);
-        setEmail("");
-        setPassword("");
-        setShowPassword(false);
-        router.push("/");
-      }
-    } catch (e) {
-      console.error(e);
+    // 로그인 성공시
+    if (user) {
+      console.log("Signed In User: ", user.email);
+      sessionStorage.setItem("user", true);
+      setEmail("");
+      setPassword("");
+      setShowPassword(false);
+      // router.push("/");
+    }
+
+    // 로그인 실패시
+    if (error) {
+      console.log("Error while sign in (error.message): ", error.message);
+      console.log("Error while sign in (error): ", error);
     }
   };
 
@@ -109,9 +113,13 @@ const LoginForm = () => {
 
       <div>
         <Button type="submit" className="w-full">
-          Login
+          {loading ? "Logging in ..." : "Login"}
         </Button>
       </div>
+
+      {error && error.message === "auth/invalid-credential" && (
+        <p>auth/invalid-credential</p>
+      )}
     </form>
   );
 };

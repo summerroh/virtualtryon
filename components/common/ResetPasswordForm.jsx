@@ -20,7 +20,7 @@ export default function ResetPasswordForm() {
     try {
       const success = await sendPasswordResetEmail(email);
       if (success) {
-        alert("Email Sent");
+        alert("Check your email inbox to reset the password.");
         router.push("/login");
       }
     } catch (e) {
