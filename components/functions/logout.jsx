@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
@@ -23,9 +25,9 @@ export default function LogoutFunction() {
     // Only access sessionStorage if running in the browser
     if (typeof window !== "undefined") {
       const userSession = sessionStorage.getItem("user");
-      // 로그인 안되어 있으면 로그인 페이지로 이동
+      // 로그인 안되어 있으면 메인 페이지로 이동
       if (!user && !userSession) {
-        router.push("/login");
+        router.push("/dashboard");
       }
     }
   }, [user, router]);

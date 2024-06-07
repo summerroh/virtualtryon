@@ -1,23 +1,3 @@
-// "use client";
-
-// import DeleteUserFunction from "@/components/functions/deleteUser";
-// import LogoutFunction from "@/components/functions/logout";
-// import React from "react";
-
-// export default function Dashboard() {
-//   return (
-//     <>
-//       <div>Dashboard</div>
-//       <LogoutFunction />
-//       <DeleteUserFunction />
-//     </>
-//   );
-// }
-
-// import { Metadata } from "next";
-// import "@/styles/index.scss";
-// import "@/public/main.scss";
-// import "@/output.css";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
