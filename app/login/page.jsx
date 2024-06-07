@@ -10,8 +10,8 @@ const LogIn = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-dark1">
-        <div className="form-wrapper m-auto">
+      <div className="flex items-center justify-center flex-col min-h-screen bg-dark">
+        <div className="form-wrapper m-auto bg-white py-10 px-20 rounded-lg">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-dark mb-4">Login</h2>
             <div className="text-lg text-dark">

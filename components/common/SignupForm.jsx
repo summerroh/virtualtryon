@@ -91,7 +91,7 @@ const SignupForm = () => {
         <Input
           id="name"
           type="text"
-          placeholder="Rashed Kabir"
+          placeholder="enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="mt-1 block w-full"
@@ -108,7 +108,7 @@ const SignupForm = () => {
         <Input
           id="email"
           type="email"
-          placeholder="hasan@gmail.com"
+          placeholder="example@gmail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -123,22 +123,22 @@ const SignupForm = () => {
         >
           Password
         </Label>
+
         <Input
           id="password"
           type={showPassword ? "text" : "password"}
-          placeholder="Password"
+          placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="mt-1 block w-full"
+          className="mt-1 block w-full pr-20"
         />
         <button
           type="button"
           onClick={handleTogglePassword}
-          className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+          className="absolute inset-y-0 top-5 right-0 pr-3 flex items-center text-sm leading-5"
         >
           {showPassword ? (
-            // <EyeOffIcon className="h-5 w-5 text-gray-500" />
             <EyeOff className="h-5 w-5 text-gray-500" />
           ) : (
             <Eye className="h-5 w-5 text-gray-500" />
@@ -146,7 +146,7 @@ const SignupForm = () => {
         </button>
       </div>
 
-      <div className="mb-4 relative">
+      <div className="mb-2 relative">
         <Label
           htmlFor="confirmPassword"
           className="block text-sm font-medium text-gray-700"
@@ -156,21 +156,16 @@ const SignupForm = () => {
         <Input
           id="confirmPassword"
           type={showConfirmPassword ? "text" : "password"}
-          placeholder="Confirm Password"
+          placeholder="confirm password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
           className="mt-1 block w-full"
         />
-        {!passwordMatch && (
-          <div className="mt-1 text-red-600 text-sm">
-            Does not match with the password
-          </div>
-        )}
         <button
           type="button"
           onClick={handleToggleConfirmPassword}
-          className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+          className="absolute inset-y-0 top-5 right-0 pr-3 flex items-center text-sm leading-5"
         >
           {showConfirmPassword ? (
             <EyeOffIcon className="h-5 w-5 text-gray-500" />
@@ -179,6 +174,11 @@ const SignupForm = () => {
           )}
         </button>
       </div>
+      {!passwordMatch && (
+        <div className="mt-0 mb-4 text-red-600 text-sm">
+          Does not match with the password
+        </div>
+      )}
 
       <div className="mb-4">
         <p className="px-8 text-center text-sm text-muted-foreground">
