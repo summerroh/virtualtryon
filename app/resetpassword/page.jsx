@@ -10,8 +10,8 @@ export default function ResetPassword() {
 
   return (
     <>
-      <div className="flex items-center justify-center flex-col min-h-screen bg-dark">
-        <div className="form-wrapper m-auto bg-white py-10 px-20 rounded-lg">
+      <div className="flex items-center justify-center flex-col min-h-screen bg-white md:bg-dark">
+        <div className="form-wrapper m-auto bg-white py-10 px-10 md:px-20 rounded-lg">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-dark mb-4">
               Reset Password
