@@ -136,7 +136,7 @@ const SignupForm = () => {
         <button
           type="button"
           onClick={handleTogglePassword}
-          className="absolute inset-y-0 top-5 right-0 pr-3 flex items-center text-sm leading-5"
+          className="absolute inset-y-0 top-6 right-0 pr-3 flex items-center text-sm leading-5"
         >
           {showPassword ? (
             <EyeOff className="h-5 w-5 text-gray-500" />
@@ -165,10 +165,10 @@ const SignupForm = () => {
         <button
           type="button"
           onClick={handleToggleConfirmPassword}
-          className="absolute inset-y-0 top-5 right-0 pr-3 flex items-center text-sm leading-5"
+          className="absolute inset-y-0 top-6 right-0 pr-3 flex items-center text-sm leading-5"
         >
           {showConfirmPassword ? (
-            <EyeOffIcon className="h-5 w-5 text-gray-500" />
+            <EyeOff className="h-5 w-5 text-gray-500" />
           ) : (
             <Eye className="h-5 w-5 text-gray-500" />
           )}
