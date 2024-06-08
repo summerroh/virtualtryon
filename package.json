@@ -1,6 +1,6 @@
 {
-  "name": "jano-next-appdir",
-  "version": "1.5.0",
+  "name": "virtual-try-on",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -25,6 +25,7 @@
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
+    "@radix-ui/react-toast": "^1.1.5",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "add": "^2.0.6",
     "aos": "^2.3.4",
@@ -63,6 +64,7 @@
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
+    "toast": "^0.5.4",
     "vaul": "^0.9.1"
   },
   "devDependencies": {

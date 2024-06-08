@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "@/components/landing/Header";
 import Hero from "@/components/hero";
-import Feedback from "@/components/landing/Feedback";
+import Problem from "@/components/landing/Problem";
 import Link from "next/link";
 import CopyrightFooter from "@/components/landing/CopyrightFooter";
 import Image from "next/image";
@@ -36,7 +36,7 @@ const LeadGeneration = () => {
 
       <ImageRoller />
 
-      <Feedback />
+      <Problem />
 
       {/* <div className="fancy-feature-thirtyTwo mt-20 lg-mt-20">
         <div className="wrapper mt-20 lg-mt-0">
@@ -63,7 +63,7 @@ const LeadGeneration = () => {
       >
         <div className="text-center">
           <h6 className="text-sm uppercase text-primary fw-semibold mb-3">
-            MODEL GALLERY
+            Q & A
           </h6>
           <h1 className="text-5xl font-bold text-dark font-recoleta fw-normal mb-4">
             Questions & Answers

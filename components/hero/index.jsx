@@ -4,24 +4,20 @@ import Partners from "./Partners";
 
 const index = () => {
   return (
-    <div className="hero-banner-nine position-relative zn2 pt-225 md-pt-100">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6 col-md-6" data-aos="fade-right">
+    <div className="position-relative zn2 pt-1 bg-background-hero">
+      <div className="flex justify-center px-8 md:px-24 lg:px-24 xl:px-28 2xl:px-52 bg-background-hero mt-12">
+        <div className="w-full space-y-12 md:space-y-24 flex flex-col md:flex-row justify-between items-center sm:gap-10 lg:gap-24">
+          <div className="" data-aos="fade-right">
             <HeroContent />
+          </div>
+
+          <div className="pb-24 bg-background-hero" data-aos="fade-left">
+            <div className="row align-items-center">
+              <HeroGallery />
+            </div>
           </div>
         </div>
       </div>
-      {/* /.container */}
-
-      <div className="image-gallery" data-aos="fade-left">
-        <div className="row align-items-center">
-          <HeroGallery />
-        </div>
-      </div>
-      {/* /.image-gallery */}
-
-      {/* /.partner-section-five */}
     </div>
   );
 };
