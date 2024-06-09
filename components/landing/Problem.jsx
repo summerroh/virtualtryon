@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
+import StartGenerating from "../button/startGenerating";
 
 const plans = [
   {
@@ -121,11 +122,7 @@ export default function Problem() {
                   </p>
                 ))}
               </div>
-              {plan.button && (
-                <Button className="mt-6 w-full bg-primary hover:bg-primary text-white hover:text-black">
-                  Start generating
-                </Button>
-              )}
+              {plan.button && <StartGenerating />}
             </Card>
           ))}
         </div>
