@@ -6,12 +6,10 @@ import RightNavMenu from "./RightNavMenu";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
-import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [user] = useAuthState(auth);
   const [navbar, setNavbar] = useState(false);
-  const router = useRouter();
 
   console.log("user", user);
 

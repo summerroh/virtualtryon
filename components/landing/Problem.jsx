@@ -24,7 +24,7 @@ const plans = [
       { bold: "1 to 5 days", normal: " for the photoshoot", boldFirst: true },
     ],
     color: "-red",
-    backgroundColr: "-red-light",
+    backgroundColor: "-red-light",
     button: false,
     icon: <X className="text-red" size={24} />,
   },
@@ -39,7 +39,7 @@ const plans = [
       { normal: "Results in ", bold: "minutes", boldFirst: false },
     ],
     color: "-primary",
-    backgroundColr: "-primary-light",
+    backgroundColor: "-primary-light",
     button: true,
     icon: <CheckIcon className="text-primary" size={24} />,
   },
@@ -57,7 +57,7 @@ export default function Problem() {
             <div className="row">
               <div className="feedback-block-eight text-center">
                 <h1 className="text-5xl font-bold text-dark font-recoleta fw-normal mb-4">
-                  Save weeks and thousands of dollars on{" "}
+                  Save days and thousands of dollars on{" "}
                   <span
                     className="position-relative text-primary"
                     style={{
@@ -78,7 +78,7 @@ export default function Problem() {
           {plans.map((plan) => (
             <Card
               key={plan.id}
-              className={`flex flex-col items-center p-6 md:py-20 md:px-6 xl:px-6 2xl:px-12 bg-white rounded-2xl border border-gray-300 w-[500px] bg${plan.backgroundColr}`}
+              className={`flex flex-col items-center p-6 md:py-20 md:px-6 xl:px-6 2xl:px-12 bg-white rounded-2xl border border-gray-300 w-[500px] bg${plan.backgroundColor}`}
             >
               <div
                 className={`mt-2 mb-4 text-xl md:text-2xl font-semibold text${plan.color}`}

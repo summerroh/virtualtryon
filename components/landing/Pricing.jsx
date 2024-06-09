@@ -1,7 +1,6 @@
 // fully tailwind and shadcn
 
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import question from "@/public/images/icon/question.png";
 
 import {
@@ -11,6 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import Image from "next/image";
+import StartGenerating from "../button/startGenerating";
 
 const plans = [
   {
@@ -119,9 +119,7 @@ export default function Component() {
                   </p>
                 ))}
               </div>
-              <Button className="mt-6 w-full bg-black hover:bg-primary text-white hover:text-black">
-                Start generating
-              </Button>
+              <StartGenerating />
             </Card>
           ))}
         </div>
