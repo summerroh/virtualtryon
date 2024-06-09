@@ -30,7 +30,7 @@ const LoginForm = () => {
       setEmail("");
       setPassword("");
       setShowPassword(false);
-      // router.push("/");
+      router.push("/");
     }
 
     // 로그인 실패시
