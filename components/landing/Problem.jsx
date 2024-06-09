@@ -1,7 +1,6 @@
 // fully tailwind and shadcn
 
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
 import StartGenerating from "../button/startGenerating";
 
@@ -75,11 +74,11 @@ export default function Problem() {
           </div>
         </div>
 
-        <div className="flex flex-row justify-center gap-6 xl:gap-10 2xl:gap-20">
+        <div className="flex flex-col md:flex-row justify-center gap-6 xl:gap-10 2xl:gap-20">
           {plans.map((plan) => (
             <Card
               key={plan.id}
-              className={`flex flex-col items-center p-6 md:py-20 md:px-6 xl:px-6 2xl:px-12 bg-white rounded-2xl border border-gray-300 w-[500px] bg${plan.backgroundColor}`}
+              className={`flex flex-col items-center p-6 md:py-20 md:px-6 xl:px-6 2xl:px-12 bg-white rounded-2xl border border-gray-300 w-full md:w-[500px] bg${plan.backgroundColor}`}
             >
               <div
                 className={`mt-2 mb-4 text-xl md:text-2xl font-semibold text${plan.color}`}

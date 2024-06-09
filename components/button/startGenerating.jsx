@@ -19,7 +19,10 @@ export default function StartGenerating() {
 
   return (
     <Link href={href}>
-      <Button className="mt-6 w-full bg-black hover:bg-primary text-white hover:text-black">
+      <Button
+        size="lg"
+        className="mt-6 w-full bg-black hover:bg-primary text-white hover:text-black"
+      >
         Start generating
       </Button>
     </Link>
