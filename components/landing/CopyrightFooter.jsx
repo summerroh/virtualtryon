@@ -2,12 +2,12 @@ import Link from "next/link";
 
 const links = [
   {
-    title: "Privacy & Terms.",
-    href: "/faq",
+    title: "Privacy Policy",
+    href: "/privacy",
   },
   {
-    title: "Contact Us",
-    href: "/contact",
+    title: "Terms of Service",
+    href: "/terms",
   },
 ];
 
@@ -28,17 +28,19 @@ const icons = [
 
 const LinkItem = ({ title, href }) => {
   return (
-    <li>
-      <Link href={href}>{title}</Link>
+    <li className="px-2">
+      <Link href={href} className="text-gray-500 hover:text-gray-900">
+        {title}
+      </Link>
     </li>
   );
 };
 
 const IconItem = ({ icon, href }) => {
   return (
-    <li>
+    <li className="px-2">
       <Link href={href} target="_blank" rel="noopener noreferrer">
-        <i className={icon} />
+        <i className={`${icon} text-gray-500 hover:text-gray-900`} />
       </Link>
     </li>
   );
@@ -46,36 +48,30 @@ const IconItem = ({ icon, href }) => {
 
 const CopyrightFooter = () => {
   return (
-    <div className="bottom-footer">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-4 order-lg-0 mt-15">
-            <ul className="d-flex justify-content-center justify-content-lg-start footer-nav style-none">
-              {links.map((link, index) => (
-                <LinkItem key={index} title={link.title} href={link.href} />
-              ))}
-            </ul>
-          </div>
-          <div className="col-lg-4 order-lg-2 mt-15">
-            <ul className="d-flex justify-content-center justify-content-lg-end social-icon style-none">
-              {icons.map((icon, index) => (
-                <IconItem key={index} icon={icon.icon} href={icon.href} />
-              ))}
-            </ul>
-          </div>
-          <div className="col-lg-4 order-lg-1 mt-15">
-            <p className="copyright text-center m0">
-              Copyright © {new Date().getFullYear()}{" "}
-              <a
-                style={{ color: "inherit" }}
-                href="https://themeforest.net/user/ib-themes"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                virtual-fitting-room
-              </a>{" "}
-            </p>
-          </div>
+    <div className="bg-dark pt-40">
+      <div className="mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <ul className="flex flex-col md:flex-row items-center mb-4 md:mb-0">
+            {links.map((link, index) => (
+              <LinkItem key={index} title={link.title} href={link.href} />
+            ))}
+          </ul>
+          <ul className="flex flex-row items-center mb-4 md:mb-0">
+            {icons.map((icon, index) => (
+              <IconItem key={index} icon={icon.icon} href={icon.href} />
+            ))}
+          </ul>
+          <p className="text-gray-500 text-center">
+            Copyright © {new Date().getFullYear()}{" "}
+            <a
+              className="text-gray-500 hover:text-gray-900"
+              href="https://themeforest.net/user/ib-themes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Virtual Try On
+            </a>
+          </p>
         </div>
       </div>
     </div>

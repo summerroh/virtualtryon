@@ -20,7 +20,7 @@ const plans = [
       { bold: "2", normal: " Photo credits", boldFirst: true },
       { normal: "Results in ", bold: "minutes", boldFirst: false },
       { normal: "Access to ", bold: "all models", boldFirst: false },
-      { normal: "Email & ", bold: "Chat Support", boldFirst: false },
+      { normal: "Email & chat Support", bold: "", boldFirst: false },
     ],
   },
   {
@@ -32,7 +32,7 @@ const plans = [
       { bold: "30", normal: " Photo credits", boldFirst: true },
       { normal: "Results in ", bold: "minutes", boldFirst: false },
       { normal: "Access to ", bold: "all models", boldFirst: false },
-      { normal: "Email & ", bold: "Chat Support", boldFirst: false },
+      { normal: "Email & chat Support", bold: "", boldFirst: false },
     ],
     active: true,
   },
@@ -45,7 +45,7 @@ const plans = [
       { bold: "120", normal: " Photo credits", boldFirst: true },
       { normal: "Results in ", bold: "minutes", boldFirst: false },
       { normal: "Access to ", bold: "all models", boldFirst: false },
-      { normal: "Email & ", bold: "Chat Support", boldFirst: false },
+      { normal: "Email & chat Support", bold: "", boldFirst: false },
     ],
   },
 ];
