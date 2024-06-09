@@ -16,7 +16,6 @@ const HeroContent = () => {
           }}
         >
           instantly.
-          {/* <img src="/images/shape/shape_114.svg" alt="img" /> */}
         </span>
       </h1>
       <p className="text-lg lg:text-xl mt-10 mb-2 text-white max-w-[600px]">

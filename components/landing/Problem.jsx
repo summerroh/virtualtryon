@@ -35,7 +35,7 @@ const plans = [
     features: [
       { bold: "No photographer", normal: " needed", boldFirst: true },
       { bold: "No studio rental", normal: " required", boldFirst: true },
-      { bold: "model library", normal: "Access to ", boldFirst: true },
+      { bold: "Access to ", normal: "model library", boldFirst: true },
       { normal: "Results in ", bold: "minutes", boldFirst: false },
     ],
     color: "-primary",
@@ -56,10 +56,19 @@ export default function Problem() {
           <div className="container">
             <div className="row">
               <div className="feedback-block-eight text-center">
-                <p className="font-recoleta text-dark">
+                <h1 className="text-5xl font-bold text-dark font-recoleta fw-normal mb-4">
                   Save weeks and thousands of dollars on{" "}
-                  <span>photoshoots.</span>
-                </p>
+                  <span
+                    className="position-relative text-primary"
+                    style={{
+                      textDecorationLine: "underline",
+                      textDecorationStyle: "solid",
+                      textDecorationThickness: "4px",
+                    }}
+                  >
+                    photoshoots.
+                  </span>
+                </h1>
               </div>
             </div>
           </div>
