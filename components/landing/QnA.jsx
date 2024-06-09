@@ -17,22 +17,22 @@ const accordionData = [
       "You simply need to upload pictures of the clothes, and we take care of the rest!<br />You can select the fashion model and the body position you desire.<br />Then, we provide the image of the model wearing the clothes you uploaded.",
   },
   {
-    question: "Benefits",
+    question: "What are the benefits of using Virtual Try-On?",
     answer:
       "Virtual Try-On saves time and money!<br />Traditional photoshoots require finding a location, hiring a model and photographer, and organizing the shoot.<br />This process is long and costly.<br />With Virtual Try-On, you can significantly reduce your expenses and save a lot of time.",
   },
   {
-    question: "Technical Requirements",
+    question: "Are there any technical requirements?",
     answer:
       "There are no technical requirements.<br />Anyone can easily use our service!",
   },
   {
-    question: "Privacy and Security",
+    question: "How is my data protected?",
     answer:
       "Your data is protected with us!<br />We use secure servers and do not use the data you generate. It belongs to you alone.",
   },
   {
-    question: "Refund Policy",
+    question: "What is the refund policy?",
     answer:
       "We can refund unused credits upon request.<br />However, due to the cost of generating the images, we cannot refund used credits.",
   },
