@@ -7,29 +7,34 @@ import {
 
 const accordionData = [
   {
-    question: "How does the free trial work?",
+    question: "What is Virtual Try-On?",
     answer:
-      "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",
+      "Virtual Try-On allows you to see how clothes will look on a model without needing to try them on physically.<br />We achieve this by using an advanced AI model that we’ve trained with high-quality images.<br />This AI generates realistic images of clothes on models, saving you the hassle and cost of traditional photoshoots.",
   },
   {
-    question: "How do I proccess home loan from jano?",
+    question: "How does it work?",
     answer:
-      "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",
+      "You simply need to upload pictures of the clothes, and we take care of the rest!<br />You can select the fashion model and the body position you desire.<br />Then, we provide the image of the model wearing the clothes you uploaded.",
   },
   {
-    question: "Do you recommend Pay as you go or Pre pay?",
+    question: "Benefits",
     answer:
-      "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",
+      "Virtual Try-On saves time and money!<br />Traditional photoshoots require finding a location, hiring a model and photographer, and organizing the shoot.<br />This process is long and costly.<br />With Virtual Try-On, you can significantly reduce your expenses and save a lot of time.",
   },
   {
-    question: "What do I get for $0 with my plan?",
+    question: "Technical Requirements",
     answer:
-      "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",
+      "There are no technical requirements.<br />Anyone can easily use our service!",
   },
   {
-    question: "How to find specific property from any city?",
+    question: "Privacy and Security",
     answer:
-      "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",
+      "Your data is protected with us!<br />We use secure servers and do not use the data you generate. It belongs to you alone.",
+  },
+  {
+    question: "Refund Policy",
+    answer:
+      "We can refund unused credits upon request.<br />However, due to the cost of generating the images, we cannot refund used credits.",
   },
 ];
 
@@ -39,7 +44,9 @@ export function QnA() {
       {accordionData.map((item, index) => (
         <AccordionItem key={index} value={`item-${index}`}>
           <AccordionTrigger>{item.question}</AccordionTrigger>
-          <AccordionContent>{item.answer}</AccordionContent>
+          <AccordionContent>
+            <div dangerouslySetInnerHTML={{ __html: item.answer }} />
+          </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

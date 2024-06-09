@@ -78,7 +78,7 @@ export default function Problem() {
           {plans.map((plan) => (
             <Card
               key={plan.id}
-              className={`flex flex-col items-center p-6 md:py-20 md:px-6 xl:px-6 2xl:px-12 bg-white rounded-2xl border border-gray-300 w-full md:w-[500px] bg${plan.backgroundColor}`}
+              className={`flex flex-col items-center p-6 md:py-20 md:px-6 xl:px-6 2xl:px-12 bg-white rounded-2xl border border-gray-300 w-full md:w-[500px]  bg${plan.backgroundColor}`}
             >
               <div
                 className={`mt-2 mb-4 text-xl md:text-2xl font-semibold text${plan.color}`}
@@ -121,7 +121,7 @@ export default function Problem() {
                   </p>
                 ))}
               </div>
-              {plan.button && <StartGenerating />}
+              {plan.button && <StartGenerating className={"bg-primary"} />}
             </Card>
           ))}
         </div>

@@ -119,7 +119,7 @@ export default function Component() {
                   </p>
                 ))}
               </div>
-              <StartGenerating />
+              <StartGenerating className={plan.active ? "bg-primary" : ""} />
             </Card>
           ))}
         </div>

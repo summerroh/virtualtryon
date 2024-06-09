@@ -8,10 +8,12 @@ import { Button } from "@/components/ui/button";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
 
-export default function StartGenerating() {
+export default function StartGenerating({ className }) {
   const [user] = useAuthState(auth);
   const router = useRouter();
   const href = user ? "/dashboard" : "/login";
+
+  console.log("class name: ", className);
 
   useEffect(() => {
     router.prefetch(href);
@@ -21,7 +23,7 @@ export default function StartGenerating() {
     <Link href={href}>
       <Button
         size="lg"
-        className="mt-6 w-full bg-black hover:bg-primary text-white hover:text-black"
+        className={`mt-6 w-full bg-black hover:bg-primary text-white hover:text-black ${className}`}
       >
         Start generating
       </Button>
