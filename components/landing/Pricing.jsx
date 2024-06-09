@@ -2,6 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import question from "@/public/images/icon/question.png";
 
 import {
   Tooltip,
@@ -9,6 +10,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import Image from "next/image";
 
 const plans = [
   {
@@ -81,15 +83,6 @@ export default function Component() {
                 {plan.perCredit}
               </div>
               <div className="mt-4 space-y-3">
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger>Hover</TooltipTrigger>
-                    <TooltipContent>
-                      <p>Add to library</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-
                 {plan.features.map((feature, index) => (
                   <p key={index} className="flex items-center space-x-2">
                     <CheckIcon className="text-primary" size={24} />
@@ -106,6 +99,23 @@ export default function Component() {
                         </>
                       )}
                     </span>
+
+                    {index === 0 && (
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <Image
+                              src={question}
+                              alt="question"
+                              className="w-[25px]"
+                            />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>You can generate 1 image per credit</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    )}
                   </p>
                 ))}
               </div>
