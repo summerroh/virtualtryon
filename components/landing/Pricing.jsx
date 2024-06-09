@@ -2,41 +2,50 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const plans = [
   {
     id: "1",
-    price: "$5",
-    plan: "1 Credit",
-    perCredit: "$5 per credit",
+    price: "$4",
+    plan: "2 Images",
+    perCredit: "$2 per image",
     features: [
-      "2 Generated images",
-      "2 Regenerated images",
-      "Email & Chat Support",
+      { bold: "2", normal: " Photo credits", boldFirst: true },
+      { normal: "Results in ", bold: "minutes", boldFirst: false },
+      { normal: "Access to ", bold: "all models", boldFirst: false },
+      { normal: "Email & ", bold: "Chat Support", boldFirst: false },
     ],
   },
   {
     id: "2",
-    price: "$40",
-    plan: "10 Credits",
-    perCredit: "$4 per credit",
+    price: "$45",
+    plan: "30 Images",
+    perCredit: "$1.5 per image",
     features: [
-      "20 Generated images",
-      "20 Regenerated images",
-      "Email & Chat Support",
+      { bold: "30", normal: " Photo credits", boldFirst: true },
+      { normal: "Results in ", bold: "minutes", boldFirst: false },
+      { normal: "Access to ", bold: "all models", boldFirst: false },
+      { normal: "Email & ", bold: "Chat Support", boldFirst: false },
     ],
     active: true,
   },
   {
     id: "3",
     price: "$120",
-    plan: "40 Credits",
-    perCredit: "$3 per credit",
+    plan: "120 Images",
+    perCredit: "$1 per image",
     features: [
-      "80 Generated images",
-      "80 Regenerated images",
-      "Email & Chat Support",
+      { bold: "120", normal: " Photo credits", boldFirst: true },
+      { normal: "Results in ", bold: "minutes", boldFirst: false },
+      { normal: "Access to ", bold: "all models", boldFirst: false },
+      { normal: "Email & ", bold: "Chat Support", boldFirst: false },
     ],
   },
 ];
@@ -72,17 +81,36 @@ export default function Component() {
                 {plan.perCredit}
               </div>
               <div className="mt-4 space-y-3">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>Hover</TooltipTrigger>
+                    <TooltipContent>
+                      <p>Add to library</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+
                 {plan.features.map((feature, index) => (
                   <p key={index} className="flex items-center space-x-2">
                     <CheckIcon className="text-primary" size={24} />
                     <span className="text-sm lg:text-lg font-medium">
-                      {feature}
+                      {feature.boldFirst ? (
+                        <>
+                          <strong>{feature.bold}</strong>
+                          {feature.normal}
+                        </>
+                      ) : (
+                        <>
+                          {feature.normal}
+                          <strong>{feature.bold}</strong>
+                        </>
+                      )}
                     </span>
                   </p>
                 ))}
               </div>
               <Button className="mt-6 w-full bg-black hover:bg-primary text-white hover:text-black">
-                Sign up
+                Start generating
               </Button>
             </Card>
           ))}
