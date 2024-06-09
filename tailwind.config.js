@@ -35,6 +35,7 @@ module.exports = {
           // DEFAULT: "hsl(var(--primary))",
           DEFAULT: "#4047F6 !important",
           foreground: "hsl(var(--primary-foreground))",
+          light: "var(--primary-light)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -66,8 +67,13 @@ module.exports = {
           secondary: "var(--button-secondary)",
         },
         yellow: "var(--yellow)",
+        red: {
+          DEFAULT: "var(--red)",
+          light: "var(--red-light)",
+        },
       },
       borderRadius: {
+        xl: "40px",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",

@@ -11,10 +11,11 @@ import Image from "next/image";
 import Pricing from "@/components/landing/Pricing";
 import ImageRoller from "@/components/roller/ImageRoller";
 import Step2 from "@/components/landing/Step2";
-import Step2Old from "@/components/landing/Step2Old";
 import Step3 from "@/components/landing/Step3";
 import Step1 from "@/components/landing/Step1";
 import { QnA } from "@/components/landing/QnA";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export const metadata = {
   title: "Virtual Fitting Room || Create professional fashion photoshoots",
@@ -50,7 +51,6 @@ const LeadGeneration = () => {
         <Step1 />
       </div>
       <Step2 />
-      <Step2Old />
       <Step3 />
 
       <div id="pricing">
@@ -74,38 +74,28 @@ const LeadGeneration = () => {
           <QnA />
         </div>
       </div>
-      <div
-        className="fancy-short-banner-sixteen mt-20 lg-mt-20 mb-20"
-        data-aos="fade-up"
-      >
-        <div className="container">
-          <div className="bg-wrapper pt-65 pb-65 lg-pt-40 lg-pb-40">
-            <div className="row">
-              <div className="col-xl-10 col-md-11 m-auto">
-                <div className="row align-items-center">
-                  <div className="col-lg-6">
-                    <div className="text-wrapper text-center text-lg-start md-pb-30">
-                      <div className="sc-title fs-18 pb-10">Interested?</div>
-                      <h2 className="main-title fw-500 text-white m0 text-xl">
-                        Don’t hesitate to send us message.
-                      </h2>
-                    </div>
-                  </div>
 
-                  <div className="col-lg-5 ms-auto text-center text-lg-end">
-                    <Link
-                      href="/contact"
-                      className="btn-twentyOne fw-500 tran3s"
-                    >
-                      Get Started Today!
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* CTA */}
+      <div className="flex justify-center flex-col px-8 lg:px-12 xl:px-40 py-8 md:py-16 bg-white mt-40">
+        <div className="w-full md:space-y-24 flex flex-col md:flex-row justify-between sm:gap-10 lg:gap-24 bg-dark rounded-xl px-12 lg:px-32 py-12">
+          <div className="flex flex-col">
+            <div className="text-yellow pb-8">Interested?</div>
+            <h2 className="text-white text-2xl md:text-3xl lg:text-4xl mb-8">
+              Don’t hesitate to send us message.
+            </h2>
+          </div>
+
+          <div className="flex flex-col w-full max-w-[600px] items-end justify-start space-y-4">
+            <Input className="w-full h" placeholder="Name"></Input>
+            <Input className="w-full" placeholder="Message"></Input>
+
+            <Button className="rounded-full px-6 py-4 text-md">
+              Send message
+            </Button>
           </div>
         </div>
       </div>
+
       <div className="footer-style-nine theme-basic-footer zn2 position-relative">
         {/* 
         <div className="bg-wrapper">
