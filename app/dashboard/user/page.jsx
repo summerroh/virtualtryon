@@ -50,7 +50,7 @@ export default function Dashboard() {
               ></div>
               <div className="flex flex-col items-center justify-center w-fit space-y-1 mt-6 mb-6">
                 <h2 className="text-xl font-bold tracking-tight">Summer Roh</h2>
-                <p className="text-sm text-muted-foreground font-bold">
+                <p className="text-sm text-muted-foreground font-medium">
                   summerrohh@gmail.com
                 </p>
               </div>
@@ -58,19 +58,19 @@ export default function Dashboard() {
               <div className="flex flex-row w-full justify-center items-center space-x-8">
                 <div className="flex flex-col items-center justify-center space-y-1 mt-6 mb-6">
                   <h2 className="text-xl font-bold">102</h2>
-                  <p className="text-sm text-muted-foreground font-bold">
+                  <p className="text-sm text-muted-foreground font-medium">
                     Items generated
                   </p>
                 </div>
                 <div className="flex flex-col items-center justify-center space-y-1 mt-6 mb-6">
                   <h2 className="text-xl font-bold">42</h2>
-                  <p className="text-sm text-muted-foreground font-bold">
+                  <p className="text-sm text-muted-foreground font-medium">
                     Credits left
                   </p>
                 </div>
                 <div className="flex flex-col items-center justify-center space-y-1 mt-6 mb-6">
                   <h2 className="text-xl font-bold">102</h2>
-                  <p className="text-sm text-muted-foreground font-bold">
+                  <p className="text-sm text-muted-foreground font-medium">
                     Credits used
                   </p>
                 </div>
@@ -81,20 +81,22 @@ export default function Dashboard() {
 
             {/* Credit Box */}
             <div className="w-full">
-              <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
-                <div className="flex items-center justify-between w-full">
-                  <div className="space-y-1 mt-6 mb-6">
-                    <p className="text-sm text-muted-foreground font-bold">
-                      Step 2/5
-                    </p>
-                    <h2 className="text-xl font-bold tracking-tight">42</h2>
-                  </div>
+              <Card className="w-full p-6 flex flex-col justify-between items-center gap-x-4">
+                <div className="flex flex-col items-center justify-center w-fit space-y-1 mt-6 mb-6">
+                  <h2 className="text-xl font-bold tracking-tight">
+                    Your credits
+                  </h2>
+                  <h2 className="text-3xl text-primary font-bold tracking-tight">
+                    42
+                  </h2>
+                  <p className="text-sm text-muted-foreground font-medium">
+                    Credits left
+                  </p>
                 </div>
-
                 <Button
                   variant="outline"
                   onClick={() => setGender("female")}
-                  className={`w-full h-14 font-bold bg-primary text-white`}
+                  className={`w-fit h-14 bg-primary text-white`}
                 >
                   Get more credits
                 </Button>
