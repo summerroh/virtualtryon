@@ -28,14 +28,14 @@ module.exports = {
         // dark: "#2B3674 !important",
         background: {
           DEFAULT: "hsl(var(--background))",
-          dashboard: "var(--dashboard-background)",
+          dashboard: "var(--background-dashboard)",
           hero: "var(--background-hero)",
+          red: "var(--red-light)",
         },
         primary: {
           // DEFAULT: "hsl(var(--primary))",
           DEFAULT: "#4047F6 !important",
           foreground: "hsl(var(--primary-foreground))",
-          light: "var(--primary-light)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -69,8 +69,9 @@ module.exports = {
         yellow: "var(--yellow)",
         red: {
           DEFAULT: "var(--red)",
-          light: "var(--red-light)",
         },
+        lightred: "var(--lightred)",
+        lightblue: "var(--lightblue)",
       },
       borderRadius: {
         xl: "40px",

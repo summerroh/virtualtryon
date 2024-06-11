@@ -24,7 +24,7 @@ const plans = [
       { bold: "1 to 5 days", normal: " for the photoshoot", boldFirst: true },
     ],
     color: "-red",
-    backgroundColor: "-red-light",
+    backgroundColor: "bg-lightred",
     button: false,
     icon: <X className="text-red" size={24} />,
   },
@@ -39,7 +39,7 @@ const plans = [
       { normal: "Results in ", bold: "minutes", boldFirst: false },
     ],
     color: "-primary",
-    backgroundColor: "-primary-light",
+    backgroundColor: "bg-background-dashboard",
     button: true,
     icon: <CheckIcon className="text-primary" size={24} />,
   },
@@ -47,7 +47,7 @@ const plans = [
 
 export default function Problem() {
   return (
-    <div className="flex justify-center px-8 lg:px-12 xl:px-40 py-8 md:py-16 bg-white">
+    <div className="flex justify-center px-8 lg:px-12 xl:px-40 py-8 md:py-16">
       <div className="w-full space-y-12 md:space-y-24">
         <div
           className="feedback-section-eight position-relative pt-60 pb-30 lg-pt-100"
@@ -78,7 +78,7 @@ export default function Problem() {
           {plans.map((plan) => (
             <Card
               key={plan.id}
-              className={`flex flex-col items-center p-6 md:py-20 md:px-6 xl:px-6 2xl:px-12 bg-white rounded-2xl border border-gray-300 w-full md:w-[500px]  bg${plan.backgroundColor}`}
+              className={`flex flex-col items-center p-6 md:py-20 md:px-6 xl:px-6 2xl:px-12 rounded-2xl border border-gray-300 w-full md:w-[500px] ${plan.backgroundColor}`}
             >
               <div
                 className={`mt-2 mb-4 text-xl md:text-2xl font-semibold text${plan.color}`}

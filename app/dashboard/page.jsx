@@ -1,9 +1,5 @@
 "use client";
 
-// import { Metadata } from "next";
-// import "@/styles/index.scss";
-// import "@/public/main.scss";
-// import "@/output.css";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -27,11 +23,6 @@ import { useRouter } from "next/navigation";
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
 
-// export const metadata = {
-//   title: "Virtual Fitting Room",
-//   description: "Example music app using the components.",
-// };
-
 export default function Dashboard() {
   const [user] = useAuthState(auth);
   const router = useRouter();
@@ -46,16 +37,16 @@ export default function Dashboard() {
     { layout: "lowerbody", selected: [] },
   ]);
 
-  useEffect(() => {
-    // Only access sessionStorage if running in the browser
-    if (typeof window !== "undefined") {
-      const userSession = sessionStorage.getItem("user");
-      // 로그인 안되어 있으면 메인 페이지로 이동
-      if (!user && !userSession) {
-        router.push("/");
-      }
-    }
-  }, [user, router]);
+  // useEffect(() => {
+  //   // Only access sessionStorage if running in the browser
+  //   if (typeof window !== "undefined") {
+  //     const userSession = sessionStorage.getItem("user");
+  //     // 로그인 안되어 있으면 메인 페이지로 이동
+  //     if (!user && !userSession) {
+  //       router.push("/");
+  //     }
+  //   }
+  // }, [user, router]);
 
   const handlePhotoSelect = (layout, index) => {
     setSelectedLayouts((prev) => {
