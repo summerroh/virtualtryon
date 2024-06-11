@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 import { Sidebar } from "@/components/sidebar";
 import { Card } from "@/components/ui/card";
-import LogoutFunction from "@/components/functions/logout";
+import LogoutButton from "@/components/functions/logout";
 
 import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
@@ -76,7 +76,7 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <LogoutFunction />
+              <LogoutButton />
             </Card>
 
             {/* Credit Box */}

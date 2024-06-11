@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
 import { Button } from "../ui/button";
 
-export default function LogoutFunction() {
+export default function LogoutButton() {
   const [user] = useAuthState(auth);
   const router = useRouter();
 
@@ -35,7 +35,13 @@ export default function LogoutFunction() {
 
   return (
     <>
-      <Button onClick={() => handleSignOut()}>Log Out</Button>
+      <Button
+        variant="outline"
+        className="bg-button-background text-dark"
+        onClick={() => handleSignOut()}
+      >
+        Log out
+      </Button>
     </>
   );
 }
