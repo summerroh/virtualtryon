@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Images, Settings, Sparkles } from "lucide-react";
+import { Images, Settings, Sparkles, User } from "lucide-react";
 
 export function Sidebar({ className, playlists }) {
   const pathname = usePathname();
@@ -71,9 +71,9 @@ export function Sidebar({ className, playlists }) {
             </div>
           </div>
           <div className="py-2 pb-4">
-            <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+            {/* <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
               Account
-            </h2>
+            </h2> */}
             <div className="space-y-1 px-2">
               <Link href="/dashboard/user" className="d-block">
                 <Button
@@ -84,13 +84,19 @@ export function Sidebar({ className, playlists }) {
                       : ""
                   }`}
                 >
-                  <Settings
+                  <User
                     color={"#000000"}
                     size={"20px"}
                     strokeWidth={1.5}
                     className="mr-2"
                   />
-                  Settings
+                  {/* <Settings
+                        color={"#000000"}
+                        size={"20px"}
+                        strokeWidth={1.5}
+                        className="mr-2"
+                      /> */}
+                  My Account
                 </Button>
               </Link>
             </div>

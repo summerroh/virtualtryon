@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
+import { Button } from "../ui/button";
 
 export default function LogoutFunction() {
   const [user] = useAuthState(auth);
@@ -34,7 +35,7 @@ export default function LogoutFunction() {
 
   return (
     <>
-      <button onClick={() => handleSignOut()}>Log Out</button>
+      <Button onClick={() => handleSignOut()}>Log Out</Button>
     </>
   );
 }
