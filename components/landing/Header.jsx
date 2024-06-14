@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <header
-      className={`px-10 md:px-20 py-2 z-10 fixed w-full transition-colors duration-500 ${
+      className={`px-10 md:px-20 py-6 lg:py-2 z-1 fixed w-full transition-colors duration-500 ${
         isScrolling ? "fixed bg-white shadow-lg" : "bg-background-hero"
       }`}
     >
@@ -46,7 +46,7 @@ const Header = () => {
               Virtual Fitting Room
             </a>
           </div>
-          <div className="d-flex align-items-center ms-auto ms-lg-0 order-lg-3">
+          <div className="d-flex align-items-center ms-auto ms-lg-0 order-lg-3 z-1000">
             <RightNavMenu user={user} isScrolling={isScrolling} />
           </div>
           <NavMenu user={user} />
