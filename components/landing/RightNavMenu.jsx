@@ -8,9 +8,10 @@ const navItems = [
   { title: "Dashboard", href: "/dashboard", loggedIn: true },
 ];
 
-export default function RightNavMenu({ user }) {
+export default function RightNavMenu({ user, navbar }) {
   const [activeLink, setActiveLink] = useState(0);
   const [scrollingStarted, setScrollingStarted] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -31,7 +32,7 @@ export default function RightNavMenu({ user }) {
       }`}
     >
       <div className="block lg:hidden">
-        <MobileDrawer />
+        <MobileDrawer navbar={navbar} />
       </div>
 
       <div className="navbar-collapse" id="one-page-nav">

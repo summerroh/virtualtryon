@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Menu, Minus, Plus } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Menu, MenuIcon, Minus, Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -13,19 +13,49 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-export function MobileDrawer() {
+const navItems = [
+  { title: "Services", href: "#services", loggedIn: false },
+  { title: "Pricing", href: "#pricing", loggedIn: false },
+  { title: "FAQ", href: "#faq", loggedIn: false },
+  // { title: "Dashboard", href: "#s5", loggedIn: true },
+];
+
+export function MobileDrawer({ user, navbar }) {
   const [goal, setGoal] = React.useState(350);
 
-  function onClick(adjustment) {
-    setGoal(Math.max(200, Math.min(400, goal + adjustment)));
-  }
+  const [activeLink, setActiveLink] = useState(0);
+  const [scrollingStarted, setScrollingStarted] = useState(false);
+
+  // Scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrollingStarted(true);
+      } else {
+        setScrollingStarted(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <Drawer>
+    <Drawer direction="left">
       <DrawerTrigger asChild>
-        <Button variant="outline">
-          <Menu />
-        </Button>
+        {/* Hanberger icon */}
+        <MenuIcon color={navbar ? "#151515" : "#ffffff"} />
       </DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">
@@ -35,43 +65,24 @@ export function MobileDrawer() {
           </DrawerHeader>
           <div className="p-4 pb-0">
             <div className="flex items-center justify-center space-x-2">
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 shrink-0 rounded-full"
-                onClick={() => onClick(-10)}
-                disabled={goal <= 200}
-              >
-                <Minus className="h-4 w-4" />
-                <span className="sr-only">Decrease</span>
-              </Button>
-              <div className="flex-1 text-center">
-                <div className="text-7xl font-bold tracking-tighter">
-                  {goal}
-                </div>
-                <div className="text-[0.70rem] uppercase text-muted-foreground">
-                  Calories/day
-                </div>
-              </div>
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-8 w-8 shrink-0 rounded-full"
-                onClick={() => onClick(10)}
-                disabled={goal >= 400}
-              >
-                <Plus className="h-4 w-4" />
-                <span className="sr-only">Increase</span>
-              </Button>
+              {navItems
+                .filter((navItem) => !navItem.loggedIn || user)
+                .map((navItem, i) => (
+                  <li key={i} className="nav-item">
+                    <a
+                      className={`nav-link ${
+                        activeLink === i ? "active" : ""
+                      } ${scrollingStarted ? "scrolling" : ""}`}
+                      href={navItem.href}
+                      onClick={() => setActiveLink(i)}
+                    >
+                      {navItem.title}
+                    </a>
+                  </li>
+                ))}
             </div>
             <div className="mt-3 h-[120px]">hellow</div>
           </div>
-          <DrawerFooter>
-            <Button>Submit</Button>
-            <DrawerClose asChild>
-              <Button variant="outline">Cancel</Button>
-            </DrawerClose>
-          </DrawerFooter>
         </div>
       </DrawerContent>
     </Drawer>

@@ -15,11 +15,11 @@ import StartGenerating from "../button/startGenerating";
 const plans = [
   {
     id: "1",
-    price: "$4",
-    plan: "2 Images",
+    price: "$2",
+    plan: "1 Image",
     perCredit: "$2 per image",
     features: [
-      { bold: "2", normal: " Photo credits", boldFirst: true },
+      { bold: "1", normal: " Photo credit", boldFirst: true },
       { normal: "Results in ", bold: "minutes", boldFirst: false },
       { normal: "Access to ", bold: "all models", boldFirst: false },
       { normal: "Email & chat Support", bold: "", boldFirst: false },

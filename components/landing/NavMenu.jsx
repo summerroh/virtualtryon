@@ -13,6 +13,7 @@ const NavMenu = ({ user }) => {
   const [activeLink, setActiveLink] = useState(0);
   const [scrollingStarted, setScrollingStarted] = useState(false);
 
+  // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -42,6 +43,7 @@ const NavMenu = ({ user }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <nav
       className={`navbar navbar-expand-lg order-lg-2 ${

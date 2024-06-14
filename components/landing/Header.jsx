@@ -28,10 +28,12 @@ const Header = () => {
     };
   }, []);
 
+  //   box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.1);
+
   return (
     <header
-      className={`theme-main-menu sticky-menu theme-menu-four ${
-        navbar ? "fixed" : ""
+      className={`px-10 md:px-20 py-2 z-10 fixed w-full transition-colors duration-500 ${
+        navbar ? "fixed bg-white shadow-lg" : "bg-background-hero"
       }`}
     >
       <div className="inner-content position-relative">
@@ -46,8 +48,8 @@ const Header = () => {
               Virtual Fitting Room
             </a>
           </div>
-          <div className="right-widget d-flex align-items-center ms-auto ms-lg-0 order-lg-3">
-            <RightNavMenu user={user} />
+          <div className="d-flex align-items-center ms-auto ms-lg-0 order-lg-3">
+            <RightNavMenu user={user} navbar={navbar} />
           </div>
           <NavMenu user={user} />
         </div>

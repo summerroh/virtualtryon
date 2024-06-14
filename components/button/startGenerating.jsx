@@ -13,8 +13,6 @@ export default function StartGenerating({ className }) {
   const router = useRouter();
   const href = user ? "/dashboard" : "/login";
 
-  console.log("class name: ", className);
-
   useEffect(() => {
     router.prefetch(href);
   }, [href, router]);
