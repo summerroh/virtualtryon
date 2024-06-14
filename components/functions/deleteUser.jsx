@@ -13,7 +13,7 @@ export default function DeleteUserFunction() {
     const success = await deleteUser();
     if (success) {
       alert("User has been deleted");
-      router.push("/");
+      // router.push("/");
     }
   };
 

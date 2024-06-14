@@ -96,12 +96,12 @@ const LoginForm = () => {
       </div>
 
       <div className="mb-4 flex justify-between items-center">
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           <Checkbox id="remember" />
           <Label htmlFor="remember" className="ml-2 text-sm text-gray-600">
             Keep me logged in
           </Label>
-        </div>
+        </div> */}
         <a
           href="/resetpassword"
           className="text-sm text-blue-600 hover:underline"
