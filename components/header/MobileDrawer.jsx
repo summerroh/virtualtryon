@@ -20,9 +20,7 @@ const navItems = [
   // { title: "Dashboard", href: "#s5", loggedIn: true },
 ];
 
-export function MobileDrawer({ user, navbar }) {
-  const [goal, setGoal] = React.useState(350);
-
+export function MobileDrawer({ user, isScrolling }) {
   const [activeLink, setActiveLink] = useState(0);
   const [scrollingStarted, setScrollingStarted] = useState(false);
 
@@ -55,7 +53,7 @@ export function MobileDrawer({ user, navbar }) {
     <Drawer direction="left">
       <DrawerTrigger asChild>
         {/* Hanberger icon */}
-        <MenuIcon color={navbar ? "#151515" : "#ffffff"} />
+        <MenuIcon color={isScrolling ? "#151515" : "#ffffff"} />
       </DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto w-full max-w-sm">

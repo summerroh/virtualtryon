@@ -9,15 +9,13 @@ import { auth } from "@/app/firebase/config";
 
 const Header = () => {
   const [user] = useAuthState(auth);
-  const [navbar, setNavbar] = useState(false);
-
-  console.log("user", user);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const changeBackground = () => {
     if (window.scrollY >= 10) {
-      setNavbar(true);
+      setIsScrolling(true);
     } else {
-      setNavbar(false);
+      setIsScrolling(false);
     }
   };
 
@@ -33,7 +31,7 @@ const Header = () => {
   return (
     <header
       className={`px-10 md:px-20 py-2 z-10 fixed w-full transition-colors duration-500 ${
-        navbar ? "fixed bg-white shadow-lg" : "bg-background-hero"
+        isScrolling ? "fixed bg-white shadow-lg" : "bg-background-hero"
       }`}
     >
       <div className="inner-content position-relative">
@@ -41,7 +39,7 @@ const Header = () => {
           <div className="logo order-lg-0">
             <a
               className={`nav-link font-recoleta fs-20 ${
-                !navbar ? "white-color" : ""
+                !isScrolling ? "white-color" : ""
               }`}
               href={"#"}
             >
@@ -49,7 +47,7 @@ const Header = () => {
             </a>
           </div>
           <div className="d-flex align-items-center ms-auto ms-lg-0 order-lg-3">
-            <RightNavMenu user={user} navbar={navbar} />
+            <RightNavMenu user={user} isScrolling={isScrolling} />
           </div>
           <NavMenu user={user} />
         </div>
