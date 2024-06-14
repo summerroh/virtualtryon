@@ -21,17 +21,6 @@ export default function Dashboard() {
 
   const [gender, setGender] = useState("female");
 
-  // useEffect(() => {
-  //   // Only access sessionStorage if running in the browser
-  //   if (typeof window !== "undefined") {
-  //     const userSession = sessionStorage.getItem("user");
-  //     // 로그인 안되어 있으면 메인 페이지로 이동
-  //     if (!userSession) {
-  //       router.push("/");
-  //     }
-  //   }
-  // }, [user, router]);
-
   if (!user) {
     return redirect("/");
   }

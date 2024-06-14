@@ -14,16 +14,12 @@ export default function LogoutButton() {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        router.push("/login");
+        return redirect("/login");
       })
       .catch((error) => {
         console.error(error);
       });
   };
-
-  if (!user) {
-    return redirect("/");
-  }
 
   return (
     <>
