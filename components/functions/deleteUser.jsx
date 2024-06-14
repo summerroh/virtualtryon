@@ -12,9 +12,6 @@ export default function DeleteUserFunction() {
   const handleDeleteUser = async () => {
     const success = await deleteUser();
     if (success) {
-      if (typeof window !== "undefined") {
-        sessionStorage.removeItem("user");
-      }
       alert("User has been deleted");
       router.push("/");
     }

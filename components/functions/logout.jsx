@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
 import { Button } from "../ui/button";
 
@@ -14,7 +14,6 @@ export default function LogoutButton() {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        sessionStorage.removeItem("user");
         router.push("/login");
       })
       .catch((error) => {
@@ -22,16 +21,9 @@ export default function LogoutButton() {
       });
   };
 
-  useEffect(() => {
-    // Only access sessionStorage if running in the browser
-    if (typeof window !== "undefined") {
-      const userSession = sessionStorage.getItem("user");
-      // 로그인 안되어 있으면 메인 페이지로 이동
-      if (!user && !userSession) {
-        router.push("/dashboard");
-      }
-    }
-  }, [user, router]);
+  if (!user) {
+    return redirect("/");
+  }
 
   return (
     <>

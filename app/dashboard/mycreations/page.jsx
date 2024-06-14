@@ -14,6 +14,11 @@ export const metadata = {
 };
 
 export default function Page() {
+  // if not logged in, redirect to home page
+  if (!user) {
+    return redirect("/");
+  }
+
   return (
     <>
       <div className="bg-background overflow-x-hidden">

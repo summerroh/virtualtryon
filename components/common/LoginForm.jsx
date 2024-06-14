@@ -26,7 +26,6 @@ const LoginForm = () => {
     // 로그인 성공시
     if (user) {
       console.log("Signed In User: ", user.email);
-      sessionStorage.setItem("user", true);
       setEmail("");
       setPassword("");
       setShowPassword(false);

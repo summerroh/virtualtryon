@@ -54,7 +54,6 @@ const SignupForm = () => {
 
       if (res.user) {
         console.log("createUserWithEmailAndPassword res: ", res);
-        sessionStorage.setItem("user", true);
         await sendEmailVerification(res.user);
 
         setName("");
