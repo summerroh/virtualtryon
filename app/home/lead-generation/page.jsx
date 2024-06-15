@@ -4,10 +4,7 @@ import Header from "@/components/landing/Header";
 import Hero from "@/components/hero";
 import Problem from "@/components/landing/Problem";
 import Link from "next/link";
-import CopyrightFooter from "@/components/landing/CopyrightFooter";
 import Image from "next/image";
-// import { Element } from "react-scroll";
-// import Pricing from "@/app/404/page";
 import Pricing from "@/components/landing/Pricing";
 import ImageRoller from "@/components/roller/ImageRoller";
 import Step2 from "@/components/landing/Step2";
@@ -16,6 +13,7 @@ import Step1 from "@/components/landing/Step1";
 import { QnA } from "@/components/landing/QnA";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import CopyrightFooter from "@/components/landing/CopyrightFooter";
 
 export const metadata = {
   title: "Virtual Fitting Room || Create professional fashion photoshoots",
@@ -38,14 +36,6 @@ const LeadGeneration = () => {
       <ImageRoller />
 
       <Problem />
-
-      {/* <div className="fancy-feature-thirtyTwo mt-20 lg-mt-20">
-        <div className="wrapper mt-20 lg-mt-0">
-          <div className="container">
-            <Counter />
-          </div>
-        </div>
-      </div> */}
 
       <div id="services">
         <Step1 />
@@ -96,38 +86,7 @@ const LeadGeneration = () => {
         </div>
       </div>
 
-      <div className="footer-style-nine theme-basic-footer zn2 position-relative">
-        {/* 
-        <div className="bg-wrapper">
-          <div className="container">
-            <div className="row justify-content-between">
-              <div className="col-lg-2 footer-intro mb-40">
-                <div className="logo">
-                  <Link href="/">
-                    <Image
-                      src="/images/logo/logo_06.png"
-                      alt="logo"
-                      width={76}
-                      height={27}
-                    />
-                  </Link>
-                </div>
-              </div>
-              <FooterContent />
-
-              <div className="col-lg-4 mb-30 form-widget">
-                <h5 className="footer-title fw-normal">Newslettert</h5>
-                <h6 className="pt-15 pb-20 text-white">Join our newsletter</h6>
-                <Subscribe />
-                <div className="fs-14 mt-10 text-white opacity-50">
-                  We only send interesting and relevant emails.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-          */}
-
+      <div className="relative">
         <CopyrightFooter />
       </div>
 
