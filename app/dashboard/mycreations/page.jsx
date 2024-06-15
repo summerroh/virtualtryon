@@ -12,6 +12,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 import { auth } from "@/app/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { redirect } from "next/navigation";
 
 // export const metadata = {
 //   title: "Virtual Fitting Room",
