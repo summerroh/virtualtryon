@@ -24,7 +24,7 @@ export default function Step2() {
             <h6 className="text-sm uppercase text-primary fw-semibold mb-3">
               TRY IT OUT
             </h6>
-            <h1 className="text-5xl font-bold text-dark font-recoleta fw-normal mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-dark font-recoleta fw-normal mb-4">
               Professional Quality
             </h1>
             <p className="text-lg fw-medium text-dark">

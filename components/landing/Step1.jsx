@@ -12,7 +12,7 @@ export default function Component() {
             <h6 className="text-sm uppercase text-primary fw-semibold mb-3">
               MODEL GALLERY
             </h6>
-            <h1 className="text-5xl font-bold text-dark font-recoleta fw-normal mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-dark font-recoleta fw-normal mb-4">
               Unlimited Possibilities
             </h1>
             <p className="text-lg fw-medium text-dark">
