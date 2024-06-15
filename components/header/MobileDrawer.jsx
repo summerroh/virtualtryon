@@ -12,6 +12,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { Sidebar } from "../sidebar";
 
 const navItems = [
   { title: "Services", href: "#services", loggedIn: false },
@@ -56,31 +57,8 @@ export function MobileDrawer({ user, isScrolling }) {
         <MenuIcon color={isScrolling ? "#151515" : "#ffffff"} />
       </DrawerTrigger>
       <DrawerContent className="z-50">
-        <div className="mx-auto w-full max-w-sm">
-          <DrawerHeader>
-            <DrawerTitle>Move Goal</DrawerTitle>
-            <DrawerDescription>Set your daily activity goal.</DrawerDescription>
-          </DrawerHeader>
-          <div className="p-4 pb-0">
-            <div className="flex items-center justify-center space-x-2">
-              {navItems
-                .filter((navItem) => !navItem.loggedIn || user)
-                .map((navItem, i) => (
-                  <li key={i} className="nav-item">
-                    <a
-                      className={`nav-link ${
-                        activeLink === i ? "active" : ""
-                      } ${scrollingStarted ? "scrolling" : ""}`}
-                      href={navItem.href}
-                      onClick={() => setActiveLink(i)}
-                    >
-                      {navItem.title}
-                    </a>
-                  </li>
-                ))}
-            </div>
-            <div className="mt-3 h-[120px]">hellow</div>
-          </div>
+        <div className="mx-auto w-[400px] max-w-sm">
+          <Sidebar className="w-full block lg:hidden h-full lg:h-auto lg:overflow-hidden" />
         </div>
       </DrawerContent>
     </Drawer>
