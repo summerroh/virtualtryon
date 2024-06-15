@@ -26,29 +26,18 @@ export default function RightNavMenu({ user, isScrolling }) {
   }, []);
 
   return (
-    <nav
-      className={`navbar navbar-expand-lg order-lg-2 ${
-        scrollingStarted ? "scrolling" : ""
-      }`}
-    >
-      <div className="block lg:hidden">
+    <nav className={`${scrollingStarted ? "scrolling" : ""}`}>
+      {/* <div className="block lg:hidden"> */}
+      <div className="block hidden">
         <MobileDrawer isScrolling={isScrolling} />
       </div>
 
-      <div className="navbar-collapse" id="one-page-nav">
-        <ul className="navbar-nav">
-          <li className="d-block d-lg-none">
-            <div className="logo">
-              <Link href="/" className="d-block">
-                <Image
-                  src="/images/logo/logo_04.png"
-                  alt="logo"
-                  width={90}
-                  height={25}
-                />
-              </Link>
-            </div>
-          </li>
+      <div>
+        <ul
+          className={`font-medium text-lg ${
+            isScrolling ? "text-dark" : "text-white"
+          }`}
+        >
           {navItems
             .filter((navItem) => navItem.loggedIn === !!user)
             .map((navItem, i) => (

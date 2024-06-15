@@ -32,26 +32,27 @@ const Header = () => {
   return (
     <>
       <div
-        className={`px-10 md:px-20 py-6 lg:py-2 z-30 fixed w-full transition-colors duration-500 ${
+        className={`px-10 md:px-20 py-6 lg:py-4 z-30 fixed w-full transition-colors duration-500 ${
           isScrolling ? "bg-white shadow-lg" : "bg-background-hero"
         }`}
       >
-        <div className="position-relative">
-          <div className="flex align-items-center justify-content-between">
-            <div className="logo order-lg-0">
-              <a
-                className={`nav-link font-recoleta fs-20 ${
-                  !isScrolling ? "white-color" : ""
-                }`}
-                href={"#"}
-              >
-                Virtual Fitting Room
-              </a>
-            </div>
+        <div className="relative">
+          <div className="flex items-center justify-between">
+            <a
+              className={`font-recoleta text-xl ${
+                !isScrolling ? "text-white" : "text-dark"
+              }`}
+              href={"#"}
+            >
+              Virtual Fitting Room
+            </a>
+
             <div className="flex align-items-center ms-auto ms-lg-0 order-lg-3 z-1">
               <RightNavMenu user={user} isScrolling={isScrolling} />
             </div>
-            <NavMenu user={user} />
+            <div className="hidden lg:block">
+              <NavMenu user={user} />
+            </div>
           </div>
         </div>
       </div>

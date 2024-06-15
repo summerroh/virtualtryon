@@ -11,15 +11,15 @@ const navItems = [
 
 const NavMenu = ({ user }) => {
   const [activeLink, setActiveLink] = useState(0);
-  const [scrollingStarted, setScrollingStarted] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
-        setScrollingStarted(true);
+        setIsScrolling(true);
       } else {
-        setScrollingStarted(false);
+        setIsScrolling(false);
       }
     };
 
@@ -47,30 +47,18 @@ const NavMenu = ({ user }) => {
   return (
     <nav
       className={`navbar navbar-expand-lg order-lg-2 ${
-        scrollingStarted ? "scrolling" : ""
+        isScrolling ? "scrolling" : ""
       }`}
     >
-      <div className="navbar-collapse" id="one-page-nav">
-        <ul className="navbar-nav">
-          <li className="d-block d-lg-none">
-            <div className="logo">
-              <Link href="/" className="d-block">
-                <Image
-                  src="/images/logo/logo_04.png"
-                  alt="logo"
-                  width={90}
-                  height={25}
-                />
-              </Link>
-            </div>
-          </li>
+      <div className="flex">
+        <ul className="flex flex-row space-x-12">
           {navItems
             .filter((navItem) => !navItem.loggedIn || user)
             .map((navItem, i) => (
               <li key={i} className="nav-item">
                 <a
-                  className={`nav-link ${activeLink === i ? "active" : ""} ${
-                    scrollingStarted ? "scrolling" : ""
+                  className={`font-medium text-lg ${
+                    isScrolling ? "text-dark" : "text-white"
                   }`}
                   href={navItem.href}
                   onClick={() => setActiveLink(i)}
