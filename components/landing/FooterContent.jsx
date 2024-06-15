@@ -27,7 +27,6 @@ const links = [
       { title: "Live chat", url: "/pages-menu/faq" },
       { title: "Self-service", url: "/pages-menu/faq" },
       { title: "Social", url: "/pages-menu/faq" },
-      { title: "Jano Reviews", url: "/pages-menu/faq" },
     ],
   },
 ];

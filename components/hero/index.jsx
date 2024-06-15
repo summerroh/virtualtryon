@@ -1,6 +1,5 @@
 import HeroContent from "./HeroContent";
 import HeroGallery from "./HeroGallery";
-import Partners from "./Partners";
 
 const index = () => {
   return (
