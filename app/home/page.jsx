@@ -18,7 +18,7 @@ import CopyrightFooter from "@/components/landing/CopyrightFooter";
 export const metadata = {
   title: "Virtual Fitting Room || Create professional fashion photoshoots",
 };
-const LeadGeneration = () => {
+export default function Home() {
   // 상단 메뉴 스크롤 기능
   // useEffect(() => {
   //   const hash = window.location.hash;
@@ -93,6 +93,4 @@ const LeadGeneration = () => {
       {/* /.footer-style-nine */}
     </>
   );
-};
-
-export default LeadGeneration;
+}
