@@ -31,7 +31,7 @@ export default function Page() {
           className={`col-span-3 lg:col-span-5 lg:border-l px-6 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto ${headerHeight}`}
         >
           {/* Step 1 */}
-          <div className="pt-12">
+          <div className="pt-12 pb-12">
             <div>
               <div className="flex justify-center flex-col w-full items-center">
                 <div className="space-y-1 mb-6">
