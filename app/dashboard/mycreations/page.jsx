@@ -13,10 +13,10 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { auth } from "@/app/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 
-export const metadata = {
-  title: "Virtual Fitting Room",
-  description: "Example music app using the components.",
-};
+// export const metadata = {
+//   title: "Virtual Fitting Room",
+//   description: "Example music app using the components.",
+// };
 
 export default function Page() {
   const [user] = useAuthState(auth);
