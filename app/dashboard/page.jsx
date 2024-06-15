@@ -63,7 +63,9 @@ export default function Dashboard() {
 
   return (
     <>
-      <DashboardHeader />
+      <div className="block lg:hidden">
+        <DashboardHeader />
+      </div>
 
       <div className="flex flex-col lg:flex-row w-full h-screen">
         <Sidebar className="w-[400px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
