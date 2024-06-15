@@ -8,15 +8,16 @@ const DashboardHeader = () => {
       >
         <div className="relative">
           <div className="flex items-center justify-between">
-            <a className={`font-recoleta text-xl text-dark`} href={"/"}>
+            <a
+              className={`font-recoleta text-xl text-dark text-medium`}
+              href={"/"}
+            >
               Virtual Try On
             </a>
 
-            {/* <div className="flex items-center z-1"> */}
             <div className="block lg:hidden">
               <MobileDrawer />
             </div>
-            {/* </div> */}
           </div>
         </div>
       </div>

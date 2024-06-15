@@ -9,18 +9,27 @@ import { Download, Expand, RefreshCcw } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 export const metadata = {
   title: "Virtual Try On",
   description: "Create professional fashion photoshoots",
 };
 
+const headerHeight = "pt-[70px] lg:pt-0";
+
 export default function Page() {
   return (
     <>
+      <div className="block lg:hidden">
+        <DashboardHeader />
+      </div>
+
       <div className="flex flex-col lg:flex-row w-full h-screen">
-        <Sidebar className="w-2/12 hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
-        <div className="col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full lg:w-10/12 flex flex-col overflow-y-auto">
+        <Sidebar className="w-[400px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
+        <div
+          className={`col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto ${headerHeight}`}
+        >
           {/* Step 1 */}
           <div className="pt-12">
             <div>

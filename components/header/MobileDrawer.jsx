@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Menu, MenuIcon, Minus, Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -21,35 +21,7 @@ const navItems = [
   // { title: "Dashboard", href: "#s5", loggedIn: true },
 ];
 
-export function MobileDrawer({ user, isScrolling }) {
-  const [activeLink, setActiveLink] = useState(0);
-  const [scrollingStarted, setScrollingStarted] = useState(false);
-
-  // Scroll detection
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setScrollingStarted(true);
-      } else {
-        setScrollingStarted(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+export function MobileDrawer({ user }) {
   return (
     <Drawer direction="right">
       <DrawerTrigger asChild>

@@ -39,7 +39,7 @@ const Header = () => {
         <div className="relative">
           <div className="flex items-center justify-between">
             <a
-              className={`font-recoleta text-xl ${
+              className={`font-recoleta text-xl text-medium ${
                 !isScrolling ? "text-white" : "text-dark"
               }`}
               href={"#"}
