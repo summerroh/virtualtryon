@@ -31,7 +31,6 @@ const HeroContent = () => {
           className="fw-500 align-items-center mb-25 text-yellow border-2 px-8 py-3 border-yellow rounded-full"
         >
           <span>Get Started</span>
-          {/* <img src="/images/icon/icon_91.svg" alt="img" className="ms-3" /> */}
         </Link>
         <div className="mb-25 text-white">
           {/* Already a member? <Link href="/">Sign in</Link> */}
