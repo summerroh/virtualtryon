@@ -76,10 +76,10 @@ const LeadGeneration = () => {
       </div>
 
       {/* CTA */}
-      <div className="flex justify-center flex-col px-8 lg:px-12 xl:px-40 py-8 md:py-16 bg-white mt-40">
+      <div className="flex justify-center flex-col px-8 lg:px-12 xl:px-40 py-8 md:py-16 bg-white mt-0">
         <div className="w-full md:space-y-24 flex flex-col md:flex-row justify-between sm:gap-10 lg:gap-24 bg-dark rounded-xl px-12 lg:px-32 py-12">
           <div className="flex flex-col">
-            <div className="text-yellow pb-8">Interested?</div>
+            <div className="text-yellow pb-8">Still have questions?</div>
             <h2 className="text-white text-2xl md:text-3xl lg:text-4xl mb-8">
               Don’t hesitate to send us message.
             </h2>

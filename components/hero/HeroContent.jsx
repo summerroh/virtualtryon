@@ -25,15 +25,15 @@ const HeroContent = () => {
         create professional model images instantly and focus on what really
         matters for your business.
       </p>
-      <div className="d-lg-flex align-items-center mb-0">
+      <div className="flex items-center mb-0 mt-4">
         <Link
-          href="/contact/contact-v1"
-          className="fw-500 tran3s d-inline-flex align-items-center mb-25 text-yellow border-2 px-8 py-3 border-yellow rounded-full"
+          href="/login"
+          className="fw-500 align-items-center mb-25 text-yellow border-2 px-8 py-3 border-yellow rounded-full"
         >
           <span>Get Started</span>
           {/* <img src="/images/icon/icon_91.svg" alt="img" className="ms-3" /> */}
         </Link>
-        <div className="mb-25 text-white signIn-btn">
+        <div className="mb-25 text-white">
           {/* Already a member? <Link href="/">Sign in</Link> */}
         </div>
       </div>
