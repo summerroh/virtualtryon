@@ -255,3 +255,17 @@ select option {
 .review-area {
   padding: 100px 0 100px;
 }
+
+/* Add "no-scrollbar" class to hide scrollbar */
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}

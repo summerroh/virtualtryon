@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Images, Settings, Sparkles, User } from "lucide-react";
 
-export function Sidebar({ className, playlists }) {
+export function Sidebar({ className }) {
   const pathname = usePathname();
 
   return (

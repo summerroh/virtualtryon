@@ -72,7 +72,7 @@ export default function Dashboard() {
       <div className="flex flex-col lg:flex-row w-full h-screen">
         <Sidebar className="w-[400px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
         <div
-          className={`col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto ${headerHeight}`}
+          className={`col-span-3 lg:col-span-5 lg:border-l px-6 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto ${headerHeight}`}
         >
           {/* HF test */}
           {/* <HFbutton /> */}
@@ -108,7 +108,7 @@ export default function Dashboard() {
                   </h2>
                 </div>
               </div>
-              <Card className="w-full p-6 flex justify-between gap-x-4">
+              <Card className="w-full p-6 flex flex-col md:flex-row justify-between gap-3">
                 <Button
                   variant="outline"
                   onClick={() => setGender("female")}
@@ -147,8 +147,8 @@ export default function Dashboard() {
                 </div>
               </div>
               <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
-                <Tabs defaultValue="shirt" className="w-full">
-                  <TabsList className="mb-3 w-full flex flex-row justify-between px-20 py-4">
+                <Tabs defaultValue="shirt">
+                  <TabsList className="mb-3 justify-between py-4 px-4 overflow-x-auto overflow-y-hidden flex flex-row no-scrollbar">
                     <TabsTrigger value="shirt">Shirt</TabsTrigger>
                     <TabsTrigger value="croptop">Crop Top</TabsTrigger>
                     <TabsTrigger value="pants">Pants</TabsTrigger>
@@ -156,7 +156,7 @@ export default function Dashboard() {
                     <TabsTrigger value="dress">Dress</TabsTrigger>
                   </TabsList>
                   <TabsContent value="shirt" className="w-full">
-                    <div className="flex flex-row gap-x-4">
+                    <div className="flex flex-col md:flex-row gap-3">
                       <Button
                         variant="outline"
                         onClick={() => setClothType("shortsleeves")}
@@ -193,7 +193,7 @@ export default function Dashboard() {
                     </div>
                   </TabsContent>
                   <TabsContent value="croptop">
-                    <div className="flex flex-row gap-x-4">
+                    <div className="flex flex-col md:flex-row gap-3">
                       <Button
                         variant="outline"
                         onClick={() => setClothType("shortsleeves")}
@@ -230,7 +230,7 @@ export default function Dashboard() {
                     </div>
                   </TabsContent>
                   <TabsContent value="pants">
-                    <div className="flex flex-row gap-x-4">
+                    <div className="flex flex-col md:flex-row gap-3">
                       <Button
                         variant="outline"
                         onClick={() => setClothType("Shorts")}
@@ -256,7 +256,7 @@ export default function Dashboard() {
                     </div>
                   </TabsContent>
                   <TabsContent value="jacket">
-                    <div className="flex flex-row gap-x-4">
+                    <div className="flex flex-col md:flex-row gap-3">
                       <Button
                         variant="outline"
                         onClick={() => setClothType("shortsleeves")}
@@ -293,7 +293,7 @@ export default function Dashboard() {
                     </div>
                   </TabsContent>
                   <TabsContent value="dress">
-                    <div className="flex flex-row gap-x-4">
+                    <div className="flex flex-col md:flex-row gap-3">
                       <Button
                         variant="outline"
                         onClick={() => setClothType("minidress")}
@@ -385,8 +385,8 @@ export default function Dashboard() {
                 </div>
               </div>
               <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
-                <Tabs defaultValue="fullbody" className="w-full">
-                  <TabsList className="mb-3 w-full flex flex-row justify-between px-20 py-4">
+                <Tabs defaultValue="fullbody">
+                  <TabsList className="mb-3 justify-between py-4 px-4 overflow-x-auto overflow-y-hidden flex flex-row no-scrollbar">
                     <TabsTrigger value="fullbody">Full body</TabsTrigger>
                     <TabsTrigger value="upperbody">Upper body</TabsTrigger>
                     <TabsTrigger value="lowerbody">Lower body</TabsTrigger>
