@@ -31,27 +31,27 @@
   --prime-twelve: #ffe500;
 }
 
-/* // body {
-    //   font-family: "gordita";
-    //   font-weight: normal;
-    //   font-size: 16px;
-    //   position: relative;
-    //   color: var(--text-color);
-    // }
-    // .h1,
-    // h1,
-    // .h2,
-    // h2,
-    // .h3,
-    // h3,
-    // .h4,
-    // h4,
-    // .h5,
-    // h5,
-    // .h6,
-    // h6 {
-    //   color: var(--heading);
-    // } */
+body {
+  font-family: var(--font-sans);
+  font-weight: normal;
+  font-size: 16px;
+  position: relative;
+  color: var(--text-color);
+}
+.h1,
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6 {
+  color: var(--heading);
+}
 
 ::selection {
   background-color: #2a2a2a;
@@ -70,6 +70,12 @@
 
 .font-recoleta {
   font-family: "Recoleta";
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+  /* font-family: "Recoleta"; */
+  /* font-family: "DM_Sans"; */
 }
 
 /*=============================

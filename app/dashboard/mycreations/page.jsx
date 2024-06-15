@@ -13,11 +13,14 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { auth } from "@/app/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { redirect } from "next/navigation";
+import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 // export const metadata = {
 //   title: "Virtual Fitting Room",
 //   description: "Example music app using the components.",
 // };
+
+const headerHeight = "pt-[70px]";
 
 export default function Page() {
   const [user] = useAuthState(auth);
@@ -29,38 +32,42 @@ export default function Page() {
 
   return (
     <>
-      <div className="bg-background overflow-x-hidden">
-        <div className="flex flex-col lg:flex-row w-full h-screen">
-          <Sidebar className="w-2/12 hidden lg:block h-full lg:h-auto lg:overflow-hidden min-w-20" />
-          <div className="col-span-3 lg:col-span-5 lg:border-l px-4 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full lg:w-10/12 flex flex-col overflow-y-auto">
-            <div className="space-y-1 mt-6 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center text-left">
-              <h2 className="text-xl font-bold tracking-tight">My Creations</h2>
+      <div className="block lg:hidden">
+        <DashboardHeader />
+      </div>
 
-              <ScrollArea className="overflow-x-auto w-full sm:w-auto">
-                <Tabs defaultValue="account" className="">
-                  <TabsList className="mb-3 flex flex-row md:flex-nowrap space-x-4">
-                    <TabsTrigger value="shirt">Shirt</TabsTrigger>
-                    <TabsTrigger value="croptop">Crop Top</TabsTrigger>
-                    <TabsTrigger value="pants">Pants</TabsTrigger>
-                    <TabsTrigger value="jacket">Jacket</TabsTrigger>
-                    <TabsTrigger value="dress">Dress</TabsTrigger>
-                  </TabsList>
-                </Tabs>
-                <ScrollBar orientation="horizontal" />
-              </ScrollArea>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-              {Array.from({ length: 10 }).map((_, index) => (
-                <PhotoLayout
-                  key={index}
-                  album={albums[0]}
-                  className=""
-                  aspectRatio="portrait"
-                  width={250}
-                  height={330}
-                />
-              ))}
-            </div>
+      <div className="flex flex-col lg:flex-row w-full h-screen">
+        <Sidebar className="w-[400px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
+        <div
+          className={`col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto ${headerHeight}`}
+        >
+          <div className="space-y-1 mt-6 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center text-left">
+            <h2 className="text-xl font-bold tracking-tight">My Creations</h2>
+
+            <ScrollArea className="overflow-x-auto w-full sm:w-auto">
+              <Tabs defaultValue="account" className="">
+                <TabsList className="mb-3 flex flex-row md:flex-nowrap space-x-4">
+                  <TabsTrigger value="shirt">Shirt</TabsTrigger>
+                  <TabsTrigger value="croptop">Crop Top</TabsTrigger>
+                  <TabsTrigger value="pants">Pants</TabsTrigger>
+                  <TabsTrigger value="jacket">Jacket</TabsTrigger>
+                  <TabsTrigger value="dress">Dress</TabsTrigger>
+                </TabsList>
+              </Tabs>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {Array.from({ length: 10 }).map((_, index) => (
+              <PhotoLayout
+                key={index}
+                album={albums[0]}
+                className=""
+                aspectRatio="portrait"
+                width={250}
+                height={330}
+              />
+            ))}
           </div>
         </div>
       </div>

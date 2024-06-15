@@ -11,9 +11,12 @@ import LogoutButton from "@/components/functions/logout";
 import { auth } from "@/app/firebase/config";
 import { redirect, useRouter } from "next/navigation";
 import { useAuthState } from "react-firebase-hooks/auth";
+import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
+
+const headerHeight = "pt-[70px]";
 
 export default function Dashboard() {
   const [user] = useAuthState(auth);
@@ -27,9 +30,15 @@ export default function Dashboard() {
 
   return (
     <>
+      <div className="block lg:hidden">
+        <DashboardHeader />
+      </div>
+      r
       <div className="flex flex-col lg:flex-row w-full h-screen">
-        <Sidebar className="w-2/12 hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
-        <div className="col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full lg:w-10/12 flex flex-col overflow-y-auto">
+        <Sidebar className="w-[400px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
+        <div
+          className={`col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto ${headerHeight}`}
+        >
           <div className="pt-12 space-y-10">
             {/* Profile Box */}
             <Card className="w-full p-6 flex flex-col justify-center items-center text-center gap-x-4">

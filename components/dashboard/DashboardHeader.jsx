@@ -4,7 +4,7 @@ const DashboardHeader = () => {
   return (
     <>
       <div
-        className={`px-10 md:px-20 py-6 lg:py-4 z-30 fixed w-full transition-colors duration-500 bg-white shadow-md`}
+        className={`px-10 md:px-20 py-6 lg:py-4 z-30 fixed w-full transition-colors duration-500 bg-white border-b border-gray-200 shadow-header`}
       >
         <div className="relative">
           <div className="flex items-center justify-between">

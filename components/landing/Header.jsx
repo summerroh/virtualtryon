@@ -33,7 +33,7 @@ const Header = () => {
     <>
       <div
         className={`px-10 md:px-20 py-6 lg:py-4 z-30 fixed w-full transition-colors duration-500 ${
-          isScrolling ? "bg-white shadow-lg" : "bg-background-hero"
+          isScrolling ? "bg-white shadow-header" : "bg-background-hero"
         }`}
       >
         <div className="relative">
