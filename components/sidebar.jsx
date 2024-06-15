@@ -16,7 +16,7 @@ export function Sidebar({ className, playlists }) {
         <div className="flex justify-between flex-col h-screen px-1">
           <div className="space-y-4 py-4">
             <Link href="/" className="d-block">
-              <h2 className="mb-2 px-4 text-md font-semibold tracking-tight">
+              <h2 className="mb-2 px-4 text-md font-semibold tracking-tight font-sans">
                 Virtual Fitting Room
               </h2>
             </Link>

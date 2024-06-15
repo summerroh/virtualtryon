@@ -28,7 +28,7 @@ const HeroContent = () => {
       <div className="flex items-center mb-0 mt-4">
         <Link
           href="/login"
-          className="fw-500 align-items-center mb-25 text-yellow border-2 px-8 py-3 border-yellow rounded-full"
+          className="font-medium align-items-center mb-25 text-yellow border-2 px-8 py-3 border-yellow rounded-full"
         >
           <span>Get Started</span>
         </Link>
