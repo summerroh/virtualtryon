@@ -11,8 +11,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export const metadata = {
-  title: "Virtual Fitting Room",
-  description: "Example music app using the components.",
+  title: "Virtual Try On",
+  description: "Create professional fashion photoshoots",
 };
 
 export default function Page() {

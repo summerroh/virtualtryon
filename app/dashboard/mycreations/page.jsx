@@ -16,11 +16,11 @@ import { redirect } from "next/navigation";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 // export const metadata = {
-//   title: "Virtual Fitting Room",
-//   description: "Example music app using the components.",
+//   title: "Virtual Try On",
+//   description: "Create professional fashion photoshoots",
 // };
 
-const headerHeight = "pt-[70px]";
+const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Page() {
   const [user] = useAuthState(auth);

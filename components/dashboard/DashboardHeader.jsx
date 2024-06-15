@@ -12,11 +12,11 @@ const DashboardHeader = () => {
               Virtual Try On
             </a>
 
-            <div className="flex align-items-center ms-auto z-1">
-              <div className="block lg:hidden">
-                <MobileDrawer />
-              </div>
+            {/* <div className="flex items-center z-1"> */}
+            <div className="block lg:hidden">
+              <MobileDrawer />
             </div>
+            {/* </div> */}
           </div>
         </div>
       </div>

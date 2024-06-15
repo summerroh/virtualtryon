@@ -2,7 +2,7 @@
   <br>
   <a href="http://www.virtual-fitting-room.ai"><img src="https://firebasestorage.googleapis.com/v0/b/virtual-fitting-room-ai.appspot.com/o/github-thumb.png?alt=media&token=1cf622e5-7d74-463f-adc5-c3b53efaef18" alt="Markdownify" width="200"></a>
   <br>
-  Virtual Fitting Room
+  Virtual Try On
   <br>
 </h1>
 

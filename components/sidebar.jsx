@@ -17,7 +17,7 @@ export function Sidebar({ className, playlists }) {
           <div className="space-y-4 py-4">
             <Link href="/" className="d-block">
               <h2 className="mb-2 px-4 text-md font-semibold tracking-tight font-sans">
-                Virtual Fitting Room
+                Virtual Try On
               </h2>
             </Link>
 

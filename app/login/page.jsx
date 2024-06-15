@@ -25,7 +25,7 @@ const LogIn = () => {
         </div>
 
         <p className="mt-auto pt-10 text-sm text-secondary">
-          &copy; {currentYear} Virtual Fitting Room Inc.
+          &copy; {currentYear} Virtual Try On
         </p>
       </div>
     </>

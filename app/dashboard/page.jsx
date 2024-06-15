@@ -24,7 +24,7 @@ import DashboardHeader from "@/components/dashboard/DashboardHeader";
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
 
-const headerHeight = "pt-[70px]";
+const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Dashboard() {
   const [user] = useAuthState(auth);

@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import CopyrightFooter from "@/components/landing/CopyrightFooter";
 
 export const metadata = {
-  title: "Virtual Fitting Room || Create professional fashion photoshoots",
+  title: "Virtual Try On || Create professional fashion photoshoots",
 };
 export default function Home() {
   // 상단 메뉴 스크롤 기능

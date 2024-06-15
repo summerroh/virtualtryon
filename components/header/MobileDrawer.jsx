@@ -54,7 +54,6 @@ export function MobileDrawer({ user, isScrolling }) {
     <Drawer direction="right">
       <DrawerTrigger asChild>
         {/* Hanberger icon */}
-        {/* <MenuIcon color={isScrolling ? "#151515" : "#ffffff"} /> */}
         <MenuIcon color="#151515" />
       </DrawerTrigger>
       <DrawerContent className="z-50">
