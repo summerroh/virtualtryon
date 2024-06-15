@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const HeroContent = () => {
   return (
-    <div className="w-full h-screen bg-background-hero flex justify-center items-center">
+    <div className="w-full h-dvh bg-background-hero flex justify-center items-center">
       <div className="space-y-4 md:space-y-4 flex flex-col items-center gap-2 lg:gap-6 p-8">
         <h1 className="fw-normal text-white font-recoleta text-4xl lg:text-6xl max-w-[700px] text-center">
           We can't seem to fnd the page you're looking for.
