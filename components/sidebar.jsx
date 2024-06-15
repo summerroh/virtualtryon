@@ -30,13 +30,41 @@ export function Sidebar({ className, playlists }) {
                   <Button
                     variant="ghost"
                     className={`w-full justify-start ${
-                      pathname === "/dashboard" ? "bg-background-dashboard" : ""
+                      [
+                        "/dashboard",
+                        "/choose",
+                        "/final",
+                        "/dashboard/choose",
+                        "/dashboard/final",
+                      ].includes(pathname)
+                        ? "bg-background-dashboard text-primary font-semibold"
+                        : ""
                     }`}
                   >
                     <Sparkles
-                      color={"#000000"}
+                      color={
+                        [
+                          "/dashboard",
+                          "/choose",
+                          "/final",
+                          "/dashboard/choose",
+                          "/dashboard/final",
+                        ].includes(pathname)
+                          ? "var(--primary)"
+                          : "#000000"
+                      }
+                      strokeWidth={
+                        [
+                          "/dashboard",
+                          "/choose",
+                          "/final",
+                          "/dashboard/choose",
+                          "/dashboard/final",
+                        ].includes(pathname)
+                          ? 2
+                          : 1.5
+                      }
                       size={"20px"}
-                      strokeWidth={1.5}
                       className="mr-2"
                     />
                     Model Images
@@ -54,14 +82,20 @@ export function Sidebar({ className, playlists }) {
                     variant="ghost"
                     className={`w-full justify-start ${
                       pathname === "/dashboard/mycreations"
-                        ? "bg-background-dashboard"
+                        ? "bg-background-dashboard text-primary font-semibold"
                         : ""
                     }`}
                   >
                     <Images
-                      color={"#000000"}
+                      color={
+                        pathname === "/dashboard/mycreations"
+                          ? "var(--primary)"
+                          : "#000000"
+                      }
+                      strokeWidth={
+                        pathname === "/dashboard/mycreations" ? 2 : 1.5
+                      }
                       size={"20px"}
-                      strokeWidth={1.5}
                       className="mr-2"
                     />
                     My Creations
@@ -80,14 +114,18 @@ export function Sidebar({ className, playlists }) {
                   variant="ghost"
                   className={`w-full justify-start ${
                     pathname === "/dashboard/user"
-                      ? "bg-background-dashboard"
+                      ? "bg-background-dashboard text-primary font-semibold"
                       : ""
                   }`}
                 >
                   <User
-                    color={"#000000"}
+                    color={
+                      pathname === "/dashboard/user"
+                        ? "var(--primary)"
+                        : "#000000"
+                    }
+                    strokeWidth={pathname === "/dashboard/user" ? 2 : 1.5}
                     size={"20px"}
-                    strokeWidth={1.5}
                     className="mr-2"
                   />
                   {/* <Settings
