@@ -32,7 +32,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`px-10 md:px-20 py-6 lg:py-2 z-1 fixed w-full transition-colors duration-500 ${
+        className={`px-10 md:px-20 py-6 lg:py-2 z-30 fixed w-full transition-colors duration-500 ${
           isScrolling ? "bg-white shadow-lg" : "bg-background-hero"
         }`}
       >
