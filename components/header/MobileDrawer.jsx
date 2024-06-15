@@ -50,12 +50,12 @@ export function MobileDrawer({ user, isScrolling }) {
   }, []);
 
   return (
-    <Drawer direction="right" className="z-1000">
+    <Drawer direction="right">
       <DrawerTrigger asChild>
         {/* Hanberger icon */}
         <MenuIcon color={isScrolling ? "#151515" : "#ffffff"} />
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="z-50">
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
             <DrawerTitle>Move Goal</DrawerTitle>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import DefaulHeader from "@/components/header/DefaulHeader";
+// import DefaulHeader from "@/components/header/DefaulHeader";
 import Image from "next/image";
 export const metadata = {
   title: "404 || Create professional fashion photoshoots",
@@ -8,18 +8,8 @@ export const metadata = {
 const Pricing = () => {
   return (
     <>
-      {/* <!-- 
-      =============================================
-      Theme Default Menu
-      ============================================== 	
-      --> */}
-      <DefaulHeader />
+      {/* <DefaulHeader /> */}
 
-      {/* 
-			=============================================
-			Error Page
-			============================================== 
-			*/}
       <div className="error-page-content d-flex align-items-center justify-content-center">
         <div className="container">
           <div className="row">

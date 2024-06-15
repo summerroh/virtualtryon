@@ -8,12 +8,17 @@ import { albums } from "@/data/albums";
 import { cn } from "@/lib/utils";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
+import { auth } from "@/app/firebase/config";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 export const metadata = {
   title: "Virtual Fitting Room",
   description: "Example music app using the components.",
 };
 
 export default function Page() {
+  const [user] = useAuthState(auth);
+
   // if not logged in, redirect to home page
   if (!user) {
     return redirect("/");

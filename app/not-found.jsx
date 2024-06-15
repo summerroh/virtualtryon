@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import DefaulHeader from "@/components/header/DefaulHeader";
+// import DefaulHeader from "@/components/header/DefaulHeader";
 import Image from "next/image";
 export const metadata = {
   title: "404 || Create professional fashion photoshoots",
@@ -13,7 +13,7 @@ const Pricing = () => {
       Theme Default Menu
       ============================================== 	
       --> */}
-      <DefaulHeader />
+      {/* <DefaulHeader /> */}
 
       {/* 
 			=============================================
