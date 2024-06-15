@@ -13,7 +13,7 @@ export function Sidebar({ className, playlists }) {
   return (
     <div className={cn("overflow-y-auto", className)}>
       <ScrollArea>
-        <div className="flex justify-between flex-col h-screen px-1">
+        <div className="flex justify-between flex-col h-dvh px-1">
           <div className="space-y-4 py-4">
             <Link href="/" className="d-block">
               <h2 className="mb-2 px-4 text-lg font-medium tracking-tight font-recoleta">

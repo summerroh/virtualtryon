@@ -19,7 +19,7 @@ export function MobileDrawer({ user }) {
       </DrawerTrigger>
       <DrawerContent className="z-50">
         <div className="mx-auto w-[240px] max-w-sm">
-          <Sidebar className="w-full block lg:hidden h-full lg:h-auto lg:overflow-hidden" />
+          <Sidebar className="w-full block lg:hidden h-dvh lg:h-auto lg:overflow-hidden" />
         </div>
       </DrawerContent>
     </Drawer>
