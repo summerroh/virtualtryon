@@ -96,6 +96,9 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
+      dropShadow: {
+        header: "0 13px 35px -12px rgba(35, 35, 35, 0.1)",
+      },
     },
   },
   plugins: [

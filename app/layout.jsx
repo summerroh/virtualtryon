@@ -27,6 +27,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link href="/scss/tailwind.css" rel="stylesheet" />
+        <title>Virtual Try On</title>
+        <meta
+          name="Virtual Try On"
+          content="Create professional model shots instantly."
+        />
       </head>
       <body>
         {/* <div className="main-page-wrapper"> */}

@@ -24,6 +24,8 @@ import DashboardHeader from "@/components/dashboard/DashboardHeader";
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
 
+const headerHeight = "pt-[70px]";
+
 export default function Dashboard() {
   const [user] = useAuthState(auth);
   const router = useRouter();
@@ -69,7 +71,9 @@ export default function Dashboard() {
 
       <div className="flex flex-col lg:flex-row w-full h-screen">
         <Sidebar className="w-[400px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
-        <div className="col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto">
+        <div
+          className={`col-span-3 lg:col-span-5 lg:border-l px-10 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto ${headerHeight}`}
+        >
           {/* HF test */}
           {/* <HFbutton /> */}
           {/* <VtonButton /> */}

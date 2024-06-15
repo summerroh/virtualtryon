@@ -44,7 +44,7 @@ const Header = () => {
               }`}
               href={"#"}
             >
-              Virtual Fitting Room
+              Virtual Try On
             </a>
 
             <div className="flex align-items-center ms-auto ms-lg-0 order-lg-3 z-1">
