@@ -87,7 +87,7 @@ export default function Dashboard() {
                     Step 1/5
                   </p>
                   <h2 className="text-xl font-bold tracking-tight">
-                    Start with a photo of your cloth
+                    Start with a photo of your clothes
                   </h2>
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default function Dashboard() {
                     Step 3/5
                   </p>
                   <h2 className="text-xl font-bold tracking-tight">
-                    what is your clothes type?
+                    what is your clothing type?
                   </h2>
                 </div>
               </div>
