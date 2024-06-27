@@ -11,8 +11,8 @@ export default function Refund() {
 
       {/* Contents */}
       <div className="w-full pb-20 bg-background-hero flex justify-center items-center">
-        <div className="flex flex-col items-center gap-2 lg:gap-6 p-8">
-          <h1 className="mt-32 mb-32 fw-normal text-white font-recoleta text-4xl lg:text-6xl max-w-[700px] text-center">
+        <div className="flex flex-col items-center gap-2 lg:gap-6 p-0 md:p-8">
+          <h1 className="mb-12 mt-32 md:mb-32 fw-normal text-white font-recoleta text-4xl lg:text-6xl max-w-[700px] text-center">
             Refund Policy
           </h1>
 
