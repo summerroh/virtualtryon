@@ -9,6 +9,10 @@ const links = [
     title: "Terms of Service",
     href: "/terms",
   },
+  {
+    title: "Refund Policy",
+    href: "/refund",
+  },
 ];
 
 const icons = [
