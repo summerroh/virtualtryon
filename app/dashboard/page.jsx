@@ -15,8 +15,6 @@ import DragNDrop from "@/components/DragNDrop";
 import { Check, WandSparkles } from "lucide-react";
 import Link from "next/link";
 
-import { auth } from "@/app/firebase/config";
-import { useAuthState } from "react-firebase-hooks/auth";
 // use redirect if possible
 import { redirect, useRouter } from "next/navigation";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
@@ -27,18 +25,31 @@ import DashboardHeader from "@/components/dashboard/DashboardHeader";
 const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Dashboard() {
-  const [user] = useAuthState(auth);
   const router = useRouter();
 
   const [gender, setGender] = useState("female");
   const [clothType, setClothType] = useState("shortsleeves");
   const [model, setModel] = useState("");
+  const [isLoggedin, setIsLoggedin] = useState(false);
 
   const [selectedLayouts, setSelectedLayouts] = useState([
     { layout: "fullbody", selected: [] },
     { layout: "upperbody", selected: [] },
     { layout: "lowerbody", selected: [] },
   ]);
+
+  useEffect(() => {
+    const idToken = sessionStorage.getItem("idToken");
+    if (!idToken) {
+      return redirect("/login");
+    } else {
+      setIsLoggedin(true);
+    }
+  }, [router]);
+
+  if (!isLoggedin) {
+    return redirect("/login");
+  }
 
   const handlePhotoSelect = (layout, index) => {
     setSelectedLayouts((prev) => {
@@ -58,10 +69,6 @@ export default function Dashboard() {
       });
     });
   };
-
-  if (!user) {
-    return redirect("/");
-  }
 
   return (
     <>
