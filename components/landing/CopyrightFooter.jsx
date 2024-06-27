@@ -69,7 +69,7 @@ const CopyrightFooter = () => {
             Copyright © {new Date().getFullYear()}{" "}
             <a
               className="text-gray-500 hover:text-gray-900"
-              href="https://themeforest.net/user/ib-themes"
+              href="/"
               target="_blank"
               rel="noopener noreferrer"
             >
