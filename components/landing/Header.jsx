@@ -42,7 +42,7 @@ const Header = () => {
               className={`font-recoleta text-xl text-medium ${
                 !isScrolling ? "text-white" : "text-dark"
               }`}
-              href={window.location.pathname === "/" ? "#" : "/"}
+              href={"/"}
             >
               Virtual Try On
             </a>

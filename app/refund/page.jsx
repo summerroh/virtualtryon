@@ -45,15 +45,15 @@ export default function Refund() {
               Service, they are considered consumed, and no refund will be
               provided.
               <br />
-              An error is defined as a technical issue that prevented the
-              service from generating images as expected. Please note that
-              dissatisfaction with the quality of the generated images does not
-              qualify as an error.
-              <br />
               If you encountered a technical error with our service that
               prevented you from using your credits to generate images, please
               contact our support team. We will investigate the issue and, if
               confirmed, we will provide a refund for the affected credits.
+              <br />
+              An error is defined as a technical issue that prevented the
+              service from generating images as expected. Please note that
+              dissatisfaction with the quality of the generated images does not
+              qualify as an error.
             </p>
           </div>
 
