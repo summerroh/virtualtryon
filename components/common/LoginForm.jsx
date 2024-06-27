@@ -1,6 +1,6 @@
+"use client";
+
 import { useState } from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,28 +12,42 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const router = useRouter();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
+    setError(null);
 
-    signInWithEmailAndPassword(email, password);
+    try {
+      const response = await fetch("http://localhost:3000/api/v1/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-    // 로그인 성공시
-    if (user) {
-      console.log("Signed In User: ", user.email);
-      setEmail("");
-      setPassword("");
-      setShowPassword(false);
-      router.push("/");
-    }
+      const data = await response.json();
 
-    // 로그인 실패시
-    if (error) {
-      console.log("Error while sign in (error.message): ", error.message);
-      console.log("Error while sign in (error): ", error);
+      if (data.isSuccess && data.data && data.data.idToken) {
+        console.log("Logged in successfully");
+        // Store the token in localStorage or a secure cookie
+        sessionStorage.setItem("idToken", data.data.idToken);
+        setEmail("");
+        setPassword("");
+        setShowPassword(false);
+        router.push("/");
+      } else {
+        setError("Login failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during login:", error.message);
+      setError("An error occurred during login");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -109,14 +123,12 @@ const LoginForm = () => {
       </div>
 
       <div>
-        <Button type="submit" className="w-full">
-          {loading ? "Logging in ..." : "Login"}
+        <Button type="submit" className="w-full" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
         </Button>
       </div>
 
-      {error && error.message === "auth/invalid-credential" && (
-        <p>auth/invalid-credential</p>
-      )}
+      {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
     </form>
   );
 };
