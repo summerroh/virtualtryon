@@ -12,6 +12,7 @@ import { auth } from "@/app/firebase/config";
 import { redirect, useRouter } from "next/navigation";
 import { useAuthState } from "react-firebase-hooks/auth";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
+import { checkIsLoggedIn } from "@/components/functions/checkIsLoggedIn";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
@@ -24,8 +25,8 @@ export default function Dashboard() {
 
   const [gender, setGender] = useState("female");
 
-  if (!user) {
-    return redirect("/");
+  if (!checkIsLoggedIn()) {
+    return redirect("/login");
   }
 
   return (

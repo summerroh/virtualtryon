@@ -18,6 +18,10 @@ import Link from "next/link";
 // use redirect if possible
 import { redirect, useRouter } from "next/navigation";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
+import {
+  checkIsLoggedIn,
+  getUserToken,
+} from "@/components/functions/checkIsLoggedIn";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
@@ -38,16 +42,7 @@ export default function Dashboard() {
     { layout: "lowerbody", selected: [] },
   ]);
 
-  useEffect(() => {
-    const idToken = sessionStorage.getItem("idToken");
-    if (!idToken) {
-      return redirect("/login");
-    } else {
-      setIsLoggedin(true);
-    }
-  }, [router]);
-
-  if (!isLoggedin) {
+  if (!checkIsLoggedIn()) {
     return redirect("/login");
   }
 

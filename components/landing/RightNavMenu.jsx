@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { MobileDrawer } from "../header/MobileDrawer";
+import { checkIsLoggedIn } from "../functions/checkIsLoggedIn";
 
 const navItems = [
   { title: "Login", href: "/login", loggedIn: false },
   { title: "Dashboard", href: "/dashboard", loggedIn: true },
 ];
 
-export default function RightNavMenu({ user, isScrolling }) {
+export default function RightNavMenu({ isScrolling }) {
   const [activeLink, setActiveLink] = useState(0);
   const [scrollingStarted, setScrollingStarted] = useState(false);
 
@@ -39,7 +40,7 @@ export default function RightNavMenu({ user, isScrolling }) {
           }`}
         >
           {navItems
-            .filter((navItem) => navItem.loggedIn === !!user)
+            .filter((navItem) => navItem.loggedIn === checkIsLoggedIn())
             .map((navItem, i) => (
               <li key={i} className="nav-item">
                 <Link href={navItem.href}>

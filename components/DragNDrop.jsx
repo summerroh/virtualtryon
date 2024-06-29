@@ -8,106 +8,73 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "./ui/button";
+import { getUserToken } from "./functions/checkIsLoggedIn";
 
 export default function ImageUpload() {
-  const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [filesToUpload, setFilesToUpload] = useState([]);
+  const [uploadedFile, setUploadedFile] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
-  const onUploadProgress = (progressEvent, file, cancelSource) => {
-    const progress = Math.round(
-      (progressEvent.loaded / (progressEvent.total ?? 0)) * 100
-    );
+  const removeFile = () => {
+    setUploadedFile(null);
+  };
 
-    if (progress === 100) {
-      setUploadedFiles((prevUploadedFiles) => {
-        return [...prevUploadedFiles, file];
-      });
-
-      setFilesToUpload((prevUploadProgress) => {
-        return prevUploadProgress.filter((item) => item.File !== file);
-      });
-
+  // Image uokiad
+  const onDrop = useCallback(async (acceptedFiles) => {
+    if (acceptedFiles.length > 1) {
       return;
     }
 
-    setFilesToUpload((prevUploadProgress) => {
-      return prevUploadProgress.map((item) => {
-        if (item.File.name === file.name) {
-          return {
-            ...item,
-            progress,
-            source: cancelSource,
-          };
-        } else {
-          return item;
-        }
+    const file = acceptedFiles[0];
+
+    try {
+      const response = await fetch("http://localhost:3000/api/v1/images", {
+        method: "POST",
+        headers: {
+          token: getUserToken(),
+        },
       });
-    });
-  };
 
-  const uploadImageToCloudinary = async (
-    formData,
-    onUploadProgress,
-    cancelSource
-  ) => {
-    return axios.post(
-      `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUD_NAME}/image/upload`,
-      formData,
-      {
-        onUploadProgress,
-        cancelToken: cancelSource.token,
+      if (!response.ok) {
+        throw new Error("Failed to upload image");
+        return;
       }
-    );
-  };
 
-  const removeFile = (file) => {
-    setFilesToUpload((prevUploadProgress) => {
-      return prevUploadProgress.filter((item) => item.File !== file);
-    });
+      const data = await response.json();
+      console.log("Image record created:", data);
 
-    setUploadedFiles((prevUploadedFiles) => {
-      return prevUploadedFiles.filter((item) => item !== file);
-    });
-  };
+      const imageId = data.data._id;
+      const fileFormData = new FormData();
+      fileFormData.append("file_conversation", file);
 
-  const onDrop = useCallback(async (acceptedFiles) => {
-    setFilesToUpload((prevUploadProgress) => {
-      return [
-        ...prevUploadProgress,
-        ...acceptedFiles.map((file) => {
-          return {
-            progress: 0,
-            File: file,
-            source: null,
-          };
-        }),
-      ];
-    });
+      if (!imageId) {
+        throw new Error("Image ID does not exist");
+      }
 
-    // cloudinary upload
+      const fileResponse = await fetch(
+        `http://localhost:3000/api/v1/images/${imageId}/file`,
+        // `http://localhost:3000/api/v1/images/667e8710994b65818025ba31/file`,
+        {
+          method: "POST",
+          headers: {
+            token: getUserToken(),
+          },
+          body: fileFormData,
+        }
+      );
 
-    // const fileUploadBatch = acceptedFiles.map((file) => {
-    //   const formData = new FormData();
-    //   formData.append("file", file);
-    //   formData.append(
-    //     "upload_preset",
-    //     process.env.NEXT_PUBLIC_UPLOAD_PRESET as string
-    //   );
+      if (!fileResponse.ok) {
+        throw new Error("Failed to upload image file");
+      }
 
-    //   const cancelSource = axios.CancelToken.source();
-    //   return uploadImageToCloudinary(
-    //     formData,
-    //     (progressEvent) => onUploadProgress(progressEvent, file, cancelSource),
-    //     cancelSource
-    //   );
-    // });
-
-    // try {
-    //   await Promise.all(fileUploadBatch);
-    //   alert("All files uploaded successfully");
-    // } catch (error) {
-    //   console.error("Error uploading files: ", error);
-    // }
+      const fileData = await fileResponse.json();
+      console.log("Image file uploaded successfully:", fileData);
+      setUploadedFile(file);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      setErrorMessage(
+        "Failed to upload image. Please make sure you upload an image file."
+      );
+    }
   }, []);
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
@@ -141,92 +108,36 @@ export default function ImageUpload() {
         />
       </div>
 
-      {filesToUpload.length > 0 && (
-        <div>
-          <ScrollArea className="h-40">
-            <p className="font-medium my-2 mt-6 text-muted-foreground text-sm">
-              Files to upload
-            </p>
-            <div className="space-y-2 pr-3">
-              {filesToUpload.map((fileUploadProgress) => {
-                return (
-                  <div
-                    key={fileUploadProgress.File.lastModified}
-                    className="flex justify-between gap-2 rounded-lg overflow-hidden border border-slate-100 group hover:pr-0 pr-2"
-                  >
-                    <div className="flex items-center flex-1 p-2">
-                      <div className="text-white">
-                        {/* {getFileIconAndColor(fileUploadProgress.File).icon} */}
-                      </div>
-
-                      <div className="w-full ml-2 space-y-1">
-                        <div className="text-sm flex justify-between">
-                          <p className="text-muted-foreground ">
-                            {fileUploadProgress.File.name.slice(0, 25)}
-                          </p>
-                          <span className="text-xs">
-                            {fileUploadProgress.progress}%
-                          </span>
-                        </div>
-                        <Progress
-                          value={fileUploadProgress.progress}
-                          //   className={
-                          //     getFileIconAndColor(fileUploadProgress.File).color
-                          //   }
-                        />
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => {
-                        if (fileUploadProgress.source)
-                          fileUploadProgress.source.cancel("Upload cancelled");
-                        removeFile(fileUploadProgress.File);
-                      }}
-                      className="bg-red-500 text-white transition-all items-center justify-center cursor-pointer px-2 hidden group-hover:flex"
-                    >
-                      <X size={20} />
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          </ScrollArea>
-        </div>
+      {errorMessage && (
+        <p className="mt-2 text-xs text-red-500">{errorMessage}</p>
       )}
 
-      {uploadedFiles.length > 0 && (
-        <div>
+      {uploadedFile && (
+        <div className="mt-2">
           <p className="font-medium my-2 mt-6 text-muted-foreground text-sm">
-            Uploaded Files
+            Uploaded File
           </p>
           <div className="space-y-2 pr-3">
-            {uploadedFiles.map((file) => {
-              return (
-                <div
-                  key={file.lastModified}
-                  className="flex justify-between gap-2 rounded-lg overflow-hidden border border-slate-100 group hover:pr-0 pr-2 hover:border-slate-300 transition-all"
-                >
-                  <div className="flex items-center flex-1 p-2">
-                    <div className="text-white">
-                      {/* {getFileIconAndColor(file).icon} */}
-                    </div>
-                    <div className="w-full ml-2 space-y-1">
-                      <div className="text-sm flex justify-between">
-                        <p className="text-muted-foreground ">
-                          {file.name.slice(0, 25)}
-                        </p>
-                      </div>
-                    </div>
+            <div
+              key={uploadedFile.lastModified}
+              className="flex justify-between gap-2 rounded-lg overflow-hidden group hover:pr-0 pr-2 hover:border-slate-300 transition-all bg-white"
+            >
+              <div className="flex items-center flex-1 p-2">
+                <div className="w-full ml-2 space-y-1">
+                  <div className="text-sm flex justify-between">
+                    <p className="text-muted-foreground ">
+                      {uploadedFile.name}
+                    </p>
                   </div>
-                  <button
-                    onClick={() => removeFile(file)}
-                    className="bg-red-500 text-white transition-all items-center justify-center px-2 hidden group-hover:flex"
-                  >
-                    <X size={20} />
-                  </button>
                 </div>
-              );
-            })}
+              </div>
+              <button
+                onClick={() => removeFile()}
+                className="bg-red-500 text-white transition-all items-center justify-center px-2 hidden group-hover:flex"
+              >
+                <X size={20} />
+              </button>
+            </div>
           </div>
         </div>
       )}

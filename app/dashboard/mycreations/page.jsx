@@ -14,6 +14,7 @@ import { auth } from "@/app/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { redirect } from "next/navigation";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
+import { checkIsLoggedIn } from "@/components/functions/checkIsLoggedIn";
 
 // export const metadata = {
 //   title: "Virtual Try On",
@@ -26,8 +27,8 @@ export default function Page() {
   const [user] = useAuthState(auth);
 
   // if not logged in, redirect to home page
-  if (!user) {
-    return redirect("/");
+  if (!checkIsLoggedIn()) {
+    return redirect("/login");
   }
 
   return (

@@ -19,14 +19,16 @@ const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordMatch, setPasswordMatch] = useState(true);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const [sendEmailVerification] = useSendEmailVerification(auth);
 
   useEffect(() => {
     setPasswordMatch(password === confirmPassword);
@@ -34,45 +36,34 @@ const SignupForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
-    setError(null);
+
+    if (!passwordMatch) {
+      return;
+    }
+
+    if (error) {
+      console.log("Sign in error: ", error.message);
+      if (error.message.includes("email-already-in-use")) {
+        alert("Email already in use, try different email address.");
+      }
+      return;
+    }
 
     try {
-      const response = await fetch("http://localhost:3000/api/v1/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, surname, email, password }),
-      });
+      const res = await createUserWithEmailAndPassword(email, password);
 
-      const data = await response.json();
+      if (res.user) {
+        console.log("createUserWithEmailAndPassword res: ", res);
+        await sendEmailVerification(res.user);
 
-      if (data.isSuccess) {
-        console.log("Account created successfully");
         setName("");
-        setSurname("");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
-        setShowPassword(false);
-        setShowConfirmPassword(false);
-        router.push("/login");
-      } else {
-        if (
-          data.error ===
-          "Error creating userThe email address is already in use by another account."
-        ) {
-          setError("The email address is already in use");
-        } else {
-          setError("Account creation failed. Please try again.");
-        }
+        router.push("/");
       }
-    } catch (error) {
-      console.error("Error during account creation:", error.message);
-      setError("An error occurred during account creation");
-    } finally {
-      setLoading(false);
+    } catch (e) {
+      console.error(e);
     }
   };
 
@@ -102,23 +93,6 @@ const SignupForm = () => {
           placeholder="enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="mt-1 block w-full"
-        />
-      </div>
-
-      <div className="mb-4">
-        <Label
-          htmlFor="surname"
-          className="block text-sm font-medium text-gray-7000"
-        >
-          Last Name
-        </Label>
-        <Input
-          id="surname"
-          type="text"
-          placeholder="enter your last name"
-          value={surname}
-          onChange={(e) => setSurname(e.target.value)}
           className="mt-1 block w-full"
         />
       </div>
@@ -230,7 +204,6 @@ const SignupForm = () => {
           {loading ? "Signing Up..." : "Sign Up"}
         </Button>
       </div>
-      {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
     </form>
   );
 };
