@@ -1,60 +1,27 @@
 import Link from "next/link";
 
-import DefaulHeader from "@/components/header/DefaulHeader";
-import Image from "next/image";
-export const metadata = {
-  title: "404 || Create professional fashion photoshoots",
-};
-const Pricing = () => {
+const HeroContent = () => {
   return (
-    <>
-      {/* <!-- 
-      =============================================
-      Theme Default Menu
-      ============================================== 	
-      --> */}
-      <DefaulHeader />
+    <div className="w-full h-dvh bg-background-hero flex justify-center items-center">
+      <div className="space-y-4 md:space-y-4 flex flex-col items-center gap-2 lg:gap-6 p-8">
+        <h1 className="fw-normal text-white font-recoleta text-4xl lg:text-6xl max-w-[700px] text-center">
+          We can't seem to fnd the page you're looking for.
+        </h1>
 
-      {/* 
-			=============================================
-			Error Page
-			============================================== 
-			*/}
-      <div className="error-page-content d-flex align-items-center justify-content-center">
-        <div className="container">
-          <div className="row">
-            <div className="col-xxl-6 col-lg-7 m-auto">
-              <h3>Opps! you’r on the wrong place.</h3>
-              <p className="me-xxl-5 ms-xxl-5 pt-15 pb-20">
-                Can not find what you need? Take a moment and do a search below
-                or start from our Homepage.
-              </p>
-              <Link href="/" className="btn-twentyOne fw-500 tran3s">
-                Back to home
-              </Link>
-            </div>
-          </div>
-          <Image
-            width={800}
-            height={522}
-            src="/images/assets/ils_06.svg"
-            alt=""
-            className="m-auto"
-          />
+        <p className="text-lg lg:text-xl text-secondary max-w-[800px]">
+          But don't worry, you can find plenty of other things on our homepage.
+        </p>
+        <div className="flex items-center mb-0 mt-4">
+          <Link
+            href="/"
+            className="font-medium align-items-center mb-25 text-yellow border-2 px-8 py-3 border-yellow rounded-full"
+          >
+            <span>Back to home</span>
+          </Link>
         </div>
-        {/* End .container */}
-
-        <Image
-          width={1915}
-          height={674}
-          src="/images/shape/shape_178.svg"
-          alt="shape"
-          className="shapes shape-one w-100"
-        />
       </div>
-      {/* /.error-page-content */}
-    </>
+    </div>
   );
 };
 
-export default Pricing;
+export default HeroContent;

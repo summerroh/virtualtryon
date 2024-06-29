@@ -1,9 +1,9 @@
-import LeadGeneration from "./home/lead-generation/page";
+import Home from "./home/page";
 export const metadata = {
-  title: "Virtual Fitting Room || Create professional fashion photoshoots",
+  title: "Virtual Try On || Create professional fashion photoshoots",
 };
 const MainRoot = () => {
-  return <LeadGeneration />;
+  return <Home />;
 };
 
 export default MainRoot;

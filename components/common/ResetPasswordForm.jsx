@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 
 export default function ResetPasswordForm() {
   const [email, setEmail] = useState("");
@@ -18,7 +20,7 @@ export default function ResetPasswordForm() {
     try {
       const success = await sendPasswordResetEmail(email);
       if (success) {
-        alert("Email Sent");
+        alert("Check your email inbox to reset the password.");
         router.push("/login");
       }
     } catch (e) {
@@ -29,39 +31,36 @@ export default function ResetPasswordForm() {
   return (
     <form
       action="#"
-      className="user-data-form mt-40 lg-mt-30"
+      className="max-w-md mx-auto mt-8 space-y-6"
       onSubmit={handleSubmit}
     >
-      <div className="row">
-        <div className="col-12">
-          <div className="input-group-meta mb-30">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="hasan@gmail.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+      <div>
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-700">
+            Email
+          </label>
+          <Input
+            id="email"
+            type={"email"}
+            placeholder="Enter Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="mt-1 block w-full"
+          />
         </div>
-        {/* End .col-12 */}
 
-        <div className="col-12">
-          <div className="agreement-checkbox d-flex justify-content-between align-items-center">
-            <a href="/resetpassword">
-              Don't remember your email address? Contact us
-            </a>
-          </div>
+        <div className="text-center text-sm text-gray-600">
+          <a href="/resetpassword">
+            Don't remember your email address? Contact us
+          </a>
         </div>
-        {/* End .col-12 */}
+      </div>
 
-        <div className="col-12">
-          <button className="btn-twentyTwo w-100 fw-500 tran3s text-uppercase mt-30">
-            Send Email
-          </button>
-        </div>
-        {/* End .col-12 */}
+      <div>
+        <Button type="submit" className="w-full">
+          Send Email
+        </Button>
       </div>
     </form>
   );

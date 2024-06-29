@@ -1,11 +1,13 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   prefix: "",
   theme: {
@@ -21,10 +23,18 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        dark: "#151515 !important",
+        // dark: "#2B3674 !important",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          dashboard: "var(--background-dashboard)",
+          hero: "var(--background-hero)",
+          red: "var(--red-light)",
+        },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          // DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "#4047F6 !important",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -38,6 +48,7 @@ module.exports = {
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
+          text: "var(--muted-text)",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
@@ -48,11 +59,22 @@ module.exports = {
           foreground: "hsl(var(--popover-foreground))",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
+          DEFAULT: "var(--card)",
           foreground: "hsl(var(--card-foreground))",
         },
+        button: {
+          background: "var(--button-background)",
+          secondary: "var(--button-secondary)",
+        },
+        yellow: "var(--yellow)",
+        red: {
+          DEFAULT: "var(--red)",
+        },
+        lightred: "var(--lightred)",
+        lightblue: "var(--lightblue)",
       },
       borderRadius: {
+        xl: "40px",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
@@ -71,7 +93,16 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      // fontFamily: {
+      //   sans: ["var(--font-sans)", ...fontFamily.sans],
+      // },
+      boxShadow: {
+        header: "0 13px 35px -12px rgba(35, 35, 35, 0.1)",
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
+};
