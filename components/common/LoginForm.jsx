@@ -8,6 +8,9 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeOff } from "lucide-react";
 
+const endpoint =
+  "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
+
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -22,7 +25,7 @@ const LoginForm = () => {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:3000/api/v1/users/login", {
+      const response = await fetch(`${endpoint}/api/v1/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,17 +37,23 @@ const LoginForm = () => {
 
       if (data.isSuccess && data.data && data.data.idToken) {
         console.log("Logged in successfully");
-        // Store the token in localStorage or a secure cookie
-        sessionStorage.setItem("idToken", data.data.idToken);
         setEmail("");
         setPassword("");
         setShowPassword(false);
-        router.push("/");
+        // Save idToken and is_verified status in sessionStorage
+        sessionStorage.setItem("idToken", data.idToken);
+        sessionStorage.setItem("isVerified", data.is_verified);
+
+        if (data.is_verified) {
+          router.push("/dashboard");
+        } else {
+          router.push("/verify-email");
+        }
       } else {
         setError("Login failed. Please try again.");
       }
     } catch (error) {
-      console.error("Error during login:", error.message);
+      console.log("Error during login:");
       setError("An error occurred during login");
     } finally {
       setLoading(false);

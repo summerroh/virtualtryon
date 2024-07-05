@@ -10,11 +10,12 @@ import { albums } from "@/data/albums";
 import { cn } from "@/lib/utils";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
-import { auth } from "@/app/firebase/config";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { redirect } from "next/navigation";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import { checkIsLoggedIn } from "@/components/functions/checkIsLoggedIn";
+import {
+  checkIsLoggedIn,
+  checkIsVerified,
+} from "@/components/functions/checkIsLoggedIn";
 
 // export const metadata = {
 //   title: "Virtual Try On",
@@ -24,11 +25,12 @@ import { checkIsLoggedIn } from "@/components/functions/checkIsLoggedIn";
 const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Page() {
-  const [user] = useAuthState(auth);
-
-  // if not logged in, redirect to home page
   if (!checkIsLoggedIn()) {
     return redirect("/login");
+  }
+
+  if (!checkIsVerified()) {
+    return redirect("/verify-email");
   }
 
   return (

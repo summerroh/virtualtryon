@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
@@ -10,6 +12,10 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
+import {
+  checkIsLoggedIn,
+  checkIsVerified,
+} from "@/components/functions/checkIsLoggedIn";
 
 export const metadata = {
   title: "Virtual Try On",
@@ -19,6 +25,14 @@ export const metadata = {
 const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Page() {
+  if (!checkIsLoggedIn()) {
+    return redirect("/login");
+  }
+
+  if (!checkIsVerified()) {
+    return redirect("/verify-email");
+  }
+
   return (
     <>
       <div className="block lg:hidden">

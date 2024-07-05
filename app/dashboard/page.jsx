@@ -21,6 +21,7 @@ import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import {
   checkIsLoggedIn,
   getUserToken,
+  checkIsVerified,
 } from "@/components/functions/checkIsLoggedIn";
 
 // import HFbutton from "@/components/HFbutton";
@@ -44,6 +45,10 @@ export default function Dashboard() {
 
   if (!checkIsLoggedIn()) {
     return redirect("/login");
+  }
+
+  if (!checkIsVerified()) {
+    return redirect("/verify-email");
   }
 
   const handlePhotoSelect = (layout, index) => {

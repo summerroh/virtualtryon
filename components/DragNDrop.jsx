@@ -10,6 +10,9 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "./ui/button";
 import { getUserToken } from "./functions/checkIsLoggedIn";
 
+const endpoint =
+  "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
+
 export default function ImageUpload() {
   const [uploadedFile, setUploadedFile] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -27,7 +30,7 @@ export default function ImageUpload() {
     const file = acceptedFiles[0];
 
     try {
-      const response = await fetch("http://localhost:3000/api/v1/images", {
+      const response = await fetch(`${endpoint}/api/v1/images`, {
         method: "POST",
         headers: {
           token: getUserToken(),
@@ -51,8 +54,7 @@ export default function ImageUpload() {
       }
 
       const fileResponse = await fetch(
-        `http://localhost:3000/api/v1/images/${imageId}/file`,
-        // `http://localhost:3000/api/v1/images/667e8710994b65818025ba31/file`,
+        `${endpoint}/api/v1/images/${imageId}/file`,
         {
           method: "POST",
           headers: {

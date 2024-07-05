@@ -19,3 +19,8 @@ export function checkIsLoggedIn() {
 export function getUserToken() {
   return idToken;
 }
+
+export function checkIsVerified() {
+  const isVerified = sessionStorage.getItem("isVerified") === "true";
+  return isVerified;
+}

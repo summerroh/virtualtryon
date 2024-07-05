@@ -1,18 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 import { Button } from "@/components/ui/button";
 
+import LogoutButton from "@/components/functions/logout";
 import { Sidebar } from "@/components/sidebar";
 import { Card } from "@/components/ui/card";
-import LogoutButton from "@/components/functions/logout";
 
-import { auth } from "@/app/firebase/config";
-import { redirect, useRouter } from "next/navigation";
-import { useAuthState } from "react-firebase-hooks/auth";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import { checkIsLoggedIn } from "@/components/functions/checkIsLoggedIn";
+import {
+  checkIsLoggedIn,
+  checkIsVerified,
+} from "@/components/functions/checkIsLoggedIn";
+import { redirect } from "next/navigation";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
@@ -20,13 +19,12 @@ import { checkIsLoggedIn } from "@/components/functions/checkIsLoggedIn";
 const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Dashboard() {
-  const [user] = useAuthState(auth);
-  const router = useRouter();
-
-  const [gender, setGender] = useState("female");
-
   if (!checkIsLoggedIn()) {
     return redirect("/login");
+  }
+
+  if (!checkIsVerified()) {
+    return redirect("/verify-email");
   }
 
   return (
@@ -98,7 +96,6 @@ export default function Dashboard() {
                 </div>
                 <Button
                   variant="outline"
-                  onClick={() => setGender("female")}
                   className={`w-fit h-14 bg-primary text-white`}
                 >
                   Get more credits

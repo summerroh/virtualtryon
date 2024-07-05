@@ -1,19 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import {
-  useCreateUserWithEmailAndPassword,
-  useSendEmailVerification,
-} from "react-firebase-hooks/auth";
-import { auth } from "@/app/firebase/config";
-import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -32,13 +25,16 @@ const SignupForm = () => {
     setPasswordMatch(password === confirmPassword);
   }, [password, confirmPassword]);
 
+  const endpoint =
+    "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:3000/api/v1/users", {
+      const response = await fetch(`${endpoint}/api/v1/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +53,7 @@ const SignupForm = () => {
         setConfirmPassword("");
         setShowPassword(false);
         setShowConfirmPassword(false);
-        router.push("/login");
+        router.push("/verify-email");
       } else {
         if (
           data.error ===
@@ -69,7 +65,7 @@ const SignupForm = () => {
         }
       }
     } catch (error) {
-      console.error("Error during account creation:", error.message);
+      console.error("Error during account creation:", error);
       setError("An error occurred during account creation");
     } finally {
       setLoading(false);
