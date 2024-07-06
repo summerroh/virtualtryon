@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
-import { useDeleteUser, useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
+import { useAuthState, useDeleteUser } from "react-firebase-hooks/auth";
 
 export default function DeleteUserFunction() {
-  const [user] = useAuthState(auth);
-  const router = useRouter();
-
   const [deleteUser, loading, error] = useDeleteUser(auth);
 
   const handleDeleteUser = async () => {
@@ -17,9 +13,15 @@ export default function DeleteUserFunction() {
     }
   };
 
-  if (!user) {
-    return redirect("/login");
-  }
+  () => {
+    if (!checkIsLoggedIn()) {
+      return redirect("/login");
+    }
+
+    if (!checkIsVerified()) {
+      return redirect("/verify-email");
+    }
+  };
 
   return (
     <>

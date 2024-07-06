@@ -41,10 +41,10 @@ const LoginForm = () => {
         setPassword("");
         setShowPassword(false);
         // Save idToken and is_verified status in sessionStorage
-        sessionStorage.setItem("idToken", data.idToken);
-        sessionStorage.setItem("isVerified", data.is_verified);
+        sessionStorage.setItem("idToken", data.data.idToken);
+        sessionStorage.setItem("isVerified", data.data.is_verified);
 
-        if (data.is_verified) {
+        if (data.data.is_verified) {
           router.push("/dashboard");
         } else {
           router.push("/verify-email");

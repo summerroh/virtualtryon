@@ -3,11 +3,9 @@
 
 "use client";
 
-import { redirect } from "next/navigation";
-
-// const idToken =
-//   typeof window !== "undefined" ? sessionStorage.getItem("idToken") : null;
-const idToken = sessionStorage.getItem("idToken");
+const idToken =
+  typeof window !== "undefined" ? sessionStorage.getItem("idToken") : null;
+// const idToken = sessionStorage.getItem("idToken");
 
 export function checkIsLoggedIn() {
   if (!idToken) {
@@ -21,6 +19,10 @@ export function getUserToken() {
 }
 
 export function checkIsVerified() {
-  const isVerified = sessionStorage.getItem("isVerified") === "true";
+  // const isVerified = sessionStorage.getItem("isVerified") === "true";
+  const isVerified =
+    typeof window !== "undefined"
+      ? sessionStorage.getItem("isVerified") === "true"
+      : false;
   return isVerified;
 }

@@ -43,13 +43,15 @@ export default function Dashboard() {
     { layout: "lowerbody", selected: [] },
   ]);
 
-  if (!checkIsLoggedIn()) {
-    return redirect("/login");
-  }
+  () => {
+    if (!checkIsLoggedIn()) {
+      return redirect("/login");
+    }
 
-  if (!checkIsVerified()) {
-    return redirect("/verify-email");
-  }
+    if (!checkIsVerified()) {
+      return redirect("/verify-email");
+    }
+  };
 
   const handlePhotoSelect = (layout, index) => {
     setSelectedLayouts((prev) => {

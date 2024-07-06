@@ -19,13 +19,15 @@ import { redirect } from "next/navigation";
 const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Dashboard() {
-  if (!checkIsLoggedIn()) {
-    return redirect("/login");
-  }
+  () => {
+    if (!checkIsLoggedIn()) {
+      return redirect("/login");
+    }
 
-  if (!checkIsVerified()) {
-    return redirect("/verify-email");
-  }
+    if (!checkIsVerified()) {
+      return redirect("/verify-email");
+    }
+  };
 
   return (
     <>
