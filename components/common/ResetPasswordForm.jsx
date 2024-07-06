@@ -1,27 +1,36 @@
 "use client";
 
 import { useState } from "react";
-import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
-import { auth } from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
+const endpoint =
+  "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
+
 export default function ResetPasswordForm() {
   const [email, setEmail] = useState("");
-  const [sendPasswordResetEmail, sending, error] =
-    useSendPasswordResetEmail(auth);
-
   const router = useRouter();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const success = await sendPasswordResetEmail(email);
-      if (success) {
+      const response = await fetch(`${endpoint}/api/v1/users/forgotpassword`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
         alert("Check your email inbox to reset the password.");
         router.push("/login");
+      } else {
+        alert(
+          "Failed to send password reset email. Please contact our support team."
+        );
       }
     } catch (e) {
       console.error(e);
