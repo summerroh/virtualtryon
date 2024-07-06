@@ -18,11 +18,6 @@ import {
   checkIsVerified,
 } from "@/components/functions/checkIsLoggedIn";
 
-export const metadata = {
-  title: "Virtual Try On",
-  description: "Create professional fashion photoshoots",
-};
-
 const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Page() {
