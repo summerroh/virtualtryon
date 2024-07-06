@@ -7,11 +7,6 @@ import { Sidebar } from "@/components/sidebar";
 import { Card } from "@/components/ui/card";
 
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import {
-  checkIsLoggedIn,
-  checkIsVerified,
-} from "@/components/functions/checkIsLoggedIn";
-import { redirect } from "next/navigation";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
@@ -19,16 +14,6 @@ import { redirect } from "next/navigation";
 const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Dashboard() {
-  () => {
-    if (!checkIsLoggedIn()) {
-      return redirect("/login");
-    }
-
-    if (!checkIsVerified()) {
-      return redirect("/verify-email");
-    }
-  };
-
   return (
     <>
       <div className="block lg:hidden">

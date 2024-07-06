@@ -38,6 +38,7 @@
     "checkbox": "^0.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cookie": "^0.6.0",
     "feather-icons": "^4.29.2",
     "firebase": "^10.11.1",
     "lucide-react": "^0.378.0",

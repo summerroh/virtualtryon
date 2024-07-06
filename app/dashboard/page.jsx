@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -12,17 +12,12 @@ import { Card } from "@/components/ui/card";
 import { layouts, thumbnails } from "@/data/albums";
 
 import DragNDrop from "@/components/DragNDrop";
-import { Check, WandSparkles } from "lucide-react";
+import { WandSparkles } from "lucide-react";
 import Link from "next/link";
 
 // use redirect if possible
-import { redirect, useRouter } from "next/navigation";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import {
-  checkIsLoggedIn,
-  getUserToken,
-  checkIsVerified,
-} from "@/components/functions/checkIsLoggedIn";
+import { useRouter } from "next/navigation";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
@@ -42,16 +37,6 @@ export default function Dashboard() {
     { layout: "upperbody", selected: [] },
     { layout: "lowerbody", selected: [] },
   ]);
-
-  () => {
-    if (!checkIsLoggedIn()) {
-      return redirect("/login");
-    }
-
-    if (!checkIsVerified()) {
-      return redirect("/verify-email");
-    }
-  };
 
   const handlePhotoSelect = (layout, index) => {
     setSelectedLayouts((prev) => {

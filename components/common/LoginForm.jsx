@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeOff } from "lucide-react";
+import { serialize } from "cookie";
 
 const endpoint =
   "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
@@ -40,9 +41,16 @@ const LoginForm = () => {
         setEmail("");
         setPassword("");
         setShowPassword(false);
-        // Save idToken and is_verified status in sessionStorage
-        sessionStorage.setItem("idToken", data.data.idToken);
-        sessionStorage.setItem("isVerified", data.data.is_verified);
+
+        // Set cookies for idToken and isVerified
+        document.cookie = serialize("idToken", data.data.idToken, {
+          path: "/",
+        });
+        document.cookie = serialize(
+          "isVerified",
+          data.data.is_verified.toString(),
+          { path: "/" }
+        );
 
         if (data.data.is_verified) {
           router.push("/dashboard");
@@ -53,7 +61,7 @@ const LoginForm = () => {
         setError("Login failed. Please try again.");
       }
     } catch (error) {
-      console.log("Error during login:");
+      console.log("Error during login:", error);
       setError("An error occurred during login");
     } finally {
       setLoading(false);

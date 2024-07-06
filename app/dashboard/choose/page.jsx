@@ -10,27 +10,12 @@ import { albums } from "@/data/albums";
 import { Download, Expand, RefreshCcw } from "lucide-react";
 import Link from "next/link";
 
-import { cn } from "@/lib/utils";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-
-import {
-  checkIsLoggedIn,
-  checkIsVerified,
-} from "@/components/functions/checkIsLoggedIn";
+import { cn } from "@/lib/utils";
 
 const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Page() {
-  () => {
-    if (!checkIsLoggedIn()) {
-      return redirect("/login");
-    }
-
-    if (!checkIsVerified()) {
-      return redirect("/verify-email");
-    }
-  };
-
   return (
     <>
       <div className="block lg:hidden">

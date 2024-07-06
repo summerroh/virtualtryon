@@ -12,6 +12,7 @@ const navItems = [
 export default function RightNavMenu({ isScrolling }) {
   const [activeLink, setActiveLink] = useState(0);
   const [scrollingStarted, setScrollingStarted] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,9 +27,13 @@ export default function RightNavMenu({ isScrolling }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // This code runs only on the client side
+    setIsLoggedIn(checkIsLoggedIn());
+  }, []);
+
   return (
     <nav className={`${scrollingStarted ? "scrolling" : ""}`}>
-      {/* <div className="block lg:hidden"> */}
       <div className="block hidden">
         <MobileDrawer isScrolling={isScrolling} />
       </div>
@@ -40,7 +45,7 @@ export default function RightNavMenu({ isScrolling }) {
           }`}
         >
           {navItems
-            .filter((navItem) => navItem.loggedIn === checkIsLoggedIn())
+            .filter((navItem) => navItem.loggedIn === isLoggedIn)
             .map((navItem, i) => (
               <li key={i} className="nav-item">
                 <Link href={navItem.href}>

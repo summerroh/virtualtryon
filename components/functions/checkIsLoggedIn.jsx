@@ -1,28 +1,31 @@
 // used in dashboard pages
-// check session storage for idToken. if no idToken, redirect them to login page
+// check coockies for idToken. if no idToken, redirect them to login page
 
 "use client";
 
-const idToken =
-  typeof window !== "undefined" ? sessionStorage.getItem("idToken") : null;
-// const idToken = sessionStorage.getItem("idToken");
+import { parse } from "cookie";
 
 export function checkIsLoggedIn() {
-  if (!idToken) {
-    return false;
+  if (typeof document !== "undefined") {
+    const cookies = parse(document.cookie);
+    const idToken = cookies.idToken;
+    return !!idToken;
   }
-  return true;
+  return false;
 }
 
 export function getUserToken() {
-  return idToken;
+  if (typeof document !== "undefined") {
+    const cookies = parse(document.cookie);
+    return cookies.idToken || null;
+  }
+  return null;
 }
 
 export function checkIsVerified() {
-  // const isVerified = sessionStorage.getItem("isVerified") === "true";
-  const isVerified =
-    typeof window !== "undefined"
-      ? sessionStorage.getItem("isVerified") === "true"
-      : false;
-  return isVerified;
+  if (typeof document !== "undefined") {
+    const cookies = parse(document.cookie);
+    return cookies.isVerified === "true";
+  }
+  return false;
 }
