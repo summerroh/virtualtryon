@@ -24,6 +24,57 @@ import { useRouter } from "next/navigation";
 
 const headerHeight = "pt-[70px] lg:pt-0";
 
+const categories = [
+  {
+    name: "shirt",
+    options: [
+      { value: "shortsleeves", label: "Short sleeves" },
+      { value: "longsleeves", label: "Long sleeves" },
+      { value: "sleeveless", label: "Sleeveless" },
+    ],
+  },
+  {
+    name: "croptop",
+    options: [
+      { value: "shortsleeves", label: "Short sleeves" },
+      { value: "longsleeves", label: "Long sleeves" },
+      { value: "sleeveless", label: "Sleeveless" },
+    ],
+  },
+  {
+    name: "pants",
+    options: [
+      { value: "shorts", label: "Shorts" },
+      { value: "croppedpants", label: "Cropped Pants" },
+      { value: "longpants", label: "Long pants" },
+    ],
+  },
+  {
+    name: "jacket",
+    options: [
+      { value: "shortsleeves", label: "Short sleeves" },
+      { value: "longsleeves", label: "Long sleeves" },
+      { value: "sleeveless", label: "Sleeveless" },
+    ],
+  },
+  {
+    name: "skirts",
+    options: [
+      { value: "miniskirt", label: "Mini skirt (25-40cm)" },
+      { value: "midiskirt", label: "Midi skirt (50-70cm)" },
+      { value: "maxiskirt", label: "Maxi skirt (80-100cm)" },
+    ],
+  },
+  {
+    name: "dress",
+    options: [
+      { value: "minidress", label: "Mini dress (75-89cm)" },
+      { value: "mididress", label: "Midi dress (90-115cm)" },
+      { value: "maxidress", label: "Maxi dress (120-160cm)" },
+    ],
+  },
+];
+
 export default function Dashboard() {
   const router = useRouter();
 
@@ -143,235 +194,37 @@ export default function Dashboard() {
               <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
                 <Tabs defaultValue="shirt">
                   <TabsList className="mb-3 justify-between py-4 px-4 overflow-x-auto overflow-y-hidden flex flex-row no-scrollbar">
-                    <TabsTrigger value="shirt">Shirt</TabsTrigger>
-                    <TabsTrigger value="croptop">Crop Top</TabsTrigger>
-                    <TabsTrigger value="pants">Pants</TabsTrigger>
-                    <TabsTrigger value="jacket">Jacket</TabsTrigger>
-                    <TabsTrigger value="skirts">Skirts</TabsTrigger>
-                    <TabsTrigger value="dress">Dress</TabsTrigger>
+                    {categories.map((category) => (
+                      <TabsTrigger key={category.name} value={category.name}>
+                        {category.name.charAt(0).toUpperCase() +
+                          category.name.slice(1)}
+                      </TabsTrigger>
+                    ))}
                   </TabsList>
-                  <TabsContent value="shirt" className="w-full">
-                    <div className="flex flex-col md:flex-row gap-3">
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("shortsleeves")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "shortsleeves"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Short sleeves
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("longsleeves")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "longsleeves"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Long sleeves
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("sleevleess")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "sleevleess"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        sleevleess
-                      </Button>
-                    </div>
-                  </TabsContent>
-                  <TabsContent value="croptop">
-                    <div className="flex flex-col md:flex-row gap-3">
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("shortsleeves")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "shortsleeves"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Short sleeves
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("longsleeves")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "longsleeves"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Long sleeves
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("sleevleess")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "sleevleess"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        sleevleess
-                      </Button>
-                    </div>
-                  </TabsContent>
-                  <TabsContent value="pants">
-                    <div className="flex flex-col md:flex-row gap-3">
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("Shorts")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "Shorts"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Shorts
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("Shorts")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "Shorts"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Cropped Pants
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("longpants")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "longpants"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Long pants
-                      </Button>
-                    </div>
-                  </TabsContent>
-                  <TabsContent value="skirts">
-                    <div className="flex flex-col md:flex-row gap-3">
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("miniskirt")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "miniskirt"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Mini skirt (25-40cm)
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("miniskirt")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "miniskirt"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Midi skirt (50-70cm)
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("midiskirt")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "midiskirt"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Maxi skirt (80-100cm)
-                      </Button>
-                    </div>
-                  </TabsContent>
-                  <TabsContent value="jacket">
-                    <div className="flex flex-col md:flex-row gap-3">
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("shortsleeves")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "shortsleeves"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Short sleeves
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("longsleeves")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "longsleeves"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Long sleeves
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("sleevleess")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "sleevleess"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        sleevleess
-                      </Button>
-                    </div>
-                  </TabsContent>
-                  <TabsContent value="dress">
-                    <div className="flex flex-col md:flex-row gap-3">
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("minidress")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "minidress"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Mini dress (75-89cm)
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("mididress")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "mididress"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Midi dress (90-115cm)
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => setClothType("maxidress")}
-                        className={`w-full h-14 font-bold ${
-                          clothType === "maxidress"
-                            ? "bg-primary text-white"
-                            : "bg-button-background text-dark"
-                        }`}
-                      >
-                        Maxi dress (120-160cm)
-                      </Button>
-                    </div>
-                  </TabsContent>
+                  {categories.map((category) => (
+                    <TabsContent
+                      key={category.name}
+                      value={category.name}
+                      className="w-full"
+                    >
+                      <div className="flex flex-col md:flex-row gap-3">
+                        {category.options.map((option) => (
+                          <Button
+                            key={option.value}
+                            variant="outline"
+                            onClick={() => setClothType(option.value)}
+                            className={`w-full h-14 font-bold ${
+                              clothType === option.value
+                                ? "bg-primary text-white"
+                                : "bg-button-background text-dark"
+                            }`}
+                          >
+                            {option.label}
+                          </Button>
+                        ))}
+                      </div>
+                    </TabsContent>
+                  ))}
                 </Tabs>
               </Card>
             </div>
