@@ -147,6 +147,7 @@ export default function Dashboard() {
                     <TabsTrigger value="croptop">Crop Top</TabsTrigger>
                     <TabsTrigger value="pants">Pants</TabsTrigger>
                     <TabsTrigger value="jacket">Jacket</TabsTrigger>
+                    <TabsTrigger value="skirts">Skirts</TabsTrigger>
                     <TabsTrigger value="dress">Dress</TabsTrigger>
                   </TabsList>
                   <TabsContent value="shirt" className="w-full">
@@ -238,6 +239,17 @@ export default function Dashboard() {
                       </Button>
                       <Button
                         variant="outline"
+                        onClick={() => setClothType("Shorts")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "Shorts"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
+                      >
+                        Cropped Pants
+                      </Button>
+                      <Button
+                        variant="outline"
                         onClick={() => setClothType("longpants")}
                         className={`w-full h-14 font-bold ${
                           clothType === "longpants"
@@ -246,6 +258,43 @@ export default function Dashboard() {
                         }`}
                       >
                         Long pants
+                      </Button>
+                    </div>
+                  </TabsContent>
+                  <TabsContent value="skirts">
+                    <div className="flex flex-col md:flex-row gap-3">
+                      <Button
+                        variant="outline"
+                        onClick={() => setClothType("miniskirt")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "miniskirt"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
+                      >
+                        Mini skirt (25-40cm)
+                      </Button>
+                      <Button
+                        variant="outline"
+                        onClick={() => setClothType("miniskirt")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "miniskirt"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
+                      >
+                        Midi skirt (50-70cm)
+                      </Button>
+                      <Button
+                        variant="outline"
+                        onClick={() => setClothType("midiskirt")}
+                        className={`w-full h-14 font-bold ${
+                          clothType === "midiskirt"
+                            ? "bg-primary text-white"
+                            : "bg-button-background text-dark"
+                        }`}
+                      >
+                        Maxi skirt (80-100cm)
                       </Button>
                     </div>
                   </TabsContent>
@@ -297,7 +346,7 @@ export default function Dashboard() {
                             : "bg-button-background text-dark"
                         }`}
                       >
-                        Mini dress
+                        Mini dress (75-89cm)
                       </Button>
                       <Button
                         variant="outline"
@@ -308,7 +357,7 @@ export default function Dashboard() {
                             : "bg-button-background text-dark"
                         }`}
                       >
-                        Midi dress
+                        Midi dress (90-115cm)
                       </Button>
                       <Button
                         variant="outline"
@@ -319,7 +368,7 @@ export default function Dashboard() {
                             : "bg-button-background text-dark"
                         }`}
                       >
-                        Maxi dress
+                        Maxi dress (120-160cm)
                       </Button>
                     </div>
                   </TabsContent>
