@@ -26,7 +26,7 @@ const headerHeight = "pt-[70px] lg:pt-0";
 
 const categories = [
   {
-    name: "shirt",
+    name: "top",
     options: [
       { value: "shortsleeves", label: "Short sleeves" },
       { value: "longsleeves", label: "Long sleeves" },
@@ -192,7 +192,7 @@ export default function Dashboard() {
                 </div>
               </div>
               <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
-                <Tabs defaultValue="shirt">
+                <Tabs defaultValue="top">
                   <TabsList className="mb-3 justify-between py-4 px-4 overflow-x-auto overflow-y-hidden flex flex-row no-scrollbar">
                     {categories.map((category) => (
                       <TabsTrigger key={category.name} value={category.name}>

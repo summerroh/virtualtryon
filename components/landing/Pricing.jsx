@@ -15,11 +15,11 @@ import StartGenerating from "../button/startGenerating";
 const plans = [
   {
     id: "1",
-    price: "$2",
-    plan: "1 Image",
-    perCredit: "$2 per image",
+    price: "$5",
+    plan: "2 Photo-shoots",
+    perCredit: "$0.625 per image",
     features: [
-      { bold: "1", normal: " Photo credit", boldFirst: true },
+      { bold: "8", normal: " Images", boldFirst: true },
       { normal: "Results in ", bold: "minutes", boldFirst: false },
       { normal: "Access to ", bold: "all models", boldFirst: false },
       { normal: "Email & chat Support", bold: "", boldFirst: false },
@@ -27,11 +27,11 @@ const plans = [
   },
   {
     id: "2",
-    price: "$45",
-    plan: "30 Images",
-    perCredit: "$1.5 per image",
+    price: "$39",
+    plan: "20 Photo-shoots",
+    perCredit: "$0.487 per image",
     features: [
-      { bold: "30", normal: " Photo credits", boldFirst: true },
+      { bold: "80", normal: " Images", boldFirst: true },
       { normal: "Results in ", bold: "minutes", boldFirst: false },
       { normal: "Access to ", bold: "all models", boldFirst: false },
       { normal: "Email & chat Support", bold: "", boldFirst: false },
@@ -40,11 +40,11 @@ const plans = [
   },
   {
     id: "3",
-    price: "$120",
-    plan: "120 Images",
-    perCredit: "$1 per image",
+    price: "$69",
+    plan: "40 Photo-shoots",
+    perCredit: "$0.431 per image",
     features: [
-      { bold: "120", normal: " Photo credits", boldFirst: true },
+      { bold: "160", normal: " Images", boldFirst: true },
       { normal: "Results in ", bold: "minutes", boldFirst: false },
       { normal: "Access to ", bold: "all models", boldFirst: false },
       { normal: "Email & chat Support", bold: "", boldFirst: false },
@@ -65,7 +65,7 @@ export default function Component() {
             <Card
               key={plan.id}
               className={`flex flex-col items-center p-6 md:py-20 md:px-6 xl:px-6 2xl:px-12 bg-white rounded-2xl border border-gray-300 ${
-                plan.active ? "md:scale-110" : ""
+                plan.active ? "md:scale-110 bg-[#F5F6FE] border-primary" : ""
               }`}
             >
               <div className="flex items-start gap-1 mb-1">
@@ -79,9 +79,7 @@ export default function Component() {
               <div className="mt-2 text-xl md:text-2xl font-semibold text-primary">
                 {plan.plan}
               </div>
-              <div className="mt-1 text-sm md:text-md font-medium text-gray-500">
-                {plan.perCredit}
-              </div>
+
               <div className="mt-4 space-y-3">
                 {plan.features.map((feature, index) => (
                   <p key={index} className="flex items-center space-x-2">
@@ -120,6 +118,9 @@ export default function Component() {
                 ))}
               </div>
               <StartGenerating className={plan.active ? "bg-primary" : ""} />
+              <div className="mt-2 text-sm md:text-md font-medium text-gray-500">
+                {plan.perCredit}
+              </div>
             </Card>
           ))}
         </div>
