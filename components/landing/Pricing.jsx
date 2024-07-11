@@ -72,12 +72,29 @@ export default function Component() {
                 <span className="text-3xl font-bold text-dark font-recoleta fw-normal">
                   {plan.price.slice(0, 1)}
                 </span>
+
                 <div className="text-5xl font-bold text-dark font-recoleta fw-normal">
                   {plan.price.slice(1)}
                 </div>
               </div>
-              <div className="mt-2 text-xl md:text-2xl font-semibold text-primary">
+
+              <div className="mt-2 text-xl md:text-2xl font-semibold text-primary flex items-center gap-1">
                 {plan.plan}
+
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Image
+                        src={question}
+                        alt="question"
+                        className="w-[25px]"
+                      />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>You will get 4 images per photo-shoot</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
 
               <div className="mt-4 space-y-3">
@@ -97,23 +114,6 @@ export default function Component() {
                         </>
                       )}
                     </span>
-
-                    {index === 0 && (
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <Image
-                              src={question}
-                              alt="question"
-                              className="w-[25px]"
-                            />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>You can generate 1 image per credit</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    )}
                   </p>
                 ))}
               </div>

@@ -1,30 +1,35 @@
 "use client";
 
-import React, { useEffect } from "react";
-import Link from "next/link";
+import React from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "@/app/firebase/config";
+import { checkIsLoggedIn, checkIsVerified } from "../functions/checkIsLoggedIn";
 
 export default function StartGenerating({ className }) {
-  const [user] = useAuthState(auth);
   const router = useRouter();
-  const href = user ? "/dashboard" : "/login";
 
-  useEffect(() => {
-    router.prefetch(href);
-  }, [href, router]);
+  const handleClick = async () => {
+    const isLoggedIn = await checkIsLoggedIn();
+
+    if (isLoggedIn) {
+      const isVerified = await checkIsVerified();
+      if (isVerified) {
+        router.push("/dashboard");
+      } else {
+        router.push("/login");
+      }
+    } else {
+      router.push("/login");
+    }
+  };
 
   return (
-    <Link href={href}>
-      <Button
-        size="lg"
-        className={`mt-6 w-full bg-black hover:bg-primary text-white hover:text-black ${className}`}
-      >
-        Start generating
-      </Button>
-    </Link>
+    <Button
+      size="lg"
+      className={`mt-6 w-full bg-black hover:bg-primary text-white hover:text-black ${className}`}
+      onClick={handleClick}
+    >
+      Start generating
+    </Button>
   );
 }
