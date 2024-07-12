@@ -53,13 +53,12 @@ export default function Dashboard() {
 
       if (data.isSuccess && data.data) {
         setCategoryData(data.data);
+        setLoading(false);
       } else {
         console.error("Get category data failed.");
       }
     } catch (error) {
       console.error("Error during get category data:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
