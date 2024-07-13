@@ -3,13 +3,14 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import { clearTokens } from "./tokenService";
 
 export default function LogoutButton() {
   const router = useRouter();
 
   const handleSignOut = () => {
     // Clear cookies by setting their expiration date to the past
-    document.cookie = "idToken=; Max-Age=0; path=/";
+    clearTokens();
     document.cookie = "isVerified=; Max-Age=0; path=/";
 
     // Redirect to login page

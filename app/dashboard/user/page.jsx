@@ -8,8 +8,11 @@ import { Sidebar } from "@/components/sidebar";
 import { Card } from "@/components/ui/card";
 
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import { getUserToken } from "@/components/functions/checkIsLoggedIn";
 import { Loader2 } from "lucide-react";
+import {
+  getIdToken,
+  refreshIdToken,
+} from "@/components/functions/tokenService";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
@@ -30,20 +33,43 @@ export default function Dashboard() {
       const response = await fetch(`${endpoint}/api/v1/users/me`, {
         method: "GET",
         headers: {
-          token: getUserToken(),
+          token: getIdToken(),
         },
       });
 
-      const data = await response.json();
-
-      if (data.isSuccess && data.data) {
-        setUserData(data.data);
-        setLoading(false);
+      if (response.status === 401) {
+        // Token expired, try to refresh
+        const newToken = await refreshIdToken();
+        if (newToken) {
+          // Retry the request with the new token
+          const retryResponse = await fetch(`${endpoint}/api/v1/users/me`, {
+            method: "GET",
+            headers: {
+              token: newToken,
+            },
+          });
+          const data = await retryResponse.json();
+          handleResponse(data);
+        } else {
+          console.error("Failed to refresh token");
+          // setLoading(false);
+        }
       } else {
-        console.error("Get user data failed.");
+        const data = await response.json();
+        handleResponse(data);
       }
     } catch (error) {
       console.error("Error during get user data:", error);
+      // setLoading(false);
+    }
+  };
+
+  const handleResponse = (data) => {
+    if (data.isSuccess && data.data) {
+      setUserData(data.data);
+      setLoading(false);
+    } else {
+      console.error("Get user data failed.");
     }
   };
 
@@ -51,6 +77,18 @@ export default function Dashboard() {
     getData();
   }, []);
   // api call to get user info end
+
+  {
+    /* test idToken Refresh */
+  }
+  // const testIdTokenRefresh = async () => {
+  //   const newToken = await refreshIdToken();
+  //   if (newToken) {
+  //     console.log("newToken: ", newToken);
+  //   } else {
+  //     throw new Error("Failed to refresh token");
+  //   }
+  // };
 
   return (
     <>
@@ -120,6 +158,9 @@ export default function Dashboard() {
                 </div>
 
                 <LogoutButton />
+                {/* <Button onClick={testIdTokenRefresh}>
+                  Test idToken Refresh
+                </Button> */}
               </Card>
 
               {/* Credit Box */}

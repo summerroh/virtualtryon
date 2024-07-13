@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "./ui/button";
-import { getUserToken } from "./functions/checkIsLoggedIn";
+import { getIdToken, refreshIdToken } from "./functions/tokenService";
 
 const endpoint =
   "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
@@ -21,8 +21,8 @@ export default function ImageUpload() {
     setUploadedFile(null);
   };
 
-  // Image uokiad
   const onDrop = useCallback(async (acceptedFiles) => {
+    // Ensure only one file is uploaded at a time
     if (acceptedFiles.length > 1) {
       return;
     }
@@ -30,19 +30,34 @@ export default function ImageUpload() {
     const file = acceptedFiles[0];
 
     try {
-      const response = await fetch(`${endpoint}/api/v1/images`, {
-        method: "POST",
-        headers: {
-          token: getUserToken(),
-        },
-      });
+      // Function to upload image metadata
+      const uploadImage = async (token) => {
+        const response = await fetch(`${endpoint}/api/v1/images`, {
+          method: "POST",
+          headers: {
+            token: token,
+          },
+        });
 
-      if (!response.ok) {
-        throw new Error("Failed to upload image");
-        return;
-      }
+        // Handle token expiration
+        if (response.status === 401) {
+          const newToken = await refreshIdToken();
+          if (newToken) {
+            return uploadImage(newToken); // Retry with new token
+          } else {
+            throw new Error("Failed to refresh token");
+          }
+        }
 
-      const data = await response.json();
+        if (!response.ok) {
+          throw new Error("Failed to upload image");
+        }
+
+        return response.json();
+      };
+
+      // Create image record
+      const data = await uploadImage(getIdToken());
       console.log("Image record created:", data);
 
       const imageId = data.data._id;
@@ -53,22 +68,38 @@ export default function ImageUpload() {
         throw new Error("Image ID does not exist");
       }
 
-      const fileResponse = await fetch(
-        `${endpoint}/api/v1/images/${imageId}/file`,
-        {
-          method: "POST",
-          headers: {
-            token: getUserToken(),
-          },
-          body: fileFormData,
+      // Function to upload actual image file
+      const uploadFile = async (token) => {
+        const fileResponse = await fetch(
+          `${endpoint}/api/v1/images/${imageId}/file`,
+          {
+            method: "POST",
+            headers: {
+              token: token,
+            },
+            body: fileFormData,
+          }
+        );
+
+        // Handle token expiration
+        if (fileResponse.status === 401) {
+          const newToken = await refreshIdToken();
+          if (newToken) {
+            return uploadFile(newToken); // Retry with new token
+          } else {
+            throw new Error("Failed to refresh token");
+          }
         }
-      );
 
-      if (!fileResponse.ok) {
-        throw new Error("Failed to upload image file");
-      }
+        if (!fileResponse.ok) {
+          throw new Error("Failed to upload image file");
+        }
 
-      const fileData = await fileResponse.json();
+        return fileResponse.json();
+      };
+
+      // Upload the actual file
+      const fileData = await uploadFile(getIdToken());
       console.log("Image file uploaded successfully:", fileData);
       setUploadedFile(file);
     } catch (error) {

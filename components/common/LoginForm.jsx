@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeOff } from "lucide-react";
 import { serialize } from "cookie";
+import { setIdToken, setRefreshToken } from "../functions/tokenService";
 
 const endpoint =
   "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
@@ -42,10 +43,10 @@ const LoginForm = () => {
         setPassword("");
         setShowPassword(false);
 
-        // Set cookies for idToken and isVerified
-        document.cookie = serialize("idToken", data.data.idToken, {
-          path: "/",
-        });
+        // Set cookies for idToken and refreshToken
+        setIdToken(data.data.idToken);
+        setRefreshToken(data.data.refreshToken);
+
         document.cookie = serialize(
           "isVerified",
           data.data.is_verified.toString(),

@@ -79,14 +79,9 @@ export default function Dashboard() {
     );
   };
 
-  const genderCategories = categoryData
-    .filter((category) => category.categoryType === "gender_types")
-    .sort((a, b) => {
-      // This will put "female" before "male"
-      if (a.name.toLowerCase() === "female") return -1;
-      if (b.name.toLowerCase() === "female") return 1;
-      return 0;
-    });
+  const genderCategories = categoryData.filter(
+    (category) => category.categoryType === "gender_types"
+  );
 
   const clothTypes = selectedGender ? getChildCategories(selectedGender) : [];
 

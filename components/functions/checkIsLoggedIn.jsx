@@ -14,14 +14,6 @@ export function checkIsLoggedIn() {
   return false;
 }
 
-export function getUserToken() {
-  if (typeof document !== "undefined") {
-    const cookies = parse(document.cookie);
-    return cookies.idToken || null;
-  }
-  return null;
-}
-
 export function checkIsVerified() {
   if (typeof document !== "undefined") {
     const cookies = parse(document.cookie);
