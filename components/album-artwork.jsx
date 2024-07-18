@@ -5,13 +5,14 @@ import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 
 export function PhotoLayout({
-  album,
+  imgUrl,
   aspectRatio = "portrait",
   width,
   height,
   className,
   showTitle = false,
   selected,
+  name,
   ...props
 }) {
   return (
@@ -26,8 +27,8 @@ export function PhotoLayout({
 
           <div className="overflow-hidden rounded-md">
             <Image
-              src={album.cover}
-              alt={album.name}
+              src={imgUrl}
+              alt={"model image"}
               width={width}
               height={height}
               className={cn(
@@ -39,9 +40,7 @@ export function PhotoLayout({
         </ContextMenuTrigger>
       </ContextMenu>
       <div className="space-y-1 text-sm text-center">
-        {showTitle && (
-          <h3 className="font-medium leading-none">{album.name}</h3>
-        )}
+        {showTitle && <h3 className="font-medium leading-none">{name}</h3>}
         {/* <p className="text-xs text-muted-foreground">{album.artist}</p> */}
       </div>
     </div>

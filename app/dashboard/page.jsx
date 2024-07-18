@@ -26,19 +26,20 @@ const headerHeight = "pt-[70px] lg:pt-0";
 export default function Dashboard() {
   const router = useRouter();
 
-  const [model, setModel] = useState("");
+  const [selectedModel, setSelectedModel] = useState("");
 
   const [selectedGender, setSelectedGender] = useState(null);
   const [selectedClothType, setSelectedClothType] = useState(null);
   const [selectedSleeveType, setSelectedSleeveType] = useState(null);
   const [categoryData, setCategoryData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [modelData, setModelData] = useState([]);
 
   // call category api to get all the categories
   const endpoint =
     "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
 
-  const getData = async () => {
+  const getCategoryData = async () => {
     setLoading(true);
 
     try {
@@ -63,7 +64,7 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    getData();
+    getCategoryData();
   }, []);
   // api call to get category data end
 
@@ -132,6 +133,57 @@ export default function Dashboard() {
       });
     });
   };
+
+  const getModelData = async (genderId, clothTypeId, sleeveTypeId) => {
+    // call model api to get the model
+    // call with gender id, cloth_type id, sleeve_type id
+    // setLoading(true);
+
+    try {
+      const response = await fetch(
+        `${endpoint}/api/v1/fashionmodels?capabilities=${genderId}&${clothTypeId}&${sleeveTypeId}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.isSuccess && data.data) {
+        setModelData(data.data);
+        console.log("model data: ", data.data);
+        for (let item of data.data) {
+          console.log(item.profileImgURL);
+        }
+        // setLoading(false);
+      } else {
+        console.error("Get model data failed.");
+      }
+    } catch (error) {
+      console.error("Error during get model data:", error);
+    }
+  };
+
+  const onSleevetypeClick = (sleeveType) => {
+    setSelectedSleeveType(sleeveType);
+  };
+
+  useEffect(() => {
+    // call model api to get the model
+    // call with gender id, cloth_type id, sleeve_type id
+    if (selectedGender && selectedClothType && selectedSleeveType) {
+      getModelData(selectedGender, selectedClothType, selectedSleeveType);
+      console.log(selectedGender, selectedClothType, selectedSleeveType);
+    }
+  }, [selectedGender, selectedSleeveType]);
+
+  useEffect(() => {
+    setSelectedClothType(null);
+    setSelectedSleeveType(null);
+  }, [selectedGender]);
 
   return (
     <>
@@ -249,7 +301,7 @@ export default function Dashboard() {
                                   key={sleeveType._id}
                                   variant="outline"
                                   onClick={() =>
-                                    setSelectedSleeveType(sleeveType._id)
+                                    onSleevetypeClick(sleeveType._id)
                                   }
                                   className={`w-full h-14 font-bold ${
                                     selectedSleeveType === sleeveType._id
@@ -283,21 +335,22 @@ export default function Dashboard() {
                     <div className="relative">
                       <ScrollArea>
                         <div className="flex space-x-4 pb-4">
-                          {thumbnails.map((album) => (
+                          {modelData.map((model) => (
                             <div
-                              key={album.name}
+                              key={model.name}
                               className={"relative"}
-                              onClick={() => setModel(album.name)}
+                              onClick={() => setSelectedModel(model.name)}
                             >
                               <PhotoLayout
-                                key={album.name}
-                                album={album}
+                                key={model.name}
+                                imgUrl={model.profileImgURL}
+                                name={model.name}
                                 className="w-[150px]"
                                 aspectRatio="square"
                                 width={150}
                                 height={150}
                                 showTitle={true}
-                                selected={model === album.name}
+                                selected={selectedModel === model.name}
                               />
                             </div>
                           ))}
@@ -340,7 +393,9 @@ export default function Dashboard() {
                                   }
                                 >
                                   <PhotoLayout
-                                    album={album}
+                                    imgUrl={
+                                      "https://d1wwlfdwh6qs4y.cloudfront.net/models/tom-profile.png"
+                                    }
                                     className="w-[250px]"
                                     aspectRatio="portrait"
                                     width={250}
@@ -371,7 +426,9 @@ export default function Dashboard() {
                                   }
                                 >
                                   <PhotoLayout
-                                    album={album}
+                                    imgUrl={
+                                      "https://d1wwlfdwh6qs4y.cloudfront.net/models/tom-profile.png"
+                                    }
                                     className="w-[250px]"
                                     aspectRatio="portrait"
                                     width={250}
@@ -402,7 +459,9 @@ export default function Dashboard() {
                                   }
                                 >
                                   <PhotoLayout
-                                    album={album}
+                                    imgUrl={
+                                      "https://d1wwlfdwh6qs4y.cloudfront.net/models/tom-profile.png"
+                                    }
                                     className="w-[250px]"
                                     aspectRatio="portrait"
                                     width={250}
