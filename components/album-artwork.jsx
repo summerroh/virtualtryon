@@ -32,7 +32,7 @@ export function PhotoLayout({
               width={width}
               height={height}
               className={cn(
-                "h-auto w-auto object-cover transition-all hover:scale-105",
+                "object-cover transition-all hover:scale-105",
                 aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
               )}
             />

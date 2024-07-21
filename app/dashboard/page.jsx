@@ -16,6 +16,7 @@ import { WandSparkles, Loader2 } from "lucide-react";
 import Link from "next/link";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import { useRouter } from "next/navigation";
+import { getIdToken } from "@/components/functions/tokenService";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
@@ -34,6 +35,7 @@ export default function Dashboard() {
   const [categoryData, setCategoryData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [modelData, setModelData] = useState([]);
+  const [layoutData, setLayoutData] = useState([]);
 
   // call category api to get all the categories
   const endpoint =
@@ -68,11 +70,7 @@ export default function Dashboard() {
   }, []);
   // api call to get category data end
 
-  const [selectedLayouts, setSelectedLayouts] = useState([
-    { layout: "fullbody", selected: [] },
-    { layout: "upperbody", selected: [] },
-    { layout: "lowerbody", selected: [] },
-  ]);
+  const [selectedLayouts, setSelectedLayouts] = useState([]);
 
   const getChildCategories = (parentId) => {
     return categoryData.filter(
@@ -117,22 +115,17 @@ export default function Dashboard() {
 
   const handlePhotoSelect = (layout, index) => {
     setSelectedLayouts((prev) => {
-      return prev.map((item) => {
-        if (item.layout === layout) {
-          if (item.selected.includes(index)) {
-            return {
-              ...item,
-              selected: item.selected.filter((i) => i !== index),
-            };
-          } else {
-            return { ...item, selected: [...item.selected, index] };
-          }
-        } else {
-          return item;
-        }
-      });
+      if (prev.includes(index)) {
+        return prev.filter((i) => i !== index);
+      } else {
+        return [...prev, index];
+      }
     });
   };
+
+  // Category part ends
+
+  // Fashion Model part starts
 
   const getModelData = async (genderId, clothTypeId, sleeveTypeId) => {
     // call model api to get the model
@@ -154,10 +147,10 @@ export default function Dashboard() {
 
       if (data.isSuccess && data.data) {
         setModelData(data.data);
-        console.log("model data: ", data.data);
-        for (let item of data.data) {
-          console.log(item.profileImgURL);
-        }
+        // console.log("model data: ", data.data);
+        // for (let item of data.data) {
+        //   console.log(item.profileImgURL);
+        // }
         // setLoading(false);
       } else {
         console.error("Get model data failed.");
@@ -184,6 +177,43 @@ export default function Dashboard() {
     setSelectedClothType(null);
     setSelectedSleeveType(null);
   }, [selectedGender]);
+  // Fashion Model part ends
+
+  // Layout part strats
+
+  const getLayoutData = async (sleeveTypeId) => {
+    try {
+      const response = await fetch(
+        `${endpoint}/api/v1/layouts?sleeve_type_id=${sleeveTypeId}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            token: getIdToken(),
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.isSuccess && data.data) {
+        setLayoutData(data.data);
+        console.log("layout data: ", data.data);
+      } else {
+        console.error("Get layout data failed.");
+      }
+    } catch (error) {
+      console.error("Error during get layout data:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (selectedSleeveType) {
+      getLayoutData(selectedSleeveType);
+    }
+  }, [selectedSleeveType]);
+
+  // Layout part ends
 
   return (
     <>
@@ -374,112 +404,41 @@ export default function Dashboard() {
                     </div>
                   </div>
                   <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
-                    <Tabs defaultValue="fullbody">
+                    {/* <Tabs defaultValue="fullbody">
                       <TabsList className="mb-3 justify-between py-4 px-4 overflow-x-auto overflow-y-hidden flex flex-row no-scrollbar">
                         <TabsTrigger value="fullbody">Full body</TabsTrigger>
                         <TabsTrigger value="upperbody">Upper body</TabsTrigger>
                         <TabsTrigger value="lowerbody">Lower body</TabsTrigger>
                       </TabsList>
-                      <TabsContent value="fullbody" className="w-full">
-                        <div className="relative">
-                          <ScrollArea>
-                            <div className="flex space-x-4 pb-4">
-                              {layouts.fullbody.map((album, index) => (
-                                <div
-                                  key={index}
-                                  className={"relative"}
-                                  onClick={() =>
-                                    handlePhotoSelect("fullbody", index)
-                                  }
-                                >
-                                  <PhotoLayout
-                                    imgUrl={
-                                      "https://d1wwlfdwh6qs4y.cloudfront.net/models/tom-profile.png"
-                                    }
-                                    className="w-[250px]"
-                                    aspectRatio="portrait"
-                                    width={250}
-                                    height={330}
-                                    selected={selectedLayouts.some(
-                                      (item) =>
-                                        item.layout === "fullbody" &&
-                                        item.selected.includes(index)
-                                    )}
-                                  />
-                                </div>
-                              ))}
+                      <TabsContent value="fullbody" className="w-full"> */}
+                    <div className="relative">
+                      <ScrollArea>
+                        <div className="flex space-x-4">
+                          {layoutData.map((item, index) => (
+                            <div
+                              key={index}
+                              className={"relative"}
+                              onClick={() =>
+                                handlePhotoSelect("fullbody", index)
+                              }
+                            >
+                              <PhotoLayout
+                                imgUrl={item.layout_public_img}
+                                className="w-[250px]"
+                                aspectRatio="portrait"
+                                width={250}
+                                height={330}
+                                selected={selectedLayouts.includes(index)}
+                              />
                             </div>
-                            <ScrollBar orientation="horizontal" />
-                          </ScrollArea>
+                          ))}
                         </div>
-                      </TabsContent>
-                      <TabsContent value="upperbody">
-                        <div className="relative">
-                          <ScrollArea>
-                            <div className="flex space-x-4 pb-4">
-                              {layouts.upperbody.map((album, index) => (
-                                <div
-                                  key={index}
-                                  className={"relative"}
-                                  onClick={() =>
-                                    handlePhotoSelect("upperbody", index)
-                                  }
-                                >
-                                  <PhotoLayout
-                                    imgUrl={
-                                      "https://d1wwlfdwh6qs4y.cloudfront.net/models/tom-profile.png"
-                                    }
-                                    className="w-[250px]"
-                                    aspectRatio="portrait"
-                                    width={250}
-                                    height={330}
-                                    selected={selectedLayouts.some(
-                                      (item) =>
-                                        item.layout === "upperbody" &&
-                                        item.selected.includes(index)
-                                    )}
-                                  />
-                                </div>
-                              ))}
-                            </div>
-                            <ScrollBar orientation="horizontal" />
-                          </ScrollArea>
-                        </div>
-                      </TabsContent>
-                      <TabsContent value="lowerbody">
-                        <div className="relative">
-                          <ScrollArea>
-                            <div className="flex space-x-4 pb-4">
-                              {layouts.lowerbody.map((album, index) => (
-                                <div
-                                  key={index}
-                                  className={"relative"}
-                                  onClick={() =>
-                                    handlePhotoSelect("lowerbody", index)
-                                  }
-                                >
-                                  <PhotoLayout
-                                    imgUrl={
-                                      "https://d1wwlfdwh6qs4y.cloudfront.net/models/tom-profile.png"
-                                    }
-                                    className="w-[250px]"
-                                    aspectRatio="portrait"
-                                    width={250}
-                                    height={330}
-                                    selected={selectedLayouts.some(
-                                      (item) =>
-                                        item.layout === "lowerbody" &&
-                                        item.selected.includes(index)
-                                    )}
-                                  />
-                                </div>
-                              ))}
-                            </div>
-                            <ScrollBar orientation="horizontal" />
-                          </ScrollArea>
-                        </div>
-                      </TabsContent>
-                    </Tabs>
+                        <ScrollBar orientation="horizontal" />
+                      </ScrollArea>
+                    </div>
+                    {/* </TabsContent> */}
+
+                    {/* </Tabs> */}
                   </Card>
                 </div>
 
