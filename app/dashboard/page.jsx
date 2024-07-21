@@ -27,8 +27,9 @@ const headerHeight = "pt-[70px] lg:pt-0";
 export default function Dashboard() {
   const router = useRouter();
 
-  const [selectedModel, setSelectedModel] = useState("");
+  const [uploadedFile, setUploadedFile] = useState(null);
 
+  const [selectedModel, setSelectedModel] = useState("");
   const [selectedGender, setSelectedGender] = useState(null);
   const [selectedClothType, setSelectedClothType] = useState(null);
   const [selectedSleeveType, setSelectedSleeveType] = useState(null);
@@ -70,7 +71,7 @@ export default function Dashboard() {
   }, []);
   // api call to get category data end
 
-  const [selectedLayouts, setSelectedLayouts] = useState([]);
+  const [selectedLayout, setSelectedLayout] = useState(null);
 
   const getChildCategories = (parentId) => {
     return categoryData.filter(
@@ -113,14 +114,8 @@ export default function Dashboard() {
     }
   }, [sleeveTypes]);
 
-  const handlePhotoSelect = (layout, index) => {
-    setSelectedLayouts((prev) => {
-      if (prev.includes(index)) {
-        return prev.filter((i) => i !== index);
-      } else {
-        return [...prev, index];
-      }
-    });
+  const handlePhotoSelect = (id) => {
+    setSelectedLayout(id);
   };
 
   // Category part ends
@@ -215,6 +210,19 @@ export default function Dashboard() {
 
   // Layout part ends
 
+  // Generate part starts
+
+  const handleGenerate = () => {
+    console.log(
+      "layout id: ",
+      selectedLayout,
+      "source img id: ",
+      uploadedFile.id
+    );
+  };
+
+  // Generate part ends
+
   return (
     <>
       <div className="block lg:hidden">
@@ -246,7 +254,10 @@ export default function Dashboard() {
                     </div>
                   </div>
                   <div className="relative">
-                    <DragNDrop />
+                    <DragNDrop
+                      uploadedFile={uploadedFile}
+                      setUploadedFile={setUploadedFile}
+                    />
                   </div>
                 </div>
 
@@ -416,11 +427,9 @@ export default function Dashboard() {
                         <div className="flex space-x-4">
                           {layoutData.map((item, index) => (
                             <div
-                              key={index}
+                              key={item._id}
                               className={"relative"}
-                              onClick={() =>
-                                handlePhotoSelect("fullbody", index)
-                              }
+                              onClick={() => handlePhotoSelect(item._id)}
                             >
                               <PhotoLayout
                                 imgUrl={item.layout_public_img}
@@ -428,7 +437,7 @@ export default function Dashboard() {
                                 aspectRatio="portrait"
                                 width={250}
                                 height={330}
-                                selected={selectedLayouts.includes(index)}
+                                selected={selectedLayout === item._id}
                               />
                             </div>
                           ))}
@@ -442,17 +451,37 @@ export default function Dashboard() {
                   </Card>
                 </div>
 
-                <Link href="/dashboard/choose" className="d-block">
-                  <Button className="w-full h-14 font-bold mt-10 mb-4 text-lg">
-                    <WandSparkles
-                      color={"#ffffff"}
-                      size={"20px"}
-                      strokeWidth={2}
-                      className="mr-2"
-                    />
-                    Generate
-                  </Button>
-                </Link>
+                {/* <Link href="/dashboard/choose" className="d-block"> */}
+                <Button
+                  onClick={() => handleGenerate()}
+                  className="w-full h-14 font-bold mt-10 mb-4 text-lg"
+                  disabled={
+                    !uploadedFile ||
+                    !selectedGender ||
+                    !selectedClothType ||
+                    !selectedSleeveType ||
+                    !selectedModel ||
+                    !selectedLayout
+                  }
+                >
+                  <WandSparkles
+                    color={
+                      !uploadedFile ||
+                      !selectedGender ||
+                      !selectedClothType ||
+                      !selectedSleeveType ||
+                      !selectedModel ||
+                      !selectedLayout
+                        ? "#9CA3AF"
+                        : "#ffffff"
+                    }
+                    size={"20px"}
+                    strokeWidth={2}
+                    className="mr-2"
+                  />
+                  Generate
+                </Button>
+                {/* </Link> */}
               </div>
             </>
           )}

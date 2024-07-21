@@ -4,8 +4,8 @@ export function middleware(request) {
   const idToken = request.cookies.get("idToken")?.value;
   const isVerified = request.cookies.get("isVerified")?.value;
 
-  console.log("idToken:", idToken); // Log idToken
-  console.log("isVerified:", isVerified); // Log isVerified
+  // console.log("idToken:", idToken); // Log idToken
+  // console.log("isVerified:", isVerified); // Log isVerified
 
   if (!idToken) {
     return NextResponse.redirect(new URL("/login", request.url));
