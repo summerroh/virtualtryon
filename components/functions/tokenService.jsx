@@ -17,7 +17,8 @@ export const setIdToken = (token) => {
     httpOnly: false,
     // maxAge: 3600, // 1 hour
     // maxAge: 10, // 10 seconds (for testing)
-    maxAge: 20 * 24 * 60 * 60, // 20 days (for testing)
+    maxAge: 3 * 24 * 60 * 60, // 3 days
+    // maxAge: 20 * 24 * 60 * 60, // 20 days (for testing)
     sameSite: "strict",
   });
 };
