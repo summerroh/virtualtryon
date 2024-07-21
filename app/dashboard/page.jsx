@@ -1,3 +1,7 @@
+// TODO: add a refresh token logic for get layout api call -> implemented. check if works
+//and generate api call
+// TODO: implement generate api call. implement a way to poke the server every 10 seconds to check if the generate is done
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -16,7 +20,10 @@ import { WandSparkles, Loader2 } from "lucide-react";
 import Link from "next/link";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import { useRouter } from "next/navigation";
-import { getIdToken } from "@/components/functions/tokenService";
+import {
+  getIdToken,
+  refreshIdToken,
+} from "@/components/functions/tokenService";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
@@ -37,6 +44,8 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [modelData, setModelData] = useState([]);
   const [layoutData, setLayoutData] = useState([]);
+  const [creationStatus, setCreationStatus] = useState(null);
+  const [resultImage, setResultImage] = useState(null);
 
   // call category api to get all the categories
   const endpoint =
@@ -189,6 +198,16 @@ export default function Dashboard() {
         }
       );
 
+      // refresh token if idToken is expired
+      if (response.status === 401) {
+        const newToken = await refreshIdToken();
+        if (newToken) {
+          return getLayoutData(sleeveTypeId); // Retry with new token
+        } else {
+          throw new Error("Failed to refresh token");
+        }
+      }
+
       const data = await response.json();
 
       if (data.isSuccess && data.data) {
@@ -212,13 +231,108 @@ export default function Dashboard() {
 
   // Generate part starts
 
+  const createCreations = async (selectedLayout, uploadedFileId) => {
+    setLoading(true);
+    // setError(null);
+
+    try {
+      const response = await fetch(`${endpoint}/api/v1/creations`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          token: getIdToken(),
+        },
+        body: JSON.stringify({
+          layout_id: selectedLayout,
+          source_img_id: uploadedFileId,
+        }),
+      });
+
+      // refresh token if idToken is expired
+      if (response.status === 401) {
+        const newToken = await refreshIdToken();
+        if (newToken) {
+          return createCreations(selectedLayout, uploadedFileId); // Retry with new token
+        } else {
+          throw new Error("Failed to refresh token");
+        }
+      }
+
+      const data = await response.json();
+
+      if (data.isSuccess && data.data) {
+        console.log("Creation request is sent successfully");
+        setLoading(false);
+
+        let creationId = data.data._id;
+        pollCreationStatus(creationId);
+        return creationId;
+      } else {
+        // setError("Creation request failed. Please try again.");
+      }
+    } catch (error) {
+      console.log("Error during creation request:", error);
+      // setError("An error occurred during creation request");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const pollCreationStatus = async (creationId) => {
+    const checkStatus = async () => {
+      console.log("checking status. . .");
+      try {
+        const response = await fetch(
+          `${endpoint}/api/v1/creations/${creationId}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              token: getIdToken(),
+            },
+          }
+        );
+
+        if (response.status === 401) {
+          const newToken = await refreshIdToken();
+          if (newToken) {
+            return checkStatus(); // Retry with new token
+          } else {
+            throw new Error("Failed to refresh token");
+          }
+        }
+
+        const data = await response.json();
+
+        if (data.isSuccess && data.data) {
+          setCreationStatus(data.data.status);
+
+          if (data.data.status === "success") {
+            setResultImage(data.data.public_img);
+            console.log("Creation completed successfully");
+            // Handle successful creation (e.g., show results, navigate to a new page)
+          } else if (data.data.status === "failed") {
+            console.error("Creation failed");
+            // setError("Creation process failed. Please try again.");
+          } else {
+            // If status is not "success" or "failed", continue polling
+            setTimeout(checkStatus, 10000); // Check again after 10 seconds
+          }
+        } else {
+          console.error("Failed to get creation status");
+          // setError("Failed to get creation status. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error checking creation status:", error);
+        // setError("An error occurred while checking creation status");
+      }
+    };
+
+    checkStatus(); // Start polling
+  };
+
   const handleGenerate = () => {
-    console.log(
-      "layout id: ",
-      selectedLayout,
-      "source img id: ",
-      uploadedFile.id
-    );
+    createCreations(selectedLayout, uploadedFile.id);
   };
 
   // Generate part ends
@@ -481,6 +595,8 @@ export default function Dashboard() {
                   />
                   Generate
                 </Button>
+                <p>{creationStatus}</p>
+                {resultImage && <img src={resultImage} alt="result" />}
                 {/* </Link> */}
               </div>
             </>

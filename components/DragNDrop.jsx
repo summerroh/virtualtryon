@@ -87,7 +87,7 @@ export default function ImageUpload({ uploadedFile, setUploadedFile }) {
             }
           );
 
-          // Handle token expiration
+          // refresh token if idToken is expired
           if (fileResponse.status === 401) {
             const newToken = await refreshIdToken();
             if (newToken) {
