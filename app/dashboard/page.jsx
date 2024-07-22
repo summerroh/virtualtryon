@@ -24,6 +24,11 @@ import { Loader2, WandSparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import LoadingModal from "@/components/modal/LoadingModal";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
@@ -363,15 +368,17 @@ export default function Dashboard() {
             <>
               {/* Step 1 */}
               <div className="pt-12">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-1 mb-6">
-                      <p className="text-sm text-muted-foreground font-bold">
-                        Step 1/5
-                      </p>
+                <div className="w-full">
+                  <div className="flex items-start justify-between flex-col space-y-1 mb-6">
+                    <p className="text-sm text-muted-foreground font-bold">
+                      Step 1/5
+                    </p>
+                    <div className="flex items-center justify-between flex-row w-full">
                       <h2 className="text-xl font-bold tracking-tight">
                         Start with a photo of your clothes
                       </h2>
+
+                      <ImageGuide />
                     </div>
                   </div>
                   <div className="relative">
@@ -615,3 +622,16 @@ export default function Dashboard() {
     </>
   );
 }
+
+const ImageGuide = () => {
+  return (
+    <HoverCard>
+      <HoverCardTrigger className="text-sm text-gray-600 font-bold text-primary underline cursor-pointer">
+        Image upload guide
+      </HoverCardTrigger>
+      <HoverCardContent>
+        The React Framework – created and maintained by @vercel.
+      </HoverCardContent>
+    </HoverCard>
+  );
+};
