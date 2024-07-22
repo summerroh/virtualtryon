@@ -64,7 +64,7 @@ export default function Page() {
 
             <div className="w-full flex flex-col justify-center items-center mt-10">
               <small className="text-muted-text font-semibold cursor-pointer mb-2">
-                Not satisfied with the result? Generate more
+                Not satisfied with the result? Regenerate
               </small>
               <Link href="/dashboard/choose" className="d-block w-full">
                 <Button className="w-full h-14 font-bold">
@@ -74,7 +74,7 @@ export default function Page() {
                     strokeWidth={2}
                     className="mr-2"
                   />
-                  Generate more
+                  Regenerate (-1 credit)
                 </Button>
               </Link>
             </div>
