@@ -20,6 +20,12 @@ export default function Page() {
   const searchParams = useSearchParams();
   const resultImage = searchParams.get("resultImage");
 
+  const handleDownload = () => {
+    if (resultImage) {
+      window.open(resultImage, "_blank");
+    }
+  };
+
   return (
     <>
       <div className="block lg:hidden">
@@ -79,18 +85,20 @@ export default function Page() {
                 resolution
               </small>
               <div className="w-full flex flex-row justify-center items-center space-x-2">
-                <Link href="/dashboard/choose" className="d-block w-full">
-                  <Button className="w-full h-14 font-bold mb-4 bg-button-secondary">
-                    <Download
-                      color={"#ffffff"}
-                      size={"20px"}
-                      strokeWidth={2}
-                      className="mr-2"
-                    />
-                    Download
-                  </Button>
-                </Link>
-                <Link href="/dashboard/final" className="d-block w-full">
+                <Button
+                  onClick={handleDownload}
+                  disabled={!resultImage}
+                  className="w-full h-14 font-bold mb-4 bg-button-secondary"
+                >
+                  <Download
+                    color={"#ffffff"}
+                    size={"20px"}
+                    strokeWidth={2}
+                    className="mr-2"
+                  />
+                  Download
+                </Button>
+                {/* <Link href="/dashboard/final" className="d-block w-full">
                   <Button className="w-full h-14 font-bold mb-4 bg-button-secondary">
                     <Expand
                       color={"#ffffff"}
@@ -100,7 +108,7 @@ export default function Page() {
                     />
                     Apply upscaler
                   </Button>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
