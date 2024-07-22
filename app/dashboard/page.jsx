@@ -303,11 +303,11 @@ export default function Dashboard() {
           if (data.data.status === "success") {
             setResultImage(data.data.public_img);
             setShowLoadingModal(false);
-            // router.push(
-            //   `/dashboard/choose?resultImage=${encodeURIComponent(
-            //     data.data.public_img
-            //   )}`
-            // );
+            router.push(
+              `/dashboard/choose?resultImage=${encodeURIComponent(
+                data.data.public_img
+              )}`
+            );
             console.log("Creation completed successfully");
 
             // 이미지 생성 실패시 (failed)

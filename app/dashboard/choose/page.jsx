@@ -9,6 +9,7 @@ import { albums } from "@/data/albums";
 
 import { Download, Expand, RefreshCcw } from "lucide-react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import { cn } from "@/lib/utils";
@@ -16,6 +17,9 @@ import { cn } from "@/lib/utils";
 const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Page() {
+  const searchParams = useSearchParams();
+  const resultImage = searchParams.get("resultImage");
+
   return (
     <>
       <div className="block lg:hidden">
@@ -39,16 +43,15 @@ export default function Page() {
               </div>
               <div className="relative">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
-                  {Array.from({ length: 2 }).map((_, index) => (
+                  {resultImage && (
                     <PhotoLayout
-                      key={index}
-                      album={albums[0]}
+                      resultImage={resultImage}
                       className=""
                       aspectRatio="portrait"
                       width={500}
                       height={660}
                     />
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
@@ -108,8 +111,8 @@ export default function Page() {
 }
 
 export function PhotoLayout({
-  album,
-  aspectRatio = "portrait",
+  resultImage,
+  aspectRatio,
   width,
   height,
   className,
@@ -124,12 +127,11 @@ export function PhotoLayout({
       {...props}
     >
       <Image
-        src={album.cover}
-        alt={album.name}
+        src={resultImage}
+        alt={"resultImage"}
         layout="fill"
         className={cn(
-          "absolute inset-0 w-full h-full object-cover transition-all",
-          aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
+          "absolute inset-0 w-full h-full object-cover transition-all aspect-[3/4]"
         )}
       />
     </div>
