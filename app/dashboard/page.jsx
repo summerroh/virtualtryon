@@ -4,7 +4,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -13,17 +13,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PhotoLayout } from "@/components/album-artwork";
 import { Sidebar } from "@/components/sidebar";
 import { Card } from "@/components/ui/card";
-import { layouts, thumbnails } from "@/data/albums";
 
 import DragNDrop from "@/components/DragNDrop";
-import { WandSparkles, Loader2 } from "lucide-react";
-import Link from "next/link";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import { useRouter } from "next/navigation";
 import {
   getIdToken,
   refreshIdToken,
 } from "@/components/functions/tokenService";
+import { Loader2, WandSparkles } from "lucide-react";
+import { useRouter } from "next/navigation";
+
+import LoadingModal from "@/components/modal/LoadingModal";
 
 // import HFbutton from "@/components/HFbutton";
 // import VtonButton from "@/components/VtonButton";
@@ -35,6 +35,7 @@ export default function Dashboard() {
   const router = useRouter();
 
   const [uploadedFile, setUploadedFile] = useState(null);
+  const [showLoadingModal, setShowLoadingModal] = useState(false);
 
   const [selectedModel, setSelectedModel] = useState("");
   const [selectedGender, setSelectedGender] = useState(null);
@@ -100,12 +101,8 @@ export default function Dashboard() {
 
   // Set default values
   useEffect(() => {
-    // Set female as default gender
-    const femaleGender = genderCategories.find(
-      (g) => g.name.toLowerCase() === "female"
-    );
-    if (femaleGender && !selectedGender) {
-      setSelectedGender(femaleGender._id);
+    if (genderCategories.length > 0 && !selectedGender) {
+      setSelectedGender(genderCategories[0]._id);
     }
   }, [genderCategories]);
 
@@ -134,7 +131,6 @@ export default function Dashboard() {
   const getModelData = async (genderId, clothTypeId, sleeveTypeId) => {
     // call model api to get the model
     // call with gender id, cloth_type id, sleeve_type id
-    // setLoading(true);
 
     try {
       const response = await fetch(
@@ -151,11 +147,6 @@ export default function Dashboard() {
 
       if (data.isSuccess && data.data) {
         setModelData(data.data);
-        // console.log("model data: ", data.data);
-        // for (let item of data.data) {
-        //   console.log(item.profileImgURL);
-        // }
-        // setLoading(false);
       } else {
         console.error("Get model data failed.");
       }
@@ -187,22 +178,23 @@ export default function Dashboard() {
 
   const getLayoutData = async (sleeveTypeId) => {
     try {
+      const token = getIdToken();
       const response = await fetch(
         `${endpoint}/api/v1/layouts?sleeve_type_id=${sleeveTypeId}`,
         {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            token: getIdToken(),
+            token: token,
           },
         }
       );
 
-      // refresh token if idToken is expired
       if (response.status === 401) {
         const newToken = await refreshIdToken();
         if (newToken) {
-          return getLayoutData(sleeveTypeId); // Retry with new token
+          // Assuming refreshIdToken updates the token storage
+          return getLayoutData(sleeveTypeId);
         } else {
           throw new Error("Failed to refresh token");
         }
@@ -307,24 +299,33 @@ export default function Dashboard() {
         if (data.isSuccess && data.data) {
           setCreationStatus(data.data.status);
 
+          // 이미지 생성 성공시 (success)
           if (data.data.status === "success") {
             setResultImage(data.data.public_img);
+            setShowLoadingModal(false);
+            // router.push(
+            //   `/dashboard/choose?resultImage=${encodeURIComponent(
+            //     data.data.public_img
+            //   )}`
+            // );
             console.log("Creation completed successfully");
-            // Handle successful creation (e.g., show results, navigate to a new page)
+
+            // 이미지 생성 실패시 (failed)
           } else if (data.data.status === "failed") {
+            alert("Image generation failed, please try again");
+            setShowLoadingModal(false);
             console.error("Creation failed");
-            // setError("Creation process failed. Please try again.");
+
+            // 이미지 생성중 (pending)
           } else {
             // If status is not "success" or "failed", continue polling
-            setTimeout(checkStatus, 10000); // Check again after 10 seconds
+            setTimeout(checkStatus, 15000); // Check again after 15 seconds
           }
         } else {
           console.error("Failed to get creation status");
-          // setError("Failed to get creation status. Please try again.");
         }
       } catch (error) {
         console.error("Error checking creation status:", error);
-        // setError("An error occurred while checking creation status");
       }
     };
 
@@ -332,6 +333,7 @@ export default function Dashboard() {
   };
 
   const handleGenerate = () => {
+    setShowLoadingModal(true);
     createCreations(selectedLayout, uploadedFile.id);
   };
 
@@ -339,6 +341,11 @@ export default function Dashboard() {
 
   return (
     <>
+      <LoadingModal
+        showModal={showLoadingModal}
+        setShowModal={setShowLoadingModal}
+      />
+
       <div className="block lg:hidden">
         <DashboardHeader />
       </div>
@@ -565,7 +572,6 @@ export default function Dashboard() {
                   </Card>
                 </div>
 
-                {/* <Link href="/dashboard/choose" className="d-block"> */}
                 <Button
                   onClick={() => handleGenerate()}
                   className="w-full h-14 font-bold mt-10 mb-4 text-lg"
@@ -595,9 +601,12 @@ export default function Dashboard() {
                   />
                   Generate
                 </Button>
-                <p>{creationStatus}</p>
+
                 {resultImage && <img src={resultImage} alt="result" />}
-                {/* </Link> */}
+
+                <Button onClick={() => setShowLoadingModal(true)}>
+                  Show Loading Modal
+                </Button>
               </div>
             </>
           )}
