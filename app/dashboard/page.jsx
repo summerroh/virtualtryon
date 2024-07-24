@@ -610,10 +610,6 @@ export default function Dashboard() {
                 </Button>
 
                 {resultImage && <img src={resultImage} alt="result" />}
-
-                <Button onClick={() => setShowLoadingModal(true)}>
-                  Show Loading Modal
-                </Button>
               </div>
             </>
           )}
@@ -630,45 +626,67 @@ const ImageGuide = () => {
         Image upload guide
       </HoverCardTrigger>
 
-      <HoverCardContent className="w-96 p-0">
+      <HoverCardContent className="w-auto p-0">
         <div className="flex flex-col space-y-4 p-3">
-          <div className="flex bg-green-light border border-[#CFDFCF] p-4 rounded-lg">
-            <div className="flex-1 pr-4">
-              <h3 className="font-bold mb-1 text-green">Best results with</h3>
-
-              <div className="flex items-start space-x-2">
-                <Check className="w-4 h-4 text-green" />
-                <p className="text-sm text-green">Clean White background</p>
+          <div className="flex flex-col md:flex-row bg-green-light border border-[#CFDFCF] p-4 rounded-lg">
+            <div className="flex-1 mb-4 md:mb-0 mr-4">
+              <h3 className="font-bold mb-1 text-green mb-2">
+                Best results with
+              </h3>
+              <div className="space-y-2">
+                <div className="flex items-start space-x-2">
+                  <Check className="w-4 h-4 text-green flex-shrink-0" />
+                  <p className="text-sm text-green">Clean White background</p>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <Check className="w-4 h-4 text-green flex-shrink-0" />
+                  <p className="text-sm text-green">Minimal texture</p>
+                </div>
               </div>
             </div>
-            <div className="flex-1 flex space-x-2">
+            <div className="flex-1 flex space-x-2 justify-center md:justify-end">
               <img
                 src="/images/dashboard/good-01.png"
                 alt="Good photo example 1"
-                className="w-1/2 h-auto object-cover rounded"
+                className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] object-cover rounded"
               />
               <img
                 src="/images/dashboard/good-02.png"
                 alt="Good photo example 2"
-                className="w-1/2 h-auto object-cover rounded"
+                className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] object-cover rounded"
               />
             </div>
           </div>
-          <div className="flex bg-[#FAF0F0] border border-[#F7D0D0] p-4 rounded-lg">
-            <div className="flex-1 pr-4">
-              <h3 className="font-bold mb-1">Bad Photo Example</h3>
-              <p className="text-sm text-gray-600">Blurry, dark, or wrinkled</p>
+          <div className="flex flex-col md:flex-row bg-[#FAF0F0] border border-[#F7D0D0] p-4 rounded-lg">
+            <div className="flex-1 mb-4 md:mb-0 mr-4">
+              <h3 className="font-bold mb-1 text-red mb-2">
+                Consider avoiding
+              </h3>
+              <div className="space-y-2">
+                <div className="flex items-start space-x-2">
+                  <Check className="w-4 h-4 text-red flex-shrink-0" />
+                  <p className="text-sm text-red">Heavy texture</p>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <Check className="w-4 h-4 text-red flex-shrink-0" />
+                  <p className="text-sm text-red">Complicated patterns</p>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <Check className="w-4 h-4 text-red flex-shrink-0" />
+                  <p className="text-sm text-red">Not clean background</p>
+                </div>
+              </div>
             </div>
-            <div className="flex-1 flex space-x-2">
+            <div className="flex-1 flex space-x-2 justify-center md:justify-end">
               <img
                 src="/images/dashboard/bad-01.png"
                 alt="Bad photo example 1"
-                className="w-1/2 h-auto object-cover rounded"
+                className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] object-cover rounded"
               />
               <img
                 src="/images/dashboard/bad-02.png"
                 alt="Bad photo example 2"
-                className="w-1/2 h-auto object-cover rounded"
+                className="w-[100px] h-[100px] md:w-[120px] md:h-[120px] object-cover rounded"
               />
             </div>
           </div>
