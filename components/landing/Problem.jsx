@@ -24,7 +24,7 @@ const plans = [
       { bold: "1 to 5 days", normal: " for the photoshoot", boldFirst: true },
     ],
     color: "-red",
-    backgroundColor: "bg-lightred",
+    backgroundColor: "bg-red-light",
     button: false,
     icon: <X className="text-red" size={24} />,
   },

@@ -20,7 +20,7 @@ import {
   getIdToken,
   refreshIdToken,
 } from "@/components/functions/tokenService";
-import { Loader2, WandSparkles } from "lucide-react";
+import { Check, Loader2, WandSparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import LoadingModal from "@/components/modal/LoadingModal";
@@ -629,8 +629,50 @@ const ImageGuide = () => {
       <HoverCardTrigger className="text-sm text-gray-600 font-bold text-primary underline cursor-pointer">
         Image upload guide
       </HoverCardTrigger>
-      <HoverCardContent>
-        The React Framework – created and maintained by @vercel.
+
+      <HoverCardContent className="w-96 p-0">
+        <div className="flex flex-col space-y-4 p-3">
+          <div className="flex bg-green-light border border-[#CFDFCF] p-4 rounded-lg">
+            <div className="flex-1 pr-4">
+              <h3 className="font-bold mb-1 text-green">Best results with</h3>
+
+              <div className="flex items-start space-x-2">
+                <Check className="w-4 h-4 text-green" />
+                <p className="text-sm text-green">Clean White background</p>
+              </div>
+            </div>
+            <div className="flex-1 flex space-x-2">
+              <img
+                src="/images/dashboard/good-01.png"
+                alt="Good photo example 1"
+                className="w-1/2 h-auto object-cover rounded"
+              />
+              <img
+                src="/images/dashboard/good-02.png"
+                alt="Good photo example 2"
+                className="w-1/2 h-auto object-cover rounded"
+              />
+            </div>
+          </div>
+          <div className="flex bg-[#FAF0F0] border border-[#F7D0D0] p-4 rounded-lg">
+            <div className="flex-1 pr-4">
+              <h3 className="font-bold mb-1">Bad Photo Example</h3>
+              <p className="text-sm text-gray-600">Blurry, dark, or wrinkled</p>
+            </div>
+            <div className="flex-1 flex space-x-2">
+              <img
+                src="/images/dashboard/bad-01.png"
+                alt="Bad photo example 1"
+                className="w-1/2 h-auto object-cover rounded"
+              />
+              <img
+                src="/images/dashboard/bad-02.png"
+                alt="Bad photo example 2"
+                className="w-1/2 h-auto object-cover rounded"
+              />
+            </div>
+          </div>
+        </div>
       </HoverCardContent>
     </HoverCard>
   );
