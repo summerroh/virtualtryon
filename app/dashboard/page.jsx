@@ -578,6 +578,12 @@ export default function Dashboard() {
                           <Loader2 className="w-8 h-8 animate-spin text-primary" />
                           <span className="ml-2">Loading layouts...</span>
                         </div>
+                      ) : layoutData.length === 0 ? (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <p className="text-lg text-muted-foreground">
+                            No photo layout available for this selection... We will add one soon!
+                          </p>
+                        </div>
                       ) : (
                         <div className="absolute inset-0">
                           <ScrollArea>
