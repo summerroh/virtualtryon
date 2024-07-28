@@ -30,7 +30,7 @@ import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import LoadingModal from "@/components/modal/LoadingModal";
 
 // Icons
-import { Check, Loader2, WandSparkles } from "lucide-react";
+import { Check, Loader2, WandSparkles, HelpCircle } from "lucide-react";
 
 // Constants
 const headerHeight = "pt-[70px] lg:pt-0";
@@ -387,26 +387,29 @@ export default function Dashboard() {
             <>
               {/* Step 1 */}
               <div className="pt-12">
-                <div className="w-full">
-                  <div className="flex items-start justify-between flex-col space-y-1 mb-6">
-                    <p className="text-sm text-muted-foreground font-bold">
-                      Step 1/5
-                    </p>
-                    <div className="flex items-center justify-between flex-row w-full">
-                      <h2 className="text-xl font-bold tracking-tight">
-                        Start with a photo of your clothes
-                      </h2>
-
-                      <ImageGuide />
+                  <div className="w-full">
+                    <div className="flex items-start justify-between flex-col space-y-1 mb-6">
+                      <p className="text-sm text-muted-foreground font-bold">
+                        Step 1/5
+                      </p>
+                      <div className="flex items-center justify-between flex-row w-full">
+                        <div className="flex flex-col space-y-2">
+                          <h2 className="text-xl font-bold tracking-tight">
+                            Start with a photo of your clothes
+                          </h2>
+                          <div className="flex items-center space-x-2">
+                            <ImageGuide />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative">
+                      <DragNDrop
+                        uploadedFile={uploadedFile}
+                        setUploadedFile={setUploadedFile}
+                      />
                     </div>
                   </div>
-                  <div className="relative">
-                    <DragNDrop
-                      uploadedFile={uploadedFile}
-                      setUploadedFile={setUploadedFile}
-                    />
-                  </div>
-                </div>
 
                 {/* Step 2 */}
                 <div className="w-full">
@@ -655,8 +658,11 @@ export default function Dashboard() {
 const ImageGuide = memo(() => {
   return (
     <HoverCard>
-      <HoverCardTrigger className="text-sm text-gray-600 font-bold text-primary underline cursor-pointer">
-        Image upload guide
+      <HoverCardTrigger className="flex items-center space-x-2 cursor-pointer group">
+        <HelpCircle className="w-5 h-5 text-muted-foreground" />
+        <span className="text-sm text-primary font-bold group-hover:underline">
+          Image upload guide
+        </span>
       </HoverCardTrigger>
 
       <HoverCardContent className="w-auto p-0">
