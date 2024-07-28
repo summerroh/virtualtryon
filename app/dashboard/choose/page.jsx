@@ -58,7 +58,7 @@ export default function Page() {
 
       <div className="flex flex-col lg:flex-row w-full h-dvh">
         <Sidebar className="w-[318px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
-        <div className="flex flex-col lg:flex-row flex-grow overflow-hidden">
+        <div className="col-span-3 lg:col-span-5 flex flex-col lg:flex-row flex-grow">
           <Suspense>
             <ChooseContent creationData={creationData} isLoading={isLoading} />
             <RightPanel creationData={creationData} isLoading={isLoading} />
@@ -77,7 +77,7 @@ function RightPanel({ creationData, isLoading }) {
   };
 
   return (
-    <div className="w-[400px] lg:border-l p-4 flex flex-col">
+    <div className="w-full lg:w-[400px] lg:border-l p-4 flex flex-col">
       <div className="flex-grow">
         <h3 className="text-lg font-semibold mb-2">Uploaded image</h3>
         {creationData && (
@@ -137,7 +137,7 @@ function ChooseContent({ creationData, isLoading }) {
   if (isLoading) {
     return (
       <div
-        className={`col-span-3 lg:col-span-5 w-full flex justify-center items-center lg:px-20 xl:px-40 bg-background-dashboard ${headerHeight}`}
+        className={`w-full flex justify-center items-center lg:px-20 xl:px-40 bg-background-dashboard ${headerHeight}`}
       >
         <Loader2 className="w-8 h-8 animate-spin" />
         <span className="ml-2">Loading...</span>
@@ -147,7 +147,7 @@ function ChooseContent({ creationData, isLoading }) {
 
   return (
     <div
-      className={`col-span-3 lg:col-span-5 lg:border-l px-6 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto ${headerHeight}`}
+      className={`lg:border-l px-6 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto ${headerHeight}`}
     >
       {/* Step 1 */}
       <div className="pt-12">
@@ -158,49 +158,20 @@ function ChooseContent({ creationData, isLoading }) {
             </div>
           </div>
           <div className="relative">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
-              {creationData && creationData.public_img && (
-                <PhotoLayout
-                  resultImage={creationData.public_img}
-                  className=""
-                  aspectRatio="portrait"
-                  width={750}
-                  height={990}
-                />
-              )}
-            </div>
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4"> */}
+            {creationData && creationData.public_img && (
+              <Image
+                src={creationData.public_img}
+                alt="Uploaded image"
+                width={500}
+                height={660}
+                className="w-full object-cover rounded-md aspect-[3/4]"
+              />
+            )}
+            {/* </div> */}
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-export function PhotoLayout({
-  resultImage,
-  aspectRatio,
-  width,
-  height,
-  className,
-  ...props
-}) {
-  return (
-    <div
-      className={cn(
-        "relative w-full aspect-[3/4] overflow-hidden rounded-md",
-        className
-      )}
-      {...props}
-    >
-      <Image
-        src={resultImage}
-        alt={"resultImage"}
-        width={width}
-        height={height}
-        className={cn(
-          "absolute inset-0 w-full h-full object-cover transition-all aspect-[3/4]"
-        )}
-      />
     </div>
   );
 }
