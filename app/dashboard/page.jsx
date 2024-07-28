@@ -31,8 +31,6 @@ import { Check, Loader2, WandSparkles, HelpCircle } from "lucide-react";
 
 // Constants
 const headerHeight = "pt-[70px] lg:pt-0";
-const endpoint =
-  "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
 
 // ===============================  MEMOIZED COMPONENTS ===============================
 
@@ -112,7 +110,7 @@ export default function Dashboard() {
   // ========== API calls ==========
 
   const fetchCategoryData = useCallback(() => {
-    callApi(`${endpoint}/api/v1/categories`)
+    callApi(`/api/v1/categories`)
       .then((data) => {
         setCategoryData(data);
       })
@@ -125,7 +123,7 @@ export default function Dashboard() {
     (genderId, clothTypeId, sleeveTypeId) => {
       setIsLoadingModels(true);
       return callApi(
-        `${endpoint}/api/v1/fashionmodels?capabilities=${genderId}&${clothTypeId}&${sleeveTypeId}`
+        `/api/v1/fashionmodels?capabilities=${genderId}&${clothTypeId}&${sleeveTypeId}`
       )
         .then((data) => {
           setIsLoadingModels(false);
@@ -144,8 +142,8 @@ export default function Dashboard() {
     (sleeveTypeId) => {
       setIsLoadingLayoutImages(true);
       const url = sleeveTypeId
-        ? `${endpoint}/api/v1/layouts?sleeve_type_id=${sleeveTypeId}`
-        : `${endpoint}/api/v1/layouts`;
+        ? `/api/v1/layouts?sleeve_type_id=${sleeveTypeId}`
+        : `/api/v1/layouts`;
 
       return callApi(url, "GET", null, true)
         .then((data) => {
@@ -167,7 +165,7 @@ export default function Dashboard() {
   const createCreation = useCallback(
     (selectedLayout, uploadedFileId) => {
       return callApi(
-        `${endpoint}/api/v1/creations`,
+        `/api/v1/creations`,
         "POST",
         {
           layout_id: selectedLayout,
@@ -189,12 +187,7 @@ export default function Dashboard() {
 
   const checkCreationStatus = useCallback(
     (creationId) => {
-      return callApi(
-        `${endpoint}/api/v1/creations/${creationId}`,
-        "GET",
-        null,
-        true
-      )
+      return callApi(`/api/v1/creations/${creationId}`, "GET", null, true)
         .then((data) => {
           setCreationStatus(data.status);
           return data;
@@ -277,11 +270,7 @@ export default function Dashboard() {
           case "success":
             setResultImage(data.public_img);
             setShowLoadingModal(false);
-            router.push(
-              `/dashboard/choose?resultImage=${encodeURIComponent(
-                data.public_img
-              )}`
-            );
+            router.push(`/dashboard/choose?id=${data._id}`);
             console.log("Creation completed successfully");
             break;
           case "failed":
@@ -398,7 +387,7 @@ export default function Dashboard() {
       </div>
 
       <div className="flex flex-col lg:flex-row w-full h-dvh">
-        <Sidebar className="w-[400px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
+        <Sidebar className="w-[318px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
         <div
           className={`col-span-3 lg:col-span-5 lg:border-l px-6 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto ${headerHeight}`}
         >

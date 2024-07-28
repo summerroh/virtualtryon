@@ -17,8 +17,6 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const headerHeight = "pt-[70px] lg:pt-0";
-const endpoint =
-  "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
 
 export default function Page() {
   const { isLoading, apiError, callApi } = useApi();
@@ -28,7 +26,7 @@ export default function Page() {
 
   const fetchCreationData = useCallback(() => {
     setCreationLoading(true);
-    const url = `${endpoint}/api/v1/creations`;
+    const url = `/api/v1/creations`;
 
     return callApi(url, "GET", null, true)
       .then((data) => {
@@ -67,7 +65,7 @@ export default function Page() {
       </div>
 
       <div className="flex flex-col lg:flex-row w-full h-dvh">
-        <Sidebar className="w-[400px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
+        <Sidebar className="w-[318px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
         <div
           className={`col-span-3 lg:col-span-5 lg:border-l px-6 lg:px-20 xl:px-40 bg-background-dashboard pb-10 w-full flex flex-col overflow-y-auto pb-12 ${headerHeight}`}
         >
@@ -121,13 +119,7 @@ function CreationGrid({ creations }) {
           <PhotoLayout
             key={creation._id}
             url={creation.public_img}
-            onClick={() =>
-              router.push(
-                `/dashboard/choose?resultImage=${encodeURIComponent(
-                  creation.public_img
-                )}`
-              )
-            }
+            onClick={() => router.push(`/dashboard/choose?id=${creation._id}`)}
             aspectRatio="portrait"
             width={250}
             height={330}
