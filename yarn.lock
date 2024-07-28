@@ -1084,10 +1084,10 @@
   resolved "https://registry.npmjs.org/@next/env/-/env-14.1.0.tgz"
   integrity sha512-Py8zIo+02ht82brwwhTg36iogzFqGLPXlRGKQw5s+qP/kMNc4MAyDeEwBKDijk6zTIbegEgu8Qy7C1LboslQAw==
 
-"@next/swc-win32-x64-msvc@14.1.0":
+"@next/swc-darwin-arm64@14.1.0":
   version "14.1.0"
-  resolved "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-14.1.0.tgz"
-  integrity sha512-9WEbVRRAqJ3YFVqEZIxUqkiO8l1nool1LmNxygr5HWF8AcSYsEpneUDhmjUVJEzO2A04+oPtZdombzzPPkTtgg==
+  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.1.0.tgz"
+  integrity sha512-nUDn7TOGcIeyQni6lZHfzNoo9S0euXnu0jhsbMOmMJUBfgsnESdjN97kM7cBqQxZa8L/bM9om/S5/1dzCrW6wQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -1791,10 +1791,10 @@
   resolved "https://registry.npmjs.org/@tailwindcss/aspect-ratio/-/aspect-ratio-0.4.2.tgz"
   integrity sha512-8QPrypskfBa7QIMuKHg2TA7BqES6vhBrDLOv8Unb6FcFyd3TjKbc6lcmb9UPQHxfl24sXoJ41ux/H7qQQvfaSQ==
 
-"@toastdotdev/lib-win32-x64-msvc@0.0.1":
+"@toastdotdev/lib-darwin-arm64@0.0.1":
   version "0.0.1"
-  resolved "https://registry.npmjs.org/@toastdotdev/lib-win32-x64-msvc/-/lib-win32-x64-msvc-0.0.1.tgz"
-  integrity sha512-xPL3bqnRwEXUzO6bxErvcNiQ+kH4K3E78cpjYu3q+94np9tb0VpCj38WrD8xyQFhvbvnvS+SP8MbZcBFTPgrRA==
+  resolved "https://registry.npmjs.org/@toastdotdev/lib-darwin-arm64/-/lib-darwin-arm64-0.0.1.tgz"
+  integrity sha512-6UbPdjDFeZsH/2gdNpc3YKVI9FF2VYGLaVUYSUfywpfw4EbAfw/xS+4VZR1ThdowEkoP1Bgy360z3/Iwmv1svg==
 
 "@toastdotdev/lib@0.0.1":
   version "0.0.1"

@@ -26,8 +26,7 @@ export default function LoadingModal({ showModal, setShowModal }) {
         <div className="flex justify-center items-center mt-4">
           <div className="w-full space-y-6">
             <p>
-              Our AI model is generating fashion model shots. This usually takes
-              few minues.
+              Our AI model is generating fashion model shots. This usually takes a few minutes.
             </p>
             <div className="flex items-center justify-center h-full">
               <Loader2 className="w-8 h-8 animate-spin text-primary" />
