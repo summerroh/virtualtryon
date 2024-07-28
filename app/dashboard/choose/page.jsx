@@ -53,9 +53,9 @@ function ChooseContent() {
         <div>
           <div className="flex items-center justify-between">
             <div className="space-y-1 mb-6">
-              <h2 className="text-xl font-bold tracking-tight">
+              {/* <h2 className="text-xl font-bold tracking-tight">
                 Choose your final result
-              </h2>
+              </h2> */}
             </div>
           </div>
           <div className="relative">

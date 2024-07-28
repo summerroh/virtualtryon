@@ -14,6 +14,7 @@ import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import useApi from "@/lib/hooks/useApi";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const headerHeight = "pt-[70px] lg:pt-0";
 const endpoint =
@@ -21,6 +22,7 @@ const endpoint =
 
 export default function Page() {
   const { isLoading, apiError, callApi } = useApi();
+
   const [creationData, setCreationData] = useState([]);
   const [creationLoading, setCreationLoading] = useState(true);
 
@@ -102,12 +104,14 @@ function LoadingSpinner() {
   return (
     <div className="flex items-center justify-center">
       <Loader2 className="w-8 h-8 animate-spin text-primary" />
-      <span className="ml-2">Loading models...</span>
+      <span className="ml-2">Loading images...</span>
     </div>
   );
 }
 
 function CreationGrid({ creations }) {
+  const router = useRouter();
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       {creations.map((creation) =>
@@ -117,6 +121,13 @@ function CreationGrid({ creations }) {
           <PhotoLayout
             key={creation._id}
             url={creation.public_img}
+            onClick={() =>
+              router.push(
+                `/dashboard/choose?resultImage=${encodeURIComponent(
+                  creation.public_img
+                )}`
+              )
+            }
             aspectRatio="portrait"
             width={250}
             height={330}
