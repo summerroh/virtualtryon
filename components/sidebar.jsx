@@ -42,7 +42,7 @@ export function Sidebar({ className }) {
                     }`}
                   >
                     <Sparkles
-                      color={
+                      className={`mr-2 ${
                         [
                           "/dashboard",
                           "/choose",
@@ -50,9 +50,9 @@ export function Sidebar({ className }) {
                           "/dashboard/choose",
                           "/dashboard/final",
                         ].includes(pathname)
-                          ? "var(--primary)"
-                          : "#000000"
-                      }
+                          ? "text-primary"
+                          : "text-black"
+                      }`}
                       strokeWidth={
                         [
                           "/dashboard",
@@ -65,7 +65,6 @@ export function Sidebar({ className }) {
                           : 1.5
                       }
                       size={"20px"}
-                      className="mr-2"
                     />
                     Model Images
                   </Button>
@@ -87,16 +86,15 @@ export function Sidebar({ className }) {
                     }`}
                   >
                     <Images
-                      color={
+                      className={`mr-2 ${
                         pathname === "/dashboard/mycreations"
-                          ? "var(--primary)"
-                          : "#000000"
-                      }
+                          ? "text-primary"
+                          : "text-black"
+                      }`}
                       strokeWidth={
                         pathname === "/dashboard/mycreations" ? 2 : 1.5
                       }
                       size={"20px"}
-                      className="mr-2"
                     />
                     My Creations
                   </Button>
@@ -119,14 +117,13 @@ export function Sidebar({ className }) {
                   }`}
                 >
                   <User
-                    color={
+                    className={`mr-2 ${
                       pathname === "/dashboard/user"
-                        ? "var(--primary)"
-                        : "#000000"
-                    }
+                        ? "text-primary"
+                        : "text-black"
+                    }`}
                     strokeWidth={pathname === "/dashboard/user" ? 2 : 1.5}
                     size={"20px"}
-                    className="mr-2"
                   />
                   {/* <Settings
                         color={"#000000"}
