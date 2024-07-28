@@ -659,10 +659,10 @@ const ImageGuide = memo(() => {
   return (
     <HoverCard>
       <HoverCardTrigger className="flex items-center space-x-2 cursor-pointer group">
-        <HelpCircle className="w-5 h-5 text-muted-foreground" />
         <span className="text-sm text-primary font-bold group-hover:underline">
           Image upload guide
         </span>
+        <HelpCircle className="w-5 h-5 text-primary" />
       </HoverCardTrigger>
 
       <HoverCardContent className="w-auto p-0">
