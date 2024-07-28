@@ -11,10 +11,53 @@ import { cn } from "@/lib/utils";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
+import useApi from "@/lib/hooks/useApi";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { Loader2 } from "lucide-react";
 
 const headerHeight = "pt-[70px] lg:pt-0";
+const endpoint =
+  "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
 
 export default function Page() {
+  const { isLoading, apiError, callApi } = useApi();
+  const [creationData, setCreationData] = useState([]);
+  const [creationLoading, setCreationLoading] = useState(true);
+
+  const fetchCreationData = useCallback(() => {
+    setCreationLoading(true);
+    const url = `${endpoint}/api/v1/creations`;
+
+    return callApi(url, "GET", null, true)
+      .then((data) => {
+        setCreationData(data);
+        // console.log("creation data: ", data);
+        return data; // Return the data
+      })
+      .catch((error) => {
+        console.error("Error during get creation data:", error);
+        throw error; // Re-throw the error
+      })
+      .finally(() => {
+        setCreationLoading(false);
+      });
+  }, [callApi]);
+
+  useEffect(() => {
+    fetchCreationData();
+  }, []);
+
+  useEffect(() => {
+    if (apiError) {
+      console.error("API Error:", apiError);
+      // You can also show an error message to the user here
+    }
+  }, [apiError]);
+
+  const filteredCreations = useMemo(() => {
+    return creationData.filter((creation) => creation.status !== "failed");
+  }, [creationData]);
+
   return (
     <>
       <div className="block lg:hidden">
@@ -42,26 +85,58 @@ export default function Page() {
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {Array.from({ length: 10 }).map((_, index) => (
-              <PhotoLayout
-                key={index}
-                album={albums[0]}
-                className=""
-                aspectRatio="portrait"
-                width={250}
-                height={330}
-              />
-            ))}
-          </div>
+          {creationLoading ? (
+            <LoadingSpinner />
+          ) : filteredCreations.length === 0 ? (
+            <div>No creations available.</div>
+          ) : (
+            <CreationGrid creations={filteredCreations} />
+          )}
         </div>
       </div>
     </>
   );
 }
 
+function LoadingSpinner() {
+  return (
+    <div className="flex items-center justify-center">
+      <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      <span className="ml-2">Loading models...</span>
+    </div>
+  );
+}
+
+function CreationGrid({ creations }) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      {creations.map((creation) =>
+        creation.status === "pending" ? (
+          <PendingCreation key={creation._id} />
+        ) : (
+          <PhotoLayout
+            key={creation._id}
+            url={creation.public_img}
+            aspectRatio="portrait"
+            width={250}
+            height={330}
+          />
+        )
+      )}
+    </div>
+  );
+}
+
+function PendingCreation() {
+  return (
+    <div className="flex items-center justify-center bg-gray-300 rounded-md aspect-[3/4]">
+      <p className="text-sm text-gray-600">Image is being generated...</p>
+    </div>
+  );
+}
+
 export function PhotoLayout({
-  album,
+  url,
   aspectRatio = "portrait",
   width,
   height,
@@ -77,9 +152,10 @@ export function PhotoLayout({
       {...props}
     >
       <Image
-        src={album.cover}
-        alt={album.name}
-        layout="fill"
+        src={url}
+        alt={"creation img"}
+        width={width}
+        height={height}
         className={cn(
           "absolute inset-0 w-full h-full object-cover transition-all",
           aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"

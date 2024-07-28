@@ -1,6 +1,3 @@
-// TODO: add a refresh token logic for get layout api call -> implemented. check if works and generate api call
-// TODO: implement generate api call. implement a way to poke the server every 10 seconds to check if the generate is done
-
 "use client";
 
 // import HFbutton from "@/components/HFbutton";
@@ -9,7 +6,7 @@
 
 import { useEffect, useState, useCallback, memo } from "react";
 import { useRouter } from "next/navigation";
-import useApi from '@/lib/hooks/useApi';
+import useApi from "@/lib/hooks/useApi";
 
 // UI Components
 import { Button } from "@/components/ui/button";
@@ -34,9 +31,8 @@ import { Check, Loader2, WandSparkles, HelpCircle } from "lucide-react";
 
 // Constants
 const headerHeight = "pt-[70px] lg:pt-0";
-const endpoint = "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
-
-
+const endpoint =
+  "https://devclusterzkhme5io-api-service.functions.fnc.nl-ams.scw.cloud";
 
 // ===============================  MEMOIZED COMPONENTS ===============================
 
@@ -117,75 +113,99 @@ export default function Dashboard() {
 
   const fetchCategoryData = useCallback(() => {
     callApi(`${endpoint}/api/v1/categories`)
-      .then(data => {
+      .then((data) => {
         setCategoryData(data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error during get category data:", error);
       });
   }, [callApi]);
-  
-  const fetchModelData = useCallback((genderId, clothTypeId, sleeveTypeId) => {
-    setIsLoadingModels(true);
-    return callApi(`${endpoint}/api/v1/fashionmodels?capabilities=${genderId}&${clothTypeId}&${sleeveTypeId}`)
-      .then(data => {
-        setIsLoadingModels(false);
-        return data;
-      })
-      .catch(error => {
-        console.error("Error during get model data:", error);
-        setIsLoadingModels(false);
-        return [];
-      });
-  }, [callApi]);
 
-  const fetchLayoutData = useCallback((sleeveTypeId) => {
-    setIsLoadingLayoutImages(true);
-    const url = sleeveTypeId 
-      ? `${endpoint}/api/v1/layouts?sleeve_type_id=${sleeveTypeId}`
-      : `${endpoint}/api/v1/layouts`;
-    
-    return callApi(url, 'GET', null, true)
-      .then(data => {
-        setLayoutData(data);
-        console.log("layout data: ", data);
-        return data; // Return the data
-      })
-      .catch(error => {
-        console.error("Error during get layout data:", error);
-        throw error; // Re-throw the error
-      })
-      .finally(() => {
-        setIsLoadingLayoutImages(false);
-      });
-  }, [callApi]);
-  
-  const createCreation = useCallback((selectedLayout, uploadedFileId) => {
-    return callApi(`${endpoint}/api/v1/creations`, 'POST', {
-      layout_id: selectedLayout,
-      source_img_id: uploadedFileId,
-    }, true)
-      .then(data => {
-        console.log("Creation request is sent successfully");
-        return data._id;
-      })
-      .catch(error => {
-        console.log("Error during creation request:", error);
-        throw error;
-      });
-  }, [callApi]);
-  
-  const checkCreationStatus = useCallback((creationId) => {
-    return callApi(`${endpoint}/api/v1/creations/${creationId}`, 'GET', null, true)
-      .then(data => {
-        setCreationStatus(data.status);
-        return data;
-      })
-      .catch(error => {
-        console.error("Error checking creation status:", error);
-        throw error;
-      });
-  }, [callApi]);
+  const fetchModelData = useCallback(
+    (genderId, clothTypeId, sleeveTypeId) => {
+      setIsLoadingModels(true);
+      return callApi(
+        `${endpoint}/api/v1/fashionmodels?capabilities=${genderId}&${clothTypeId}&${sleeveTypeId}`
+      )
+        .then((data) => {
+          setIsLoadingModels(false);
+          return data;
+        })
+        .catch((error) => {
+          console.error("Error during get model data:", error);
+          setIsLoadingModels(false);
+          return [];
+        });
+    },
+    [callApi]
+  );
+
+  const fetchLayoutData = useCallback(
+    (sleeveTypeId) => {
+      setIsLoadingLayoutImages(true);
+      const url = sleeveTypeId
+        ? `${endpoint}/api/v1/layouts?sleeve_type_id=${sleeveTypeId}`
+        : `${endpoint}/api/v1/layouts`;
+
+      return callApi(url, "GET", null, true)
+        .then((data) => {
+          setLayoutData(data);
+          console.log("layout data: ", data);
+          return data; // Return the data
+        })
+        .catch((error) => {
+          console.error("Error during get layout data:", error);
+          throw error; // Re-throw the error
+        })
+        .finally(() => {
+          setIsLoadingLayoutImages(false);
+        });
+    },
+    [callApi]
+  );
+
+  const createCreation = useCallback(
+    (selectedLayout, uploadedFileId) => {
+      return callApi(
+        `${endpoint}/api/v1/creations`,
+        "POST",
+        {
+          layout_id: selectedLayout,
+          source_img_id: uploadedFileId,
+        },
+        true
+      )
+        .then((data) => {
+          console.log("Creation request is sent successfully");
+          return data._id;
+        })
+        .catch((error) => {
+          console.log("Error during creation request:", error);
+          throw error;
+        });
+    },
+    [callApi]
+  );
+
+  const checkCreationStatus = useCallback(
+    (creationId) => {
+      return callApi(
+        `${endpoint}/api/v1/creations/${creationId}`,
+        "GET",
+        null,
+        true
+      )
+        .then((data) => {
+          setCreationStatus(data.status);
+          return data;
+        })
+        .catch((error) => {
+          console.error("Error checking creation status:", error);
+          throw error;
+        });
+    },
+    [callApi]
+  );
 
   // ========== Helper functions ==========
 
@@ -196,7 +216,7 @@ export default function Dashboard() {
   };
 
   const handlePhotoSelect = useCallback((id) => {
-    setSelectedLayout(prev => prev === id ? null : id);
+    setSelectedLayout((prev) => (prev === id ? null : id));
   }, []);
 
   const onSleevetypeClick = (sleeveType) => {
@@ -216,7 +236,7 @@ export default function Dashboard() {
 
   const getModelData = (genderId, clothTypeId, sleeveTypeId) => {
     fetchModelData(genderId, clothTypeId, sleeveTypeId)
-      .then(data => {
+      .then((data) => {
         setModelData(data);
         if (data.length > 0) {
           setSelectedModel(data[0].name);
@@ -230,11 +250,10 @@ export default function Dashboard() {
   };
 
   const getLayoutData = (sleeveTypeId) => {
-    fetchLayoutData(sleeveTypeId)
-      .catch(error => {
-        // Handle any errors here if needed
-        console.error("Error in getLayoutData:", error);
-      });
+    fetchLayoutData(sleeveTypeId).catch((error) => {
+      // Handle any errors here if needed
+      console.error("Error in getLayoutData:", error);
+    });
   };
 
   // ========== Creation and status polling ==========
@@ -254,11 +273,15 @@ export default function Dashboard() {
     const checkStatus = async () => {
       try {
         const data = await checkCreationStatus(creationId);
-        switch(data.status) {
+        switch (data.status) {
           case "success":
             setResultImage(data.public_img);
             setShowLoadingModal(false);
-            router.push(`/dashboard/choose?resultImage=${encodeURIComponent(data.public_img)}`);
+            router.push(
+              `/dashboard/choose?resultImage=${encodeURIComponent(
+                data.public_img
+              )}`
+            );
             console.log("Creation completed successfully");
             break;
           case "failed":
@@ -274,7 +297,7 @@ export default function Dashboard() {
         setTimeout(checkStatus, pollInterval);
       }
     };
-  
+
     checkStatus();
   };
 
@@ -387,29 +410,29 @@ export default function Dashboard() {
             <>
               {/* Step 1 */}
               <div className="pt-12">
-                  <div className="w-full">
-                    <div className="flex items-start justify-between flex-col space-y-1 mb-6">
-                      <p className="text-sm text-muted-foreground font-bold">
-                        Step 1/5
-                      </p>
-                      <div className="flex items-center justify-between flex-row w-full">
-                        <div className="flex flex-col space-y-2">
-                          <h2 className="text-xl font-bold tracking-tight">
-                            Start with a photo of your clothes
-                          </h2>
-                          <div className="flex items-center space-x-2">
-                            <ImageGuide />
-                          </div>
+                <div className="w-full">
+                  <div className="flex items-start justify-between flex-col space-y-1 mb-6">
+                    <p className="text-sm text-muted-foreground font-bold">
+                      Step 1/5
+                    </p>
+                    <div className="flex items-center justify-between flex-row w-full">
+                      <div className="flex flex-col space-y-2">
+                        <h2 className="text-xl font-bold tracking-tight">
+                          Start with a photo of your clothes
+                        </h2>
+                        <div className="flex items-center space-x-2">
+                          <ImageGuide />
                         </div>
                       </div>
                     </div>
-                    <div className="relative">
-                      <DragNDrop
-                        uploadedFile={uploadedFile}
-                        setUploadedFile={setUploadedFile}
-                      />
-                    </div>
                   </div>
+                  <div className="relative">
+                    <DragNDrop
+                      uploadedFile={uploadedFile}
+                      setUploadedFile={setUploadedFile}
+                    />
+                  </div>
+                </div>
 
                 {/* Step 2 */}
                 <div className="w-full">
@@ -449,27 +472,34 @@ export default function Dashboard() {
                     </div>
                   </div>
                   <Card className="w-full p-6 flex flex-col justify-between gap-x-4">
-                  <Tabs
-                    value={clothTypes.find((ct) => ct._id === selectedClothType)?.name || clothTypes[0]?.name}
-                    onValueChange={(value) => {
-                      const selectedCloth = clothTypes.find((cloth) => cloth.name === value);
-                      if (selectedCloth) {
-                        setSelectedClothType(selectedCloth._id);
-                        
-                        // Get the sleeve types for this cloth type
-                        const sleeveTypesForCloth = getChildCategories(selectedCloth._id);
-                        
-                        // If there are sleeve types, select the first one
-                        if (sleeveTypesForCloth.length > 0) {
-                          setSelectedSleeveType(sleeveTypesForCloth[0]._id);
-                        } else {
-                          setSelectedSleeveType(null);
-                        }
-
-                        setSelectedModel(""); // Reset selected model
+                    <Tabs
+                      value={
+                        clothTypes.find((ct) => ct._id === selectedClothType)
+                          ?.name || clothTypes[0]?.name
                       }
-                    }}
-                  >
+                      onValueChange={(value) => {
+                        const selectedCloth = clothTypes.find(
+                          (cloth) => cloth.name === value
+                        );
+                        if (selectedCloth) {
+                          setSelectedClothType(selectedCloth._id);
+
+                          // Get the sleeve types for this cloth type
+                          const sleeveTypesForCloth = getChildCategories(
+                            selectedCloth._id
+                          );
+
+                          // If there are sleeve types, select the first one
+                          if (sleeveTypesForCloth.length > 0) {
+                            setSelectedSleeveType(sleeveTypesForCloth[0]._id);
+                          } else {
+                            setSelectedSleeveType(null);
+                          }
+
+                          setSelectedModel(""); // Reset selected model
+                        }
+                      }}
+                    >
                       <TabsList className="mb-3 justify-between py-4 px-4 overflow-x-auto overflow-y-hidden flex flex-row no-scrollbar">
                         {clothTypes.map((clothType) => (
                           <ClothTypeButton
@@ -481,17 +511,25 @@ export default function Dashboard() {
                         ))}
                       </TabsList>
                       {clothTypes.map((clothType) => (
-                        <TabsContent key={`tab-${clothType._id}`} value={clothType.name} className="w-full">
+                        <TabsContent
+                          key={`tab-${clothType._id}`}
+                          value={clothType.name}
+                          className="w-full"
+                        >
                           <div className="flex flex-col md:flex-row gap-3">
-                            {getChildCategories(clothType._id).map((sleeveType) => (
-                              <SleeveTypeButton
-                                key={sleeveType._id}
-                                sleeveType={sleeveType}
-                                isSelected={selectedSleeveType === sleeveType._id}
-                                onClick={onSleevetypeClick}
-                                isLoading={isLoadingLayouts}
-                              />
-                            ))}
+                            {getChildCategories(clothType._id).map(
+                              (sleeveType) => (
+                                <SleeveTypeButton
+                                  key={sleeveType._id}
+                                  sleeveType={sleeveType}
+                                  isSelected={
+                                    selectedSleeveType === sleeveType._id
+                                  }
+                                  onClick={onSleevetypeClick}
+                                  isLoading={isLoadingLayouts}
+                                />
+                              )
+                            )}
                           </div>
                         </TabsContent>
                       ))}
@@ -584,7 +622,8 @@ export default function Dashboard() {
                       ) : layoutData.length === 0 ? (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <p className="text-lg text-muted-foreground">
-                            No photo layout available for this selection... We will add one soon!
+                            No photo layout available for this selection... We
+                            will add one soon!
                           </p>
                         </div>
                       ) : (
