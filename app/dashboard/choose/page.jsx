@@ -12,13 +12,42 @@ import Link from "next/link";
 import { Suspense, useCallback, useEffect, useState } from "react";
 
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import { cn } from "@/lib/utils";
-import { useSearchParams } from "next/navigation";
 import useApi from "@/lib/hooks/useApi";
+import { useSearchParams } from "next/navigation";
 
 const headerHeight = "pt-[70px] lg:pt-0";
 
 export default function Page() {
+  return (
+    <>
+      <div className="block lg:hidden">
+        <DashboardHeader />
+      </div>
+
+      <div className="flex flex-col lg:flex-row w-full h-dvh">
+        <Sidebar className="w-[318px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
+        <div className="col-span-3 lg:col-span-5 flex flex-col lg:flex-row flex-grow">
+          <Suspense fallback={<LoadingFallback />}>
+            <PageContent />
+          </Suspense>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div
+      className={`w-full flex justify-center items-center lg:px-20 xl:px-40 bg-background-dashboard ${headerHeight}`}
+    >
+      <Loader2 className="w-8 h-8 animate-spin" />
+      <span className="ml-2">Loading...</span>
+    </div>
+  );
+}
+
+function PageContent() {
   const searchParams = useSearchParams();
   const creationId = searchParams.get("id");
   const [creationData, setCreationData] = useState(null);
@@ -72,24 +101,13 @@ export default function Page() {
 
   return (
     <>
-      <div className="block lg:hidden">
-        <DashboardHeader />
-      </div>
-
-      <div className="flex flex-col lg:flex-row w-full h-dvh">
-        <Sidebar className="w-[318px] hidden lg:block h-full lg:h-auto lg:overflow-hidden" />
-        <div className="col-span-3 lg:col-span-5 flex flex-col lg:flex-row flex-grow">
-          <Suspense>
-            <ChooseContent creationData={creationData} isLoading={isLoading} />
-            <RightPanel
-              creationData={creationData}
-              sourceImageUrl={sourceImageUrl}
-              isLoading={isLoading}
-              sourceImageLoading={sourceImageLoading}
-            />
-          </Suspense>
-        </div>
-      </div>
+      <ChooseContent creationData={creationData} isLoading={isLoading} />
+      <RightPanel
+        creationData={creationData}
+        sourceImageUrl={sourceImageUrl}
+        isLoading={isLoading}
+        sourceImageLoading={sourceImageLoading}
+      />
     </>
   );
 }
@@ -165,9 +183,6 @@ function RightPanel({
 }
 
 function ChooseContent({ creationData, isLoading }) {
-  const searchParams = useSearchParams();
-  const creationId = searchParams.get("id");
-
   if (isLoading) {
     return (
       <div
