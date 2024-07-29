@@ -22,6 +22,8 @@ export default function Page() {
   const searchParams = useSearchParams();
   const creationId = searchParams.get("id");
   const [creationData, setCreationData] = useState(null);
+  const [sourceImageUrl, setSourceImageUrl] = useState(null);
+  const [sourceImageLoading, setSourceImageLoading] = useState(true);
 
   const { isLoading, apiError, callApi } = useApi();
 
@@ -31,11 +33,29 @@ export default function Page() {
       return callApi(`/api/v1/creations/${creationId}`, "GET", null, true)
         .then((data) => {
           setCreationData(data);
-          console.log("creation data", data);
+          GetImageById(data.source_img_id);
           return data;
         })
         .catch((error) => {
           console.error("Error checking creation data:", error);
+          throw error;
+        });
+    },
+    [callApi]
+  );
+
+  const GetImageById = useCallback(
+    (sourceImgId) => {
+      setSourceImageLoading(true);
+      return callApi(`/api/v1/images/${sourceImgId}`, "GET", null, true)
+        .then((data) => {
+          setSourceImageUrl(data.imageUrl);
+          setSourceImageLoading(false);
+          return data;
+        })
+        .catch((error) => {
+          console.error("Error checking creation data:", error);
+          setSourceImageLoading(false);
           throw error;
         });
     },
@@ -61,7 +81,12 @@ export default function Page() {
         <div className="col-span-3 lg:col-span-5 flex flex-col lg:flex-row flex-grow">
           <Suspense>
             <ChooseContent creationData={creationData} isLoading={isLoading} />
-            <RightPanel creationData={creationData} isLoading={isLoading} />
+            <RightPanel
+              creationData={creationData}
+              sourceImageUrl={sourceImageUrl}
+              isLoading={isLoading}
+              sourceImageLoading={sourceImageLoading}
+            />
           </Suspense>
         </div>
       </div>
@@ -69,7 +94,12 @@ export default function Page() {
   );
 }
 
-function RightPanel({ creationData, isLoading }) {
+function RightPanel({
+  creationData,
+  sourceImageUrl,
+  isLoading,
+  sourceImageLoading,
+}) {
   const handleDownload = () => {
     if (creationData && creationData.public_img) {
       window.open(creationData.public_img, "_blank");
@@ -80,9 +110,13 @@ function RightPanel({ creationData, isLoading }) {
     <div className="w-full lg:w-[400px] lg:border-l p-4 flex flex-col">
       <div className="flex-grow">
         <h3 className="text-lg font-semibold mb-2">Uploaded image</h3>
-        {creationData && (
+        {sourceImageLoading ? (
+          <div className="flex justify-center items-center w-[200px] h-[200px] bg-gray-200 rounded-md">
+            <Loader2 className="w-8 h-8 animate-spin" />
+          </div>
+        ) : (
           <Image
-            src={creationData.public_img}
+            src={sourceImageUrl}
             alt="Uploaded image"
             width={200}
             height={200}
@@ -165,7 +199,7 @@ function ChooseContent({ creationData, isLoading }) {
                 alt="Uploaded image"
                 width={500}
                 height={660}
-                className="w-full object-cover rounded-md aspect-[3/4]"
+                className="object-cover rounded-md aspect-[3/4]"
               />
             )}
             {/* </div> */}
